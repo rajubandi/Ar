@@ -22,6 +22,12 @@ public class VillagesController {
 		return "index";
 	}
 
+	@GetMapping("/addVillage")
+	public String addVillage(ModelMap modal) {
+		//modal.addAttribute("title","CRUD Example");
+		return "addVillage";
+	}
+
 	@PostMapping("/saveVillage")
 	
 	public ResponseEntity partialHandler(@RequestBody VillagesBean village) {

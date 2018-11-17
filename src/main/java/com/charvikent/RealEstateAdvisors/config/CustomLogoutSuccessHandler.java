@@ -16,7 +16,7 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
 import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
 import org.springframework.stereotype.Component;
 
-import com.charvikent.RealEstateAdvisors.repositories.UsersRepository;
+import com.charvikent.RealEstateAdvisors.service.UsersServiceImpl;
 
 @Component
 public class CustomLogoutSuccessHandler extends SimpleUrlLogoutSuccessHandler implements LogoutSuccessHandler {
@@ -27,7 +27,7 @@ public class CustomLogoutSuccessHandler extends SimpleUrlLogoutSuccessHandler im
 	 * 
 	 */
 	
-	@Autowired UsersRepository usersRepository;
+	@Autowired UsersServiceImpl userService;
 	
 	@Override
 	public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)

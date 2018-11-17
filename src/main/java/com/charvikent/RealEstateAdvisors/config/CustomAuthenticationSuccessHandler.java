@@ -1,9 +1,6 @@
 package com.charvikent.RealEstateAdvisors.config;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 /*import javax.servlet.RequestDispatcher;*/
 import javax.servlet.ServletException;
@@ -16,31 +13,30 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 /*import org.springframework.http.HttpRequest;*/
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.DefaultRedirectStrategy;
-import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 /*import org.springframework.ui.Model;*/
 
 import com.charvikent.RealEstateAdvisors.model.Users;
-import com.charvikent.RealEstateAdvisors.repositories.UsersRepository;
+import com.charvikent.RealEstateAdvisors.service.UsersServiceImpl;
 
 @Component
 public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	@Autowired UsersRepository usersRepository;
+	@Autowired UsersServiceImpl userService;
 	//@Autowired DashBoardDao dashBoardDao;
 	
 	@Autowired
 	HttpSession session;
 	
+	/*@Autowired
+	CategoryDao categoryDao;*/
 	
-	
-	 private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+	@Autowired
+	UsersServiceImpl userDao;
 	/*public CustomAuthenticationSuccessHandler()
 	{
 		super();
@@ -48,70 +44,7 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         System.out.println("system called");
 	}*/
 
-	  @Override
-	    protected void handle(HttpServletRequest request, 
-	      HttpServletResponse response, Authentication authentication) throws IOException {
-	        String targetUrl = determineTargetUrl(authentication);
-	  
-	        if (response.isCommitted()) {
-	            System.out.println("Can't redirect");
-	            return;
-	        }
-	  
-	        redirectStrategy.sendRedirect(request, response, targetUrl);
-	    }
-	  protected String determineTargetUrl(Authentication authentication) {
-	        String url="";
-	         
-	        Collection<? extends GrantedAuthority> authorities =  authentication.getAuthorities();
-	         
-	        List<String> roles = new ArrayList<String>();
-	 
-	        for (GrantedAuthority a : authorities) {
-	            roles.add(a.getAuthority());
-	        }
-	 
-	        /*if (isDba(roles)) {
-	            url = "/db";
-	        } else*/ if (isAdmin(roles)) {
-	            url = "/dashboard";
-	        } else if (isUser(roles)) {
-	            url = "/index";
-	        } /*else {
-	            url="/accessDenied";
-	        }*/
-	 
-	        return url;
-	    }
-	  
-	  public void setRedirectStrategy(RedirectStrategy redirectStrategy) {
-	        this.redirectStrategy = redirectStrategy;
-	    }
-	    protected RedirectStrategy getRedirectStrategy() {
-	        return redirectStrategy;
-	    }
-	     
-	    private boolean isUser(List<String> roles) {
-	        if (roles.contains("ROLE_USER")) {
-	            return true;
-	        }
-	        return false;
-	    }
-	 
-	    private boolean isAdmin(List<String> roles) {
-	        if (roles.contains("ROLE_ADMIN")) {
-	            return true;
-	        }
-	        return false;
-	    }
-	 
-	   /* private boolean isDba(List<String> roles) {
-	        if (roles.contains("ROLE_DBA")) {
-	            return true;
-	        }
-	        return false;
-	    }*/
-	/*@Override
+	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
 		logger.info("AT onAuthenticationSuccess(...) function!");
@@ -119,6 +52,7 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 		response.setStatus(HttpServletResponse.SC_OK);
 		// Add save record here
 		
+		//List<Category> listOrderBeans = categoryDao.getCategoryNames();
 		
 		
 		
@@ -126,28 +60,48 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 		
 		Object objUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
-		if(objUser instanceof Users)
+		Users userDesignation= userService.getUserDesignationById(((Users) objUser).getId());
+		
+		
+		 if(userDesignation.getDesignation().equals("ROLE_ADMIN")) {
+			 
+			 session.setAttribute("userDesignationSession", userDesignation);
+			 
+			 
+			 session.setAttribute("sessionUser",((Users) objUser).getFirstName());
+			 response.sendRedirect("dashBoard");
+		 }else
+			{
+				
+				Users objuserBean = (Users)objUser;
+				session.setAttribute("userDesignationSession", objuserBean);
+				//session.setAttribute("sCategorylist",listOrderBeans);
+					 session.setAttribute("sessionUser", objuserBean.getFirstName());
+					 response.sendRedirect("index");
+		            	
+			}
+		/*if(objUser instanceof Users)
 		{
 			
 			Users objuserBean = (Users)objUser;
 			
 			session.setAttribute("objuserBean", objuserBean);
 		
-			//session.setAttribute("lastLoginTime", userDao.getLastloginTime());
+			session.setAttribute("lastLoginTime", userDao.getLastloginTime());
 			
-		// userService.setLoginRecord(objuserBean.getId(),"login");
+		 userService.setLoginRecord(objuserBean.getId(),"login");
 		
 			
-			//User userDesignation= userService.getUserDesignationById(objuserBean.getId());
+			User userDesignation= userService.getUserDesignationById(objuserBean.getId());
 				
-				// session.setAttribute("userDesignationSession", userDesignation);
+				 session.setAttribute("userDesignationSession", userDesignation);
 				 
-				// System.out.println(dashBoardDao.getSeverityCountsUnderReportTo());
+				 System.out.println(dashBoardDao.getSeverityCountsUnderReportTo());
 				 
-				// session.setAttribute("sessionUser", objuserBean.getFirstname());
+				 session.setAttribute("sessionUser", objuserBean.getFirstName());
 				 try {
-						//HashMap<String, String> countsOrderBeans = dashBoardDao.getTasksCountBySeverity();
-						//ObjectMapper objectMapper;
+						HashMap<String, String> countsOrderBeans = dashBoardDao.getTasksCountBySeverity();
+						ObjectMapper objectMapper;
 						String sJson;
 						
 						if (listOrderBeans != null && countsOrderBeans.size() > 0) {
@@ -173,20 +127,19 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 				 
 		}
 		else
-			if(objUser instanceof Customer)
+			if(objUser instanceof Users)
 			{
 				
-				Customer objuserBean = (Customer)objUser;
+				Users objuserBean = (Users)objUser;
 					
-				session.setAttribute("sCategorylist",listOrderBeans);
-					 session.setAttribute("sessionUser", objuserBean.getFirstname());
+				//session.setAttribute("sCategorylist",listOrderBeans);
+					 session.setAttribute("sessionUser", objuserBean.getFirstName());
 					 response.sendRedirect("customerDashBoard");
 		            	
-			}
+			}*/
 		
             
 		
 	}
-*/
-}
 
+}

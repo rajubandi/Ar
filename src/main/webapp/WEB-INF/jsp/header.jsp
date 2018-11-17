@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -121,7 +122,24 @@ color:#fff;
                     </ul>
                     
                 </li>
-        <li class="dropdown">
+			     <li class="dropdown acc">
+			          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" data-hover="dropdown">Hello! <span  id="loggedCustomerName"></span></a>
+			          <ul style="width:100% !important;" class="dropdown-menu myacd">
+			          <li id="cmlist"></li>
+			         
+          
+                 <c:choose>
+				    <c:when test="${not empty loggedstatus}">
+				      <script type="text/javascript"> $("#loggedCustomerName").text("${customerName}");</script>
+				     <li><a href="${baseurl}/customerprofile">My Profile</a></li>
+				            <li><a href="${baseurl}/signout">Sign out</a></li>
+				    </c:when>
+				    <c:otherwise>
+				     <script> $("#loggedCustomerName").text("Sign-in");</script>
+				        <li><a href="customerlogin">Sign in</a></li>
+				    </c:otherwise>
+				</c:choose>
+       <!--  <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown">Register <span class="caret"></span></a><div class="arrow-down"></div>
           <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu">
             <div class="col-md-12">
@@ -160,13 +178,13 @@ color:#fff;
                 </div>
               <form id="ajax-login-form" method="get" role="form" autocomplete="off" style="padding:10px;">
                 <div class="form-group">
-<!--                   <label for="username">Username</label> --><!-- <div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-user"></i></span> -->
+                  <label for="username">Username</label> --><!-- <div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user"></i></span>
                   <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" autocomplete="off">
                 </div>
 
                 <div class="form-group">
-<!--                   <label for="password">Password</label> -->
+                  <label for="password">Password</label>
                   <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" autocomplete="off">
                 </div>
 
@@ -182,7 +200,7 @@ color:#fff;
                   </div>
                 </div>
 
-                <!-- <div class="form-group">
+                <div class="form-group">
                   <div class="row">
                     <div class="col-lg-12">
                       <div class="text-center">
@@ -190,15 +208,15 @@ color:#fff;
                       </div>
                     </div>
                   </div>
-                </div> -->
+                </div>
                 <input type="hidden" class="hide" name="token" id="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
               </form>
             </div>
           </ul>
-        </li>
+        </li> -->
    
-    
-            </ul>
+    			</ul>
+            </li>
             <!--Navigation Menu End-->
             
         </div>

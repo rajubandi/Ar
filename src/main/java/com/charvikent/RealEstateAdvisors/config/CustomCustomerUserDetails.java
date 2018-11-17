@@ -14,22 +14,22 @@ import com.charvikent.RealEstateAdvisors.model.Users;
 
 
 
-public class CustomUserDetails extends Users implements UserDetails {	
+public class CustomCustomerUserDetails extends Users implements UserDetails {	
 	
 	private static final long serialVersionUID = 1L;
-	private List<String> userRoles;
+	private List<String> customerRoles;
 	
 
-	public CustomUserDetails(Users user,List<String> userRoles){
-		super(user);
-		this.userRoles=userRoles;
+	public CustomCustomerUserDetails(Users customer,List<String> customerRoles){
+		super(customer);
+		this.customerRoles=customerRoles;
 	}
 	
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		
-		String roles=StringUtils.collectionToCommaDelimitedString(userRoles);			
+		String roles=StringUtils.collectionToCommaDelimitedString(customerRoles);			
 		return AuthorityUtils.commaSeparatedStringToAuthorityList(roles);
 	}
 
@@ -55,7 +55,13 @@ public class CustomUserDetails extends Users implements UserDetails {
 
 	@Override
 	public String getUsername() {
-		return super.getFirstName();
+		return super.getMobileNumber();
+	}
+
+
+	@Override
+	public String getPassword() {
+		return super.getPassword();
 	}
 
 

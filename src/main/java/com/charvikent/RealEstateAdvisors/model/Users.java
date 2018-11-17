@@ -146,6 +146,8 @@ public class Users {
 		this.cpassword = user.cpassword;
 		this.enabled = user.enabled;
 	}
+	public Users() {
+	}
 	
 	
 	

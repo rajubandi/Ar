@@ -271,7 +271,7 @@
 								<div class="card">
 									<div class="card-body text-center">
 										<div class="profile-pic mb-4">
-											<img src="assets/images/faces/female/21.jpg" width="150" class="brround" alt="user">
+<!-- 											<img src="assets/images/faces/female/21.jpg" width="150" class="brround" alt="user"> -->
 											<h5 class="mt-3 mb-0 font-weight-semibold">Emily Ball</h5>
 											<a href="mailto:liamnolan@gmail.com">emilyball@gmail.com</a>
 										</div>
@@ -298,4 +298,4 @@
 				</div>
 			</div>
 
-            <jsp:include page="adminFooter.jsp" />
+            <jsp:include page="adminfooter.jsp" />
