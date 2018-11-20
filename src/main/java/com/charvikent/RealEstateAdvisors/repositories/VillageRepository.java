@@ -5,16 +5,16 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.charvikent.RealEstateAdvisors.model.VillagesBean;
+import com.charvikent.RealEstateAdvisors.model.VillagesBeaUserIntrestedSites;
 @Repository
-public interface VillageRepository  extends JpaRepository<VillagesBean, Integer>{
+public interface VillageRepository  extends JpaRepository<VillagesBeaUserIntrestedSites, Integer>{
 
-	VillagesBean findByVName(String vName);
+	VillagesBeaUserIntrestedSites findByVName(String vName);
 
-	List<VillagesBean> findAll();
+	List<VillagesBeaUserIntrestedSites> findAll();
 
 
-	VillagesBean findById(int id);
+	VillagesBeaUserIntrestedSites findById(int id);
 
 	void deleteAll();
 

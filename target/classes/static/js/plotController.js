@@ -16,7 +16,8 @@ app.filter('customFilter', function() {
 });
 app.controller('plotsController', function($scope, $http, $location) {
 
-	var urlToLogin = "http://"+$location.host+":"+$location.port+"/";
+	//var urlToLogin = "http://"+$location.host+":"+$location.port+"/";
+	var urlToLogin =$location.protocol() + '://'+ $location.host() +':'+  $location.port()+'/' 
 	
 	//$scope.loginCheck='123456789';
 
@@ -71,16 +72,29 @@ app.controller('plotsController', function($scope, $http, $location) {
 			}
 			$scope.getAllSites();
 
-	$scope.iAmIntrested = function(){
+	$scope.iAmIntrested = function(event){
 
 		var login =$scope.loginCheck;
 		console.log(login);
 		if(login == "null") {
-			var landingUrl = urlToLogin+"customerlogin";
-        alert(landingUrl);
-        $window.location.href = landingUrl;
+			//$location.path(urlToLogin+'customerlogin');
+			window.location.href = urlToLogin+'customerlogin';
 			} else {
-			alert("not null");
+
+				var id = event.target.id;
+				var data='';
+						
+						var config = {
+								headers : {
+									'Accept': 'text/json'
+								}
+							}
+				$http.post("userIntrestedSite"+"?id="+id, config).then(function (response) {
+							$scope.villageId = response.data;
+						}, function error(response) {
+							$scope.postResultMessage = "Error with status: " +  response.statusText;
+						});
+
 			}
 
 	}

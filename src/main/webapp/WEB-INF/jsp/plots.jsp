@@ -195,7 +195,7 @@
                                                     </div>
                                                     <div class="careerfy-job-userlist">
                                                   
-                                                        <a href="#" ng-click="iAmIntrested()" class="careerfy-option-btn">I am Interested</a>
+                                                        <button id='{{eachsite.id}}' ng-click="iAmIntrested($event)" class="careerfy-option-btn">I am Interested</button>
                                                     </div>
                                                 <div class="clearfix"></div>
                                                 </div>

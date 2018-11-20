@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.charvikent.RealEstateAdvisors.model.Site;
-import com.charvikent.RealEstateAdvisors.model.VillagesBean;
+import com.charvikent.RealEstateAdvisors.model.VillagesBeaUserIntrestedSites;
 import com.charvikent.RealEstateAdvisors.repositories.SiteRepository;
 
 @Service("siteService")
@@ -22,7 +22,7 @@ public class SiteServiceImpl implements SiteService {
 	}
 
 	@Override
-	public VillagesBean findByVillageId(int id) {
+	public VillagesBeaUserIntrestedSites findByVillageId(int id) {
 		// TODO Auto-generated method stub
 		
 		return siteRepository.findByVillageId(id);

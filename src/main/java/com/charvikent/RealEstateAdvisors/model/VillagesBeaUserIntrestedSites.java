@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name="villages")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
-public class VillagesBean {
+public class VillagesBeaUserIntrestedSites {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,10 +44,10 @@ public class VillagesBean {
 	@OneToMany(mappedBy = "villageId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Site> sites;
 
-	public VillagesBean() {
+	public VillagesBeaUserIntrestedSites() {
 	}
 
-	public VillagesBean(int id, String vName, Date createdDate, Date updatedDate, String pinCode, List<Site> sites) {
+	public VillagesBeaUserIntrestedSites(int id, String vName, Date createdDate, Date updatedDate, String pinCode, List<Site> sites) {
 		this.id = id;
 		this.vName = vName;
 		this.createdDate = createdDate;

@@ -123,14 +123,14 @@ color:#fff;
                     
                 </li>
 			     <li class="dropdown acc">
-			          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" data-hover="dropdown">Hello! <span  id="loggedCustomerName"></span></a>
+			          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" data-hover="dropdown">Hello! <span  id="loggedCustomerName" ng-model="loggedCustomerName" ng-bind='${customerName}'>${customerName}</span></a>
 			          <ul style="width:100% !important;" class="dropdown-menu myacd">
 			          <li id="cmlist"></li>
 			         
           
                  <c:choose>
 				    <c:when test="${not empty loggedstatus}">
-				      <script type="text/javascript"> $("#loggedCustomerName").text("${customerName}");</script>
+				      <script type="text/javascript"> $("#loggedCustomerName").text(${customerName});</script>
 				     <li><a href="${baseurl}/customerprofile">My Profile</a></li>
 				            <li><a href="${baseurl}/signout">Sign out</a></li>
 				    </c:when>

@@ -8,6 +8,7 @@ import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -31,6 +32,7 @@ public class HomeController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 	@Autowired UsersServiceImpl userService;
 	@Autowired SendSMS sendSMS;
+	@Autowired private Environment env;
 	//@Autowired OTPDetailsDao oTPDetailsDao;
 	@Autowired KptsUtil kptsUtil;
 	static 	String loginurl=""; 

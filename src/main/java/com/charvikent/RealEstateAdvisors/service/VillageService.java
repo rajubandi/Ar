@@ -5,26 +5,26 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import com.charvikent.RealEstateAdvisors.model.VillagesBean;
+import com.charvikent.RealEstateAdvisors.model.VillagesBeaUserIntrestedSites;
 
 @Service
 public interface VillageService  {
 
 	
-	VillagesBean findById(int id);
+	VillagesBeaUserIntrestedSites findById(int id);
 
-	VillagesBean findByVName(String vName);
+	VillagesBeaUserIntrestedSites findByVName(String vName);
 
-	void saveVillagesBean(VillagesBean village);
+	void saveVillagesBean(VillagesBeaUserIntrestedSites village);
 
-	void updateVillagesBean(VillagesBean village);
+	void updateVillagesBean(VillagesBeaUserIntrestedSites village);
 
 	void deleteVillagesBeanById(int id);
 
 	void deleteAllVillagesBean();
 
-	List<VillagesBean> findAllVillagesBean();
+	List<VillagesBeaUserIntrestedSites> findAllVillagesBean();
 
-	boolean isVillagesBeanExist(VillagesBean village);
+	boolean isVillagesBeanExist(VillagesBeaUserIntrestedSites village);
 
 }

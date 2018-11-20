@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.charvikent.RealEstateAdvisors.model.Site;
-import com.charvikent.RealEstateAdvisors.model.VillagesBean;
+import com.charvikent.RealEstateAdvisors.model.VillagesBeaUserIntrestedSites;
 import com.charvikent.RealEstateAdvisors.repositories.SiteRepository;
 import com.charvikent.RealEstateAdvisors.repositories.VillageRepository;
 import com.charvikent.RealEstateAdvisors.service.SiteService;
@@ -36,7 +36,7 @@ public class SiteController {
 	@GetMapping("/site")
 	public String home(Model model) {
 		//Map<Integer, String> villagesListMap = new LinkedHashMap<Integer, String>();
-		ListIterator<VillagesBean> litr = null;
+		ListIterator<VillagesBeaUserIntrestedSites> litr = null;
 		/*List<VillagesBean> villagesList =villageService.findAllVillagesBean();
 		//litr = villagesList.listIterator();
 		for(VillagesBean villageBean: villagesList) {
@@ -51,7 +51,7 @@ public class SiteController {
 	@PostMapping("/saveSite")
 	public ResponseEntity partialHandler(@RequestBody Site site) {
 		
-		VillagesBean v = villageRepository.findById(Integer.parseInt(site.getvId()));
+		VillagesBeaUserIntrestedSites v = villageRepository.findById(Integer.parseInt(site.getvId()));
 		site.setVillageId(v);
 		siteService.saveSite(site);;
 		 
@@ -63,9 +63,9 @@ public class SiteController {
 		Map<Integer, String> villagesListMap = new LinkedHashMap<Integer, String>();
 		ObjectMapper objectMapper = null;
 		String json = null;
-		List<VillagesBean> villagesList =villageService.findAllVillagesBean();
+		List<VillagesBeaUserIntrestedSites> villagesList =villageService.findAllVillagesBean();
 		//litr = villagesList.listIterator();
-		for(VillagesBean villageBean: villagesList) {
+		for(VillagesBeaUserIntrestedSites villageBean: villagesList) {
 			 
 			  villagesListMap.put(new Integer(villageBean.getId()),villageBean.getvName());
 		 }

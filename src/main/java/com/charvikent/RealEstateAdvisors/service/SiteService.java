@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.charvikent.RealEstateAdvisors.model.Site;
-import com.charvikent.RealEstateAdvisors.model.VillagesBean;
+import com.charvikent.RealEstateAdvisors.model.VillagesBeaUserIntrestedSites;
 
 @Service
 public interface SiteService  {
 
 	
-	VillagesBean findByVillageId(int id);
+	VillagesBeaUserIntrestedSites findByVillageId(int id);
 
 	//VillagesBean findByVName(String vName);
 

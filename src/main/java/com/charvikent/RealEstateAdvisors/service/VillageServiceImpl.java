@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.charvikent.RealEstateAdvisors.model.VillagesBean;
+import com.charvikent.RealEstateAdvisors.model.VillagesBeaUserIntrestedSites;
 import com.charvikent.RealEstateAdvisors.repositories.VillageRepository;
 
 @Service("villageService")
@@ -17,20 +17,20 @@ public class VillageServiceImpl implements VillageService {
 	private VillageRepository villageRepository;
 	
 	@Override
-	public VillagesBean findById(int id) {
+	public VillagesBeaUserIntrestedSites findById(int id) {
 		// TODO Auto-generated method stub
 		return villageRepository.findById(id);
 	}
 
 	@Override
-	public VillagesBean findByVName(String vName) {
+	public VillagesBeaUserIntrestedSites findByVName(String vName) {
 		// TODO Auto-generated method stub
 		return villageRepository.findByVName(vName);
 	}
 
 	
 	@Override
-	public List<VillagesBean> findAllVillagesBean() {
+	public List<VillagesBeaUserIntrestedSites> findAllVillagesBean() {
 		// TODO Auto-generated method stub
 		return villageRepository.findAll();
 	}
@@ -40,7 +40,7 @@ public class VillageServiceImpl implements VillageService {
 	
 
 	@Override
-	public void updateVillagesBean(VillagesBean village) {
+	public void updateVillagesBean(VillagesBeaUserIntrestedSites village) {
 		// TODO Auto-generated method stub
 		saveVillagesBean(village);
 		
@@ -59,7 +59,7 @@ public class VillageServiceImpl implements VillageService {
 	}
 
 	@Override
-	public boolean isVillagesBeanExist(VillagesBean village) {
+	public boolean isVillagesBeanExist(VillagesBeaUserIntrestedSites village) {
 		// TODO Auto-generated method stub
 		return findByVName(village.getvName()) != null;
 	}
@@ -68,7 +68,7 @@ public class VillageServiceImpl implements VillageService {
 	
 
 	@Override
-	public void saveVillagesBean(VillagesBean village) {
+	public void saveVillagesBean(VillagesBeaUserIntrestedSites village) {
 		// TODO Auto-generated method stub
 		villageRepository.save(village);
 	}

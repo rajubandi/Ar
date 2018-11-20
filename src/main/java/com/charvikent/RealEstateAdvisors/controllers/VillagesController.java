@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.charvikent.RealEstateAdvisors.model.VillagesBean;
+import com.charvikent.RealEstateAdvisors.model.VillagesBeaUserIntrestedSites;
 import com.charvikent.RealEstateAdvisors.service.VillageService;
 
 @Controller 
@@ -30,7 +30,7 @@ public class VillagesController {
 
 	@PostMapping("/saveVillage")
 	
-	public ResponseEntity partialHandler(@RequestBody VillagesBean village) {
+	public ResponseEntity partialHandler(@RequestBody VillagesBeaUserIntrestedSites village) {
 		
 		 villageService.saveVillagesBean(village);
 		 System.out.println("%%%%%%%%%%%%@@@@@@@"+village);

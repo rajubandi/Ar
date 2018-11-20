@@ -41,7 +41,7 @@ public class Site {
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "village_id", nullable = false)
 	 @JsonIgnore
-	private VillagesBean villageId; 
+	private VillagesBeaUserIntrestedSites villageId; 
 	
 	
 	
@@ -51,10 +51,10 @@ public class Site {
 	public void setvId(String vId) {
 		this.vId = vId;
 	}
-	public VillagesBean getVillageId() {
+	public VillagesBeaUserIntrestedSites getVillageId() {
 		return villageId;
 	}
-	public void setVillageId(VillagesBean villageId) {
+	public void setVillageId(VillagesBeaUserIntrestedSites villageId) {
 		this.villageId = villageId;
 	}
 	//Hibernate requires no-args constructor
