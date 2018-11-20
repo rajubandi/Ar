@@ -1,7 +1,7 @@
 var app = angular.module('app', []);
 app.controller('saveSite', function($scope, $http, $location) {
 	$scope.siteForm = function(){
-		var url = "http://localhost:8181/"+ "saveSite";
+		//var url = "http://"+$location.host+":"+$location.port+"/"+ "saveSite";
 		
 		var config = {
                 headers : {
@@ -10,7 +10,7 @@ app.controller('saveSite', function($scope, $http, $location) {
         }
 		var data = $scope.site;
 		
-		$http.post(url, data, config).then(function (response) {
+		$http.post("saveSite", data, config).then(function (response) {
 			//$scope.postResultMessage = response.data;
 		}, function error(response) {
 			$scope.postResultMessage = "Error with status: " +  response.statusText;

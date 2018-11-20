@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+ <jsp:include page="adminHeader.jsp" />
 <!DOCTYPE HTML>
 
 <html  xmlns:th="http://www.thymeleaf.org">
@@ -17,7 +18,17 @@
 	  
 </head>
 <body>
-
+<div class="content-area  " ng-app="app">
+<div class="page-header">
+							<h4 class="page-title">Add Village</h4>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Add Village</li>
+							</ol>
+						</div>
+	<div class="row">
+							<!-- end col -->
+							<div class="col-xl-12">
 <div class="container" ng-app="app" >
 
 	<h3 style="color:blue">Add New Site</h3>
@@ -115,6 +126,5 @@
     	</ul>
 	</div> -->
 	
-</div>
-</body>
-</html>
+</div></div></div><>
+ <jsp:include page="adminfooter.jsp" />

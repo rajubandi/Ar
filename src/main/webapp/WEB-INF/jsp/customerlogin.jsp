@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+    <jsp:include page="header.jsp" />
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -50,6 +51,21 @@
 }
 .tag {
 	color:#FF0000;
+}
+.main-row {
+    margin: 0 auto;
+    background: #fff;
+    max-width: 400px;
+    padding: 3em 2em 2em;
+    text-align: center;
+    border: 1px solid #118abc;
+}
+.main {
+    padding: 3em 0 0;
+    text-align: center;
+}
+.form-control {
+margin-bottom:10px;
 }
 </style>
 
@@ -844,4 +860,4 @@ alert(cmobile+"-->"+cemail+"-->"+csname+"-->"+cname);
 	
 	
 </script>
-</html>
+    <jsp:include page="footer.jsp" />

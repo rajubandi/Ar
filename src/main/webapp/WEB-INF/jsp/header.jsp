@@ -2,7 +2,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE HTML>
-<html>
+<html  ng-app="app">
 <head>
 <link rel="Shortcut Icon" href="images/fav.png" type="image/x-icon" />
 <meta charset="utf-8">
@@ -109,9 +109,9 @@ color:#fff;
             
             <!--Navigation Menu Start-->
             <ul class="flexy-menu thick">
-            	<li class="active"><a href="index.html">Home</a></li>
+            	<li ><a href="index">Home</a></li>
                 <li><a href="plots">Plots</a> </li>
-                <li><a href="plots.html">Layouts</a></li>
+                <li><a href="#">Layouts</a></li>
                 <li><a href="#">Price Trends</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">More</a><div class="arrow-down"></div>
@@ -139,6 +139,15 @@ color:#fff;
 				        <li><a href="customerlogin">Sign in</a></li>
 				    </c:otherwise>
 				</c:choose>
+				<%-- <c:choose>
+			    <c:when test="${not empty loggedstatus}">
+			     <script type="text/javascript"> var login=true;</script>
+			     
+			    </c:when>
+			    <c:otherwise>
+			        <script type="text/javascript"> var login=false;</script>
+			    </c:otherwise>
+			</c:choose> --%>
        <!--  <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown">Register <span class="caret"></span></a><div class="arrow-down"></div>
           <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu">

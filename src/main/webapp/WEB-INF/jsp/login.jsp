@@ -65,7 +65,38 @@
 .tag {
 	color:#FF0000;
 }
+.focusedform .verticalcenter {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    margin-top: -186px;
+    margin-left: -200px;
+}
+.focusedform .panel {
+    width: 400px;
+}
+.panel-primary {
+    border-color: #4f8edc;
+}
+.panel {
+    margin: 0px 0 20px;
+    border-radius: 1px;
+}
+[class*="panel-"].panel .panel-footer {
+    background-color: #f7f8fa;
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-color: #dddddd;
+    padding: 10px 20px;
+    color: #000000;
+    text-align:right;
+}
+.pull-right {
+    float: right !important;
+}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 <!-- <script type='text/javascript' src='assets/js/jquery-1.10.2.min.js'></script> -->
 <script type="text/javascript">
@@ -80,7 +111,7 @@
 
 <body class="focusedform">
 <div class="verticalcenter">
-<div><img src="images/logo.png" style="width:350px;" class="img-responsive"></div>
+<div><img src="images/logo.png" style="width:;" class="img-responsive"></div>
 <!-- 	<h1 align="center">KHAIBAR GAS</h1> -->
 	<div class="panel panel-primary">
 		<form  action=login class="form-horizontal" method="POST"  style="margin-bottom: 0px !important;">
@@ -121,12 +152,12 @@
 			</div>
 		</div>
 		<div class="panel-footer">
-			<div class="pull-right">
-				<input type="submit"  id="mlogin" value="Sign-in"  class="btn btn-primary">
+			
+				<input type="submit"  id="mlogin" value="Sign-in"  class="btn btn-primary waves-effect waves-light">
 				<input type="reset" value="Reset" class="btn btn-danger cancel"/>
 				<!-- <input type="reset" value="Reset" class="btn btn-default cancel"/>
 				<input type="submit" id="submit1" value="Sign-in"  class="btn btn-primary"> -->
-			</div>
+			
 		</div>
 		<input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />

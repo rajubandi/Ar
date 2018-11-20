@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
-       
+       </div></div>
 			<!--footer-->
 			<footer class="footer">
 				<div class="container">
@@ -14,7 +14,6 @@
 			</footer>
 			<!-- End Footer-->
 		</div>
-
 		<!-- Back to top -->
 		<a href="#top" id="back-to-top" ><i class="fa fa-angle-up"></i></a>
 

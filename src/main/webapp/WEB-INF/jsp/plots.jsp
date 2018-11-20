@@ -1,51 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
     <jsp:include page="header.jsp" />
- <!-- Wrapper -->
-    <div class="careerfy-wrapper">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/flaticon.css" rel="stylesheet">
+    <link href="css/plugin.css" rel="stylesheet">
+    <link href="css/inner-style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic-ext,vietnamese" rel="stylesheet">
+    
+      <style>
+      @media (min-width: 1200px) {
+.container {
+    width: 100%;
+}
+}
+.header-section {
+    width: 100%;
+    height: 71px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: rgba(221, 221, 221, 0.95) solid 5px;
+    z-index: 1000;
+}
 
-        <!-- Header -->
-        <header id="careerfy-header" class="careerfy-header-one">
-            <div class="container">
-                <div class="row">
-                    <aside class="col-md-3"> <a href="#" class="careerfy-logo"><img src="images/logo.png" alt=""></a> </aside>
-                    <aside class="col-md-9">
-                        <nav class="careerfy-navigation">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#careerfy-navbar-collapse-1" aria-expanded="false">
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                            </div>
-                            <div class="collapse navbar-collapse" id="careerfy-navbar-collapse-1">
-                                <ul class="navbar-nav pull-right">
-                                    <li class="active"><a href="index.html">Home</a> </li>
-                                    <li><a href="#">Plots</a></li>
-                                    <li><a href="#">Layouts</a> </li>
-                                     <li><a href="#">Price Trends</a> </li>
-                                      <li><a href="#">Contact Us</a> </li>
-                                    <li><a href="#">More</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="#">FAQ's</a></li>
-                                            <li><a href="#">Terms & Conditions</a></li>
-                                            <li><a href="#">Privacy Policy</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                      </nav>
-                    </aside>
-                    
-                </div>
-            </div>
-        </header>
-        <!-- Header -->
-        
+      </style>  
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> 
+      <script src="/js/plotController.js"></script> 
         <!-- SubHeader -->
+        <div class="content">
         <div class="careerfy-subheader">
             <span class="careerfy-banner-transparent"></span>
-            <div class="container">
+            <div class="">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="careerfy-page-title">
@@ -58,7 +45,7 @@
         <!-- SubHeader -->
 
         <!-- Main Content -->
-        <div class="careerfy-main-content">
+        <div class="careerfy-main-content" ng-controller="plotsController">
             
             <!-- Main Section -->
             <div class="careerfy-main-section ">
@@ -89,82 +76,18 @@
                                     <div class="careerfy-search-filter-wrap careerfy-without-toggle">
                                         <h2><a href="#">Select Village</a></h2>
                                         <div class="careerfy-search-box">
-                                            <input value="Search with Village Name" onBlur="if(this.value == '') { this.value ='Search'; }" onFocus="if(this.value =='Search') { this.value = ''; }" type="text">
+                                            <input value="Search with Village Name" onBlur="if(this.value == '') { this.value ='Search'; }" onFocus="if(this.value =='Search') { this.value = ''; }" type="text" ng-model="searchVillage">
                                             <input type="submit" value="">
                                             <i class="careerfy-icon careerfy-search"></i>
                                         </div>
-                                        <ul class="careerfy-checkbox">
-                                            <li>
-                                                <input type="checkbox" id="r1" name="rr" />
-                                                <label for="r1"><span></span>Abbarajupalem</label>
+                                        <ul class="careerfy-checkbox" >
+                                            <li ng-repeat="(k,v) in villages | customFilter:searchVillage">
+                                                <input type="checkbox" id={{k}} name={{k}} />
+                                                <label for={{k}}><span></span>{{v}}</label>
                                                 <small>13</small>
                                             </li>
-                                            <li>
-                                                <input type="checkbox" id="r2" name="rr" />
-                                                <label for="r2"><span></span>Ananthavaram</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r3" name="rr" />
-                                                <label for="r3"><span></span>Borupalem</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r4" name="rr" />
-                                                <label for="r4"><span></span>Dondapadu</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Inavolu</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Kondamarajupalem</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Penumaka</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Nowluru</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r3" name="rr" />
-                                                <label for="r3"><span></span>Borupalem</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r4" name="rr" />
-                                                <label for="r4"><span></span>Dondapadu</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Inavolu</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Kondamarajupalem</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Penumaka</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Nowluru</label>
-                                                <small>13</small>
-                                            </li>
-                                        </ul>
+                                          
+                                        </ul> 
                                       
                                     </div>
                                     
@@ -254,29 +177,31 @@
                                 </div>
                                 <!-- FilterAble -->
                                 <!-- JobGrid -->
-                                <div class="careerfy-job careerfy-joblisting-classic">
+                                <div class="careerfy-job careerfy-joblisting-classic" ng-init="loginCheck='<%=session.getAttribute("loggedstatus")%>'">
+                                 <input type="hidden" name="loginCheck" ng-model="loginCheck">
+                                
                                     <ul class="careerfy-row">
-                                        <li class="careerfy-column-12">
+                                        <li class="careerfy-column-12" ng-repeat="eachsite in allSites">
                                             <div class="careerfy-joblisting-classic-wrap">
                                                 <div class="careerfy-joblisting-text">
                                                     <div class="careerfy-list-option">
-                                                        <h2><a href="#"> 360 Sq.Yd - <i class="fa fa-rupee"></i> 22,000</a> <span>Listing ID: 1520</span></h2>
+                                                        <h2><a href="#"> {{eachsite.sqYd}} Sq.Yd - <i class="fa fa-rupee"></i>{{eachsite.price}}</a> <span>Listing ID: {{eachsite.listingId}}</span></h2>
                                                         <ul>
                                                             <li><a href="#">@ Commercial</a></li>
-                                                            <li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>THULLUR - 414 Colony</strong></li>
-                                                            <li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> West Facing</li>
+                                                            <li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>{{eachsite.colony}} Colony</strong></li>
+                                                            <li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> {{eachsite.propertyType}}</li>
                                                              <p class="italic">03 Nov 2018</p>
                                                         </ul>
                                                     </div>
                                                     <div class="careerfy-job-userlist">
-                                                   
-                                                        <a href="#" class="careerfy-option-btn">I am Interested</a>
+                                                  
+                                                        <a href="#" ng-click="iAmIntrested()" class="careerfy-option-btn">I am Interested</a>
                                                     </div>
                                                 <div class="clearfix"></div>
                                                 </div>
                                             </div>
                                         </li>
-                                        
+                                      <!--   
                                         <li class="careerfy-column-12">
                                             <div class="careerfy-joblisting-classic-wrap">
                                                 <div class="careerfy-joblisting-text">
@@ -494,7 +419,7 @@
                                                 <div class="clearfix"></div>
                                                 </div>
                                             </div>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                                 <!-- Pagination -->
@@ -517,6 +442,78 @@
             <!-- Main Section -->
 
         </div>
+      </div>
+      <div class="clearfix"></div>
         <!-- Main Content -->
+ <script src="script/jquery.js"></script>
+    <script src="script/bootstrap.js"></script>
 
-            <jsp:include page="footer.jsp" />
+<a href="#" class="back-to-top"></a>
+    <!--End-->
+
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-easing-1.3.js"></script>
+
+<!--Flexy Menu Script-->
+<script type="text/javascript" src="js/flexy-menu.js"></script>
+
+<!--LayerSlider Script-->
+<script src="layerslider/jQuery/jquery-transit-modified.js" type="text/javascript"></script>
+<script src="layerslider/js/layerslider.transitions.js" type="text/javascript"></script>
+<script src="layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+   jQuery(document).ready(function() {
+	  "use strict"; 
+     
+      // FLEXY MENU SETTING
+	  $(".flexy-menu").flexymenu({
+            align: "right",
+            indicator: true
+         });
+		 
+      // LAYERSLIDER SETTING
+		$('#layerslider').layerSlider({
+			skinsPath : 'layerslider/skins/',
+			skin : 'fullwidthdark',
+			thumbnailNavigation : 'disabled',
+			showCircleTimer : false,
+			showBarTimer : false,
+    		touchNav : true,
+			navStartStop : false,
+			navButtons : false,
+			animateFirstLayer : true,
+			responsive : false,
+			responsiveUnder : 984,
+			sublayerContainer : 984
+		});
+		
+		// GO TO TOP SETTING
+		var offset = 220;
+		var duration = 500;
+		jQuery(window).scroll(function() {
+			if (jQuery(this).scrollTop() > offset) {
+				jQuery('.back-to-top').fadeIn(duration);
+			} else {
+				jQuery('.back-to-top').fadeOut(duration);
+			}
+		});
+		
+		jQuery('.back-to-top').click(function(event) {
+			event.preventDefault();
+			jQuery('html, body').animate({scrollTop: 0}, duration);
+			return false;
+		})
+   });
+   
+   var getTabName = window.location.pathname.split('/')[1];
+   //$("#li").addClass('active');
+   //$("#li u").css('display','block');
+   //$("#li a[href='"+ getTabName +"']").addClass('active');
+   $("a[href='"+ getTabName +"']").parents('li').addClass('active');
+</script>
+
+</body>
+</html>
+
+<%--             <jsp:include page="footer.jsp" /> --%>

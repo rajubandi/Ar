@@ -271,7 +271,7 @@
 					<nav id="sidebar" class="nav-sidebar">
 						<div class="profile clearfix">
 							<div class="profile_pic">
-								<img src="" alt="..." class="img-circle profile_img">
+								<img src="" alt="..." class=" profile_img">
 								<a href="editprofile.html" class="profile-img">
 									<span class="fa fa-pencil" aria-hidden="true"></span>
 								</a>
@@ -287,15 +287,15 @@
 								<a href="#homeSubmenu" class="accordion-toggle wave-effect " data-toggle="collapse" aria-expanded="false">
 									<i class="fa fa-television mr-2 sidebarsuccess"></i>Dashboard
 								</a>
-								<ul class="collapse list-unstyled" id="homeSubmenu" data-parent="#accordion">
+								<!-- <ul class="collapse list-unstyled" id="homeSubmenu" data-parent="#accordion">
 									<li><a href="index.html">Dashboard 1</a></li>
 									<li><a href="index2.html">Dashboard 2</a></li>
 									<li><a href="index3.html">Dashboard 3</a></li>
 									<li><a href="index4.html">Dashboard 4</a></li>
 									<li><a href="index5.html">Dashboard 5</a></li>
-								</ul>
+								</ul> -->
 							</li>
-							<li>
+							<!-- <li>
 								<a href="#Submenu1" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
 									<i class="fa fa-rocket mr-2 sidebarprimary"></i> Apps
 								</a>
@@ -316,8 +316,14 @@
 										<a href="crypto-currencies.html">Crypto-currencies</a>
 									</li>
 								</ul>
+							</li> -->
+							<li>
+								<a href="addVillage" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Villages</a>
 							</li>
 							<li>
+								<a href="site" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Plots</a>
+							</li>
+							<!-- <li>
 								<a href="widgets.html" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Widgets</a>
 							</li>
 							<li>
@@ -495,7 +501,7 @@
 										<a href="footers.html">Footers</a>
 									</li>
 								</ul>
-							</li>
+							</li> -->
 							<li>
 								<a href="#Submenu6" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
 									<i class="fa fa-file-text mr-2 sidebarblue"></i> Forms
@@ -512,7 +518,7 @@
 									</li>
 								</ul>
 							</li>
-							<li class="">
+							<!-- <li class="">
 								<a href="#Submenu7" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
 									<i class="fa fa-table mr-2 sidebarpurple"></i> Tables
 								</a>
@@ -628,8 +634,8 @@
 										<a href="cart.html">Shopping Cart</a>
 									</li>
 								</ul>
-							</li>
-							<li>
+							</li> -->
+							<!-- <li>
 								<a href="#Submenu11" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
 									<i class="fa fa-briefcase mr-2 sidebaryellow"></i> Custom  Pages
 								</a>
@@ -692,7 +698,7 @@
 							<li>
 								<a href="#" class=" wave-effect accordion-toggle"><i class="fa fa-ticket mr-2 sidebarlightgreen"></i>  Support</a>
 							</li>
-						</ul>
+						</ul> -->
 						<div class="sidebar-footer hidden-small">
 							<a href="emailservices.html">
 								<span class="fa fa-envelope" aria-hidden="true"></span>

@@ -38,7 +38,7 @@ public class Site {
 	@Transient
 	private String vId;
 	private String propertyType ;
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "village_id", nullable = false)
 	 @JsonIgnore
 	private VillagesBean villageId; 
