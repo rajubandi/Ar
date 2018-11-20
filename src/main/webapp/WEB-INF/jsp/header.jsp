@@ -122,23 +122,13 @@ color:#fff;
                     </ul>
                     
                 </li>
-			     <li class="dropdown acc">
-			          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" data-hover="dropdown">Hello! <span  id="loggedCustomerName" ng-model="loggedCustomerName" ng-bind='${customerName}'>${customerName}</span></a>
+			     <li class="dropdown acc" ng-init="checkLogin='${loggedstatus}';userName='${customerName}'">
+			          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" data-hover="dropdown">Hello! <span  id="loggedCustomerName" ng-model="loggedCustomerName">{{checkLogin!='' ? userName : 'Sign-in'}}</span></a>
 			          <ul style="width:100% !important;" class="dropdown-menu myacd">
 			          <li id="cmlist"></li>
-			         
-          
-                 <c:choose>
-				    <c:when test="${not empty loggedstatus}">
-				      <script type="text/javascript"> $("#loggedCustomerName").text(${customerName});</script>
-				     <li><a href="${baseurl}/customerprofile">My Profile</a></li>
-				            <li><a href="${baseurl}/signout">Sign out</a></li>
-				    </c:when>
-				    <c:otherwise>
-				     <script> $("#loggedCustomerName").text("Sign-in");</script>
-				        <li><a href="customerlogin">Sign in</a></li>
-				    </c:otherwise>
-				</c:choose>
+				     <li ng-if="checkLogin!=''"><a href="${baseurl}/customerprofile">My Profile</a></li>
+				     <li ng-if="checkLogin!=''"><a href="${baseurl}/signout">Sign out</a></li>
+				     <li ng-if="checkLogin==''"><a href="customerlogin">Sign in</a></li>
 				<%-- <c:choose>
 			    <c:when test="${not empty loggedstatus}">
 			     <script type="text/javascript"> var login=true;</script>
