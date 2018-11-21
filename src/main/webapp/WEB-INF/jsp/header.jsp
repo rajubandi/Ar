@@ -9,6 +9,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <title>Amaravati Realtors</title>
 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+ <script src="/js/main.js"></script>
+ <script src="/js/headerController.js"></script>
+
 <!--Main Element CSS-->
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/hexagon.css" rel="stylesheet" type="text/css">
@@ -101,7 +105,7 @@ color:#fff;
 
 	<!--Header Start-->
     <header class="header-section">
-    	<div class="wrapper header">
+    	<div class="wrapper header" ng-controller="headerController">
         	
             <div class="logo">
             	<a href="#"><img src="images/logo.png" alt="logo" /></a>
@@ -109,7 +113,7 @@ color:#fff;
             
             <!--Navigation Menu Start-->
             <ul class="flexy-menu thick">
-            	<li ><a href="index">Home</a></li>
+            	<li><a href="index">Home</a></li>
                 <li><a href="plots">Plots</a> </li>
                 <li><a href="#">Layouts</a></li>
                 <li><a href="#">Price Trends</a></li>
@@ -123,7 +127,7 @@ color:#fff;
                     
                 </li>
 			     <li class="dropdown acc" ng-init="checkLogin='${loggedstatus}';userName='${customerName}'">
-			          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" data-hover="dropdown">Hello! <span  id="loggedCustomerName" ng-model="loggedCustomerName">{{checkLogin!='' ? userName : 'Sign-in'}}</span></a>
+			          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" data-hover="dropdown">Hello! <span >{{checkLogin!=' ' ? userName : 'Sign-in'}}</span></a>
 			          <ul style="width:100% !important;" class="dropdown-menu myacd">
 			          <li id="cmlist"></li>
 				     <li ng-if="checkLogin!=''"><a href="${baseurl}/customerprofile">My Profile</a></li>
@@ -213,9 +217,9 @@ color:#fff;
             </div>
           </ul>
         </li> -->
-   
-    			</ul>
+   				</ul>
             </li>
+    			</ul>
             <!--Navigation Menu End-->
             
         </div>

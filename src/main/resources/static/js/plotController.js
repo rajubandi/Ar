@@ -1,4 +1,3 @@
-var app = angular.module('app', []);
 app.filter('customFilter', function() {
   return function(input, search) {
     if (!input) return input;

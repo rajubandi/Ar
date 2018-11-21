@@ -8,7 +8,7 @@
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <!--     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'> -->
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
@@ -19,18 +19,25 @@
     <![endif]-->
 
     <!-- The following CSS are included as plugins and can be removed if unused-->
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	  <script src="/js/angular-animate.min.js"></script>
+	  <script src="/js/angular-touch.min.js"></script>
+	  <script src="/js/ui-bootstrap-tpls.min.js"></script>
+	  <script src="/js/customerLoginController.js"></script>
 
 
 <style type="text/css">
+.modalcss
+{
+display: block !important;
+opacity: 1;
+}
 .alert-success, .alert-warning, .alert-danger{color: white !important;}
 .alert-success{background-color: #4CAF50 !important;}
 .alert-warning{background-color: #ff6600 !important;}
 .alert-danger{background-color: #d43f3a !important;}
-
 .your-class::-webkit-input-placeholder {color: #e73d4a !important;}
 .your-class::-moz-placeholder {color: #e73d4a !important;}
-
 .default-class::-webkit-input-placeholder {color: #e73d4a !important;}
 .default-class::-moz-placeholder {color: #e73d4a !important;}
 .panel-primary .panel-body {
@@ -69,7 +76,7 @@ margin-bottom:10px;
 }
 </style>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	var isClick = 'No';
 		 window.setTimeout(function() {
 		    $(".msgcss").fadeTo(500, 0).slideUp(500, function(){
@@ -82,35 +89,34 @@ margin-bottom:10px;
 			
 		});  
 		
-</script>
+</script> -->
 
 
 
 <%--     <%@include file="abheeheader.jsp" %> --%>
 
-
-
+<div ng-controller="customerLoginController">
 	<div style="margin-bottom:45px;" class="main">
 		<div class="main-row">
 			<!-- login form -->
 			<div class="login-form login-form-left"> 
 				<div class="row">
 					<div class="head">
-							 <c:if test="${not empty msg}">
+							<%--  <c:if test="${not empty msg}">
 								<div class="msgcss1 row">
 									<div align="center" class="form-group">
 										<div style="width:80%" class="alert alert-${cssMsg} fadeIn animated">${msg}</div>
 									</div>
 								</div>
-							</c:if>
+							</c:if> --%>
 						<h4>Login</h4>
 					</div>					
 									<div class="clearfix"></div>
-						<form action="customerlogin" method="post"> 
+						<form action="customerlogin" method="post" ng-submit="loginForm()"> 
 					<div class="login-top"> 	
-						  <input type="hidden" name="userType" id="userType" value="customerUser"/>
-							<input type="text"  name="username" id="cmusername" class="form-control validate numericOnly2"  onfocus="this.placeholder=''" onblur="this.placeholder='Mobile Number'"  maxlength="10"   placeholder="Mobile Number"/>
-							<input type="password"  name="password"  id="cmpassword" onfocus="this.placeholder=''"  class="form-control  numericOnly"  maxlength="4"  onblur="this.placeholder='Password'" placeholder="Password"  />
+						  <input type="hidden" name="userType" id="userType" value="customerUser" ng-model="users.userType"/>
+							<input type="text"  name="userName" ng-model="users.userName" id="cmusername" class="form-control validate numericOnly2"  onfocus="this.placeholder=''" onblur="this.placeholder='Mobile Number'"  maxlength="10"   placeholder="Mobile Number"/>
+							<input type="password"  name="password"  ng-model="users.password" id="cmpassword" onfocus="this.placeholder=''"  class="form-control  numericOnly"  maxlength="4"  onblur="this.placeholder='Password'" placeholder="Password"  />
 						
 					</div> 
 					<div class="login-bottom"> 
@@ -121,13 +127,13 @@ margin-bottom:10px;
 						
 						   <!--  <input   class="btn btn-danger" type="reset" value="Reset"> 
 							<input  class="btn btn-primary" type="submit" value="Login"> -->
-							<button type="submit"  id="csubmit" class="btn btn-primary"  value="Login">Login</button>
-							<button class="btn btn-danger" type="reset" value="Reset">Reset</button>
+							<button type="submit"  id="csubmit" ng-model="csubmit" class="btn btn-primary"  value="Login">Login</button>
+							<button class="btn btn-danger" type="reset"  value="Reset">Reset</button>
 						</div><div class="clearfix"></div>
 					</div>
 					</form> 	
 					<div class="login-bottom"> 
-						<h6 style="margin-top:10px;">Click Here To <a href="#" data-toggle="modal" onclick="openRegistrationModel()" style="color: red; text-decoration:underline;" class="tag">Register</a></h6>
+						<h6 style="margin-top:10px;">Click Here To <a href="#" data-toggle="modal" ng-click="openRegistrationModel()" style="color: red; text-decoration:underline;" class="tag">Register</a></h6>
 					</div> 
 
 				</div>  
@@ -147,72 +153,110 @@ margin-bottom:10px;
           <h4 class="modal-title">Customer Registration</h4>
         </div>
         <div class="modal-body">
-          <form    id="registration"  method="post" class="login-form">
-          
- 
+         <div class="card m-b-20">
+									<div class="card-header">
+										<h3 class="card-title">Registration</h3>
+										<div class="card-options">
+											<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+											<a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+										</div>
+									</div>
+									<div class="card-body mb-0">
+										<form class="form-horizontal">
+											<div class="form-group ">
+												<div class="row">
+													<div class="col-md-3">
+														<label class="form-label" id="examplenameInputname2">User Name</label>
+													</div>
+													<div class="col-md-9">
+														<input type="text" class="form-control" id="examplenameInputname3" placeholder="Enter Name">
+													</div>
+												</div>
+											</div>
+											<div class="form-group ">
+												<div class="row">
+													<div class="col-md-3">
+														<label class="form-label" id="inputEmail3">Email</label>
+													</div>
+													<div class="col-md-9">
+														<input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+													</div>
+												</div>
+											</div>
+											<div class="form-group ">
+												<div class="row">
+													<div class="col-md-3">
+														<label class="form-label" id="inputPassword5">Password</label>
+													</div>
+													<div class="col-md-9">
+														<input type="password" class="form-control" id="inputPassword6" placeholder="Password">
+													</div>
+												</div>
+											</div>
+											<div class="form-group ">
+												<div class="row">
+													<div class="col-md-3">
+														<label class="form-label" id="inputPassword7">Re Password</label>
+													</div>
+													<div class="col-md-9">
+														<input type="password" class="form-control" id="inputPassword8" placeholder="Retype Password">
+													</div>
+												</div>
+											</div>
+											<div class="form-group ">
+												<div class="row">
+													<div class="col-md-3">
+														<label class="form-label" id="exampleInputnumber4">User Name</label>
+													</div>
+													<div class="col-md-9">
+														<input type="text" class="form-control" id="examplenameInputname5" placeholder="Enter Name">
+													</div>
+												</div>
+											</div>
+											<div class="form-group ">
+												<div class="row">
+													<div class="col-md-3">
+														<label class="form-label" id="exampleInputnumber6">Phone Number</label>
+													</div>
+													<div class="col-md-9">
+														<input type="Number" class="form-control" id="exampleInputnumber7" placeholder="Phone number">
+													</div>
+												</div>
+											</div>
 
-						<div id="firstForm">
-						
-						<div class="form-group">
-							<div class="col-md-5">
-								<label for="user_name"> First Name :</label>
-							</div> 
-							<div class="col-md-7">
-								<input	type="text" name="csname" id="csname" onkeydown="removeBorder(this.id)" class="form-control validate1 onlyCharacters" placeholder="First Name"/>
-							</div><div class="clearfix"></div>
-								<span class="hasError" id="csnamelError" style="font-size: 13px;"></span>
-							</div>
-							<div class="form-group">
-								<div class="col-md-5">
-									<label for="user_name">Last Name :</label>
+											<div class="form-group ">
+												<div class="row">
+													<div class="col-md-3">
+														<label class="form-label">Select Test Area</label>
+													</div>
+													<div class="col-md-9">
+														<select class="form-control">
+															<option selected="">Select Test Center</option>
+															<option>Hyderabad</option>
+															<option>Vizag</option>
+															<option>Guntur</option>
+															<option>Vijayawada</option>
+															<option>Rajahmundry</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="form-group row justify-content-end">
+												<div class="col-md-9 float-right">
+													<label class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input">
+														<span class="custom-control-label text-dark">I agree</span>
+													</label>
+												</div>
+											</div>
+											<div class="form-group mb-0 row justify-content-end">
+												<div class="col-md-9 float-right">
+													<button type="submit" class="btn btn-primary waves-effect waves-light">Sign in</button>
+												</div>
+											</div>
+										</form>
+									</div>
 								</div>
-								<div class="col-md-7">
-									<input	type="text" name="cname" id="cname" onkeydown="removeBorder(this.id)" class="form-control validate1 onlyCharacters" placeholder="Last Name"/>
-								</div><div class="clearfix"></div>
-								<span class="hasError" id="cnameError" style="font-size: 13px;"></span>
-							</div>
-							<div class="form-group">
-								<div class="col-md-5">
-									<label for="user_name">Mobile Number :</label>
-								</div>
-								<div class="col-md-7">
-									<input	type="text" name="cmobile" id="cmobile" onkeydown="removeBorder(this.id)" maxlength="10" class="form-control validate1 numericOnly2" placeholder="Mobile Number"/>
-								</div><div class="clearfix"></div>
-								<span class="hasError" id="cmobileError" style="font-size: 13px;"></span>
-							</div>
-
-							<div class="form-group">
-								<div class="col-md-5">
-									<label for="user_name">Email :</label>
-								</div>
-								<div class="col-md-7">
-									<input	type="text" name="cemail" id="cemail" onkeydown="removeBorder(this.id)" class="form-control validate1" placeholder="Email"/>
-								</div><div class="clearfix"></div>
-								<span class="hasError" id="emailError" style="font-size: 13px;"></span>
-							</div>
-							<div class="form-group">
-								<div class="col-md-5">
-									<label for="user_name">Password (Max 4 Digits) :</label>
-								</div>
-								<div class="col-md-7">
-									<input	type="password" name="cpassword" id="cpassword" onkeydown="removeBorder(this.id)" maxlength="4" class="form-control validate1 numericOnly" placeholder="Password" />
-								</div><div class="clearfix"></div> 
-								<span class="hasError" id="cpasswordError" style="font-size: 13px;"></span>
-							</div>
-							<div class="form-group">
-								<div class="col-md-5">
-									<label for="user_name">Confirm password :</label>
-								</div>
-								<div class="col-md-7">
-									<input	type="password" name="crtpassword"  id="crtpassword" onkeydown="removeBorder(this.id)"  maxlength="4" class="form-control validate1 numericOnly" placeholder="Confirm Password"/>
-								</div><div class="clearfix"></div> 
-								<span class="hasError" id="crtpasswordError" style="font-size: 13px;"></span>
-							</div>
-							
-							
-							
-						</div>
-					</form>	
         </div>
         <div class="modal-footer">
           <button type="button" id="submitModel"  class="btn btn-primary" data-dismiss="modal">Submit</button>
@@ -264,7 +308,7 @@ margin-bottom:10px;
   </div> 
   
  
-	<div class="modal fade" id="passwordModel" data-backdrop="static" data-keyboard="false" role="dialog">
+	<div class="modal fade modalcss" id="passwordModel" data-backdrop="static" data-keyboard="false" role="dialog" ng-show="modalOpen">
     <div class="modal-dialog">
     
      
@@ -301,22 +345,17 @@ margin-bottom:10px;
       
     </div>
   </div> 
-  
+</div>
+<!-- <script type='text/javascript' src='js/customValidation.js'></script>  -->
 
-<script type='text/javascript' src='js/customValidation.js'></script> 
-
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 		
 
 <%-- <%@include file="abheefooter.jsp" %> --%>
-<script type="text/javascript">
-
-
+<!-- <script type="text/javascript">
 var validation = true;
-
 var mobilevalidation=true;
 var subValidation =false;
-
 $('#cmobile').blur(function() {
 	var editFields =0;
 	var cmobile=$(this).val();
@@ -432,14 +471,9 @@ var cmobile =0
 var cemail =0
 var csname =0
 var cname =0
-
 var cpassword =0
 var idArrayCmt1 = null;
-
-
-
 //var validation = true;
-
 	idArrayCmt1 = $.makeArray($('.validate1').map(function() {
 		return this.id ;
 	}));
@@ -499,7 +533,6 @@ var idArrayCmt1 = null;
 	}
 	
 });
-
 function getOTP()
 {
 	
@@ -510,11 +543,11 @@ function getOTP()
 	 
 	
 	
-alert(cmobile+"-->"+cemail+"-->"+csname+"-->"+cname);
+alert(cmobile+""+cemail+""+csname+""+cname);
 	 */
 	 
 		
-	$.ajax({
+	/* $.ajax({
 		type : "POST",
 		url : "getOtp",
 		data :"cmobile="+cmobile,
@@ -558,8 +591,8 @@ alert(cmobile+"-->"+cemail+"-->"+csname+"-->"+cname);
 		 cotp=$('#cotp').val();
 		 cpassword =$('#cpassword').val();
 		
-	//alert(cmobile+"-->"+cemail+"-->"+csname+"-->"+cname);
-	//alert(cotp+"-->"+cpassword);
+	//alert(cmobile+""+cemail+""+csname+""+cname);
+	//alert(cotp+""+cpassword);
 	
 		
 		$.ajax({
@@ -589,10 +622,7 @@ alert(cmobile+"-->"+cemail+"-->"+csname+"-->"+cname);
 			error :  function(e){$.unblockUI();console.log(e);}
 			
 		});
-
 	}
-
-
 	$(".cancel1").click(function()
 			{
 				$("#id").val(0);
@@ -667,7 +697,6 @@ alert(cmobile+"-->"+cemail+"-->"+csname+"-->"+cname);
 			  subValidation =false;
 			  
 		}
-
 			}); 
 	
 	
@@ -791,7 +820,6 @@ alert(cmobile+"-->"+cemail+"-->"+csname+"-->"+cname);
 	$(".acc").addClass("active");
 	
 	
-
 	/* $('#cpassword').blur(function() {
 		ccpassword =$('#cpassword').val();
 		//alert(ccpassword);
@@ -859,5 +887,5 @@ alert(cmobile+"-->"+cemail+"-->"+csname+"-->"+cname);
 	}
 	
 	
-</script>
+</script> -->
     <jsp:include page="footer.jsp" />

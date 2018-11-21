@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <jsp:include page="header.jsp" />
+    
+    <script src="/js/indexController.js"></script>
 <div class="container">
     
         <!--Banner Slider Start-->
@@ -151,13 +153,14 @@
             
             </div>
         </section>
-        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+        </div>
+        <!-- <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="js/jquery-easing-1.3.js"></script>
         
         <script type="text/javascript">
         var getTabName = window.location.pathname.split('/')[1];
         
         $("a[href='index']").parents('li').addClass('active');
-        </script>
+        </script> -->
         <!--Service Container End-->
             <jsp:include page="footer.jsp" />

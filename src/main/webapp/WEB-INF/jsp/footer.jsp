@@ -125,10 +125,10 @@
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="js/jquery-easing-1.3.js"></script>
 
-<!--Flexy Menu Script-->
+Flexy Menu Script
 <script type="text/javascript" src="js/flexy-menu.js"></script>
 
-<!--LayerSlider Script-->
+LayerSlider Script
 <script src="layerslider/jQuery/jquery-transit-modified.js" type="text/javascript"></script>
 <script src="layerslider/js/layerslider.transitions.js" type="text/javascript"></script>
 <script src="layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>

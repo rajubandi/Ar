@@ -105,11 +105,14 @@ public class HomeController {
 	}
 	
 	@PostMapping("/customerlogin")
-	public String validateCustomerLogin(Model model,HttpServletRequest request,HttpSession session,RedirectAttributes redir) throws JsonProcessingException {
+	public String validateCustomerLogin(Users users,Model model,HttpServletRequest request,HttpSession session,RedirectAttributes redir) throws JsonProcessingException {
 		
 		LOGGER.debug("Validating Customer Login page index::{} at controller");
-		String loginid=request.getParameter("username");
+		/*String loginid=users.getParameter("username");
 		String password=request.getParameter("password");
+		*/
+		String loginid=users.getUserName();
+		String password=users.getPassword();
 		
 		Users customer =userService.validateCustomer(loginid,password);
 		String referalUrl=request.getHeader("referer");

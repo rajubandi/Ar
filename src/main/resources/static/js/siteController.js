@@ -1,4 +1,3 @@
-var app = angular.module('app', []);
 app.controller('saveSite', function($scope, $http, $location) {
 	$scope.siteForm = function(){
 		//var url = "http://"+$location.host+":"+$location.port+"/"+ "saveSite";
