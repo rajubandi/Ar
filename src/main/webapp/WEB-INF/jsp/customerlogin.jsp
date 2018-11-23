@@ -7,8 +7,11 @@
 <spring:url var="loginAction" value="/loginAction"></spring:url>
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<!--     <script src="/js/jquery.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'> -->
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
@@ -19,11 +22,9 @@
     <![endif]-->
 
     <!-- The following CSS are included as plugins and can be removed if unused-->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	  <script src="/js/angular-animate.min.js"></script>
-	  <script src="/js/angular-touch.min.js"></script>
-	  <script src="/js/ui-bootstrap-tpls.min.js"></script>
-	  <script src="/js/customerLoginController.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
+	 
+<!-- 	  <script src="/js/customerLoginController.js"></script> -->
 
 
 <style type="text/css">
@@ -95,7 +96,7 @@ margin-bottom:10px;
 
 <%--     <%@include file="abheeheader.jsp" %> --%>
 
-<div ng-controller="customerLoginController">
+<div >
 	<div style="margin-bottom:45px;" class="main">
 		<div class="main-row">
 			<!-- login form -->
@@ -112,11 +113,11 @@ margin-bottom:10px;
 						<h4>Login</h4>
 					</div>					
 									<div class="clearfix"></div>
-						<form action="customerlogin" method="post" ng-submit="loginForm()"> 
+						<form action="customerlogin" method="post" > 
 					<div class="login-top"> 	
-						  <input type="hidden" name="userType" id="userType" value="customerUser" ng-model="users.userType"/>
-							<input type="text"  name="userName" ng-model="users.userName" id="cmusername" class="form-control validate numericOnly2"  onfocus="this.placeholder=''" onblur="this.placeholder='Mobile Number'"  maxlength="10"   placeholder="Mobile Number"/>
-							<input type="password"  name="password"  ng-model="users.password" id="cmpassword" onfocus="this.placeholder=''"  class="form-control  numericOnly"  maxlength="4"  onblur="this.placeholder='Password'" placeholder="Password"  />
+						  <input type="hidden" name="userType" id="userType" value="customerUser" />
+							<input type="text"  name="userName"  id="cmusername" class="form-control validate numericOnly2"  onfocus="this.placeholder=''" onblur="this.placeholder='Mobile Number'"  maxlength="10"   placeholder="Mobile Number"/>
+							<input type="password"  name="password"  id="cmpassword" onfocus="this.placeholder=''"  class="form-control  numericOnly"  maxlength="4"  onblur="this.placeholder='Password'" placeholder="Password"  />
 						
 					</div> 
 					<div class="login-bottom"> 
@@ -127,13 +128,13 @@ margin-bottom:10px;
 						
 						   <!--  <input   class="btn btn-danger" type="reset" value="Reset"> 
 							<input  class="btn btn-primary" type="submit" value="Login"> -->
-							<button type="submit"  id="csubmit" ng-model="csubmit" class="btn btn-primary"  value="Login">Login</button>
+							<button type="submit"  id="csubmit"  class="btn btn-primary"  value="Login">Login</button>
 							<button class="btn btn-danger" type="reset"  value="Reset">Reset</button>
 						</div><div class="clearfix"></div>
 					</div>
 					</form> 	
 					<div class="login-bottom"> 
-						<h6 style="margin-top:10px;">Click Here To <a href="#" data-toggle="modal" ng-click="openRegistrationModel()" style="color: red; text-decoration:underline;" class="tag">Register</a></h6>
+						<h6 style="margin-top:10px;">Click Here To <a href="#" data-toggle="modal"  style="color: red; text-decoration:underline;" class="tag">Register</a></h6>
 					</div> 
 
 				</div>  
@@ -145,7 +146,7 @@ margin-bottom:10px;
 	</div>	
 
 
- <div  class="modal fade" id="register-info" role="dialog">
+ <div  class="modal fade" id="register-info" role="dialog" >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -308,7 +309,7 @@ margin-bottom:10px;
   </div> 
   
  
-	<div class="modal fade modalcss" id="passwordModel" data-backdrop="static" data-keyboard="false" role="dialog" ng-show="modalOpen">
+	<%-- <div class="modal fade modalcss" id="passwordModel" data-backdrop="static" data-keyboard="false" role="dialog" >
     <div class="modal-dialog">
     
      
@@ -344,16 +345,16 @@ margin-bottom:10px;
       </div>
       
     </div>
-  </div> 
+  </div>  --%>
 </div>
-<!-- <script type='text/javascript' src='js/customValidation.js'></script>  -->
+<script type='text/javascript' src='js/customValidation.js'></script> 
 
-<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  -->
 		
 
 <%-- <%@include file="abheefooter.jsp" %> --%>
-<!-- <script type="text/javascript">
-var validation = true;
+<script type="text/javascript">
+/* var validation = true;
 var mobilevalidation=true;
 var subValidation =false;
 $('#cmobile').blur(function() {
@@ -365,7 +366,7 @@ $('#cmobile').blur(function() {
 		return false;
 	}
 	else
-	{
+	{ */
 	/* }
 	var cmobile=$(this).val();
 	$('span.error-keyup-4').remove();
@@ -400,7 +401,7 @@ $('#cmobile').blur(function() {
 	
 	  
 	
-	
+	/* 
 	$.ajax({
 				type : "POST",
 				url : "checkCustExst",
@@ -439,7 +440,7 @@ $('#cmobile').blur(function() {
 	  
     }
 	
-		}); 
+		});  */
 		
 		
 /* $('#crtpassword').blur(function() {
@@ -466,7 +467,7 @@ $('#cmobile').blur(function() {
 	
 }); 
 		 */
-		
+/* 		
 var cmobile =0
 var cemail =0
 var csname =0
@@ -526,18 +527,39 @@ var idArrayCmt1 = null;
 		$("#submit1").attr("disabled",true);
 		$("#submit1").val("Please wait...");
 		$("#submit1").submit();											
-		getOTP();
+		//getOTP();
 	}else {
 		return false;
 		 event.preventDefault(); 
 	}
 	
-});
-function getOTP()
+}); */
+	
+	function openRegistrationModel()
+	{
+		$(".cancel1").click();
+		//makeEmptyRegistration();
+		$('#register-info').modal();
+		
+	}
+	
+	/* function makeEmptyRegistration()
+	{
+		$('#csname').val("");
+		$('#cname').val("");
+		$('#cmobile').val("");
+		$('#cemail').val("");
+		$('#csname').val("");
+		$('#cpassword').val("");
+		$('#crtpassword').val("");
+		
+		$('#cemail').css('border-color', 'none');
+	} */
+	 /*function getOTP()
 {
 	
 	 cmobile =$('#cmobile').val();
-	 /*cemail =$('#cemail').val();
+	cemail =$('#cemail').val();
 	 csname =$('#csname').val();
 	 cname =$('#cname').val();
 	 
@@ -793,13 +815,7 @@ alert(cmobile+""+cemail+""+csname+""+cname);
 		$('#cemail').css('border-color', 'none');
 	}
 	
-	function openRegistrationModel()
-	{
-		$(".cancel1").click();
-		makeEmptyRegistration();
-		$('#register-info').modal();
-		
-	}
+	
 	
 	
 	
@@ -840,7 +856,7 @@ alert(cmobile+""+cemail+""+csname+""+cname);
 		
 	});  */
 	
-	function makeEmptyOtp()
+	/* function makeEmptyOtp()
 	{
 		$('#cotp').val("");
 		/* $('#csname').val("");
@@ -851,7 +867,7 @@ alert(cmobile+""+cemail+""+csname+""+cname);
 		$('#cpassword').val("");
 		$('#crtpassword').val("");
 		
-		$('#cemail').css('border-color', 'none'); */
+		$('#cemail').css('border-color', 'none'); 
 	}
 	
 	
@@ -885,7 +901,7 @@ alert(cmobile+""+cemail+""+csname+""+cname);
 			
 		});
 	}
+	 */
 	
-	
-</script> -->
+</script>
     <jsp:include page="footer.jsp" />

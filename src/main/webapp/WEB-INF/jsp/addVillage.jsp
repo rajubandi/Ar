@@ -69,7 +69,7 @@
 											</div> -->
 											<div class="form-group mb-0 row justify-content-end">
 												<div class="col-md-8 float-right">
-													<button type="submit" class="btn btn-primary waves-effect waves-light">Sign in</button>
+													<button type="submit" class="btn btn-primary waves-effect waves-light">Add</button>
 												</div>
 											</div>
 										</form>

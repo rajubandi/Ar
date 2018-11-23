@@ -2,16 +2,12 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE HTML>
-<html  ng-app="app">
+<html >
 <head>
 <link rel="Shortcut Icon" href="images/fav.png" type="image/x-icon" />
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <title>Amaravati Realtors</title>
-
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
- <script src="/js/main.js"></script>
- <script src="/js/headerController.js"></script>
 
 <!--Main Element CSS-->
 <link href="css/style.css" rel="stylesheet" type="text/css">
@@ -22,7 +18,8 @@
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900|Oswald:400,300,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
+<script src='/js/jquery.min.js'></script>
+<!--      <script src="/js/bootstrap-dropdownhover.min.js"></script>  -->
 <style>
 /* .input-group-addon {
     padding: 3px 12px;
@@ -105,7 +102,7 @@ color:#fff;
 
 	<!--Header Start-->
     <header class="header-section">
-    	<div class="wrapper header" ng-controller="headerController">
+    	<div class="wrapper header">
         	
             <div class="logo">
             	<a href="#"><img src="images/logo.png" alt="logo" /></a>
@@ -126,22 +123,33 @@ color:#fff;
                     </ul>
                     
                 </li>
-			     <li class="dropdown acc" ng-init="checkLogin='${loggedstatus}';userName='${customerName}'">
-			          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" data-hover="dropdown">Hello! <span >{{checkLogin!=' ' ? userName : 'Sign-in'}}</span></a>
-			          <ul style="width:100% !important;" class="dropdown-menu myacd">
-			          <li id="cmlist"></li>
-				     <li ng-if="checkLogin!=''"><a href="${baseurl}/customerprofile">My Profile</a></li>
-				     <li ng-if="checkLogin!=''"><a href="${baseurl}/signout">Sign out</a></li>
-				     <li ng-if="checkLogin==''"><a href="customerlogin">Sign in</a></li>
-				<%-- <c:choose>
-			    <c:when test="${not empty loggedstatus}">
-			     <script type="text/javascript"> var login=true;</script>
-			     
-			    </c:when>
-			    <c:otherwise>
-			        <script type="text/javascript"> var login=false;</script>
-			    </c:otherwise>
-			</c:choose> --%>
+<%-- 			     <li class="dropdown acc" ng-init="checkLogin='${loggedstatus}';userName='${customerName}'"> --%>
+<!-- 			          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" data-hover="dropdown">Hello! <span >{{checkLogin!=' ' ? userName : 'Sign-in'}}</span></a> -->
+<!-- 			          <ul style="width:100% !important;" class="dropdown-menu myacd"> -->
+<!-- 			          <li id="cmlist"></li> -->
+<%-- 				     <li ng-if="checkLogin!=''"><a href="${baseurl}/customerprofile">My Profile</a></li> --%>
+<%-- 				     <li ng-if="checkLogin!=''"><a href="${baseurl}/signout">Sign out</a></li> --%>
+<!-- 				     <li ng-if="checkLogin==''"><a href="customerlogin">Sign in</a></li> -->
+				  <li><a href="#">Hello! <span id="loggedCustomerName"></span></a> 
+					<c:choose>
+				    <c:when test="${not empty loggedstatus}">
+				      <script type="text/javascript"> $("#loggedCustomerName").text("${customerName}");var login=true;</script>
+				      <ul>
+				     <li><a href="${baseurl}/customerprofile">My Profile</a></li>
+				            <li><a href="${baseurl}/signout">Sign out</a></li>
+				            </ul>
+				    </c:when>
+				    <c:otherwise>
+				     <script> $("#loggedCustomerName").text("Sign-in"); var login=false;</script>
+				     <ul>
+				        <li><a href="customerlogin">Sign in</a></li>
+				        </ul>
+				    </c:otherwise> 
+				</c:choose>
+				
+				
+				</li>
+				</ul>
        <!--  <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown">Register <span class="caret"></span></a><div class="arrow-down"></div>
           <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu">
@@ -217,9 +225,6 @@ color:#fff;
             </div>
           </ul>
         </li> -->
-   				</ul>
-            </li>
-    			</ul>
             <!--Navigation Menu End-->
             
         </div>

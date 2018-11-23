@@ -1,4 +1,4 @@
-var app = angular.module('app',['ngTouch','ngAnimate','ui.bootstrap']);
+//var app = angular.module('app',['ngTouch','ngAnimate','ui.bootstrap']);
 app.controller('saveSite', function($scope, $http, $location) {
 	$scope.siteForm = function(){
 		//var url = "http://"+$location.host+":"+$location.port+"/"+ "saveSite";

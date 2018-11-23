@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <jsp:include page="header.jsp" />
     
-    <script src="/js/indexController.js"></script>
+<!--     <script src="/js/indexController.js"></script> -->
 <div class="container">
     
         <!--Banner Slider Start-->

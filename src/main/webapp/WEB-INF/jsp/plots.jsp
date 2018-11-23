@@ -26,8 +26,8 @@
 }
 
       </style>  
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> 
-      <script src="/js/plotController.js"></script> 
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> 
+      <script src="/js/plotController.js"></script>  -->
         <!-- SubHeader -->
         <div class="content">
         <div class="careerfy-subheader">
@@ -45,7 +45,7 @@
         <!-- SubHeader -->
 
         <!-- Main Content -->
-        <div class="careerfy-main-content" ng-controller="plotsController">
+        <div class="careerfy-main-content" >
             
             <!-- Main Section -->
             <div class="careerfy-main-section ">
@@ -80,12 +80,12 @@
                                             <input type="submit" value="">
                                             <i class="careerfy-icon careerfy-search"></i>
                                         </div>
-                                        <ul class="careerfy-checkbox" >
-                                            <li ng-repeat="(k,v) in villages | customFilter:searchVillage">
+                                        <ul class="careerfy-checkbox"  id="villageList">
+                                            <!-- <li ng-repeat="(k,v) in villages | customFilter:searchVillage">
                                                 <input type="checkbox" id={{k}} name={{k}} />
                                                 <label for={{k}}><span></span>{{v}}</label>
                                                 <small>13</small>
-                                            </li>
+                                            </li> -->
                                           
                                         </ul> 
                                       
@@ -176,12 +176,13 @@
                                     <h2>Showing 0-12 of 300 results</h2>
                                 </div>
                                 <!-- FilterAble -->
-                                <!-- JobGrid -->
-                                <div class="careerfy-job careerfy-joblisting-classic" ng-init="loginCheck='<%=session.getAttribute("loggedstatus")%>'">
-                                 <input type="hidden" name="loginCheck" ng-model="loginCheck">
+                                <!-- JobGrid  <%=session.getAttribute("loggedstatus")%> -->
                                 
-                                    <ul class="careerfy-row">
-                                        <li class="careerfy-column-12" ng-repeat="eachsite in allSites">
+                                <div class="careerfy-job careerfy-joblisting-classic" >
+                                 <input type="hidden" name="loginCheck" >
+                                
+                                    <ul class="careerfy-row" id="ulSiteList">
+                                       <!--  <li class="careerfy-column-12" ng-repeat="eachsite in allSites">
                                             <div class="careerfy-joblisting-classic-wrap">
                                                 <div class="careerfy-joblisting-text">
                                                     <div class="careerfy-list-option">
@@ -200,7 +201,7 @@
                                                 <div class="clearfix"></div>
                                                 </div>
                                             </div>
-                                        </li>
+                                        </li> -->
                                       <!--   
                                         <li class="careerfy-column-12">
                                             <div class="careerfy-joblisting-classic-wrap">
@@ -463,6 +464,9 @@
 <script src="layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
 
 <script type="text/javascript">
+var villageList = ${villagesListMap};
+var AllSiteList = ${siteList};
+
    jQuery(document).ready(function() {
 	  "use strict"; 
      
@@ -504,7 +508,65 @@
 			jQuery('html, body').animate({scrollTop: 0}, duration);
 			return false;
 		})
+		
+		
+		$.each(villageList, function(i, item) {
+			
+			
+			$("#villageList").append('<li><input type="checkbox" id='+i+' name='+i+' /><label><span></span>'+item+'</label><small>13</small></li>');
+			
+		});
+		
+		$.each(AllSiteList, function(i, item) {
+			
+			
+			$("#ulSiteList").append('<li class="careerfy-column-12">'
+                    	+'<div class="careerfy-joblisting-classic-wrap">'
+                    	+'<div class="careerfy-joblisting-text">'
+                        +'<div class="careerfy-list-option">'
+                        +'<h2><a href="#">"'+  item.sqYd +'" Sq.Yd - <i class="fa fa-rupee"></i>"'+  item.price +'"</a>'
+                        +' <span>Listing ID: "'+  item.listingId +'"</span></h2>'
+                        +'<ul>'
+                        +' <li><a href="#">@ Commercial</a></li>'
+                        +'<li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>"'+  item.colony +'" Colony</strong></li>'
+                        +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> "'+  item.propertyType +'"</li>'
+                        +'<p class="italic">03 Nov 2018</p>'
+                        +'</ul>'
+                        +'</div>'
+                        +'<div class="careerfy-job-userlist">'
+                      
+                        +'<button id="'+item.id+'" onclick="iAmIntrested('+item.id+')" class="careerfy-option-btn">I am Interested</button>'
+                        +'</div>'
+                        +'<div class="clearfix"></div>'
+                        +'</div>'
+                        +'</div>'
+                        +'</li>');
+			
+		});
    });
+   
+   function iAmIntrested(id){
+	  // var siteId = $(this).id;
+	  
+	   if(login){
+		   $.ajax({
+				type : "POST",
+				url : "userIntrestedSite",
+				data :"id="+id,
+				dataType : "text",
+				success : function(data) {
+					alert("success");
+				},
+				
+			});
+			
+		}else{
+			window.location.href='/customerlogin';
+		}
+	  
+	  
+	 
+   }
    
    var getTabName = window.location.pathname.split('/')[1];
    //$("#li").addClass('active');
