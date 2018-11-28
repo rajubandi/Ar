@@ -22,7 +22,7 @@ import com.charvikent.RealEstateAdvisors.config.SendingMail;
 import com.charvikent.RealEstateAdvisors.model.Site;
 import com.charvikent.RealEstateAdvisors.model.UserIntrestedSites;
 import com.charvikent.RealEstateAdvisors.model.Users;
-import com.charvikent.RealEstateAdvisors.model.VillagesBeaUserIntrestedSites;
+import com.charvikent.RealEstateAdvisors.model.VillagesBean;
 import com.charvikent.RealEstateAdvisors.repositories.SiteRepository;
 import com.charvikent.RealEstateAdvisors.service.SiteService;
 import com.charvikent.RealEstateAdvisors.service.UserIntrestedSitesServiceImpl;
@@ -50,8 +50,8 @@ public class PlotsController {
 		String json = null;
 		String json1 = null;
 		List<Site> siteList = siteRepository.findAll(); 
-		List<VillagesBeaUserIntrestedSites> villagesList =villageService.findAllVillagesBean();
-		for(VillagesBeaUserIntrestedSites villageBean: villagesList) {
+		List<VillagesBean> villagesList =villageService.findAllVillagesBean();
+		for(VillagesBean villageBean: villagesList) {
 			 
 			  villagesListMap.put(new Integer(villageBean.getId()),villageBean.getvName());
 		 }

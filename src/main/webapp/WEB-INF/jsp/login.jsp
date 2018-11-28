@@ -1,101 +1,145 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <spring:url var="loginAction" value="/loginAction"></spring:url>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Amaravati Realtors</title>
-   <link rel="Shortcut Icon" href="images/fav.png" type="image/x-icon" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-<link rel='stylesheet' type='text/css' href='assets/plugins/charts-morrisjs/morris.css' /> 
-<link rel='stylesheet' type='text/css' href='assets/plugins/codeprettifier/prettify.css' /> 
-<link rel='stylesheet' type='text/css' href='assets/plugins/form-toggle/toggles.css' /> 
-<link rel='stylesheet' type='text/css' href='assets/plugins/datatables/dataTables.css' />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  </head>
+<meta charset="utf-8">
+<title>Amaravati Realtors</title>
+<link rel="Shortcut Icon" href="images/fav.png" type="image/x-icon" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel='stylesheet' type='text/css'
+	href='assets/plugins/charts-morrisjs/morris.css' />
+<link rel='stylesheet' type='text/css'
+	href='assets/plugins/codeprettifier/prettify.css' />
+<link rel='stylesheet' type='text/css'
+	href='assets/plugins/form-toggle/toggles.css' />
+<link rel='stylesheet' type='text/css'
+	href='assets/plugins/datatables/dataTables.css' />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
 </body>
-    <link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/styles.css">
 <!--     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'> -->
-    
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
-    <!--[if lt IE 9]>
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
+<!--[if lt IE 9]>
         <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
         <script type="text/javascript" src="assets/plugins/charts-flot/excanvas.min.js"></script>
     <![endif]-->
 
-    <!-- The following CSS are included as plugins and can be removed if unused-->
+<!-- The following CSS are included as plugins and can be removed if unused-->
 
 
 
 <style type="text/css">
 .alert {
-    padding: 15px;
-    margin-bottom: 0px;
-    border: 1px solid transparent;
-    border-radius: 1px;
+	padding: 15px;
+	margin-bottom: 0px;
+	border: 1px solid transparent;
+	border-radius: 1px;
 }
-.alert-success, .alert-warning, .alert-danger{color: white !important;}
-.alert-success{background-color: #4CAF50 !important;}
-.alert-warning{background-color: #ff6600 !important;}
-.alert-danger{background-color: #d43f3a !important; padding: 5px;
-    width: 208px;
-    margin: 0 auto;}
 
-.your-class::-webkit-input-placeholder {color: #e73d4a !important;}
-.your-class::-moz-placeholder {color: #e73d4a !important;}
+.alert-success, .alert-warning, .alert-danger {
+	color: white !important;
+}
 
-.default-class::-webkit-input-placeholder {color: #e73d4a !important;}
-.default-class::-moz-placeholder {color: #e73d4a !important;}
-.panel-primary .panel-body {}
+.alert-success {
+	background-color: #4CAF50 !important;
+}
+
+.alert-warning {
+	background-color: #ff6600 !important;
+}
+
+.alert-danger {
+	background-color: #d43f3a !important;
+	padding: 5px;
+	width: 208px;
+	margin: 0 auto;
+}
+
+.your-class::-webkit-input-placeholder {
+	color: #e73d4a !important;
+}
+
+.your-class::-moz-placeholder {
+	color: #e73d4a !important;
+}
+
+.default-class::-webkit-input-placeholder {
+	color: #e73d4a !important;
+}
+
+.default-class::-moz-placeholder {
+	color: #e73d4a !important;
+}
+
+.panel-primary .panel-body {
+	
+}
+
 .modal-header {
-	background-color:#ffb902;
+	background-color: #ffb902;
 }
-.anchor{
-	float:right;
+
+.anchor {
+	float: right;
 }
+
 .tag {
-	color:#FF0000;
+	color: #FF0000;
 }
+
 .focusedform .verticalcenter {
-    position: absolute;
-    top: 42%;
-    left: 50%;
-    margin-top: -186px;
-    margin-left: -200px;
+	position: absolute;
+	top: 42%;
+	left: 50%;
+	margin-top: -186px;
+	margin-left: -200px;
 }
+
 .focusedform .panel {
-    width: 400px;
+	width: 400px;
 }
+
 .panel-primary {
-    border-color: #4f8edc;
+	border-color: #4f8edc;
 }
+
 .panel {
-    margin: 0px 0 20px;
-    border-radius: 1px;
+	margin: 0px 0 20px;
+	border-radius: 1px;
 }
+
 [class*="panel-"].panel .panel-footer {
-    background-color: #f7f8fa;
-    border-width: 0 1px 1px 1px;
-    border-style: solid;
-    border-color: #dddddd;
-    padding: 10px 20px;
-    color: #000000;
-    text-align:right;
+	background-color: #f7f8fa;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	border-color: #dddddd;
+	padding: 10px 20px;
+	color: #000000;
+	text-align: right;
 }
+
 .pull-right {
-    float: right !important;
+	float: right !important;
 }
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 <!-- <script type='text/javascript' src='assets/js/jquery-1.10.2.min.js'></script> -->
@@ -110,161 +154,194 @@
 </head>
 
 <body class="focusedform">
-<div class="verticalcenter">
-<div><img src="images/logo.png" style="width:;" class="img-responsive"></div>
-<!-- 	<h1 align="center">KHAIBAR GAS</h1> -->
-	<div class="panel panel-primary">
-		<form  action=login class="form-horizontal" method="POST"  style="margin-bottom: 0px !important;">
-		<div class="panel-body">
-			<h4 class="text-center" style="margin-bottom: 25px;">Login to get started</h4>
-			<c:if test="${param.error ne null}">
-			   
-			   <div class="msgcss1 row">
-									<div align="center" class="form-group">
-										<div style="width:80%" class=" msgcss alert alert-danger fadeIn animated">Invalid username and password.</div>
-									</div>
-								</div>
-				<%-- <div class="alert-danger">Invalid username and password.</div>
+	<div class="verticalcenter">
+		<div>
+			<img src="images/logo.png" style="width:;" class="img-responsive">
+		</div>
+		<!-- 	<h1 align="center">KHAIBAR GAS</h1> -->
+		<div class="panel panel-primary">
+			<form action=login class="form-horizontal" method="POST"
+				style="margin-bottom: 0px !important;">
+				<div class="panel-body">
+					<h4 class="text-center" style="margin-bottom: 25px;">Login to
+						get started</h4>
+					<c:if test="${param.error ne null}">
+
+						<div class="msgcss1 row">
+							<div align="center" class="form-group">
+								<div style="width: 80%"
+									class=" msgcss alert alert-danger fadeIn animated">Invalid
+									username and password.</div>
+							</div>
+						</div>
+						<%-- <div class="alert-danger">Invalid username and password.</div>
 			
 				<div class="col-sm-12" style="margin-bottom: -1.3em;">
 					<div class="form-group">
 						<div class="msgcss fadeIn animated alert" style="text-align: center;">${msg}</div>
 					</div>
 				</div> --%>
-			</c:if>
-			
-			  <input type="hidden" name="userType" id="userType" value="adminUser"/>
-			<div class="form-group">
-				<div class="col-sm-12">
-					<div class="input-group">
-						<span class="input-group-addon"><i class="fa fa-user"></i></span>
-						<input type="text"  name= "username" id="muser" autofocus="autofocus" class="form-control"  placeholder=" Mobile Number"/>
+					</c:if>
+
+					<input type="hidden" name="userType" id="userType"
+						value="adminUser" />
+					<div class="form-group">
+						<div class="col-sm-12">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								<input type="text" name="username" id="muser"
+									autofocus="autofocus" class="form-control"
+									placeholder=" Mobile Number" />
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-12">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+								<input type="password" name="password" id="mpass"
+									class="form-control " placeholder="Password" />
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<div class="col-sm-12">
-					<div class="input-group">
-						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-						<input type="password" name="password" id="mpass" class="form-control "  placeholder="Password"/>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="panel-footer">
-			
-				<input type="submit"  id="mlogin" value="Sign-in"  class="btn btn-primary waves-effect waves-light">
-				<input type="reset" value="Reset" class="btn btn-danger cancel"/>
-				<!-- <input type="reset" value="Reset" class="btn btn-default cancel"/>
+				<div class="panel-footer">
+
+					<input type="submit" id="mlogin" value="Sign-in"
+						class="btn btn-primary waves-effect waves-light"> <input
+						type="reset" value="Reset" class="btn btn-danger cancel" />
+					<!-- <input type="reset" value="Reset" class="btn btn-default cancel"/>
 				<input type="submit" id="submit1" value="Sign-in"  class="btn btn-primary"> -->
-			
+
+				</div>
+				<input type="hidden" name="${_csrf.parameterName}"
+					value="${_csrf.token}" />
+			</form>
 		</div>
-		<input type="hidden" name="${_csrf.parameterName}"
-			value="${_csrf.token}" />
-		</form>
+
+		<!-- <p class="anchor"> New Customer Registration <a href="#" data-toggle="modal" data-target="#register-info" class="tag">Click here</a></p> -->
 	</div>
-	
-	<!-- <p class="anchor"> New Customer Registration <a href="#" data-toggle="modal" data-target="#register-info" class="tag">Click here</a></p> -->
-</div>
- <div  class="modal fade" id="register-info" role="dialog">
-    <div class="modal-dialog">
-    
-     
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Customer Registration</h4>
-        </div>
-        <div class="modal-body">
-          <form  action="#"  id="registration"  method="post" class="login-form">
-          
- 
+	<div class="modal fade" id="register-info" role="dialog">
+		<div class="modal-dialog">
+
+
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Customer Registration</h4>
+				</div>
+				<div class="modal-body">
+					<form action="#" id="registration" method="post" class="login-form">
+
+
 
 						<div id="firstForm">
-						
-						<div class="form-group">
-								<label for="user_name"> First Name :</label> 
-								<input	type="text" name="csname" id="csname" onkeydown="removeBorder(this.id)" class="form-control validate1 onlyCharacters" placeholder="Enter First Name"/>
-								<span class="hasError" id="csnamelError" style="font-size: 13px;"></span>
+
+							<div class="form-group">
+								<label for="user_name"> First Name :</label> <input type="text"
+									name="csname" id="csname" onkeydown="removeBorder(this.id)"
+									class="form-control validate1 onlyCharacters"
+									placeholder="Enter First Name" /> <span class="hasError"
+									id="csnamelError" style="font-size: 13px;"></span>
 							</div>
 							<div class="form-group">
-								<label for="user_name">Last Name :</label> 
-								<input	type="text" name="cname" id="cname" onkeydown="removeBorder(this.id)" class="form-control validate1 onlyCharacters" placeholder="Enter Last Name"/>
-								<span class="hasError" id="cnameError" style="font-size: 13px;"></span>
+								<label for="user_name">Last Name :</label> <input type="text"
+									name="cname" id="cname" onkeydown="removeBorder(this.id)"
+									class="form-control validate1 onlyCharacters"
+									placeholder="Enter Last Name" /> <span class="hasError"
+									id="cnameError" style="font-size: 13px;"></span>
 							</div>
 							<div class="form-group">
-								<label for="user_name">Enter MobileNumber :</label> 
-								<input	type="text" name="cmobile" id="cmobile" onkeydown="removeBorder(this.id)" maxlength="10" class="form-control validate1 numericOnly" placeholder="Enter Mobile Number"/>
-								<span class="hasError" id="cmobileError" style="font-size: 13px;"></span>
+								<label for="user_name">Enter MobileNumber :</label> <input
+									type="text" name="cmobile" id="cmobile"
+									onkeydown="removeBorder(this.id)" maxlength="10"
+									class="form-control validate1 numericOnly"
+									placeholder="Enter Mobile Number" /> <span class="hasError"
+									id="cmobileError" style="font-size: 13px;"></span>
 							</div>
 
 							<div class="form-group">
-								<label for="user_name">Enter Your Email-Id :</label> 
-								<input	type="email" name="cemail" id="cemail" onkeydown="removeBorder(this.id)" class="form-control validate1 emailOnly" placeholder="Enter Email"/>
-								<span class="hasError" id="emailError" style="font-size: 13px;"></span>
+								<label for="user_name">Enter Your Email-Id :</label> <input
+									type="email" name="cemail" id="cemail"
+									onkeydown="removeBorder(this.id)"
+									class="form-control validate1 emailOnly"
+									placeholder="Enter Email" /> <span class="hasError"
+									id="emailError" style="font-size: 13px;"></span>
 							</div>
 							<div class="form-group">
-								<label for="user_name">Enter  password (Max 4 Digits) :</label> 
-								<input	type="password" name="cpassword" id="cpassword" onkeydown="removeBorder(this.id)" maxlength="4" class="form-control validate1 numericOnly" placeholder="Enter password" />
-								<span class="hasError" id="cpasswordError" style="font-size: 13px;"></span>
+								<label for="user_name">Enter password (Max 4 Digits) :</label> <input
+									type="password" name="cpassword" id="cpassword"
+									onkeydown="removeBorder(this.id)" maxlength="4"
+									class="form-control validate1 numericOnly"
+									placeholder="Enter password" /> <span class="hasError"
+									id="cpasswordError" style="font-size: 13px;"></span>
 							</div>
 							<div class="form-group">
-								<label for="user_name">Retype password :</label> 
-								<input	type="password" name="crtpassword"  id="crtpassword" onkeydown="removeBorder(this.id)"  maxlength="4" class="form-control validate1 numericOnly" placeholder="Enter Retype Password"/>
-								<span class="hasError" id="crtpasswordError" style="font-size: 13px;"></span>
+								<label for="user_name">Retype password :</label> <input
+									type="password" name="crtpassword" id="crtpassword"
+									onkeydown="removeBorder(this.id)" maxlength="4"
+									class="form-control validate1 numericOnly"
+									placeholder="Enter Retype Password" /> <span class="hasError"
+									id="crtpasswordError" style="font-size: 13px;"></span>
 							</div>
-							
-							
-							
+
+
+
 						</div>
-					</form>	
-        </div>
-        <div class="modal-footer">
-          <button type="button" id="submitModel"  class="btn btn-primary" data-dismiss="modal">Submit</button>
-           <input type="reset" value="Reset" class="btn-danger btn cancel1"/>
-        </div>
-      </div>
-      
-    </div>
-  </div> 
-  
-  <div class="modal fade" id="OTPModel" data-backdrop="static" data-keyboard="false" role="dialog">
-    <div class="modal-dialog">
-    
-     
-      <div class="modal-content">
-        <div class="modal-header">
-          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-          <h4 class="modal-title">OTP Verification</h4>
-        </div>
-        <div class="modal-body">
-          <form  action="#"  id="registration1"  method="post" class="login-form">
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="submitModel" class="btn btn-primary"
+						data-dismiss="modal">Submit</button>
+					<input type="reset" value="Reset" class="btn-danger btn cancel1" />
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="modal fade" id="OTPModel" data-backdrop="static"
+		data-keyboard="false" role="dialog">
+		<div class="modal-dialog">
+
+
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+					<h4 class="modal-title">OTP Verification</h4>
+				</div>
+				<div class="modal-body">
+					<form action="#" id="registration1" method="post"
+						class="login-form">
 
 						<div id="firstForm1">
 
-							
+
 							<div class="form-group">
-								<label for="user_name">Enter OTP :</label> 
-								<input	type="password" name="cotp" id="cotp" onkeydown="removeBorder(this.id)" maxlength="4" class="form-control numericOnly" placeholder="Enter OTP"/>
-								<span class="hasError" id="emailError" style="font-size: 13px;"></span>
+								<label for="user_name">Enter OTP :</label> <input
+									type="password" name="cotp" id="cotp"
+									onkeydown="removeBorder(this.id)" maxlength="4"
+									class="form-control numericOnly" placeholder="Enter OTP" /> <span
+									class="hasError" id="emailError" style="font-size: 13px;"></span>
 							</div>
-							
+
 						</div>
-					</form>	
-        </div>
-        <div class="modal-footer">
-          <button type="button" id="submit2" onclick="modelsubmit()" class="btn btn-primary" >Submit</button>
-         
-        </div>
-      </div>
-      
-    </div>
-  </div> 
-  
-  
-  
-<script type='text/javascript' src='js/customValidation.js'></script> 
-<script type='text/javascript' src="js/jquery.blockUI.min.js" ></script>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="submit2" onclick="modelsubmit()"
+						class="btn btn-primary">Submit</button>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<script type='text/javascript' src='js/customValidation.js'></script>
+	<script type='text/javascript' src="js/jquery.blockUI.min.js"></script>
 </body>
 <script type="text/javascript">
 

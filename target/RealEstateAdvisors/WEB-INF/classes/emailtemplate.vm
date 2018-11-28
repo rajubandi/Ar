@@ -1,0 +1,14 @@
+<html>  
+  <body>
+  <h4>Order Details<h4> 
+  <div> 
+  <h3> Name : </h3> ${name},<br> 
+  <b>Mobile Number: </b> ${mobileNumber},<br> 
+  <b>Delivery Date: </b> ${deliveryDate},<br> 
+  <b>Delivery Location: </b> ${deliveryLocation},<br> 
+  <b>Message On Chocolate: </b> ${messageOnChocolate}<br> 
+ 
+  <div> 
+   
+  </body>  
+  </html>       

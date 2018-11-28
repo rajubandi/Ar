@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.charvikent.RealEstateAdvisors.model.UserIntrestedSites;
-import com.charvikent.RealEstateAdvisors.model.VillagesBeaUserIntrestedSites;
+import com.charvikent.RealEstateAdvisors.model.VillagesBean;
 import com.charvikent.RealEstateAdvisors.repositories.UserIntrestedSiteRepository;
 import com.charvikent.RealEstateAdvisors.repositories.VillageRepository;
 

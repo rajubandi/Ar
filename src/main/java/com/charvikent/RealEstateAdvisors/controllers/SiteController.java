@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.charvikent.RealEstateAdvisors.model.Site;
-import com.charvikent.RealEstateAdvisors.model.VillagesBeaUserIntrestedSites;
+import com.charvikent.RealEstateAdvisors.model.VillagesBean;
 import com.charvikent.RealEstateAdvisors.repositories.SiteRepository;
 import com.charvikent.RealEstateAdvisors.repositories.VillageRepository;
 import com.charvikent.RealEstateAdvisors.service.SiteService;
@@ -35,23 +35,23 @@ public class SiteController {
 	@Autowired SiteRepository siteRepository;
 	@GetMapping("/site")
 	public String home(Model model) {
-		//Map<Integer, String> villagesListMap = new LinkedHashMap<Integer, String>();
-		ListIterator<VillagesBeaUserIntrestedSites> litr = null;
-		/*List<VillagesBean> villagesList =villageService.findAllVillagesBean();
+		Map<Integer, String> villagesListMap = new LinkedHashMap<Integer, String>();
+		ListIterator<VillagesBean> litr = null;
+		List<VillagesBean> villagesList =villageService.findAllVillagesBean();
 		//litr = villagesList.listIterator();
 		for(VillagesBean villageBean: villagesList) {
 			 
 			  villagesListMap.put(new Integer(villageBean.getId()),villageBean.getvName());
-		 }*/
-		// model.addAttribute("villagesList",villagesListMap);
-		 model.addAttribute("saveSite",new Site());
+		 }
+		 model.addAttribute("villagesList",villagesListMap);
+		// model.addAttribute("saveSite",new Site());
 		return "site";
 	}
 	
 	@PostMapping("/saveSite")
 	public ResponseEntity partialHandler(@RequestBody Site site) {
 		
-		VillagesBeaUserIntrestedSites v = villageRepository.findById(Integer.parseInt(site.getvId()));
+		VillagesBean v = villageRepository.findById(Integer.parseInt(site.getvId()));
 		site.setVillageId(v);
 		siteService.saveSite(site);;
 		 
@@ -63,9 +63,9 @@ public class SiteController {
 		Map<Integer, String> villagesListMap = new LinkedHashMap<Integer, String>();
 		ObjectMapper objectMapper = null;
 		String json = null;
-		List<VillagesBeaUserIntrestedSites> villagesList =villageService.findAllVillagesBean();
+		List<VillagesBean> villagesList =villageService.findAllVillagesBean();
 		//litr = villagesList.listIterator();
-		for(VillagesBeaUserIntrestedSites villageBean: villagesList) {
+		for(VillagesBean villageBean: villagesList) {
 			 
 			  villagesListMap.put(new Integer(villageBean.getId()),villageBean.getvName());
 		 }

@@ -12,10 +12,9 @@
 	padding: 10px 15px;
 }
 
-.richText .richText-form input[type="text"],
-.richText .richText-form input[type="file"],
-.richText .richText-form input[type="number"],
-.richText .richText-form select {
+.richText .richText-form input[type="text"], .richText .richText-form input[type="file"],
+	.richText .richText-form input[type="number"], .richText .richText-form select
+	{
 	padding: 10px 15px;
 	border: #999999 solid 1px;
 	min-width: 200px;
@@ -45,8 +44,8 @@
 	min-height: 20px;
 }
 
-.richText .richText-toolbar ul{
-	margin-bottom:0;
+.richText .richText-toolbar ul {
+	margin-bottom: 0;
 }
 
 .richText .richText-toolbar ul li {
@@ -64,10 +63,9 @@
 	transition: background-color 0.4s;
 }
 
-.richText .richText-toolbar ul li a .fa,
-.richText .richText-toolbar ul li a .fas,
-.richText .richText-toolbar ul li a .far,
-.richText .richText-toolbar ul li a svg {
+.richText .richText-toolbar ul li a .fa, .richText .richText-toolbar ul li a .fas,
+	.richText .richText-toolbar ul li a .far, .richText .richText-toolbar ul li a svg
+	{
 	pointer-events: none;
 }
 
@@ -82,7 +80,8 @@
 	cursor: default;
 }
 
-.richText .richText-toolbar ul li a .richText-dropdown-outer .richText-dropdown {
+.richText .richText-toolbar ul li a .richText-dropdown-outer .richText-dropdown
+	{
 	position: relative;
 	display: block;
 	margin: 3% auto 0 auto;
@@ -96,7 +95,8 @@
 	box-shadow: 0 0 5px 0 #333;
 }
 
-.richText .richText-toolbar ul li a .richText-dropdown-outer .richText-dropdown .richText-dropdown-close {
+.richText .richText-toolbar ul li a .richText-dropdown-outer .richText-dropdown .richText-dropdown-close
+	{
 	position: absolute;
 	top: 0;
 	right: -23px;
@@ -108,32 +108,38 @@
 	width: 20px;
 }
 
-.richText .richText-toolbar ul li a .richText-dropdown-outer ul.richText-dropdown {
+.richText .richText-toolbar ul li a .richText-dropdown-outer ul.richText-dropdown
+	{
 	list-style: none;
 }
 
-.richText .richText-toolbar ul li a .richText-dropdown-outer ul.richText-dropdown li {
+.richText .richText-toolbar ul li a .richText-dropdown-outer ul.richText-dropdown li
+	{
 	display: block;
 	float: none;
 	font-family: Calibri, Verdana, Helvetica, sans-serif;
 }
 
-.richText .richText-toolbar ul li a .richText-dropdown-outer ul.richText-dropdown li a {
+.richText .richText-toolbar ul li a .richText-dropdown-outer ul.richText-dropdown li a
+	{
 	display: block;
 	padding: 10px 15px;
 	border-bottom: #EFEFEF solid 1px;
 }
 
-.richText .richText-toolbar ul li a .richText-dropdown-outer ul.richText-dropdown li a:hover {
+.richText .richText-toolbar ul li a .richText-dropdown-outer ul.richText-dropdown li a:hover
+	{
 	background-color: #FFFFFF;
 }
 
-.richText .richText-toolbar ul li a .richText-dropdown-outer ul.richText-dropdown li.inline {
+.richText .richText-toolbar ul li a .richText-dropdown-outer ul.richText-dropdown li.inline
+	{
 	margin: 10px 6px;
 	float: left;
 }
 
-.richText .richText-toolbar ul li a .richText-dropdown-outer ul.richText-dropdown li.inline a {
+.richText .richText-toolbar ul li a .richText-dropdown-outer ul.richText-dropdown li.inline a
+	{
 	display: block;
 	padding: 0;
 	margin: 0;
@@ -146,7 +152,8 @@
 	box-shadow: 0 0 10px 0 #999;
 }
 
-.richText .richText-toolbar ul li a .richText-dropdown-outer ul.richText-dropdown li.inline a span {
+.richText .richText-toolbar ul li a .richText-dropdown-outer ul.richText-dropdown li.inline a span
+	{
 	display: block;
 	height: 30px;
 	width: 30px;
@@ -155,7 +162,8 @@
 	border-radius: 50%;
 }
 
-.richText .richText-toolbar ul li a .richText-dropdown-outer div.richText-dropdown {
+.richText .richText-toolbar ul li a .richText-dropdown-outer div.richText-dropdown
+	{
 	padding: 10px 15px;
 }
 
@@ -171,7 +179,8 @@
 	cursor: default;
 }
 
-.richText .richText-toolbar ul li:not([data-disable="true"]).is-selected .richText-dropdown-outer {
+.richText .richText-toolbar ul li:not ([data-disable="true"] ).is-selected .richText-dropdown-outer
+	{
 	display: block;
 }
 
@@ -202,8 +211,7 @@
 	overflow-x: auto;
 }
 
-.richText .richText-editor ul,
-.richText .richText-editor ol {
+.richText .richText-editor ul, .richText .richText-editor ol {
 	margin: 10px 25px;
 }
 
@@ -213,8 +221,8 @@
 	width: 100%;
 }
 
-.richText .richText-editor table td,
-.richText .richText-editor table th {
+.richText .richText-editor table td, .richText .richText-editor table th
+	{
 	padding: 10px;
 	border: #EFEFEF solid 1px;
 }
@@ -244,8 +252,7 @@
 	cursor: pointer;
 }
 
-.richText .richText-undo,
-.richText .richText-redo {
+.richText .richText-undo, .richText .richText-redo {
 	float: left;
 	display: block;
 	padding: 10px 15px;
@@ -253,8 +260,8 @@
 	cursor: pointer;
 }
 
-.richText .richText-undo.is-disabled,
-.richText .richText-redo.is-disabled {
+.richText .richText-undo.is-disabled, .richText .richText-redo.is-disabled
+	{
 	opacity: 0.4;
 }
 
