@@ -1,10 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <title>Amaravati Realtors</title>
-<link rel="stylesheet" href="assets/fonts/fonts/font-awesome.min.css">
+<link rel="stylesheet" href="fonts/fonts/font-awesome.min.css">
 
 <!-- Font Family-->
 <link
@@ -42,8 +40,7 @@
 			<div class="app-header1 header py-1 d-flex">
 				<div class="container-fluid">
 					<div class="d-flex">
-						<a class="header-brand" href="index.html"> <img
-							src="assets/images/brand/logo.png" class="header-brand-img"
+						<a class="header-brand" href="index.html"> <img src="/assets/images/brand/logo.png" class="header-brand-img"
 							alt="Uplor  logo">
 						</a>
 						<div class="menu-toggle-button">
@@ -307,11 +304,8 @@
 									</li>
 								</ul>
 							</li> -->
-						<li><a href="addVillage"
-							class=" wave-effect accordion-toggle "><i
-								class="fa fa-diamond mr-2 sidebarpink"></i> Villages</a></li>
-						<li><a href="site" class=" wave-effect accordion-toggle "><i
-								class="fa fa-diamond mr-2 sidebarpink"></i> Plots</a></li>
+						<li><a href="addVillage" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Villages</a></li>
+						<li><a href="site" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Plots</a></li>
 						<!-- <li>
 								<a href="widgets.html" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Widgets</a>
 							</li>
@@ -491,10 +485,8 @@
 									</li>
 								</ul>
 							</li> -->
-						<li><a href="#Submenu6" class="accordion-toggle wave-effect"
-							data-toggle="collapse" aria-expanded="false"> <i
-								class="fa fa-file-text mr-2 sidebarblue"></i> Forms
-						</a>
+						<li><a href="#Submenu6" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false"> 
+						<i class="fa fa-file-text mr-2 sidebarblue"></i> Forms</a>
 							<ul class="collapse list-unstyled" id="Submenu6"
 								data-parent="#accordion">
 								<li><a href="form-elements.html">Form Elements</a></li>
@@ -683,16 +675,11 @@
 							</li>
 						</ul> -->
 						<div class="sidebar-footer hidden-small">
-							<a href="emailservices.html"> <span class="fa fa-envelope"
-								aria-hidden="true"></span>
-							</a> <a href="profile.html"> <span class="fa fa-user"
-								aria-hidden="true"></span>
-							</a> <a href="editprofile.html"> <span class="fa fa-cog"
-								aria-hidden="true"></span>
-							</a> <a href="login.html"> <span class="fa fa-sign-in"
-								aria-hidden="true"></span>
-							</a> <a href="chat.html"> <span class="fa fa-comment"
-								aria-hidden="true"></span>
+							<a href="emailservices.html"> <span class="fa fa-envelope" aria-hidden="true"></span>
+							</a> <a href="profile.html"> <span class="fa fa-user" aria-hidden="true"></span>
+							</a> <a href="editprofile.html"> <span class="fa fa-cog" aria-hidden="true"></span>
+							</a> <a href="login.html"> <span class="fa fa-sign-in" aria-hidden="true"></span>
+							</a> <a href="chat.html"> <span class="fa fa-comment" aria-hidden="true"></span>
 							</a>
 						</div>
 				</nav>

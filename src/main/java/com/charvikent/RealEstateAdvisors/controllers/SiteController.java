@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,28 +35,34 @@ public class SiteController {
 	@Autowired SiteService siteService;
 	@Autowired SiteRepository siteRepository;
 	@GetMapping("/site")
-	public String home(Model model) {
+	public String home(@ModelAttribute("addSite") Site site,HttpServletRequest request) throws JsonProcessingException {
 		Map<Integer, String> villagesListMap = new LinkedHashMap<Integer, String>();
 		ListIterator<VillagesBean> litr = null;
+		ObjectMapper objectMapper = null;
+		String json = null;
 		List<VillagesBean> villagesList =villageService.findAllVillagesBean();
+		List<Site> siteList = siteRepository.findAll();
 		//litr = villagesList.listIterator();
 		for(VillagesBean villageBean: villagesList) {
 			 
 			  villagesListMap.put(new Integer(villageBean.getId()),villageBean.getvName());
 		 }
-		 model.addAttribute("villagesList",villagesListMap);
+		request.setAttribute("villagesList",villagesListMap);
+		objectMapper = new ObjectMapper();
+		json= objectMapper.writeValueAsString(siteList);
+		request.setAttribute("siteList", json);
 		// model.addAttribute("saveSite",new Site());
 		return "site";
 	}
 	
 	@PostMapping("/saveSite")
-	public ResponseEntity partialHandler(@RequestBody Site site) {
+	public String partialHandler(@ModelAttribute("addSite") Site site) {
 		
 		VillagesBean v = villageRepository.findById(Integer.parseInt(site.getvId()));
 		site.setVillageId(v);
 		siteService.saveSite(site);;
 		 
-		 return new ResponseEntity(HttpStatus.OK);
+		 return "site";
 	}
 
 	@PostMapping("/getVillages")

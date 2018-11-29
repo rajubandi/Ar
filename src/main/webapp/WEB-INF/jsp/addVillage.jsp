@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <jsp:include page="adminHeader.jsp" />
 <!-- <!DOCTYPE HTML>
@@ -15,13 +14,13 @@
 	  
 </head>
 <body> -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="/js/addVillage.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
 <!-- 	  <script src="/js/controller.js"></script> -->
 <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> -->
 <div class="content-area  ">
 	<div class="page-header">
-		<h4 class="page-title">Add Village</h4>
+<!-- 		<h4 class="page-title">Add Village</h4> -->
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
 			<li class="breadcrumb-item active" aria-current="page">Add
@@ -33,7 +32,7 @@
 		<div class="col-xl-12">
 			<div class="card m-b-20">
 				<div class="card-header">
-					<h3 class="card-title">Horizontal form</h3>
+					<h3 class="card-title">Add Village</h3>
 					<div class="card-options">
 						<a href="#" class="card-options-collapse"
 							data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
@@ -75,8 +74,7 @@
 											</div> -->
 						<div class="form-group mb-0 row justify-content-end">
 							<div class="col-md-8 float-right">
-								<button type="submit"
-									class="btn btn-primary waves-effect waves-light">Add</button>
+								<button type="submit" class="btn btn-primary waves-effect waves-light">Add</button>
 							</div>
 						</div>
 					</form:form>
@@ -84,6 +82,35 @@
 			</div>
 		</div>
 	</div>
+	
+				<div class="row">
+							<div class="col-md-12 col-lg-12">
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">Village List</h3>
+										<div class="card-options">
+											<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+											<a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+										</div>
+									</div>
+									<div class="table-responsive">
+										<table class="table card-table table-vcenter text-nowrap table-primary" >
+											<thead  class="bg-primary text-white">
+												<tr >
+													<th class="text-white">Village Name</th>
+													<th class="text-white">Pincode</th>
+													<th class="text-white">Options</th>
+												</tr>
+											</thead>
+											<tbody>
+												
+											</tbody>
+										</table>
+									</div>
+									<!-- table-responsive -->
+								</div>
+							</div>
+						</div>
 	<!-- <div ng-controller="saveVillage">
 		<form class="form-horizontal" name="customerForm" ng-submit="submitForm()">
 			<div class="form-group">
@@ -118,3 +145,13 @@
 </div>
 <div class="clearfix"></div>
 <jsp:include page="adminfooter.jsp" />
+
+<script type="text/javascript">
+
+
+
+/* var listOfVillages = ${villagesList};
+if (listOfVillages != "") {
+	displayTable(listOrders1);
+} */
+</script>

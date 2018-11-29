@@ -2,6 +2,7 @@ package com.charvikent.RealEstateAdvisors.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -35,6 +36,11 @@ public class Site {
 	private Date UpdatedTime;
 	private Date validDate;
 	private String listingId;
+	private String siteDimensions;
+	private String roadDimensions;
+	private String roadFacing;
+	private byte status=1;
+	
 	@Transient
 	private String vId;
 	private String propertyType ;
@@ -45,6 +51,30 @@ public class Site {
 	
 	
 	
+	public byte getStatus() {
+		return status;
+	}
+	public void setStatus(byte status) {
+		this.status = status;
+	}
+	public String getSiteDimensions() {
+		return siteDimensions;
+	}
+	public void setSiteDimensions(String plotDimensions) {
+		this.siteDimensions = plotDimensions;
+	}
+	public String getRoadDimensions() {
+		return roadDimensions;
+	}
+	public void setRoadDimensions(String roadDimensions) {
+		this.roadDimensions = roadDimensions;
+	}
+	public String getRoadFacing() {
+		return roadFacing;
+	}
+	public void setRoadFacing(String roadFacing) {
+		this.roadFacing = roadFacing;
+	}
 	public String getvId() {
 		return vId;
 	}
@@ -118,7 +148,9 @@ public class Site {
 	public String toString() {
 		return "Site [id=" + id + ", colony=" + colony + ", sqYd=" + sqYd + ", price=" + price + ", createdTime="
 				+ createdTime + ", UpdatedTime=" + UpdatedTime + ", validDate=" + validDate + ", listingId=" + listingId
-				+ ", vId=" + vId + ", propertyType=" + propertyType + ", villageId=" + villageId + "]";
+				+ ", siteDimensions=" + siteDimensions + ", roadDimensions=" + roadDimensions + ", roadFacing="
+				+ roadFacing + ", status=" + status + ", vId=" + vId + ", propertyType=" + propertyType + ", villageId="
+				+ villageId + "]";
 	}
 	
 	
