@@ -37,6 +37,7 @@ public class Site {
 	private Date validDate;
 	private String listingId;
 	private String siteDimensions;
+	private String siteFacing;
 	private String roadDimensions;
 	private String roadFacing;
 	private byte status=1;
@@ -51,6 +52,12 @@ public class Site {
 	
 	
 	
+	public String getSiteFacing() {
+		return siteFacing;
+	}
+	public void setSiteFacing(String siteFacing) {
+		this.siteFacing = siteFacing;
+	}
 	public byte getStatus() {
 		return status;
 	}
@@ -148,9 +155,9 @@ public class Site {
 	public String toString() {
 		return "Site [id=" + id + ", colony=" + colony + ", sqYd=" + sqYd + ", price=" + price + ", createdTime="
 				+ createdTime + ", UpdatedTime=" + UpdatedTime + ", validDate=" + validDate + ", listingId=" + listingId
-				+ ", siteDimensions=" + siteDimensions + ", roadDimensions=" + roadDimensions + ", roadFacing="
-				+ roadFacing + ", status=" + status + ", vId=" + vId + ", propertyType=" + propertyType + ", villageId="
-				+ villageId + "]";
+				+ ", siteDimensions=" + siteDimensions + ", siteFacing=" + siteFacing + ", roadDimensions="
+				+ roadDimensions + ", roadFacing=" + roadFacing + ", status=" + status + ", vId=" + vId
+				+ ", propertyType=" + propertyType + ", villageId=" + villageId + "]";
 	}
 	
 	

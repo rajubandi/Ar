@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="Shortcut Icon" href="images/fav.png" type="image/x-icon" />
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <title>Amaravati Realtors</title>
@@ -33,6 +38,11 @@
 <!---Font icons-->
 <link href="assets/plugins/iconfonts/plugin.css" rel="stylesheet" />
 </head>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<script src="assets/js/vendors/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	var isClick = 'No';
+	</script>
 <body>
 	<div id="loading"></div>
 	<div class="page">
@@ -40,7 +50,7 @@
 			<div class="app-header1 header py-1 d-flex">
 				<div class="container-fluid">
 					<div class="d-flex">
-						<a class="header-brand" href="index.html"> <img src="/assets/images/brand/logo.png" class="header-brand-img"
+						<a class="header-brand" href="index.html"> <img src="images/logo.png" class="header-brand-img"
 							alt="Uplor  logo">
 						</a>
 						<div class="menu-toggle-button">
@@ -257,15 +267,18 @@
 				<!-- Sidebar Holder -->
 				<nav id="sidebar" class="nav-sidebar">
 					<div class="profile clearfix">
-						<div class="profile_pic">
+						<!-- <div class="profile_pic">
 							<img src="" alt="..." class=" profile_img"> <a
 								href="editprofile.html" class="profile-img"> <span
 								class="fa fa-pencil" aria-hidden="true"></span>
 							</a>
-						</div>
+						</div> -->
 						<div class="profile_info">
-							<h2>Rubin Carmody</h2>
-							<span>Web Designer</span>
+							<h2>${sessionUser} </h2>
+							<a href="editprofile.html" class="profile-img"> 
+							<span class="fa fa-pencil" aria-hidden="true"></span>
+							<span>${userDesignationSession.designation} </span>
+							</a>
 						</div>
 					</div>
 					<ul class="list-unstyled components" id="accordion">

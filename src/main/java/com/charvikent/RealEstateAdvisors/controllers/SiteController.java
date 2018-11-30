@@ -58,8 +58,8 @@ public class SiteController {
 	@PostMapping("/saveSite")
 	public String partialHandler(@ModelAttribute("addSite") Site site) {
 		
-		VillagesBean v = villageRepository.findById(Integer.parseInt(site.getvId()));
-		site.setVillageId(v);
+		//VillagesBean v = villageRepository.findById(Integer.parseInt(site.getvId()));
+		//site.setVillageId(v);
 		siteService.saveSite(site);;
 		 
 		 return "site";

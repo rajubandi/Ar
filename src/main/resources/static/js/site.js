@@ -1,6 +1,6 @@
 function displayTable(listOrders) {
 	$('#tableDiv').html('');
-	var tableHead = '<table class="table card-table table-vcenter text-nowrap table-primary" id="dataTableId" >'
+	var tableHead = '<table class="table card-table table-vcenter text-nowrap table-primary dataTables_wrapper dt-bootstrap4 no-footer" id="dataTableId" >'
 			+ '<thead  class="bg-primary text-white">'
 			+'<tr >'
 			+'<th class="text-white">Listing ID</th>'
@@ -33,6 +33,8 @@ function displayTable(listOrders) {
 			+ "<td style='text-align: center;white-space: nowrap;'>" + edit + "&nbsp;&nbsp;" + deleterow + "</td>" 
 //			+ "<td ><a style='cursor:pointer' onclick='getPasswordModal("+ orderObj.id +")'>Change Password</a></td>" 
 			+ "</tr>";
-		$(tblRow).appendTo("#dataTableId table tbody");
+		$(tblRow).appendTo("#tableDiv table tbody");
+		
+		$('#dataTableId').dataTable();
 	});
 }

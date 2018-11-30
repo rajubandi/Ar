@@ -19,6 +19,7 @@
 
 </head>
 <body> -->
+<script src="js/jquery.dataTables.min.js"></script>
 <script src="/js/site.js"></script>
 	<div class="content-area ">
 		<div class="page-header">
@@ -72,16 +73,38 @@
 									<form:input type="text" class="form-control"  path="price" placeholder="Enter Price"  />
 								</div>
 							</div>
-							<div class="form-group">
+							<%-- <div class="form-group">
 								<label class="control-label col-sm-2" for="propertyType">Property Type</label>
 								<div class="col-sm-5">
 									<form:input type="text" class="form-control" path="propertyType" placeholder="Enter Property Type"  />
 								</div>
-							</div>
+							</div> --%>
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="listingId">Listing Id</label>
 								<div class="col-sm-5">
 									<form:input  type="text" class="form-control"  path="listingId" placeholder="Enter Listing Id"  />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="propertyType">Property Type</label>
+								<div class="col-sm-5">
+									<form:select class="form-control"  path="propertyType"  >
+									<form:option value="">-- Property Type --</form:option>
+									<form:option value="Commercial">Commercial</form:option>
+									<form:option value="Residential">Residential</form:option>
+									</form:select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="siteFacing">Site Facing</label>
+								<div class="col-sm-5">
+									<form:select class="form-control"  path="siteFacing"  >
+									<form:option value="">--Site Facing --</form:option>
+									<form:option value="North">North</form:option>
+									<form:option value="South">South</form:option>
+									<form:option value="East">East</form:option>
+									<form:option value="West">West</form:option>
+									</form:select>
 								</div>
 							</div>
 							<div class="form-group">
@@ -134,7 +157,7 @@
 										</div>
 									</div>
 									<div class="table-responsive" id="tableDiv">
-										<table class="table card-table table-vcenter text-nowrap table-primary" id="dataTableId" >
+										<table class="table card-table table-vcenter text-nowrap table-primary dataTables_wrapper dt-bootstrap4 no-footer" id="dataTableId" >
 											<thead  class="bg-primary text-white">
 												<tr >
 													<th class="text-white">Listing ID</th>
