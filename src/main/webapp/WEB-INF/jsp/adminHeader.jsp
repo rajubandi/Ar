@@ -254,7 +254,7 @@
 										class="dropdown-icon si si-envelope"></i> Inbox
 									</a> <a class="dropdown-item" href="editprofile.html"> <i
 										class="dropdown-icon  si si-settings"></i> Account Settings
-									</a> <a class="dropdown-item" href="login.html"> <i
+									</a> <a class="dropdown-item" href="signout"> <i
 										class="dropdown-icon si si-power"></i> Log out
 									</a>
 								</div>

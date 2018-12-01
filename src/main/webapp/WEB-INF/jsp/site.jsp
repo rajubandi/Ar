@@ -124,9 +124,9 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-sm-2" for="roadDimensions">Road facing</label>
+								<label class="control-label col-sm-2" for="roadFacing">Road facing</label>
 								<div class="col-sm-5">
-									<form:select class="form-control"  path="roadDimensions" placeholder="Road Dimensions"  >
+									<form:select class="form-control"  path="roadFacing"  >
 									<option value="">-- Road facing --</option>
 									<option value="singleRoad">Single Road</option>
 									<option value="doubleRoad">Double Road (Corner Bit)</option>

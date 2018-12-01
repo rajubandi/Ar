@@ -88,7 +88,7 @@ public class HomeController {
 	    	SecurityContextHolder.getContext().setAuthentication(null);
 	    }
 	    System.out.println("Called Logout");
-	    return "redirect:/login";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
+	    return "redirect:/";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
 	}
 	
 	/*@RequestMapping("/403")
@@ -146,7 +146,7 @@ public class HomeController {
 		}
 		
 	}
-	@RequestMapping("/")
+	@RequestMapping(value={"/","/index"})
 	public String ShowAbhee(Model model,HttpServletRequest request,HttpSession session) throws JSONException, JsonProcessingException 
 	{
 		LOGGER.debug("Calling Abhee site Main page at controller");

@@ -77,6 +77,10 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 				session.setAttribute("userDesignationSession", objuserBean);
 				//session.setAttribute("sCategorylist",listOrderBeans);
 					 session.setAttribute("sessionUser", objuserBean.getFirstName());
+					 session.setAttribute("customer", objuserBean);
+						session.setAttribute("loggedstatus", "login");
+						session.setAttribute("customerId", objuserBean.getId());
+						session.setAttribute("customerName", objuserBean.getFirstName());
 					 response.sendRedirect("index");
 		            	
 			}

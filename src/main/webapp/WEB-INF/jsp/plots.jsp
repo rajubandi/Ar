@@ -526,26 +526,30 @@ var AllSiteList = ${siteList};
 			$("#villageList").append('<li><input type="checkbox" id='+i+' name='+i+' /><label><span></span>'+item+'</label><small>13</small></li>');
 			
 		});
-		
+		var cls="";
 		$.each(AllSiteList, function(i, item) {
 			
 			
+			if(item.propertyType == "Commercial"){
+				
+				cls ="careerfy-red";
+			}else{cls="";}
 			$("#ulSiteList").append('<li class="careerfy-column-12">'
                     	+'<div class="careerfy-joblisting-classic-wrap">'
                     	+'<div class="careerfy-joblisting-text">'
                         +'<div class="careerfy-list-option">'
-                        +'<h2><a href="#">"'+  item.sqYd +'" Sq.Yd - <i class="fa fa-rupee"></i>"'+  item.price +'"</a>'
+                        +'<h2><a href="#">'+  item.sqYd +'Sq.Yd - <i class="fa fa-rupee"></i>'+  item.price +'</a>'
                         +' <span>Listing ID: "'+  item.listingId +'"</span></h2>'
                         +'<ul>'
-                        +' <li><a href="#">@ Commercial</a></li>'
+                        +' <li><a href="#">@"'+item.propertyType+'"</a></li>'
                         +'<li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>"'+  item.colony +'" Colony</strong></li>'
-                        +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> "'+  item.propertyType +'"</li>'
+                        +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i>'+  item.siteFacing +'</li>'
                         +'<p class="italic">03 Nov 2018</p>'
                         +'</ul>'
                         +'</div>'
                         +'<div class="careerfy-job-userlist">'
-                      
-                        +'<button id="'+item.id+'" onclick="iAmIntrested('+item.id+')" class="careerfy-option-btn">I am Interested</button>'
+                        
+                        +'<button id="'+item.id+'" onclick="iAmIntrested('+item.id+')" class="careerfy-option-btn '+cls+'">I am Interested</button>'
                         +'</div>'
                         +'<div class="clearfix"></div>'
                         +'</div>'

@@ -62,7 +62,7 @@ public class SiteController {
 		//site.setVillageId(v);
 		siteService.saveSite(site);;
 		 
-		 return "site";
+		 return "redirect:site";
 	}
 
 	@PostMapping("/getVillages")

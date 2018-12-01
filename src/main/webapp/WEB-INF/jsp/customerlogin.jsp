@@ -149,7 +149,7 @@
 					<form action="customerlogin" method="post">
 						<div class="login-top">
 							<input type="hidden" name="userType" id="userType"
-								value="customerUser" /> <input type="text" name="userName"
+								value="customerUser" /> <input type="text" name="username"
 								id="cmusername" class="form-control validate numericOnly2"
 								onfocus="this.placeholder=''"
 								onblur="this.placeholder='Mobile Number'" maxlength="10"
