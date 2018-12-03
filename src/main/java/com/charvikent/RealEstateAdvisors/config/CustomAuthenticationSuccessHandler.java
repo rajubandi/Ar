@@ -37,11 +37,16 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 	
 	@Autowired
 	UsersServiceImpl userDao;
-	/*public CustomAuthenticationSuccessHandler()
+	public CustomAuthenticationSuccessHandler()
 	{
 		super();
         setUseReferer(true);
         System.out.println("system called");
+	}
+	
+	/*public RefererRedirectionAuthenticationSuccessHandler() {
+	    super();
+	    setUseReferer(true);
 	}*/
 
 	@Override

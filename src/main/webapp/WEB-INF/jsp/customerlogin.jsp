@@ -26,7 +26,7 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
 
 <!-- 	  <script src="/js/customerLoginController.js"></script> -->
-
+<script src="/js/customerLogin.js"></script> 
 
 <style type="text/css">
 .modalcss {
@@ -146,16 +146,29 @@
 						<h4>Login</h4>
 					</div>
 					<div class="clearfix"></div>
+					<c:if test="${param.error ne null}">
+
+						<div class="msgcss1 row">
+							<div align="center" class="form-group">
+								<div style="width: 80%"
+									class=" msgcss alert alert-danger fadeIn animated">Invalid
+									username and password.</div>
+							</div>
+						</div>
+						<%-- <div class="alert-danger">Invalid username and password.</div>
+			
+				<div class="col-sm-12" style="margin-bottom: -1.3em;">
+					<div class="form-group">
+						<div class="msgcss fadeIn animated alert" style="text-align: center;">${msg}</div>
+					</div>
+				</div> --%>
+					</c:if>
 					<form action="customerlogin" method="post">
 						<div class="login-top">
-							<input type="hidden" name="userType" id="userType"
-								value="customerUser" /> <input type="text" name="username"
-								id="cmusername" class="form-control validate numericOnly2"
-								onfocus="this.placeholder=''"
-								onblur="this.placeholder='Mobile Number'" maxlength="10"
-								placeholder="Mobile Number" /> <input type="password"
-								name="password" id="cmpassword" onfocus="this.placeholder=''"
-								class="form-control  numericOnly" maxlength="4"
+<!-- 						<input type="hidden" name="userType" id="userType"  value="customerUser" />  -->
+						<input type="text" name="username" id="cmusername" class="form-control validate numericOnly2" onfocus="this.placeholder=''"
+								onblur="this.placeholder='Mobile Number'" maxlength="10" placeholder="Mobile Number" />
+						 <input type="password" name="password" id="cmpassword" onfocus="this.placeholder=''" class="form-control  numericOnly" maxlength="4"
 								onblur="this.placeholder='Password'" placeholder="Password" />
 
 						</div>
@@ -176,12 +189,11 @@
 							</div>
 							<div class="clearfix"></div>
 						</div>
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 					</form>
 					<div class="login-bottom">
-						<h6 style="margin-top: 10px;">
-							Click Here To <a href="#" data-toggle="modal"
-								onclick="openRegistrationModel();"
-								style="color: red; text-decoration: underline;" class="tag">Register</a>
+						<h6 style="margin-top: 10px;">Click Here To 
+						<a href="#" data-toggle="modal" onclick="openRegistrationModel();" style="color: red; text-decoration: underline;" class="tag">Register</a>
 						</h6>
 					</div>
 
@@ -204,7 +216,7 @@
 				<div class="modal-body">
 					<div class="card m-b-20">
 						<div class="card-header">
-							<h3 class="card-title">Registration</h3>
+<!-- 							<h3 class="card-title">Registration</h3> -->
 							<div class="card-options">
 								<a href="#" class="card-options-collapse"
 									data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
@@ -213,79 +225,79 @@
 							</div>
 						</div>
 						<div class="card-body mb-0">
-							<form class="form-horizontal">
+							<form class="form-horizontal" name="register_form" id="register_form" >
 								<div class="form-group ">
 									<div class="row">
-										<div class="col-md-3">
-											<label class="form-label" id="examplenameInputname2">User
-												Name</label>
+										<div class="col-md-4">
+											<label class="form-label" id="firstName">First Name</label>
 										</div>
-										<div class="col-md-9">
-											<input type="text" class="form-control"
-												id="examplenameInputname3" placeholder="Enter Name">
+										<div class="col-md-4">
+											<input type="text" class="form-control validate1" id="firstName" placeholder="First Name"/>
 										</div>
 									</div>
 								</div>
 								<div class="form-group ">
 									<div class="row">
-										<div class="col-md-3">
-											<label class="form-label" id="inputEmail3">Email</label>
+										<div class="col-md-4">
+											<label class="form-label" id="lastName">Last Name</label>
 										</div>
-										<div class="col-md-9">
-											<input type="email" class="form-control" id="inputEmail4"
-												placeholder="Email">
-										</div>
-									</div>
-								</div>
-								<div class="form-group ">
-									<div class="row">
-										<div class="col-md-3">
-											<label class="form-label" id="inputPassword5">Password</label>
-										</div>
-										<div class="col-md-9">
-											<input type="password" class="form-control"
-												id="inputPassword6" placeholder="Password">
+										<div class="col-md-4">
+											<input type="text" class="form-control validate1" id="lastName" placeholder="Last Name"/>
 										</div>
 									</div>
 								</div>
 								<div class="form-group ">
 									<div class="row">
-										<div class="col-md-3">
-											<label class="form-label" id="inputPassword7">Re
-												Password</label>
+										<div class="col-md-4">
+											<label class="form-label" id="email">Email</label>
 										</div>
-										<div class="col-md-9">
-											<input type="password" class="form-control"
-												id="inputPassword8" placeholder="Retype Password">
+										<div class="col-md-4">
+											<input type="email" class="form-control validate1" id="email" placeholder="Email"/>
 										</div>
 									</div>
 								</div>
 								<div class="form-group ">
 									<div class="row">
-										<div class="col-md-3">
-											<label class="form-label" id="exampleInputnumber4">User
-												Name</label>
+										<div class="col-md-4">
+											<label class="form-label" id="cpassword">Password</label>
 										</div>
-										<div class="col-md-9">
-											<input type="text" class="form-control"
-												id="examplenameInputname5" placeholder="Enter Name">
+										<div class="col-md-4">
+											<input type="password" class="form-control validate1" id="cpassword" placeholder="Password"/>
 										</div>
 									</div>
 								</div>
 								<div class="form-group ">
 									<div class="row">
-										<div class="col-md-3">
-											<label class="form-label" id="exampleInputnumber6">Phone
-												Number</label>
+										<div class="col-md-4">
+											<label class="form-label" id="crePassword">Re Password</label>
 										</div>
-										<div class="col-md-9">
-											<input type="Number" class="form-control"
-												id="exampleInputnumber7" placeholder="Phone number">
+										<div class="col-md-4">
+											<input type="password" class="form-control validate1" id="crePassword" placeholder="Retype Password"/>
+										</div>
+									</div>
+								</div>
+								<div class="form-group ">
+									<div class="row">
+										<div class="col-md-4">
+											<label class="form-label" id="userName">User Name</label>
+										</div>
+										<div class="col-md-4">
+											<input type="text" class="form-control validate1" id="userName" placeholder="User Name"/>
+										</div>
+									</div>
+								</div>
+								<div class="form-group ">
+									<div class="row">
+										<div class="col-md-4">
+											<label class="form-label" id="mobileNumber">Phone Number</label>
+										</div>
+										<div class="col-md-4">
+											<input type="Number" class="form-control validate1" id="mobileNumber" placeholder="Phone number"/>
 										</div>
 									</div>
 								</div>
 
-								<div class="form-group ">
+								<!-- <div class="form-group ">
 									<div class="row">
 										<div class="col-md-3">
 											<label class="form-label">Select Test Area</label>
@@ -301,29 +313,27 @@
 											</select>
 										</div>
 									</div>
-								</div>
-								<div class="form-group row justify-content-end">
+								</div> -->
+								<!-- <div class="form-group row justify-content-end">
 									<div class="col-md-9 float-right">
 										<label class="custom-control custom-checkbox"> <input
 											type="checkbox" class="custom-control-input"> <span
 											class="custom-control-label text-dark">I agree</span>
 										</label>
 									</div>
-								</div>
-								<div class="form-group mb-0 row justify-content-end">
+								</div> -->
+								<!-- <div class="form-group mb-0 row justify-content-end">
 									<div class="col-md-9 float-right">
-										<button type="submit"
-											class="btn btn-primary waves-effect waves-light">Sign
+										<button type="submit" class="btn btn-primary waves-effect waves-light">Sign
 											in</button>
 									</div>
-								</div>
+								</div> -->
 							</form>
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" id="submitModel" class="btn btn-primary"
-						data-dismiss="modal">Submit</button>
+					<button type="button" id="submitModel" class="btn btn-primary  waves-effect waves-light" data-dismiss="modal">Submit</button>
 					<input type="reset" value="Reset" class="btn-danger btn cancel1" />
 				</div>
 			</div>
@@ -331,7 +341,7 @@
 		</div>
 	</div>
 
-	<%-- <div class="modal fade" id="OTPModel" data-backdrop="static" data-keyboard="false" role="dialog">
+	 <div class="modal fade" id="OTPModel" data-backdrop="static" data-keyboard="false" role="dialog">
     <div class="modal-dialog">
     
      
@@ -363,13 +373,13 @@
 			<a onclick="resendOTP()" class="btn btn-warning">Resend OTP</a>
 		</div>
         <div class="modal-footer">
-          <button type="button" id="submit2" onclick="modelsubmit()" class="btn btn-primary" >Submit</button>
+          <button type="button" id="submit2" onclick="otpModelsubmit()" class="btn btn-primary" >Submit</button>
          
         </div>
       </div>
       
     </div>
-  </div>  --%>
+  </div>  
 
 
 	<%-- <div class="modal fade modalcss" id="passwordModel" data-backdrop="static" data-keyboard="false" role="dialog" >
@@ -412,570 +422,21 @@
 </div>
 <!-- <script src='/js/jquery.min.js'></script> -->
 <!-- jQuery -->
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <!-- <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script> -->
 <!-- BS JavaScript -->
 <!-- <script type="text/javascript" src="js/bootstrap.js"></script> -->
 <!-- Have fun using Bootstrap JS -->
 <script type='text/javascript' src='js/customValidation.js'></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!-- <script src="js/bootstrap.min.js"></script> -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 
 <%-- <%@include file="abheefooter.jsp" %> --%>
 <jsp:include page="footer.jsp" />
 <script>
-/* var validation = true;
-var mobilevalidation=true;
-var subValidation =false;
-$('#cmobile').blur(function() {
-	var editFields =0;
-	var cmobile=$(this).val();
-	
-	if (cmobile == null || cmobile == "" || cmobile == "undefined") {
-		
-		return false;
-	}
-	else
-	{ */
-	/* }
-	var cmobile=$(this).val();
-	$('span.error-keyup-4').remove();
-    var inputVal = $(this).val();
-         
-    	
-    var characterReg = /^[6789]\d{9}$/;
-    if(!characterReg.test(inputVal)) {
-        $(this).after('<span class="error error-keyup-4">Not a valid Mobile Number </span>');
-        
-        $('.mobilenumber' ).css('border-color','#e73d4a');
-		$('.mobilenumber' ).css('color','#e73d4a');
-		
-		$('.mobilenumber' ).addClass("errorCls");
-        //setTimeout(function() { $("#error-keyup-4").text(''); }, 3000);
-        
-        return false;
-    }else{
-    	 */
-    	
-	
-	 /* if(cmobile.length != 10 )
-		 {
-		 alert("Mobile Number Length Must Be 10 Digits")
-		 $('#cmobile').css('border-color', 'red');
-		// $('#submitModel').prop('disabled', true);
-		 
-		 subValidation =false;
-		 
-		 }
-	  */
-	
-	  
-	
-	/* 
-	$.ajax({
-				type : "POST",
-				url : "checkCustExst",
-				data :"cmobile="+cmobile+"&editFields="+editFields,
-				dataType : "text",
-				beforeSend : function() {
-		             $.blockUI({ message: 'Please wait' });
-		          }, 
-				success : function(data) {
-					if(data ==='true')
-						{
-						alert("Mobile Number already exists")
-	 					$('#cmobile').css('border-color', 'red');
-	 					 $('#submitModel').prop('disabled', true);
-	 					 //alert("customer could not be registered")
-	 					 mobilevalidation=false;
-	 					subValidation =false;
-						}
-					 else
-						{
-						$('#cmobile').css('border-color', 'none');
-						 $('#submitModel').prop('disabled', false);
-						 subValidation =true;
-						 mobilevalidation=true;
-						} 
-					
-				},
-				complete: function () {
-		            
-		            $.unblockUI();
-		       },
-				error :  function(e){$.unblockUI();console.log(e);}
-				
-			});
-	  
-	  
-    }
-	
-		});  */
-		
-		
-/* $('#crtpassword').blur(function() {
-	
-	 cpassword =$('#cpassword').val();
-	 
-	 crtpassword=$('#crtpassword').val();
-	 
-	 if(cpassword != crtpassword)
-		 {
-		 alert("Password and Retype password should be Matched")
-		 $('#submitModel').prop('disabled', true);
-		 
-		 }
-	 else
-		 {
-		 
-		 $('#submitModel').prop('disabled', false);
-		 }
-	 
-	
-	
-	
-	
-}); 
-		 */
-/* 		
-var cmobile =0
-var cemail =0
-var csname =0
-var cname =0
-var cpassword =0
-var idArrayCmt1 = null;
-//var validation = true;
-	idArrayCmt1 = $.makeArray($('.validate1').map(function() {
-		return this.id ;
-	}));
-	
-	
-		
-	
-	$('#submitModel').click(function(event) {
-		
-	$.each(idArrayCmt1, function(i, val) {
-		var value = $("#" + idArrayCmt1[i]).val();
-		var errorCls = $("#" + idArray[i]).hasClass('errorCls');
-		var placeholder = $("#" + idArrayCmt1[i]).attr('placeholder');
-		if (value == null || value == "" || value == "undefined" || errorCls) {
-			$('style').append(styleBlock);
-			$("#" + idArrayCmt1[i] ).attr("placeholder", placeholder);
-			$("#" + idArrayCmt1[i] ).css('border-color','#e73d4a');
-			$("#" + idArrayCmt1[i] ).css('color','#e73d4a');
-			$("#" + idArrayCmt1[i] ).addClass('placeholder-style your-class');
-			 var id11 = $("#" + idArrayCmt1[i]+"_chosen").length;
-			if ($("#" + idArrayCmt1[i]+"_chosen").length)
-			{
-				$("#" + idArrayCmt1[i]+"_chosen").children('a').css('border-color','#e73d4a');
-			}
-//			$("#" + idArray[i] + "Error").text("Please " + placeholder);
-			validation = false;
-			 event.preventDefault(); 
-		} else{
-			validation = true;
-		} 
-	});
-	validation =subValidation;
-	// retype password validation
-	
-	 var cpassword1 =$('#cpassword').val();
-	 
-	var crtpassword1=$('#crtpassword').val();
-	
-	if(cpassword1 != "" && crtpassword1 != "" && cpassword1==crtpassword1){
-		validation = true;
-	}else{
-		if(cpassword1 != "" && crtpassword1 != ""){
-		alert(" password and reenter password missmatch")
-		}
-		validation = false;
-	} 
-	
-	
-	if(validation && mobilevalidation) {
-		$("#submit1").attr("disabled",true);
-		$("#submit1").val("Please wait...");
-		$("#submit1").submit();											
-		//getOTP();
-	}else {
-		return false;
-		 event.preventDefault(); 
-	}
-	
-}); */
-	
-	function openRegistrationModel()
-	{
-		//$(".cancel1").click();
-		//makeEmptyRegistration();
-		$("#register_info").modal('toggle');
-		
-	}
-	
-	/* function makeEmptyRegistration()
-	{
-		$('#csname').val("");
-		$('#cname').val("");
-		$('#cmobile').val("");
-		$('#cemail').val("");
-		$('#csname').val("");
-		$('#cpassword').val("");
-		$('#crtpassword').val("");
-		
-		$('#cemail').css('border-color', 'none');
-	} */
-	 /*function getOTP()
-{
-	
-	 cmobile =$('#cmobile').val();
-	cemail =$('#cemail').val();
-	 csname =$('#csname').val();
-	 cname =$('#cname').val();
-	 
-	
-	
-alert(cmobile+""+cemail+""+csname+""+cname);
-	 */
-	 
-		
-	/* $.ajax({
-		type : "POST",
-		url : "getOtp",
-		data :"cmobile="+cmobile,
-		dataType : "text",
-		beforeSend : function() {
-             $.blockUI({ message: 'Please wait' });
-          }, 
-		success : function(data) {
-			if(data ==='true')
-				{
-				//location.reload();
-				alert("OTP Send to Your Mobile Number ");
-				$('#register-info').modal('hide');
-				//$("#register-info").modal('toggle');
-				$('#OTPModel').modal('toggle');
-				$("#OTPModel").modal('show');
-				}
-			else
-				{
-				$('#cmobile').css('border-color', 'none');
-				$('#submit1').prop('disabled', false);
-				}
-			
-		},
-		complete: function () {
-            
-            $.unblockUI();
-       },
-		error :  function(e){$.unblockUI();console.log(e);}
-		
-	});
-	
-	
-}
-	function modelsubmit()
-	{
-		 cmobile =$('#cmobile').val();
-		 cemail =$('#cemail').val();
-		 csname =$('#csname').val();
-		 cname =$('#cname').val();
-		 cotp=$('#cotp').val();
-		 cpassword =$('#cpassword').val();
-		
-	//alert(cmobile+""+cemail+""+csname+""+cname);
-	//alert(cotp+""+cpassword);
-	
-		
-		$.ajax({
-			type : "POST",
-			url : "modelSubmit",
-			data :"cmobile="+cmobile+"&cemail="+cemail+"&csname="+csname+"&cname="+cname+"&cotp="+cotp+"&cpassword="+cpassword,
-			dataType : "text",
-			beforeSend : function() {
-	             $.blockUI({ message: 'Please wait' });
-	          }, 
-			success : function(data) {
-				//alert(data);
-				
-				if(data ==='true')
-				{
-					alert(" Registration Completed Successfully ");
-					$('#OTPModel').modal('toggle');					
-				}
-				else
-					alert("Enter valid OTP")
-				
-			},
-			complete: function () {
-	            
-	            $.unblockUI();
-	       },
-			error :  function(e){$.unblockUI();console.log(e);}
-			
-		});
-	}
-	$(".cancel1").click(function()
-			{
-				$("#id").val(0);
-				$.each( idArrayCmt1, function(i, val)
-				{
-					var value = $("#" +  idArrayCmt1[i]).val();
-					if ($("#" + idArrayCmt1[i]+"_chosen").length)
-					{
-						$("#" + idArrayCmt1[i]).val("");
-						$("#" + idArrayCmt1[i]).trigger("chosen:updated");
-					}
-//					$("form")[0].reset();
-					$("#"+ idArrayCmt1[i]).val('');
-					$("#"+ idArrayCmt1[i]).prop('readonly',false);
-					$("#"+ idArrayCmt1[i]).css('border-color','');
-					$("#"+ idArrayCmt1[i]).css('color','black');
-					$("#"+ idArrayCmt1[i]).removeClass('placeholder-style your-class default-class');
-					if ($("#" +  idArrayCmt1[i]+"_chosen").length)
-					{
-						$("#" +  idArrayCmt1[i]+"_chosen").children('a').css('border-color','black');
-					}
-				});
-			});
-	
-	
-	
-	$('#cemail').blur(function() {
-		
-		var editFields =0;
-		var cemail=$(this).val();
-		
-		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-		  if( regex.test(cemail))
-			  {
-			  subValidation =true;
-		
-		
-		$.ajax({
-					type : "POST",
-					url : "checkEmailExst",
-					data :"cemail="+cemail+"&editFields="+editFields,
-					dataType : "text",
-					beforeSend : function() {
-			             $.blockUI({ message: 'Please wait' });
-			          }, 
-					success : function(data) {
-						if(data ==='true')
-							{
-							alert("Email already exists")
-		 					$('#cemail').css('border-color', 'red');
-		 					 $('#submitModel').prop('disabled', true);
-							}
-						else
-							{
-							$('#cemail').css('border-color', 'none');
-							 $('#submitModel').prop('disabled', false);
-							}
-						
-					},
-					complete: function () {
-			            
-			            $.unblockUI();
-			       },
-					error :  function(e){$.unblockUI();console.log(e);}
-					
-				});
-			  }
-		  else
-			  
-		{
-			  $('#cemail').css('border-color', 'red');
-			  subValidation =false;
-			  
-		}
-			}); 
-	
-	
-	
-	function resetpassword()
-	{
-		
-		var resetmobile =$("#resetmobile").val();
-		
-		if(resetmobile == "" ||resetmobile == "undefined" ||resetmobile ==" null")
-			{
-			  return false;
-			}
-		
-		$('#resetpassword').prop('disabled', true);
-	 idArrayCmt11 = $.makeArray($('.validate2').map(function() {
-		return this.id;
-		}));
-	validation = true;
-	$.each(idArrayCmt11, function(i, val) {
-		var value = $("#" + idArrayCmt11[i]).val();
-		var placeholder = $("#" + idArrayCmt11[i]).attr('placeholder');
-		if (value == null || value == "" || value == "undefined") {
-			$('style').append(styleBlock);
-			$("#" + idArrayCmt11[i] ).attr("placeholder", placeholder);
-			$("#" + idArrayCmt11[i] ).css('border-color','#e73d4a');
-			$("#" + idArrayCmt11[i] ).css('color','#e73d4a');
-			$("#" + idArrayCmt11[i] ).addClass('placeholder-style your-class');
-			 var id11 = $("#" + idArrayCmt11[i]+"_chosen").length;
-			if ($("#" + idArrayCmt11[i]+"_chosen").length)
-			{
-				$("#" + idArrayCmt11[i]+"_chosen").children('a').css('border-color','#e73d4a');
-			}
-//			$("#" + idArray[i] + "Error").text("Please " + placeholder);
-			validation = false;
-		} 
-	});
-	if(validation) {
-		
-	}else {
-		return false;
-	}
-				var mobileno=$('#resetmobile').val();
-		    	
-			   
-			   var formData = new FormData();
-			   
-			   
-			   formData.append('resetmobile',mobileno);
-	    	console.log(formData);
-	 		$.ajax({
-				type:"POST",
-			  	url: "getresetcustomerpassword", 
-			  	data:formData,
-			  	processData: false,  // tell jQuery not to process the data
-				contentType: false,  // tell jQuery not to set contentType
-			  	
-			  	success: function(result){
-			  		//alert(result);
-			  		if(result==true)
-			  		{
-			  			alert("Your Password sent to registered email and mobile number ");	
-			  			$('#passwordModel').modal('toggle');
-			  			 window.location.reload();
-			  		}	
-			  		else
-			  			{
-			  				alert("Enter registered mobile number");
-			  				$('#resetpassword').prop('disabled', false);
-			  				
-			  			}
-			  		
-			  		
-			  		 
-			  	
-			    },
-			    error: function (e) {
-		            console.log(e.responseText);
-		        }
-					    
-			});
-		
-	}
-	function makeEmptyRegistration()
-	{
-		$('#csname').val("");
-		$('#cname').val("");
-		$('#cmobile').val("");
-		$('#cemail').val("");
-		$('#csname').val("");
-		$('#cpassword').val("");
-		$('#crtpassword').val("");
-		
-		$('#cemail').css('border-color', 'none');
-	}
-	
-	
-	
-	
-	
-	
-	$('#csubmit').click(function() {
-		var musername =	$('#cmusername').val();
-		var mpass =	$('#cmpassword').val();
-		if (musername == null || musername == "" || musername == "undefined") {
-			alert("Please Enter Mobile Number")
-		return false;
-		}
-		if (mpass == null || mpass == "" || mpass == "undefined") {
-			alert("Please Enter password")
-		return false;
-		}
-			
-		});
-	$(".acc").addClass("active");
-	
-	
-	/* $('#cpassword').blur(function() {
-		ccpassword =$('#cpassword').val();
-		//alert(ccpassword);
-		var  passwordPolicy= /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@#$!%*?&.])[A-Za-z\d$@#$!%*?&.]{6,15}$/;
-		alert(passwordPolicy.test(ccpassword));
-		if (passwordPolicy.test(ccpassword)) 
-		{
-            alert('Valid password');
-            $('#submitModel').prop('disabled', false);
-        }
-		else
-			{
-			alert("Password should contain minimum 6 and maximum 15 characters, at least one uppercase letter, one lowercase letter, one number and one special character");	
-			$('#cpassword').css('border-color', 'red');
-			$('#submitModel').prop('disabled', true);
-			}  
-			
-		
-	});  */
-	
-	/* function makeEmptyOtp()
-	{
-		$('#cotp').val("");
-		/* $('#csname').val("");
-		$('#cname').val("");
-		$('#cmobile').val("");
-		$('#cemail').val("");
-		$('#csname').val("");
-		$('#cpassword').val("");
-		$('#crtpassword').val("");
-		
-		$('#cemail').css('border-color', 'none'); 
-	}
-	
-	
-	function resendOTP()
-	{
-		var cmobile =$('#cmobile').val();	
-		$.ajax({
-			type : "POST",
-			url : "resendOtp",
-			data :"cmobile="+cmobile,
-			dataType : "text",
-			beforeSend : function() {
-	             $.blockUI({ message: 'Please wait' });
-	          }, 
-			success : function(data) {
-				if(data ==='true')
-					{
-					alert("OTP sent to your mobile number");
-					}
-				else
-					{
-					alert("OTP Limit Expired For Today");
-					} 
-				
-			},
-			complete: function () {
-	            
-	            $.unblockUI();
-	       },
-			error :  function(e){$.unblockUI();console.log(e);}
-			
-		});
-	}
-	 */
-	
+
 </script>
 

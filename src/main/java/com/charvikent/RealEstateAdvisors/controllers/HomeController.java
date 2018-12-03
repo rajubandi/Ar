@@ -104,13 +104,13 @@ public class HomeController {
 		return "customerlogin";
 	}
 	
-	@PostMapping("/customerlogin")
+	/*@PostMapping("/customerlogin")
 	public String validateCustomerLogin(Users users,Model model,HttpServletRequest request,HttpSession session,RedirectAttributes redir) throws JsonProcessingException {
 		
 		LOGGER.debug("Validating Customer Login page index::{} at controller");
-		/*String loginid=users.getParameter("username");
+		String loginid=users.getParameter("username");
 		String password=request.getParameter("password");
-		*/
+		
 		String loginid=users.getUserName();
 		String password=users.getPassword();
 		
@@ -145,7 +145,7 @@ public class HomeController {
 			return "redirect:"+ loginurl;
 		}
 		
-	}
+	}*/
 	@RequestMapping(value={"/","/index"})
 	public String ShowAbhee(Model model,HttpServletRequest request,HttpSession session) throws JSONException, JsonProcessingException 
 	{
