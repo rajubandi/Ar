@@ -54,13 +54,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	  //.antMatchers("/task").access("hasRole('ROLE_USER') or hasRole('ROLE_BRANCHHEAD')")
 	  //.antMatchers("/customerDashBoard").access("hasRole('ROLE_CUSTOMER')")
 	 // .antMatchers("/index").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER') ")
-	  .antMatchers("/").permitAll()
-	  .antMatchers("/index").permitAll()
-	  .anyRequest().permitAll()  //dashboard,task
+	  //.antMatchers("/")
+	 //.antMatchers("/index")
+	 // .anyRequest().permitAll()  //dashboard,task
   .and()
-    .formLogin().loginPage("/customerlogin")
+    .formLogin().loginPage("/customerlogin").permitAll()
     .usernameParameter("username").passwordParameter("password")
-    .successHandler(customAuthenticationSuccessHandler)
+    //.successHandler(customAuthenticationSuccessHandler)
     .and()
     .logout()
     //.logoutUrl("/logout1")

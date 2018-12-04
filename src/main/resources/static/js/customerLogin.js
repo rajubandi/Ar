@@ -51,8 +51,32 @@ var validation = true;
 	
 	$('#submitModel').click(function(event) {
 		var x= $("#firstName").val();
-		 validation12();
-	validation =subValidation;
+
+		$.each(idArrayCmt1, function(i, val) {
+			var value = $("#" + idArrayCmt1[i]).val();
+			var errorCls = $("#" + idArray[i]).hasClass('errorCls');
+			var placeholder = $("#" + idArrayCmt1[i]).attr('placeholder');
+			if (value == null || value == "" || value == "undefined" || errorCls) {
+				$('style').append(styleBlock);
+				$("#" + idArrayCmt1[i] ).attr("placeholder", placeholder);
+				$("#" + idArrayCmt1[i] ).css('border-color','#e73d4a');
+				$("#" + idArrayCmt1[i] ).css('color','#e73d4a');
+				$("#" + idArrayCmt1[i] ).addClass('placeholder-style your-class');
+				 var id11 = $("#" + idArrayCmt1[i]+"_chosen").length;
+				if ($("#" + idArrayCmt1[i]+"_chosen").length)
+				{
+					$("#" + idArrayCmt1[i]+"_chosen").children('a').css('border-color','#e73d4a');
+				}
+//				$("#" + idArray[i] + "Error").text("Please " + placeholder);
+				validation = false;
+				 event.preventDefault(); 
+			} else{
+				validation = true;
+			} 
+		});
+		
+		
+		validation =subValidation;
 	// retype password validation
 	
 	 var cpassword1 =$('#password').val();
@@ -248,28 +272,7 @@ var validation = true;
 
 function validation12(){
 	
-	$.each(idArrayCmt1, function(i, val) {
-		var value = $("#" + idArrayCmt1[i]).val();
-		var errorCls = $("#" + idArray[i]).hasClass('errorCls');
-		var placeholder = $("#" + idArrayCmt1[i]).attr('placeholder');
-		if (value == null || value == "" || value == "undefined" || errorCls) {
-			$('style').append(styleBlock);
-			$("#" + idArrayCmt1[i] ).attr("placeholder", placeholder);
-			$("#" + idArrayCmt1[i] ).css('border-color','#e73d4a');
-			$("#" + idArrayCmt1[i] ).css('color','#e73d4a');
-			$("#" + idArrayCmt1[i] ).addClass('placeholder-style your-class');
-			 var id11 = $("#" + idArrayCmt1[i]+"_chosen").length;
-			if ($("#" + idArrayCmt1[i]+"_chosen").length)
-			{
-				$("#" + idArrayCmt1[i]+"_chosen").children('a').css('border-color','#e73d4a');
-			}
-//			$("#" + idArray[i] + "Error").text("Please " + placeholder);
-			validation = false;
-			 event.preventDefault(); 
-		} else{
-			validation = true;
-		} 
-	});
+	
 	
 	
 }

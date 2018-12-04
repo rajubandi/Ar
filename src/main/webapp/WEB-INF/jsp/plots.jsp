@@ -83,12 +83,10 @@
 										<a href="#">Select Village</a>
 									</h2>
 									<div class="careerfy-search-box">
-										<input value="Search with Village Name"
-											onBlur="if(this.value == '') { this.value ='Search'; }"
-											onFocus="if(this.value =='Search') { this.value = ''; }"
-											type="text" ng-model="searchVillage"> <input
-											type="submit" value=""> <i
-											class="careerfy-icon careerfy-search"></i>
+										<input placeholder="Search with Village Name" name="searchVillageNames" id="searchVillageNames"  onkeyup="myFunction()" value="" onBlur="if(this.value == '') { this.value ='Search'; }"
+											onFocus="if(this.value =='Search') { this.value = ''; }" type="text" > 
+										<input type="submit" value=""> 
+										<i class="careerfy-icon careerfy-search"></i>
 									</div>
 									<ul class="careerfy-checkbox" id="villageList">
 										<!-- <li ng-repeat="(k,v) in villages | customFilter:searchVillage">
@@ -476,6 +474,41 @@
 <script type="text/javascript">
 var villageList = ${villagesListMap};
 var AllSiteList = ${siteList};
+
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = $("#searchVillageNames").val();
+    filter = input;
+    ul = $("#villageList");
+    li = $('#villageList li').length;
+    /* var t = "abc123";
+    var x = t.match(/[a-z]+|\d+/ig); */
+    
+    $('#villageList li').each(function(){
+    	
+    a =	$(this.children[1].innerText).selector;
+    
+    if (a.indexOf(filter) > -1) {
+    	
+    	$(this).show();
+    } else {
+    	$(this).hide();
+    } 
+    	
+    });
+    /* for (i = 0; i < li.length; i++) {
+        //a = li[i].text();
+       var z =ul[0].children[i];
+       console.log(ul[0].children[i]);
+      a=  ul[0].children[i].textContent().match(/[a-z]+|\d+/ig)
+        txtValue = a.textContent || a.innerText;
+        if (a.indexOf(filter) > -1) {
+        	ul.children[i].hide();
+        } else {
+        	ul.children[i].show();
+        } 
+    } */
+}
 
    jQuery(document).ready(function() {
 	  "use strict"; 

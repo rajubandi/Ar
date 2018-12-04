@@ -229,70 +229,70 @@
 								<div class="form-group ">
 									<div class="row">
 										<div class="col-md-4">
-											<label class="form-label" id="firstName">First Name</label>
+											<label class="form-label"  for="firstName">First Name</label>
 										</div>
 										<div class="col-md-4">
-											<input type="text" class="form-control validate1" id="firstName" placeholder="First Name"/>
-										</div>
-									</div>
-								</div>
-								<div class="form-group ">
-									<div class="row">
-										<div class="col-md-4">
-											<label class="form-label" id="lastName">Last Name</label>
-										</div>
-										<div class="col-md-4">
-											<input type="text" class="form-control validate1" id="lastName" placeholder="Last Name"/>
+											<input type="text" class="form-control validate1" name="firstName" id="firstName" placeholder="First Name"/>
 										</div>
 									</div>
 								</div>
 								<div class="form-group ">
 									<div class="row">
 										<div class="col-md-4">
-											<label class="form-label" id="email">Email</label>
+											<label class="form-label" for="lastName">Last Name</label>
 										</div>
 										<div class="col-md-4">
-											<input type="email" class="form-control validate1" id="email" placeholder="Email"/>
-										</div>
-									</div>
-								</div>
-								<div class="form-group ">
-									<div class="row">
-										<div class="col-md-4">
-											<label class="form-label" id="cpassword">Password</label>
-										</div>
-										<div class="col-md-4">
-											<input type="password" class="form-control validate1" id="cpassword" placeholder="Password"/>
+											<input type="text" class="form-control validate1"  name="lastName" id="lastName" placeholder="Last Name"/>
 										</div>
 									</div>
 								</div>
 								<div class="form-group ">
 									<div class="row">
 										<div class="col-md-4">
-											<label class="form-label" id="crePassword">Re Password</label>
+											<label class="form-label" for="email">Email</label>
 										</div>
 										<div class="col-md-4">
-											<input type="password" class="form-control validate1" id="crePassword" placeholder="Retype Password"/>
-										</div>
-									</div>
-								</div>
-								<div class="form-group ">
-									<div class="row">
-										<div class="col-md-4">
-											<label class="form-label" id="userName">User Name</label>
-										</div>
-										<div class="col-md-4">
-											<input type="text" class="form-control validate1" id="userName" placeholder="User Name"/>
+											<input type="email" class="form-control validate1" name="email" id="email" placeholder="Email"/>
 										</div>
 									</div>
 								</div>
 								<div class="form-group ">
 									<div class="row">
 										<div class="col-md-4">
-											<label class="form-label" id="mobileNumber">Phone Number</label>
+											<label class="form-label" for="cpassword">Password</label>
 										</div>
 										<div class="col-md-4">
-											<input type="Number" class="form-control validate1" id="mobileNumber" placeholder="Phone number"/>
+											<input type="password" class="form-control validate1" name="password" id="password" placeholder="Password"/>
+										</div>
+									</div>
+								</div>
+								<div class="form-group ">
+									<div class="row">
+										<div class="col-md-4">
+											<label class="form-label" for="crePassword">Re Password</label>
+										</div>
+										<div class="col-md-4">
+											<input type="password" class="form-control validate1" name="rePassword" id="crePassword" placeholder="Retype Password"/>
+										</div>
+									</div>
+								</div>id
+								<div class="form-group ">
+									<div class="row">
+										<div class="col-md-4">
+											<label class="form-label" for="userName">User Name</label>
+										</div>
+										<div class="col-md-4">
+											<input type="text" class="form-control validate1"  name="userName"  id="userName" placeholder="User Name"/>
+										</div>
+									</div>
+								</div>
+								<div class="form-group ">
+									<div class="row">
+										<div class="col-md-4">
+											<label class="form-label" for="mobileNumber">Phone Number</label>
+										</div>
+										<div class="col-md-4">
+											<input type="Number" class="form-control validate1" name="mobileNumber" id="mobileNumber" placeholder="Phone number"/>
 										</div>
 									</div>
 								</div>
@@ -430,6 +430,7 @@
 <!-- <script type="text/javascript" src="js/bootstrap.js"></script> -->
 <!-- Have fun using Bootstrap JS -->
 <script type='text/javascript' src='js/customValidation.js'></script>
+<script type='text/javascript' src="js/jquery.blockUI.min.js"></script>
 <!-- <script src="js/bootstrap.min.js"></script> -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 

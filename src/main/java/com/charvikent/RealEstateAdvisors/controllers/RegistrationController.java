@@ -176,7 +176,7 @@ public class RegistrationController
 		
 		String usernumber =kptsUtil.randNum();
 		  
-		String regSuccessMsg =csname+" "+cname+",  Successfully registered with ABhee Smart Homes. \n You can login using  \n UserId:  "+custMobile+" or "+cemail+"\n password: "+cpassword;
+		String regSuccessMsg =csname+" "+cname+",  Successfully registered with Amaravathi Realtors. \n You can login using  \n UserId:  "+custMobile+" or "+cemail+"\n password: "+cpassword;
 
 		
 		
