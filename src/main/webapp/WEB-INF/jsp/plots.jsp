@@ -556,7 +556,7 @@ function myFunction() {
 		$.each(villageList, function(i, item) {
 			
 			
-			$("#villageList").append('<li><input type="checkbox" id='+i+' name='+i+' /><label><span></span>'+item+'</label><small>13</small></li>');
+			$("#villageList").append('<li><input type="checkbox" id="'+i+'" name="villageCheckBox[]" /><label for="'+i+'"><span></span>'+item+'</label><small>13</small></li>');
 			
 		});
 		var cls="";
@@ -590,6 +590,30 @@ function myFunction() {
                         +'</li>');
 			
 		});
+		//var values = new Array();
+		$("input[name='villageCheckBox[]']").change(function () {
+			var values = new Array();
+			
+			$('input[name="villageCheckBox[]"]:checked').each(function() {
+				values.push($(this).attr('id'));
+			});
+			
+			if(values > 0 ){
+				
+						$.ajax({
+							type : "POST",
+							url : "siteFilterByVillage",
+							data : {villageArry:values},
+							dataType : "json",
+							success : function(response) {
+							alert('');
+								}
+							
+							
+						});
+						//$('input.checkall').not(this).prop('checked', false);
+				}
+			});
    });
    
    function iAmIntrested(id){
@@ -620,6 +644,7 @@ function myFunction() {
    //$("#li u").css('display','block');
    //$("#li a[href='"+ getTabName +"']").addClass('active');
    $("a[href='"+ getTabName +"']").parents('li').addClass('active');
+   
 </script>
 
 </body>

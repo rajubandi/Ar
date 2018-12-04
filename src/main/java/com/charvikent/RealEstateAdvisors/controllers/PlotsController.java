@@ -82,4 +82,11 @@ public class PlotsController {
 		sendSMS.sendSMS(iamIntrestedMessage,customer.getMobileNumber());
 		 return "";
 	}
+	
+	@PostMapping("/siteFilterByVillage")
+	public @ResponseBody String siteFilterByVillage(@RequestParam(value="villageArry[]") int[] villageArry, HttpSession session,HttpServletRequest request) throws IOException {
+		
+		
+		 return "";
+	}
 }

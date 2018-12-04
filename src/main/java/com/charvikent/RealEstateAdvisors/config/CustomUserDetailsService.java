@@ -58,13 +58,22 @@ public class CustomUserDetailsService implements UserDetailsService{
 		
 		
 		Users customer=null;
+		List<String> roleslist =new ArrayList<String>();
 		if(userDesignation.getDesignation().equals("ROLE_ADMIN")) {
 			 session.setAttribute("userDesignationSession", userDesignation);
 		 
 		 
-		 session.setAttribute("sessionUser",((Users) objUser).getFirstName());
+		 session.setAttribute("userDesignationSession", user);
+			//session.setAttribute("sCategorylist",listOrderBeans);
+				 session.setAttribute("sessionUser", user.getFirstName());
+				 session.setAttribute("customer", user);
+					session.setAttribute("loggedstatus", "login");
+					session.setAttribute("customerId", user.getId());
+					session.setAttribute("customerName", user.getFirstName());
 		 try {
 			response.sendRedirect("dashBoard");
+			roleslist.add(userDesignation.getDesignation());
+			return new CustomUserDetails(user,roleslist);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -83,14 +92,14 @@ public class CustomUserDetailsService implements UserDetailsService{
 					session.setAttribute("customerName", user.getFirstName());
 				 try {
 					response.sendRedirect("index");
+					roleslist.add(userDesignation.getDesignation());
+					return new CustomUserDetails(user,roleslist);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 		}  	
 		
-		List<String> roleslist =new ArrayList<String>();
-		roleslist.add(userDesignation.getDesignation());
 		return new CustomUserDetails(user,roleslist);
 		
 		

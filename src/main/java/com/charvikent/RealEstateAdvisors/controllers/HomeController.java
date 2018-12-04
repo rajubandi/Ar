@@ -82,11 +82,12 @@ public class HomeController {
 	   // userService.setLoginRecord(objuserBean.getId(),"logout");
 	    if (null != auth){    
 	        new SecurityContextLogoutHandler().logout(request, response, auth);
+	        SecurityContextHolder.getContext().setAuthentication(null);
 	    }
 	    SecurityContextHolder.clearContext();
-	    if(null != auth) {
+	   /* if(null != auth) {
 	    	SecurityContextHolder.getContext().setAuthentication(null);
-	    }
+	    }*/
 	    System.out.println("Called Logout");
 	    return "redirect:/";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
 	}
@@ -162,16 +163,34 @@ public class HomeController {
 	
 	
 	@RequestMapping("/signout")
-	public String SignOut(Model model,HttpServletRequest request,HttpSession session) throws JSONException, JsonProcessingException {
+	public String SignOut(Model model,HttpServletRequest request,HttpSession session,HttpServletResponse response) throws JSONException, JsonProcessingException {
 		LOGGER.debug("Calling Signout page at controller");
 		String referalUrl=request.getHeader("referer");
 		System.out.println(referalUrl);
 		
 		falg=true;
+		Users objuserBean = (Users)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		Users userDesignation= userService.getUserDesignationById(((Users) objuserBean).getId());
 		
-		session.invalidate();
-		 
-		return "redirect:"+ referalUrl;
+		 session.invalidate();
+		 if (null != auth){    
+		        new SecurityContextLogoutHandler().logout(request, response, auth);
+		        SecurityContextHolder.getContext().setAuthentication(null);
+		    }
+		    SecurityContextHolder.clearContext();
+		 if(userDesignation.getDesignation().equals("ROLE_ADMIN")) {
+			
+			 
+			 return "redirect:/";
+		 }else {
+			 
+			 return "redirect:"+ referalUrl;
+		 }
+		
+		
+		
 	}
 	
 	
