@@ -1,6 +1,7 @@
 package com.charvikent.RealEstateAdvisors.controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -85,8 +86,23 @@ public class PlotsController {
 	
 	@PostMapping("/siteFilterByVillage")
 	public @ResponseBody String siteFilterByVillage(@RequestParam(value="villageArry[]") int[] villageArry, HttpSession session,HttpServletRequest request) throws IOException {
+		 String json=null;
+		List<Integer> villageIdList = new ArrayList<>();
+		for(int villageId: villageArry) {
+			
+			villageIdList.add(villageId);
+			
+		}
 		
-		
-		 return "";
+		List<Site> siteList = siteService.findByVillageId(villageIdList);
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			 json= objectMapper.writeValueAsString(siteList);
+			request.setAttribute("siteList", json);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return json;
 	}
 }

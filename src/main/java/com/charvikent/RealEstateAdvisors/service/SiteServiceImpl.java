@@ -1,6 +1,13 @@
 package com.charvikent.RealEstateAdvisors.service;
 
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,7 +18,11 @@ import com.charvikent.RealEstateAdvisors.repositories.SiteRepository;
 @Service("siteService")
 @Transactional
 public class SiteServiceImpl implements SiteService {
-
+	@Autowired
+    private JdbcTemplate jdbcTemplate;
+	
+	@PersistenceContext
+    private EntityManager entityManager;
 	@Autowired
 	private SiteRepository siteRepository;
 
@@ -26,6 +37,19 @@ public class SiteServiceImpl implements SiteService {
 		// TODO Auto-generated method stub
 		
 		return siteRepository.findByVillageId(id);
+	}
+
+	@Override
+	public List<Site> findByVillageId(List<Integer> villageIdList) {
+		
+		
+
+
+		 String queryStr = "FROM Site where villageId in :villageIdList";
+		 Query query =entityManager.createQuery(queryStr,Site.class); 
+		 query.setParameter("villageIdList", villageIdList);
+		 
+		return query.getResultList();
 	}
 
 	
