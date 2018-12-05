@@ -427,7 +427,7 @@
 								</ul>
 							</div>
 							<!-- Pagination -->
-							<div class="careerfy-pagination-blog">
+							<!-- <div class="careerfy-pagination-blog">
 								<ul class="page-numbers">
 									<li><a class="prev page-numbers" href="#"><span><i
 												class="careerfy-icon careerfy-arrows4"></i></span></a></li>
@@ -438,7 +438,7 @@
 									<li><a class="next page-numbers" href="#"><span><i
 												class="careerfy-icon careerfy-arrows4"></i></span></a></li>
 								</ul>
-							</div>
+							</div> -->
 						</div>
 					</div>
 

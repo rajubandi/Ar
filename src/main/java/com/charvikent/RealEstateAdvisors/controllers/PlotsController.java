@@ -2,6 +2,7 @@ package com.charvikent.RealEstateAdvisors.controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
@@ -87,14 +89,32 @@ public class PlotsController {
 	@PostMapping("/siteFilterByVillage")
 	public @ResponseBody String siteFilterByVillage(@RequestParam(value="villageArry[]") int[] villageArry, HttpSession session,HttpServletRequest request) throws IOException {
 		 String json=null;
-		List<Integer> villageIdList = new ArrayList<>();
+		 //String villageIds="";
+		 System.out.println(villageArry);
+		List<Integer> villageIdList = new ArrayList<Integer>();
+		
+		
+		StringBuffer result = new StringBuffer();
+		
+		for (int i = 0; i < villageArry.length; i++) {
+			
+			if(i==0) {
+				 result.append( villageArry[i] );
+			}else {
+				
+				 result.append(","+ villageArry[i] );
+			}
+		   //result.append( optional separator );
+		}
+		//String villageIds=	villageArry.toString();
+		/*
 		for(int villageId: villageArry) {
 			
 			villageIdList.add(villageId);
 			
-		}
+		}*/
 		
-		List<Site> siteList = siteService.findByVillageId(villageIdList);
+		List<Site> siteList = siteService.findByVillageId(result.toString());
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			 json= objectMapper.writeValueAsString(siteList);

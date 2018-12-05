@@ -40,13 +40,15 @@ public class SiteServiceImpl implements SiteService {
 	}
 
 	@Override
-	public List<Site> findByVillageId(List<Integer> villageIdList) {
+	public List<Site> findByVillageId(String villageIdList) {
 		
-		
+		////jdbcTemplate
+		//for list of all sites with village bean is working 
+		// String queryStr1 ="select s from Site s join s.villageId c where s.villageId =1";
+		 String queryStr1 ="select b from VillagesBean b join b.sites c where c.villageId IN (:villageIdList)";
 
-
-		 String queryStr = "FROM Site where villageId in :villageIdList";
-		 Query query =entityManager.createQuery(queryStr,Site.class); 
+		 String queryStr = "FROM Site s where s.villageId any :villageIdList";
+		 Query query =entityManager.createQuery(queryStr1); 
 		 query.setParameter("villageIdList", villageIdList);
 		 
 		return query.getResultList();
