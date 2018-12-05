@@ -17,6 +17,8 @@ public interface SiteService  {
 
 	void saveSite(Site site);
 
+	List<Site> findByVillageId(List<Integer> villageIdList);
+
 	//void updateVillagesBean(VillagesBean village);
 
 	//void deleteVillagesBeanById(int id);

@@ -12,6 +12,7 @@ public interface SiteRepository  extends JpaRepository<Site, Integer>{
 
 	//VillagesBean findByVName(String vName);
 	VillagesBean findByVillageId(Integer villageId);	
+	VillagesBean findByVillageId(List<Integer> villageId);	
 	List<Site> findAll();
 
 
