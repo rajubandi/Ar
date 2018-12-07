@@ -91,10 +91,13 @@ public class PlotsController {
 		 String json=null;
 		 //String villageIds="";
 		 System.out.println(villageArry);
-		List<Integer> villageIdList = new ArrayList<Integer>();
+		List<int[]> villageIdList = Arrays.asList(villageArry);
+		List<Integer> vlist = new ArrayList<>();
+		
+		System.out.println("Array list %%%%%%%%%%%%"+villageArry);
 		
 		
-		StringBuffer result = new StringBuffer();
+		/*StringBuffer result = new StringBuffer();
 		
 		for (int i = 0; i < villageArry.length; i++) {
 			
@@ -107,14 +110,15 @@ public class PlotsController {
 		   //result.append( optional separator );
 		}
 		//String villageIds=	villageArry.toString();
-		/*
+		
+		
+		*/
 		for(int villageId: villageArry) {
 			
-			villageIdList.add(villageId);
+			vlist.add(villageId);
 			
-		}*/
-		
-		List<Site> siteList = siteService.findByVillageId(result.toString());
+		}
+		List<Site> siteList = siteService.findByVillageId(vlist);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			 json= objectMapper.writeValueAsString(siteList);
