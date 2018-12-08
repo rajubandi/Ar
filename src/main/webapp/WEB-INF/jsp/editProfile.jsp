@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<jsp:include page="header.jsp" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
@@ -10,7 +11,7 @@
 	<li>Your Details</li>
 </ol>
 <div class="clearfix"></div>
-<div class="container">
+<div class="container" style="height:auto;">
 	<!-- <div class="row">
 			<div class="col-md-12" style="background-color:  white !important; padding-top: 15PX;">
 				<div class="panel panel-primary">
@@ -40,48 +41,105 @@
 					<h4>Your Details</h4>
 				</div>
 
-				<form:form modelAttribute="editProfile" action="editProfile"
-					class="form-horizontal " method="Post">
+				<form:form modelAttribute="editProfile" action="editProfile" class="form-horizontal " method="Post">
 					<form:hidden path="id" />
-					<%--<div class="col-md-6"><br>
-								<div class="form-group">
-									<label class="col-md-3 control-label no-padding-right">Username</label>
-									<div class="col-md-6">
-										<form:input path="username" class="form-control validate" placeholder="Enter Username"/>
+					<div class="col-lg-8">
+									<div class="card-header">
+										<h3 class="card-title">Edit Profile</h3>
+										<div class="card-options">
+											<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+											<a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+										</div>
 									</div>
-								</div>
-								
-								</div>
-							 <div class="col-md-6"><br>
-								<div class="form-group" id="passwordDiv">
-									<label class="col-md-3 control-label no-padding-right">Password</label>
-									<div class="col-md-6">
-										<form:password path="password" class="form-control validate" placeholder="Enter Password"/>
+									<div class="card-body">
+										<div class="row">
+											<div class="col-md-5">
+												<div class="form-group">
+													<label class="form-label">Company</label>
+													<input type="text" class="form-control"  placeholder="Company" >
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-3">
+												<div class="form-group">
+													<label class="form-label">Username</label>
+													<input type="text" class="form-control" placeholder="Username" >
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-4">
+												<div class="form-group">
+													<label class="form-label">Email address</label>
+													<input type="email" class="form-control" placeholder="Email">
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-6">
+												<div class="form-group">
+													<label class="form-label">First Name</label>
+													<input type="text" class="form-control" placeholder="Company">
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-6">
+												<div class="form-group">
+													<label class="form-label">Last Name</label>
+													<input type="text" class="form-control" placeholder="Last Name">
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="form-label">Address</label>
+													<input type="text" class="form-control" placeholder="Home Address" >
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-4">
+												<div class="form-group">
+													<label class="form-label">City</label>
+													<input type="text" class="form-control" placeholder="City" >
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-3">
+												<div class="form-group">
+													<label class="form-label">Postal Code</label>
+													<input type="number" class="form-control" placeholder="ZIP Code">
+												</div>
+											</div>
+											<div class="col-md-5">
+												<div class="form-group">
+													<label class="form-label">Country</label>
+													<select class="form-control custom-select">
+														<option value="0">--Select--</option>
+														<option value="1">Germany</option>
+														<option value="2">Canada</option>
+														<option value="3">Usa</option>
+														<option value="4">Aus</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group mb-0">
+													<label class="form-label">About Me</label>
+													<textarea rows="5" class="form-control" placeholder="Enter About your description"></textarea>
+												</div>
+											</div>
+										</div>
 									</div>
-								</div>
-								
-								</div> --%>
+									<div class="card-footer text-right">
+										<button type="submit" class="btn btn-primary">Update Profile</button>
+									</div>
+							</div>
 					<div class="col-md-6">
 						<br>
 						<div class="form-group">
-							<label class="col-md-3 control-label no-padding-right">First
-								Name</label>
+							<label class="col-md-3 control-label no-padding-right">First Name</label>
 							<div class="col-md-6">
-								<form:input path="firstname"
-									class="form-control validate onlyCharacters"
-									placeholder="Enter First Name" />
+								<form:input path="firstName" class="form-control validate onlyCharacters" placeholder="Enter First Name" />
 							</div>
 						</div>
 					</div>
 					<div class="col-md-6">
 						<br>
 						<div class="form-group">
-							<label class="col-md-3 control-label no-padding-right">Last
-								Name</label>
+							<label class="col-md-3 control-label no-padding-right">Last Name</label>
 							<div class="col-md-6">
-								<form:input path="lastname"
-									class="form-control validate onlyCharacters"
-									placeholder="Enter Last Name" />
+								<form:input path="lastName" class="form-control validate onlyCharacters" placeholder="Enter Last Name" />
 							</div>
 						</div>
 					</div>
@@ -90,9 +148,7 @@
 						<div class="form-group">
 							<label class="col-md-3 control-label no-padding-right">Mobile</label>
 							<div class="col-md-6">
-								<form:input path="mobilenumber"
-									class="form-control validate numericOnly"
-									placeholder="Enter Mobile Number" />
+								<form:input path="mobileNumber" class="form-control validate numericOnly" placeholder="Enter Mobile Number" />
 							</div>
 						</div>
 					</div>
@@ -100,8 +156,7 @@
 						<div class="form-group">
 							<label class="col-md-3 control-label no-padding-right">Email</label>
 							<div class="col-md-6">
-								<form:input path="email" class="form-control"
-									placeholder="Enter Email" />
+								<form:input path="email" class="form-control" placeholder="Enter Email" />
 							</div>
 						</div>
 					</div>
@@ -160,7 +215,7 @@
 	</div>
 </div>
 <!-- container -->
-</body>
+
 <script type="text/javascript">
 
 
@@ -172,3 +227,4 @@
 //".employee").addClass("active");
 
 </script>
+<jsp:include page="footer.jsp" />

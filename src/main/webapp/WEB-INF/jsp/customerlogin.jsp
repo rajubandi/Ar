@@ -33,6 +33,12 @@
 	display: block !important;
 	opacity: 1;
 }
+label{
+color:#000;
+padding-left: 30px;
+    padding-top: 7px;
+
+}
 
 .alert-success, .alert-warning, .alert-danger {
 	color: white !important;
@@ -275,7 +281,7 @@
 											<input type="password" class="form-control validate1" name="rePassword" id="crePassword" placeholder="Retype Password"/>
 										</div>
 									</div>
-								</div>id
+								</div>
 								<div class="form-group ">
 									<div class="row">
 										<div class="col-md-4">

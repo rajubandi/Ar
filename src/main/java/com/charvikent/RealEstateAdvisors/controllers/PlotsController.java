@@ -72,13 +72,13 @@ public class PlotsController {
 	}
 
 	@PostMapping("/userIntrestedSite")
-	public @ResponseBody String intrestedSite( HttpSession session,HttpServletRequest request) throws IOException {
-		String siteId =(String) request.getAttribute("id");
+	public @ResponseBody String intrestedSite(@RequestParam("id") String id, HttpSession session,HttpServletRequest request) throws IOException {
+		//String siteId =(String) request.getAttribute("id");
 		Users customer=(Users) session.getAttribute("customer");
 		UserIntrestedSites uis = new UserIntrestedSites();
 		
 		uis.setUserId(customer.getId());
-		uis.setSiteId(Integer.parseInt(siteId));
+		uis.setSiteId(Integer.parseInt(id));
 		userIntrestedSitesServiceImpl.saveUserIntrestedSites(uis);
 		//sendingMail.sendSalesRequestEmailWithattachment(customer.getEmail());
 		String iamIntrestedMessage=env.getProperty("app.iamIntrestedMessage");

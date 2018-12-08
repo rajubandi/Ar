@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.context.NullSecurityContextRepository;
 
 
 
@@ -63,9 +64,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //.successHandler(customAuthenticationSuccessHandler)
     .and()
     .logout()
-    //.logoutUrl("/logout1")
+    //.logoutUrl("/")
     .logoutSuccessUrl("/") 
-   .invalidateHttpSession(true)
+   .invalidateHttpSession(true).clearAuthentication(true)
    .logoutSuccessHandler(customLogoutSuccessHandler)
    .and()
    .exceptionHandling().accessDeniedPage("/403")
@@ -73,6 +74,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     .csrf().disable();
 	 
 	 http.addFilterBefore(new CustomUsernamePasswordAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+	 http.securityContext().securityContextRepository(new NullSecurityContextRepository());
  }
 
 

@@ -15,6 +15,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -161,7 +162,6 @@ public class HomeController {
 		return "index";
 	}
 	
-	
 	@RequestMapping("/signout")
 	public String SignOut(Model model,HttpServletRequest request,HttpSession session,HttpServletResponse response) throws JSONException, JsonProcessingException {
 		LOGGER.debug("Calling Signout page at controller");
@@ -169,13 +169,13 @@ public class HomeController {
 		System.out.println(referalUrl);
 		
 		falg=true;
-		Users objuserBean = (Users)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Object objuserBean = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		Users userDesignation= userService.getUserDesignationById(((Users) objuserBean).getId());
+		//Users userDesignation= userService.getUserDesignationById(((Users) objuserBean).getId());
 		
 		 session.invalidate();
-		 if (null != auth){    
+		 /*if (null != auth){    
 		        new SecurityContextLogoutHandler().logout(request, response, auth);
 		        SecurityContextHolder.getContext().setAuthentication(null);
 		    }
@@ -187,19 +187,22 @@ public class HomeController {
 		 }else {
 			 
 			 return "redirect:"+ referalUrl;
-		 }
+		 }*/
 		
-		
+		 return "redirect:/";
 		
 	}
-	
 	
 	@RequestMapping("/dashboard")
 	public String home() {
 		
 		return "dashboard";
 	}
-	
+	@RequestMapping("/editProfile")
+	public String editProfile(@ModelAttribute("editProfile")Users user) {
+		
+		return "editProfile";
+	}
 	
 	
 	

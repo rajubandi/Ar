@@ -147,7 +147,7 @@ label {
 						<c:when test="${not empty loggedstatus}">
 							<script type="text/javascript"> $("#loggedCustomerName").text("${customerName}");var login=true;</script>
 							<ul>
-								<li><a href="${baseurl}/customerprofile">My Profile</a></li>
+								<li><a href="${baseurl}/editProfile">My Profile</a></li>
 								<li><a href="${baseurl}/signout">Sign out</a></li>
 							</ul>
 						</c:when>

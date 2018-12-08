@@ -617,14 +617,14 @@ function myFunction() {
    });
    
    function iAmIntrested(id){
-	  // var siteId = $(this).id;
+	   var siteId = id;
 	  
 	   if(login){
 		   $.ajax({
 				type : "POST",
 				url : "userIntrestedSite",
-				data :"id="+id,
-				dataType : "text",
+				data :"id="+siteId,
+				dataType : "json",
 				success : function(data) {
 					alert("success");
 				},
