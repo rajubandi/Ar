@@ -89,30 +89,8 @@ public class PlotsController {
 	@PostMapping("/siteFilterByVillage")
 	public @ResponseBody String siteFilterByVillage(@RequestParam(value="villageArry[]") int[] villageArry, HttpSession session,HttpServletRequest request) throws IOException {
 		 String json=null;
-		 //String villageIds="";
-		 System.out.println(villageArry);
-		List<int[]> villageIdList = Arrays.asList(villageArry);
 		List<Integer> vlist = new ArrayList<>();
 		
-		System.out.println("Array list %%%%%%%%%%%%"+villageArry);
-		
-		
-		/*StringBuffer result = new StringBuffer();
-		
-		for (int i = 0; i < villageArry.length; i++) {
-			
-			if(i==0) {
-				 result.append( villageArry[i] );
-			}else {
-				
-				 result.append(","+ villageArry[i] );
-			}
-		   //result.append( optional separator );
-		}
-		//String villageIds=	villageArry.toString();
-		
-		
-		*/
 		for(int villageId: villageArry) {
 			
 			vlist.add(villageId);

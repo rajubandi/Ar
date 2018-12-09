@@ -42,18 +42,12 @@ public class SiteServiceImpl implements SiteService {
 	@Override
 	public List<Site> findByVillageId(List<Integer>  villageIdList) {
 		
-		////jdbcTemplate
-		//for list of all sites with village bean is working 
 		// String queryStr1 ="select s from Site s join s.villageId c where s.villageId =1";
 		 //String queryStr1 ="select S from Site s join s.villageId c where s.villageId IN (:villageIdList)";
-		 
-		 
 		/* String queryStr1 ="select s.id,s.colony,s.sqYd,s.price,s.validDate,s.listingId,s.siteDimensions,s.siteFacing,s.roadDimensions,s.roadFacing, s.status,"
 				 		+" s.propertyType,s.villageId,v.vName,v.pinCode from Site s, VillagesBean v where s.villageId =v.id and s.villageId IN (1,2)";*/
-		StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("FROM Site s where s.villageId");
-		Query query ;
-		if(villageIdList.size() == 1) {
+		Query query = entityManager.createQuery("From Site s , VillagesBean v where s.villageId=v.id and s.villageId.id in :villageIdList  ").setParameter("villageIdList", villageIdList);
+		/*if(villageIdList.size() == 1) {
 			
 			stringBuffer.append("=:villageIdList");
 			
@@ -63,9 +57,8 @@ public class SiteServiceImpl implements SiteService {
 			stringBuffer.append("in (:villageIdList)");
 			query =entityManager.createNativeQuery(stringBuffer.toString()); 
 			query.setParameter("villageIdList", villageIdList);
-		}
-		 //String queryStr = "FROM Site s where s.villageId in (:villageIdList)";
-	//	FROM Site s where s.villageId=1
+		}*/
+		 
 		return query.getResultList();
 	}
 

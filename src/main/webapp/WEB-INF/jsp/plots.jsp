@@ -606,7 +606,37 @@ function myFunction() {
 							data : {villageArry:values},
 							dataType : "json",
 							success : function(response) {
-							alert('');
+								$("#ulSiteList").html('');
+								$.each(response, function(i, item) {
+									
+									
+									if(item[0].propertyType == "Commercial"){
+										
+										cls ="careerfy-red";
+									}else{cls="";}
+									$("#ulSiteList").append('<li class="careerfy-column-12">'
+						                    	+'<div class="careerfy-joblisting-classic-wrap">'
+						                    	+'<div class="careerfy-joblisting-text">'
+						                        +'<div class="careerfy-list-option">'
+						                        +'<h2><a href="#">'+  item[0].sqYd +'Sq.Yd - <i class="fa fa-rupee"></i>'+  item[0].price +'</a>'
+						                        +' <span>Listing ID: "'+  item[0].listingId +'"</span></h2>'
+						                        +'<ul>'
+						                        +' <li><a href="#">@"'+item[0].propertyType+'"</a></li>'
+						                        +'<li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>"'+  item[0].colony +'" Colony</strong></li>'
+						                        +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i>'+  item[0].siteFacing +'</li>'
+						                        +'<p class="italic">03 Nov 2018</p>'
+						                        +'</ul>'
+						                        +'</div>'
+						                        +'<div class="careerfy-job-userlist">'
+						                        
+						                        +'<button id="'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+cls+'">I am Interested</button>'
+						                        +'</div>'
+						                        +'<div class="clearfix"></div>'
+						                        +'</div>'
+						                        +'</div>'
+						                        +'</li>');
+									
+								});
 								}
 							
 							
