@@ -53,6 +53,7 @@ public class PlotsController {
 		String json = null;
 		String json1 = null;
 		List<Site> siteList = siteRepository.findAll(); 
+		long totalSiteCount = siteRepository.count();
 		List<VillagesBean> villagesList =villageService.findAllVillagesBean();
 		for(VillagesBean villageBean: villagesList) {
 			 
@@ -87,16 +88,36 @@ public class PlotsController {
 	}
 	
 	@PostMapping("/siteFilterByVillage")
-	public @ResponseBody String siteFilterByVillage(@RequestParam(value="villageArry[]") int[] villageArry, HttpSession session,HttpServletRequest request) throws IOException {
+	public @ResponseBody String siteFilterByVillage(@RequestParam(value="villageArry[]", required = false) int[] villageArry,
+													@RequestParam(value="facingArry[]", required = false) String[] facingArry,
+													@RequestParam(value="protoTypeArry[]", required = false) String[] protoTypeArry,
+													HttpSession session,HttpServletRequest request) throws IOException {
 		 String json=null;
 		List<Integer> vlist = new ArrayList<>();
-		
-		for(int villageId: villageArry) {
-			
-			vlist.add(villageId);
-			
+		List<String> facingList = new ArrayList<>();
+		List<String> protoTypeList = new ArrayList<>();
+		if(villageArry !=null) {
+			for(int villageId: villageArry) {
+				
+				vlist.add(villageId);
+				
+			}
 		}
-		List<Site> siteList = siteService.findByVillageId(vlist);
+		if(facingArry !=null) {
+			for(String facing: facingArry) {
+						
+				facingList.add(facing);
+						
+					}
+		}
+		if(protoTypeArry !=null) {
+			for(String protoType: protoTypeArry) {
+				
+				protoTypeList.add(protoType);
+				
+			}
+		}
+		List<Site> siteList = siteService.findByVillageId(vlist,facingList,protoTypeList);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			 json= objectMapper.writeValueAsString(siteList);

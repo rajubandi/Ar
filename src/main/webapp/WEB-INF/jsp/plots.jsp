@@ -107,12 +107,12 @@
 											Type</a>
 									</h2>
 									<div class="careerfy-checkbox-toggle">
-										<ul class="careerfy-checkbox">
-											<li><input type="checkbox" id="r11" name="rr" /> <label
-												for="r11"><span></span>Commercial</label> <small>153</small>
+										<ul class="careerfy-checkbox" id="prototypeUl">
+											<li><input type="checkbox" id="Commercial" name="protoTypeCheckBox[]" /> <label
+												for="Commercial"><span></span>Commercial</label> <small>153</small>
 											</li>
-											<li><input type="checkbox" id="r12" name="rr" /> <label
-												for="r12"><span></span>Residential</label> <small>147</small>
+											<li><input type="checkbox" id="Residential" name="protoTypeCheckBox[]" /> <label
+												for="Residential"><span></span>Residential</label> <small>147</small>
 											</li>
 
 										</ul>
@@ -125,14 +125,14 @@
 									</h2>
 									<div class="careerfy-checkbox-toggle">
 										<ul class="careerfy-checkbox">
-											<li><input type="checkbox" id="r17" name="rr" /> <label
-												for="r17"><span></span>North</label> <small>10</small></li>
-											<li><input type="checkbox" id="r18" name="rr" /> <label
-												for="r18"><span></span>South</label> <small>2</small></li>
-											<li><input type="checkbox" id="r19" name="rr" /> <label
-												for="r19"><span></span>East</label> <small>6</small></li>
-											<li><input type="checkbox" id="r20" name="rr" /> <label
-												for="r20"><span></span>West</label> <small>4</small></li>
+											<li><input type="checkbox" id="North" name="facing[]" /> 
+											<label for="North"><span></span>North</label> <small>10</small></li>
+											<li><input type="checkbox" id="South" name="facing[]" /> 
+											<label for="South"><span></span>South</label> <small>2</small></li>
+											<li><input type="checkbox" id="East" name="facing[]" /> 
+											<label for="East"><span></span>East</label> <small>6</small></li>
+											<li><input type="checkbox" id="West" name="facing[]" /> 
+											<label for="West"><span></span>West</label> <small>4</small></li>
 
 										</ul>
 										<a href="#" class="careerfy-seemore">+see more</a>
@@ -590,62 +590,110 @@ function myFunction() {
                         +'</li>');
 			
 		});
-		//var values = new Array();
-		$("input[name='villageCheckBox[]']").change(function () {
-			var values = new Array();
-			
-			$('input[name="villageCheckBox[]"]:checked').each(function() {
-				values.push($(this).attr('id'));
-			});
-			
-			if(values > 0 ){
+		
+				var values = null;
+				var protoType = null;
+				var facing = null;
+				$("input[name='villageCheckBox[]']").change(function () {
+									values=[];
+									$('input[name="villageCheckBox[]"]').each(function() {
+										if(this.checked){
+										values.push($(this).attr('id'));
+										}
+									});
+									
+									if(values != null|| protoType != null || facing != null ){
+										siteFiterByVillage(values,protoType,facing);
+										}else{
+											
+											window.location.href='?';
+										}
+									
+					});
 				
-						$.ajax({
-							type : "POST",
-							url : "siteFilterByVillage",
-							data : {villageArry:values},
-							dataType : "json",
-							success : function(response) {
-								$("#ulSiteList").html('');
-								$.each(response, function(i, item) {
-									
-									
-									if(item[0].propertyType == "Commercial"){
-										
-										cls ="careerfy-red";
-									}else{cls="";}
-									$("#ulSiteList").append('<li class="careerfy-column-12">'
-						                    	+'<div class="careerfy-joblisting-classic-wrap">'
-						                    	+'<div class="careerfy-joblisting-text">'
-						                        +'<div class="careerfy-list-option">'
-						                        +'<h2><a href="#">'+  item[0].sqYd +'Sq.Yd - <i class="fa fa-rupee"></i>'+  item[0].price +'</a>'
-						                        +' <span>Listing ID: "'+  item[0].listingId +'"</span></h2>'
-						                        +'<ul>'
-						                        +' <li><a href="#">@"'+item[0].propertyType+'"</a></li>'
-						                        +'<li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>"'+  item[0].colony +'" Colony</strong></li>'
-						                        +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i>'+  item[0].siteFacing +'</li>'
-						                        +'<p class="italic">03 Nov 2018</p>'
-						                        +'</ul>'
-						                        +'</div>'
-						                        +'<div class="careerfy-job-userlist">'
-						                        
-						                        +'<button id="'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+cls+'">I am Interested</button>'
-						                        +'</div>'
-						                        +'<div class="clearfix"></div>'
-						                        +'</div>'
-						                        +'</div>'
-						                        +'</li>');
-									
-								});
-								}
+				
+				$("input[name='protoTypeCheckBox[]']").change(function () {
+					protoType=[];
+					$('input[name="protoTypeCheckBox[]"]').each(function() {
+						if(this.checked){
+							protoType.push($(this).attr('id'));
+						}
+					});
+					
+					if(values != null || protoType != null || facing != null ){
+						siteFiterByVillage(values,protoType,facing);
+						}else{
 							
+							window.location.href='?';
+						}
+				});
+				$("input[name='facing[]']").change(function () {
+					facing =[];
+					$('input[name="facing[]"]').each(function() {
+						if(this.checked){
+							facing.push($(this).attr('id'));
+						}
+					});
+					
+					if(values != null || protoType != null || facing != null ){
+						siteFiterByVillage(values,protoType,facing);
+						}else{
 							
-						});
-						//$('input.checkall').not(this).prop('checked', false);
-				}
-			});
+							window.location.href='?';
+						}
+				});
+	
    });
    
+   
+   function siteFiterByVillage(values,protoType,facing){
+	   
+	   
+	   $.ajax({
+			type : "POST",
+			async: false,
+			url : "siteFilterByVillage",
+			data : {villageArry:values,protoTypeArry:protoType,facingArry:facing},
+			dataType : "json",
+			success : function(response) {
+				$("#ulSiteList").html('');
+				$.each(response, function(i, item) {
+					
+					
+					if(item[0].propertyType == "Commercial"){
+						
+						cls ="careerfy-red";
+					}else{cls="";}
+					$("#ulSiteList").append('<li class="careerfy-column-12">'
+		                    	+'<div class="careerfy-joblisting-classic-wrap">'
+		                    	+'<div class="careerfy-joblisting-text">'
+		                        +'<div class="careerfy-list-option">'
+		                        +'<h2><a href="#">'+  item[0].sqYd +'Sq.Yd - <i class="fa fa-rupee"></i>'+  item[0].price +'</a>'
+		                        +' <span>Listing ID: "'+  item[0].listingId +'"</span></h2>'
+		                        +'<ul>'
+		                        +' <li><a href="#">@"'+item[0].propertyType+'"</a></li>'
+		                        +'<li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>"'+  item[0].colony +'" Colony</strong></li>'
+		                        +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i>'+  item[0].siteFacing +'</li>'
+		                        +'<p class="italic">03 Nov 2018</p>'
+		                        +'</ul>'
+		                        +'</div>'
+		                        +'<div class="careerfy-job-userlist">'
+		                        
+		                        +'<button id="'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+cls+'">I am Interested</button>'
+		                        +'</div>'
+		                        +'<div class="clearfix"></div>'
+		                        +'</div>'
+		                        +'</div>'
+		                        +'</li>');
+					
+				});
+				}
+			
+			
+		});
+	   
+	   
+   }
    function iAmIntrested(id){
 	   var siteId = id;
 	  
@@ -675,6 +723,8 @@ function myFunction() {
    //$("#li a[href='"+ getTabName +"']").addClass('active');
    $("a[href='"+ getTabName +"']").parents('li').addClass('active');
    
+   
+var isClick = 'Yes'
 </script>
 
 </body>

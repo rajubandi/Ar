@@ -40,26 +40,47 @@ public class SiteServiceImpl implements SiteService {
 	}
 
 	@Override
-	public List<Site> findByVillageId(List<Integer>  villageIdList) {
+	public List<Site> findByVillageId(List<Integer>  villageIdList,List<String> facingList,List<String> protoTypeList) {
 		
 		// String queryStr1 ="select s from Site s join s.villageId c where s.villageId =1";
 		 //String queryStr1 ="select S from Site s join s.villageId c where s.villageId IN (:villageIdList)";
 		/* String queryStr1 ="select s.id,s.colony,s.sqYd,s.price,s.validDate,s.listingId,s.siteDimensions,s.siteFacing,s.roadDimensions,s.roadFacing, s.status,"
 				 		+" s.propertyType,s.villageId,v.vName,v.pinCode from Site s, VillagesBean v where s.villageId =v.id and s.villageId IN (1,2)";*/
-		Query query = entityManager.createQuery("From Site s , VillagesBean v where s.villageId=v.id and s.villageId.id in :villageIdList  ").setParameter("villageIdList", villageIdList);
-		/*if(villageIdList.size() == 1) {
+		
+		StringBuffer stringBuffer = new StringBuffer();
+		stringBuffer.append("From Site s , VillagesBean v where s.villageId=v.id");
+		
+		if(!villageIdList.isEmpty() ) {
 			
-			stringBuffer.append("=:villageIdList");
+			stringBuffer.append(" and s.villageId.id in :villageIdList");
 			
-			query =entityManager.createNativeQuery(stringBuffer.toString()); 
-			query.setParameter("villageIdList", villageIdList.get(0));
-		}else {
-			stringBuffer.append("in (:villageIdList)");
-			query =entityManager.createNativeQuery(stringBuffer.toString()); 
-			query.setParameter("villageIdList", villageIdList);
-		}*/
+		}
+		if(!facingList.isEmpty()) {
+					
+					stringBuffer.append(" and s.siteFacing in :facingList");
+				}
+		if(!protoTypeList.isEmpty()) {
+			
+			stringBuffer.append(" and s.propertyType in :protoTypeList");
+		}
+		
+		//Query query = entityManager.createQuery("From Site s , VillagesBean v where s.villageId=v.id and s.villageId.id in :villageIdList  ").setParameter("villageIdList", villageIdList);
+		
+		Query query = entityManager.createQuery(stringBuffer.toString());
+				if(!villageIdList.isEmpty()) {query.setParameter("villageIdList", villageIdList);}	
+				if(!facingList.isEmpty()) {query.setParameter("facingList", facingList);}	
+				if(!protoTypeList.isEmpty()) {query.setParameter("protoTypeList", protoTypeList);}	
+				
 		 
 		return query.getResultList();
+	}
+
+	@Override
+	public int totalSiteCount() {
+		
+		Query query = entityManager.createQuery("select count(*) From Site s where s.status=1");
+		
+		return query.getFirstResult();
 	}
 
 	

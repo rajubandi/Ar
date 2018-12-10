@@ -238,5 +238,8 @@ label {
 			<!--Navigation Menu End-->
 
 		</div>
-	</header>
+		<script>
+		var isClick = 'No'
+		</script>
 	<!--Header End-->
+	</header>

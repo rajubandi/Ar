@@ -19,7 +19,9 @@ public interface SiteService  {
 
 
 
-	List<Site> findByVillageId(List<Integer> vlist);
+	List<Site> findByVillageId(List<Integer> vlist,List<String> faceList,List<String> protoTypeList);
+
+	int totalSiteCount();
 
 
 	//void updateVillagesBean(VillagesBean village);
