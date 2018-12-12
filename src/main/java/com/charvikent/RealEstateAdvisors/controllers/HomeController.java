@@ -198,6 +198,11 @@ public class HomeController {
 		
 		return "dashboard";
 	}
+	@RequestMapping("/layouts")
+	public String layout() {
+		
+		return "layouts";//jsp file name 
+	}
 	@RequestMapping("/editProfile")
 	public String editProfile(@ModelAttribute("editProfile")Users user) {
 		

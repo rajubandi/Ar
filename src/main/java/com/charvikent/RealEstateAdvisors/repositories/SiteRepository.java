@@ -16,7 +16,9 @@ public interface SiteRepository  extends JpaRepository<Site, Integer>{
 	VillagesBean findByVillageId(List<Integer> villageId);	
 	List<Site> findAll();
 	@Query("select count(s) from Site s where s.status=1")
-	Long Count();
+	Long CountSite();
+	@Query("select count(s) from Site s where s.siteFacing='Commercial'")
+	Long CountByVillages();
 	
 
 

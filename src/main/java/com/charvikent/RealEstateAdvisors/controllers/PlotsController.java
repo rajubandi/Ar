@@ -53,7 +53,7 @@ public class PlotsController {
 		String json = null;
 		String json1 = null;
 		List<Site> siteList = siteRepository.findAll(); 
-		long totalSiteCount = siteRepository.count();
+		long totalSiteCount = siteRepository.CountSite();
 		List<VillagesBean> villagesList =villageService.findAllVillagesBean();
 		for(VillagesBean villageBean: villagesList) {
 			 

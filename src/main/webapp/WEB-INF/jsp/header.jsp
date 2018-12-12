@@ -125,7 +125,7 @@ label {
 			<ul class="flexy-menu thick">
 				<li><a href="index">Home</a></li>
 				<li><a href="plots">Plots</a></li>
-				<li><a href="#">Layouts</a></li>
+				<li><a href="layouts">Layouts</a></li>
 				<li><a href="#">Price Trends</a></li>
 				<li><a href="#">Contact</a></li>
 				<li><a href="#">More</a>

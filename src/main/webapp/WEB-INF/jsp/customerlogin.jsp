@@ -265,7 +265,7 @@ padding-left: 30px;
 								<div class="form-group ">
 									<div class="row">
 										<div class="col-md-4">
-											<label class="form-label" for="cpassword">Password</label>
+											<label class="form-label" for="password">Password</label>
 										</div>
 										<div class="col-md-4">
 											<input type="password" class="form-control validate1" name="password" id="password" placeholder="Password"/>
@@ -275,10 +275,10 @@ padding-left: 30px;
 								<div class="form-group ">
 									<div class="row">
 										<div class="col-md-4">
-											<label class="form-label" for="crePassword">Re Password</label>
+											<label class="form-label" for="rePassword">Re Password</label>
 										</div>
 										<div class="col-md-4">
-											<input type="password" class="form-control validate1" name="rePassword" id="crePassword" placeholder="Retype Password"/>
+											<input type="password" class="form-control validate1" name="rePassword" id="rePassword" placeholder="Retype Password"/>
 										</div>
 									</div>
 								</div>
