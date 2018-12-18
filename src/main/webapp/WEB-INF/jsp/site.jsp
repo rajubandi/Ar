@@ -118,8 +118,8 @@
 								<div class="col-sm-5">
 									<form:select class="form-control"  path="roadDimensions" placeholder="Road Dimensions"  >
 									<form:option value="">-- Road Dimensions --</form:option>
-									<form:option value="single">Single</form:option>
-									<form:option value="doubleBothRoadDimensions">Double (Both road Dimensions)</form:option>
+									<form:option value="1">Single</form:option>
+									<form:option value="2">Double (Both road dimensions)</form:option>
 									</form:select>
 								</div>
 							</div>
@@ -128,8 +128,8 @@
 								<div class="col-sm-5">
 									<form:select class="form-control"  path="roadFacing"  >
 									<option value="">-- Road facing --</option>
-									<option value="singleRoad">Single Road</option>
-									<option value="doubleRoad">Double Road (Corner Bit)</option>
+									<option value="1">Single Road</option>
+									<option value="2">Double Road (Corner Bit)</option>
 									</form:select>
 								</div>
 							</div>

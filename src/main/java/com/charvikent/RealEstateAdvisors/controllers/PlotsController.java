@@ -91,11 +91,16 @@ public class PlotsController {
 	public @ResponseBody String siteFilterByVillage(@RequestParam(value="villageArry[]", required = false) int[] villageArry,
 													@RequestParam(value="facingArry[]", required = false) String[] facingArry,
 													@RequestParam(value="protoTypeArry[]", required = false) String[] protoTypeArry,
+													@RequestParam(value="roadFacingArry[]", required = false) String[] roadFacingArry,
+													@RequestParam(value="roadDimensionsArry[]", required = false) String[] roadDimensionsArry,
+													
 													HttpSession session,HttpServletRequest request) throws IOException {
 		 String json=null;
 		List<Integer> vlist = new ArrayList<>();
 		List<String> facingList = new ArrayList<>();
 		List<String> protoTypeList = new ArrayList<>();
+		List<String> roadFacingArrylist = new ArrayList<>();
+		List<String> roadDimensionsArryList = new ArrayList<>();
 		if(villageArry !=null) {
 			for(int villageId: villageArry) {
 				
@@ -117,7 +122,21 @@ public class PlotsController {
 				
 			}
 		}
-		List<Site> siteList = siteService.findByVillageId(vlist,facingList,protoTypeList);
+		if(roadFacingArry !=null) {
+			for(String protoType: roadFacingArry) {
+				
+				roadFacingArrylist.add(protoType);
+				
+			}
+		}
+		if(roadDimensionsArry !=null) {
+			for(String protoType: roadDimensionsArry) {
+				
+				roadDimensionsArryList.add(protoType);
+				
+			}
+		}
+		List<Site> siteList = siteService.findByVillageId(vlist,facingList,protoTypeList,roadFacingArrylist,roadDimensionsArryList);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			 json= objectMapper.writeValueAsString(siteList);

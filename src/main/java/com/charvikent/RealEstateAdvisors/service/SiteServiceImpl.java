@@ -40,7 +40,8 @@ public class SiteServiceImpl implements SiteService {
 	}
 
 	@Override
-	public List<Site> findByVillageId(List<Integer>  villageIdList,List<String> facingList,List<String> protoTypeList) {
+	public List<Site> findByVillageId(List<Integer>  villageIdList,List<String> facingList,List<String> protoTypeList,
+			 						  List<String> roadFacingArrylist,List<String> roadDimensionsArryList) {
 		
 		// String queryStr1 ="select s from Site s join s.villageId c where s.villageId =1";
 		 //String queryStr1 ="select S from Site s join s.villageId c where s.villageId IN (:villageIdList)";
@@ -63,6 +64,14 @@ public class SiteServiceImpl implements SiteService {
 			
 			stringBuffer.append(" and s.propertyType in :protoTypeList");
 		}
+		if(!roadFacingArrylist.isEmpty()) {
+					
+					stringBuffer.append(" and s.roadFacing in :roadFacingArrylist");
+				}
+		if(!roadDimensionsArryList.isEmpty()) {
+			
+			stringBuffer.append(" and s.roadDimensions in :roadDimensionsArryList");
+		}
 		
 		//Query query = entityManager.createQuery("From Site s , VillagesBean v where s.villageId=v.id and s.villageId.id in :villageIdList  ").setParameter("villageIdList", villageIdList);
 		
@@ -70,6 +79,8 @@ public class SiteServiceImpl implements SiteService {
 				if(!villageIdList.isEmpty()) {query.setParameter("villageIdList", villageIdList);}	
 				if(!facingList.isEmpty()) {query.setParameter("facingList", facingList);}	
 				if(!protoTypeList.isEmpty()) {query.setParameter("protoTypeList", protoTypeList);}	
+				if(!roadFacingArrylist.isEmpty()) {query.setParameter("roadFacingArrylist", roadFacingArrylist);}	
+				if(!roadDimensionsArryList.isEmpty()) {query.setParameter("roadDimensionsArryList", roadDimensionsArryList);}	
 				
 		 
 		return query.getResultList();

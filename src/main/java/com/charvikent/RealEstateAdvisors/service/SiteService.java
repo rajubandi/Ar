@@ -19,7 +19,8 @@ public interface SiteService  {
 
 
 
-	List<Site> findByVillageId(List<Integer> vlist,List<String> faceList,List<String> protoTypeList);
+	List<Site> findByVillageId(List<Integer> vlist,List<String> faceList,List<String> protoTypeList,
+							   List<String> roadFacingArrylist,List<String> roadDimensionsArryList);
 
 	int totalSiteCount();
 

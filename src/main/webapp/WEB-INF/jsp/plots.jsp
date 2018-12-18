@@ -56,9 +56,9 @@
 
 					<div class="col-md-12">
 						<div class="bbgwhite">
-							<p align="center">
-								Total : 300 | <span class="resi">Residential : 150 </span>| <span
-									class="comm">Commercial : 150</span>
+							<p align="center" >
+								<span id="totalSites"> Total : 300  </span> | <span class="resi" id="countOfResidential">Residential : 150 </span> | 
+								<span class="comm" id="countOfCommercial">Commercial : 150</span>
 							</p>
 
 						</div>
@@ -138,18 +138,45 @@
 										<a href="#" class="careerfy-seemore">+see more</a>
 									</div>
 								</div>
-
 								<div
 									class="careerfy-search-filter-wrap careerfy-search-filter-toggle">
+									<h2>
+										<a href="#" class="careerfy-click-btn">Road Dimensions</a>
+									</h2>
+									<div class="careerfy-checkbox-toggle">
+										<ul class="careerfy-checkbox">
+											<li><input type="checkbox" id="roadDimensionsSingle" value="1" name="roadDimensions[]" /> 
+											<label for="roadDimensionsSingle"><span></span>Single</label> <small>10</small></li>
+											<li><input type="checkbox" id="roadDimensionsDouble" value="2" name="roadDimensions[]" /> 
+											<label for="roadDimensionsDouble"><span></span>Double (Both road dimensions)</label> <small>2</small></li>
+
+										</ul>
+										<a href="#" class="careerfy-seemore">+see more</a>
+									</div>
+								</div>
+								<div
+									class="careerfy-search-filter-wrap careerfy-search-filter-toggle">
+									<h2>
+										<a href="#" class="careerfy-click-btn">Road facing</a>
+									</h2>
+									<div class="careerfy-checkbox-toggle">
+										<ul class="careerfy-checkbox">
+											<li><input type="checkbox" id="roadFacingSingle" value="1" name="roadFacing[]" /> 
+											<label for="roadFacingSingle"><span></span>Single Road</label> <small>10</small></li>
+											<li><input type="checkbox" id="roadFacingDouble" value="2" name="roadFacing[]" /> 
+											<label for="roadFacingDouble"><span></span>Double Road (Corner Bit)</label> <small>2</small></li>
+
+										</ul>
+										<a href="#" class="careerfy-seemore">+see more</a>
+									</div>
+								</div>
+
+								<div
+									class="careerfy-search-filter-wrap careerfy-search-filter-toggle">Single
 									<h2>
 										<a href="#" class="careerfy-click-btn">Price / Sq.Yd</a>
 									</h2>
 									<div>
-
-
-
-
-
 										<input name="" type="text" class="form-control" value="0">
 										<p align="center">to</p>
 
@@ -561,12 +588,16 @@ function myFunction() {
 		});
 		var cls="";
 		$.each(AllSiteList, function(i, item) {
-			
+			totalSites = AllSiteList.length;
 			
 			if(item.propertyType == "Commercial"){
-				
+				countOfCommercial++;
 				cls ="careerfy-red";
-			}else{cls="";}
+				
+			}else{
+				cls="";
+				countOfResidential++;
+				}
 			$("#ulSiteList").append('<li class="careerfy-column-12">'
                     	+'<div class="careerfy-joblisting-classic-wrap">'
                     	+'<div class="careerfy-joblisting-text">'
@@ -591,9 +622,15 @@ function myFunction() {
 			
 		});
 		
+		$("#countOfCommercial").text("Commercial : "+""+countOfCommercial);
+		$("#countOfResidential").text("Residential : "+""+countOfResidential);
+		$("#totalSites").text("Total : "+""+totalSites);
+		
 				var values = null;
 				var protoType = null;
 				var facing = null;
+				var roadDimensions=null;
+				var roadFacing=null;
 				$("input[name='villageCheckBox[]']").change(function () {
 									values=[];
 									$('input[name="villageCheckBox[]"]').each(function() {
@@ -602,8 +639,8 @@ function myFunction() {
 										}
 									});
 									
-									if(values != null|| protoType != null || facing != null ){
-										siteFiterByVillage(values,protoType,facing);
+									if(values != null|| protoType != null || facing != null || roadFacing != null || roadDimensions !=null ){
+										siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions);
 										}else{
 											
 											window.location.href='?';
@@ -620,8 +657,8 @@ function myFunction() {
 						}
 					});
 					
-					if(values != null || protoType != null || facing != null ){
-						siteFiterByVillage(values,protoType,facing);
+					if(values != null || protoType != null || facing != null || roadFacing != null || roadDimensions !=null ){
+						siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions);
 						}else{
 							
 							window.location.href='?';
@@ -635,8 +672,40 @@ function myFunction() {
 						}
 					});
 					
-					if(values != null || protoType != null || facing != null ){
-						siteFiterByVillage(values,protoType,facing);
+					if(values != null || protoType != null || facing != null || roadFacing != null || roadDimensions !=null ){
+						siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions);
+						}else{
+							
+							window.location.href='?';
+						}
+				});
+				
+				$("input[name='roadDimensions[]']").change(function () {
+					roadDimensions =[];
+					$('input[name="roadDimensions[]"]').each(function() {
+						if(this.checked){
+							roadDimensions.push($(this).val());
+						}
+					});
+					
+					if(values != null || protoType != null || facing != null || roadFacing != null || roadDimensions !=null){
+						siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions);
+						}else{
+							
+							window.location.href='?';
+						}
+				});
+				
+				$("input[name='roadFacing[]']").change(function () {
+					roadFacing =[];
+					$('input[name="roadFacing[]"]').each(function() {
+						if(this.checked){
+							roadFacing.push($(this).val());
+						}
+					});
+					
+					if(values != null || protoType != null || facing != null  || roadFacing != null || roadDimensions !=null ){
+						siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions);
 						}else{
 							
 							window.location.href='?';
@@ -645,15 +714,17 @@ function myFunction() {
 	
    });
    
-   
-   function siteFiterByVillage(values,protoType,facing){
+   var countOfCommercial=0;
+   var countOfResidential=0;
+   var totalSites=0;
+   function siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions){
 	   
 	   
 	   $.ajax({
 			type : "POST",
 			async: false,
 			url : "siteFilterByVillage",
-			data : {villageArry:values,protoTypeArry:protoType,facingArry:facing},
+			data : {villageArry:values,protoTypeArry:protoType,facingArry:facing,roadFacingArry:roadFacing,roadDimensionsArry:roadDimensions},
 			dataType : "json",
 			success : function(response) {
 				$("#ulSiteList").html('');
@@ -661,9 +732,12 @@ function myFunction() {
 					
 					
 					if(item[0].propertyType == "Commercial"){
-						
+						countOfCommercial++;
 						cls ="careerfy-red";
-					}else{cls="";}
+					}else{
+						cls="";
+						countOfResidential++;
+					}
 					$("#ulSiteList").append('<li class="careerfy-column-12">'
 		                    	+'<div class="careerfy-joblisting-classic-wrap">'
 		                    	+'<div class="careerfy-joblisting-text">'
@@ -687,6 +761,11 @@ function myFunction() {
 		                        +'</li>');
 					
 				});
+				totalSites = response.length;
+				$("#countOfCommercial").text(countOfCommercial);
+				$("#countOfResidential").text(countOfResidential);
+				$("#totalSites").text(totalSites);
+				
 				}
 			
 			
