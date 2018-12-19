@@ -334,13 +334,24 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     box-shadow: none;
 }
 	</style>
-<div class="careerfy-subheader">
+	 <style>
+	p{
+	color:#050505;
+	text-align:justify;
+	}
+	.careerfy-joblisting-classic-wrap{
+	padding:30px;
+	}
+	
+	</style>
+ <!-- SubHeader -->
+        <div class="careerfy-subheader">
             <span class="careerfy-banner-transparent"></span>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="careerfy-page-title">
-                            <h1>CONTACT US</h1>
+                            <h1>SUBMIT PROPERTY</h1>
                             
                         </div>
                     </div>
@@ -397,13 +408,19 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
                                             
                                             <div class="col-md-12">
                                             
-                                            <h5><b>Contact Us</b></h5></div>
+                                            <h5><b>Submit Property</b></h5>
+                                            <p>If you are a land owner looking for a Buyer to sell or Builder to build a Residential/Commercial Property, Just fill the below form and we will get in touch with you.</p></div>
                                         
                                             <div class="col-md-4">
                                              <form>
     <div class="form-group">
-     <label for="name">Your Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter Name">
+     <label for="name">Are you looking For Buyer or Builder?*</label>
+      <select class="form-control">
+      <option>---Select--</option>
+      <option>Buyer</option>
+      <option>Builder</option>
+      
+      </select>
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
@@ -413,8 +430,18 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
      <label for="Number">Phone No:</label>
       <input type="text" class="form-control" id="number" placeholder="Enter Number">
     </div>
+     <div class="form-group">
+     <label for="name">Expecting Price per Sq.Yd*
+:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter Name">
+    </div>
+     <div class="form-group">
+     <label for="name">Location of the Property:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter Name">
+    </div>
     <div class="form-group">
-      <label for="pwd">Message:</label>
+      <label for="pwd">Additional Information*
+:</label>
      <textarea rows="8" cols="49" plceholder="Enter Message"></textarea>
     </div>
     <div class="checkbox">
@@ -431,7 +458,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
  <p>info@amaravatirealtors.in</p>
 <p>+91-999 999 9999 </p>
   <br>
-  <iframe src="https://www.google.com/maps/embed?pb=" width="350" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+  <!--<iframe src="https://www.google.com/maps/embed?pb=" width="350" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>-->
   </div></div>
                                                 
                                             </div>
@@ -460,29 +487,5 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
             <!-- Main Section -->
 
         </div>
-<script>
-	
-	
-$(function () {
-
-    $(" .div2").hide();
-    
-    $(".link1, .link2").bind("click", function () {
-
-      $(".div1, .div2").hide();        
-        
-      if ($(this).attr("class") == "link1")
-      {
-        $(".div1").show();
-      }
-      else 
-      { 
-        $(".div2").show();
-      }
-    });
-
-});
-
-
-	</script>
+        <!-- Main Content -->
 <jsp:include page="footer.jsp" />

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -127,7 +128,7 @@
 							<div class="dropdown d-none d-md-flex">
 								<a class="nav-link icon" data-toggle="dropdown"> <i
 									class="fa fa-bell-o floating"></i> <span
-									class=" nav-unread badge badge-danger  badge-pill">4</span>
+									class=" nav-unread badge badge-danger  badge-pill"> <%=session.getAttribute("newNotification")%></span>
 								</a>
 								<div
 									class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">

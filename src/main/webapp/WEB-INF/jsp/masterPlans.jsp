@@ -17,6 +17,16 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+     <style>
+	p{
+	color:#050505;
+	text-align:justify;
+	}
+	.careerfy-joblisting-classic-wrap{
+	padding:30px;
+	}
+	
+	</style>
     <style>
 	/*------ Tables -----*/
 
@@ -333,156 +343,129 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     vertical-align: middle;
     box-shadow: none;
 }
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+	padding: 0px 10px;
+}
+.blue a {
+	font-size:15px;
+	color:blue !important;
+}
+a {
+	color: blue;
+	text-decoration: underline;
+}
+.careerfy-typo-wrap table > tbody > tr > th {
+	color:#585555;}
 	</style>
-<div class="careerfy-subheader">
-            <span class="careerfy-banner-transparent"></span>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="careerfy-page-title">
-                            <h1>CONTACT US</h1>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- SubHeader -->
+       <!-- SubHeader -->
+  <div class="careerfy-subheader"> <span class="careerfy-banner-transparent"></span>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="careerfy-page-title">
+            <h1>MASTER PLANS</h1>
+          </div>
         </div>
-        <!-- SubHeader -->
-
-        <!-- Main Content -->
-        <div class="careerfy-main-content">
-            
-            <!-- Main Section -->
-            <div class="careerfy-main-section ">
-                <div class="container">
-                    <div class="row">
-
-                        <!--<div class="col-md-12">
-                          <div class="bbgwhite">
-                          <p align="center" Home | <span class="resi">Price Trends </span></p>
-                          
-                        </div>
-
-                        </div>-->
-
-                    </div>
-                </div>
-            </div>
-            <!-- Main Section -->
-
-            <!-- Main Section -->
-            <div class="careerfy-main-section" style="margin-top:25px;">
-                <div class="container">
-                    <div class="row">
-                      
-						<!--	<ol class="breadcrumb" style="background:#fff;">
-								<li class="breadcrumb-item"><a href="#">Pages  / Edit Profile</a></li>
-							</ol>-->
-
-                        
-                        <div class="careerfy-column-12 careerfy-typo-wrap">
-                            <div class="careerfy-typo-wrap">
-                            
-                                <!-- FilterAble -->
-                              
-                                <!-- FilterAble -->
-                                <!-- JobGrid -->
-                                
-                                <div class="careerfy-job careerfy-joblisting-classic">
-                                    <ul class="careerfy-row">
-                                        <li class="careerfy-column-12">
-                                        
-                                            <div class="careerfy-joblisting-classic-wrap">
-                                            <div class="col-md-12">
-                                            
-                                            <div class="col-md-12">
-                                            
-                                            <h5><b>Contact Us</b></h5></div>
-                                        
-                                            <div class="col-md-4">
-                                             <form>
-    <div class="form-group">
-     <label for="name">Your Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter Name">
+      </div>
     </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
-    </div>
-    <div class="form-group">
-     <label for="Number">Phone No:</label>
-      <input type="text" class="form-control" id="number" placeholder="Enter Number">
-    </div>
-    <div class="form-group">
-      <label for="pwd">Message:</label>
-     <textarea rows="8" cols="49" plceholder="Enter Message"></textarea>
-    </div>
-    <div class="checkbox">
-      <label><input type="checkbox"> Remember me</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
   </div>
-  <div class="col-md-2"></div>
-  <div class="col-md-5">
- <h5> Amaravati Realtors</h5>
- <p>D.No 5-41-54</p>
- <p>Vijayawada, Andhra Pradesh</p>
- <p>info@amaravatirealtors.in</p>
-<p>+91-999 999 9999 </p>
-  <br>
-  <iframe src="https://www.google.com/maps/embed?pb=" width="350" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
-  </div></div>
-                                                
-                                            </div>
-                                        </li>
-                                        
-                                        
-                                    
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                    </ul>
-                                </div>
-                                <!-- Pagination -->
-                               
-                            </div>
-                        </div>
-
-                    </div>
+  <!-- SubHeader -->
+  <!-- Main Content -->
+  <div class="careerfy-main-content">
+    <!-- Main Section -->
+    <div class="careerfy-main-section ">
+      <div class="container">
+        <div class="row"> </div>
+      </div>
+    </div>
+    <!-- Main Section -->
+    <!-- Main Section -->
+    <div class="careerfy-main-section" style="margin-top:25px;">
+      <div class="container">
+        <div class="row">
+          <div class="careerfy-column-12 careerfy-typo-wrap">
+            <div class="careerfy-typo-wrap">
+              <!-- FilterAble -->
+              <!-- FilterAble -->
+              <!-- JobGrid -->
+              <div class="careerfy-job careerfy-joblisting-classic">
+                <div class="careerfy-joblisting-classic-wrap">
+                  <h5>Plot Allotments <span class="pull-right blue"><a href="crda/CRDA Plot codes Allotment full latest booklet.pdf" target="_blank">Development Permissions for CRDA returnable plots </a> </span><br>
+                    <span class="blue pull-right"> <a target="_blank" href="crda/APCRDA LPS Book 8th April.pdf"> Brochure on APCRDA LPS:April 2018 </a> </span></h5>
                 </div>
+              </div>
             </div>
-            <!-- Main Section -->
-
+            <div class="careerfy-typo-wrap">
+              <!-- FilterAble -->
+              <!-- FilterAble -->
+              <!-- JobGrid -->
+              <div class="careerfy-job careerfy-joblisting-classic">
+                <div class="careerfy-joblisting-classic-wrap">
+                  <div class="table-responsive">
+                    <h5>Master Plans</h5>
+                    <p>Inner Ring Road (IRR) & Extension of Capital City Roads to IRR Plan :</p>
+                    <table class="table card-table table-vcenter  " style="width:100%;border-collapse:collapse;overflow: auto">
+                      <tbody>
+                        <tr class="bg-info text-white">
+                          <th> <span id="tbPlotAllot_tbpane1_gvForm98_lblmandalname">S.No</span> </th>
+                          <th> <span id="tbPlotAllot_tbpane1_gvForm98_lblvillagename">Date</span> </th>
+                          <th> <span id="tbPlotAllot_tbpane1_gvForm98_lblunitno">Description</span> </th>
+                          <th> <span id="tbPlotAllot_tbpane1_gvForm98_Label1">Final Layout</span> </th>
+                        </tr>
+                        <tr>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td rowspan="3"> (1) </td>
+                          <td align="center" valign="middle"> 22-02-2016 <br></td>
+                          <td align="center" valign="top"><table width="100%" height="100%" border="0" cellspacing="0" cellpadding="4">
+                              <tbody>
+                                <tr>
+                                  <td align="left" valign="middle" height="65"  style="border:none;" ><p style="color: #000;"> <img src="images/new.gif">&nbsp; <strong>Description</strong><strong></strong></p>
+                                    <p class="font-txt" style="color: #000;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Detailed
+                                      Master Plan of Capital city -Amaravati<br>
+                                      <br>
+                                      <br>
+                                    </p></td>
+                                </tr>
+                              </tbody>
+                            </table></td>
+                          <td  align="center" valign="middle" ><img src="images/PDF-ICO.png"><br>
+                            <a href="crda/Detailed Master Plan of Capital city-Amaravati.pdf" target="_blank">High Resolution</a><br>
+                            <a href="crda/DetailedMasterPlanNR.pdf" target="_blank">Normal Resolution</a> <br></td>
+                        </tr>
+                        <tr>
+                          <td  align="center" valign="middle" > 04-04-2017 <br></td>
+                          <td  align="center" valign="top"><table width="100%" height="100%" border="0" cellspacing="0" cellpadding="4">
+                              <tbody>
+                                <tr>
+                                  <td align="left" valign="middle"   style="border:none;" ><p style="color: #000;"> <img src="images/new.gif"> </p>
+                                    <p class="font-txt" style="color: #000;"> Smart City Amaravati Integrated Infrastructure Master Plan </p></td>
+                                </tr>
+                              </tbody>
+                            </table></td>
+                          <td  align="center" valign="middle"  ><img src="images/PDF-ICO.png"> <br>
+                            <a runat="server" target="_blank" href="crda/Amaravati Concept Handbook_Modified.pdf"> Smart City Amaravati Integrated Infrastructure Master Plan</a></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                </ul>
+              </div>
+              <!-- Pagination -->
+            </div>
+          </div>
         </div>
-<script>
-	
-	
-$(function () {
-
-    $(" .div2").hide();
-    
-    $(".link1, .link2").bind("click", function () {
-
-      $(".div1, .div2").hide();        
+      </div>
+    </div>
+    <!-- Main Section -->
+  </div>
+  <!-- Main Content -->
         
-      if ($(this).attr("class") == "link1")
-      {
-        $(".div1").show();
-      }
-      else 
-      { 
-        $(".div2").show();
-      }
-    });
-
-});
-
-
-	</script>
 <jsp:include page="footer.jsp" />

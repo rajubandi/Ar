@@ -3,6 +3,7 @@ package com.charvikent.RealEstateAdvisors.repositories;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.charvikent.RealEstateAdvisors.model.UserIntrestedSites;
@@ -15,6 +16,8 @@ public interface UserIntrestedSiteRepository  extends JpaRepository<UserIntreste
 
 
 	UserIntrestedSites findById(int id);
+	@Query("from UserIntrestedSites where status=1")
+	int newNotification();
 
 	void deleteAll();
 

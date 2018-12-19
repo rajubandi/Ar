@@ -27,6 +27,7 @@ import com.charvikent.RealEstateAdvisors.model.UserIntrestedSites;
 import com.charvikent.RealEstateAdvisors.model.Users;
 import com.charvikent.RealEstateAdvisors.model.VillagesBean;
 import com.charvikent.RealEstateAdvisors.repositories.SiteRepository;
+import com.charvikent.RealEstateAdvisors.repositories.UsersRepository;
 import com.charvikent.RealEstateAdvisors.service.SiteService;
 import com.charvikent.RealEstateAdvisors.service.UserIntrestedSitesServiceImpl;
 import com.charvikent.RealEstateAdvisors.service.VillageService;
@@ -37,6 +38,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class PlotsController {
 
 	@Autowired UserIntrestedSitesServiceImpl userIntrestedSitesServiceImpl;
+	@Autowired UsersRepository usersRepository;
 	@Autowired VillageService villageService;
 	@Autowired SiteService siteService;
 	@Autowired SiteRepository siteRepository;
@@ -47,21 +49,23 @@ public class PlotsController {
 	
 	@GetMapping("/plots")
 	public String home(ModelMap modal,HttpServletRequest request) {
-		Map<Integer, String> villagesListMap = new LinkedHashMap<Integer, String>();
+		//Map<Integer, String> villagesListMap = new LinkedHashMap<Integer, String>();
 		ObjectMapper objectMapper = null;
 		ObjectMapper objectMapper1 = null;
 		String json = null;
 		String json1 = null;
 		List<Site> siteList = siteRepository.findAll(); 
 		long totalSiteCount = siteRepository.CountSite();
+		
+		List<Object> vb = siteRepository.countOfSitesByVillage();
 		List<VillagesBean> villagesList =villageService.findAllVillagesBean();
-		for(VillagesBean villageBean: villagesList) {
+		/*for(VillagesBean villageBean: villagesList) {
 			 
 			  villagesListMap.put(new Integer(villageBean.getId()),villageBean.getvName());
-		 }
+		 }*/
 		objectMapper = new ObjectMapper();
 		try {
-			json= objectMapper.writeValueAsString(villagesListMap);
+			json= objectMapper.writeValueAsString(vb);
 			json1= objectMapper.writeValueAsString(siteList);
 			request.setAttribute("villagesListMap", json);
 			request.setAttribute("siteList", json1);
@@ -76,14 +80,26 @@ public class PlotsController {
 	public @ResponseBody String intrestedSite(@RequestParam("id") String id, HttpSession session,HttpServletRequest request) throws IOException {
 		//String siteId =(String) request.getAttribute("id");
 		Users customer=(Users) session.getAttribute("customer");
+		Users admin	= usersRepository.findByDesignation("1");
 		UserIntrestedSites uis = new UserIntrestedSites();
 		
 		uis.setUserId(customer.getId());
 		uis.setSiteId(Integer.parseInt(id));
+		Site customerIntrestedSite = siteRepository.findSiteById(Integer.parseInt(id));
 		userIntrestedSitesServiceImpl.saveUserIntrestedSites(uis);
 		//sendingMail.sendSalesRequestEmailWithattachment(customer.getEmail());
 		String iamIntrestedMessage=env.getProperty("app.iamIntrestedMessage");
+		String adminNotification=env.getProperty("app.customerIntrestedMsgToAdmin");
+		
+		adminNotification=adminNotification.replaceAll("_customerName_",customer.getFirstName()+""+ customer.getLastName());
+		adminNotification=adminNotification.replaceAll("_mobileNumber_", customer.getMobileNumber());
+		adminNotification=adminNotification.replaceAll("_listingId_", customerIntrestedSite.getListingId());
+		/*adminNotification.replaceAll("_customerName_", replacement);
+		adminNotification.replaceAll("_customerName_", replacement);
+		adminNotification.replaceAll("_customerName_", replacement);*/
+		
 		sendSMS.sendSMS(iamIntrestedMessage,customer.getMobileNumber());
+		sendSMS.sendSMS(adminNotification,admin.getMobileNumber());
 		 return "";
 	}
 	

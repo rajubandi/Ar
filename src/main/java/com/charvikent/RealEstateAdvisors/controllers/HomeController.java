@@ -23,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.charvikent.RealEstateAdvisors.config.KptsUtil;
 import com.charvikent.RealEstateAdvisors.config.SendSMS;
 import com.charvikent.RealEstateAdvisors.model.Users;
+import com.charvikent.RealEstateAdvisors.repositories.UserIntrestedSiteRepository;
 import com.charvikent.RealEstateAdvisors.service.UsersServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,6 +33,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class HomeController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 	@Autowired UsersServiceImpl userService;
+	@Autowired UserIntrestedSiteRepository userIntrestedSiteRepository;
 	@Autowired SendSMS sendSMS;
 	@Autowired private Environment env;
 	//@Autowired OTPDetailsDao oTPDetailsDao;
@@ -194,14 +196,50 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/dashboard")
-	public String home() {
-		
+	public String home(HttpServletRequest request,HttpSession session) {
+		session.setAttribute("newNotification", userIntrestedSiteRepository.newNotification());
 		return "dashboard";
 	}
 	@RequestMapping("/layouts")
 	public String layout() {
 		
 		return "layouts";//jsp file name 
+	}
+	
+	@RequestMapping("/pricetrends")
+	public String pricetrends() {
+		
+		return "pricetrends";//jsp file name 
+	}
+	@RequestMapping("/contact")
+	public String contact() {
+		
+		return "contact";//jsp file name 
+	}
+	@RequestMapping("/faq")
+	public String faq() {
+		
+		return "faq";
+	}
+	@RequestMapping("/sub")
+	public String sub() {
+		
+		return "sub";//jsp file name 
+	}
+	@RequestMapping("/privacy")
+	public String privacy() {
+		
+		return "privacy";//jsp file name 
+	}
+	@RequestMapping("/terms")
+	public String terms() {
+		
+		return "terms";//jsp file name 
+	}
+	@RequestMapping("/masterPlans")
+	public String masterPlans() {
+		
+		return "masterPlans";//jsp file name 
 	}
 	@RequestMapping("/editProfile")
 	public String editProfile(@ModelAttribute("editProfile")Users user) {

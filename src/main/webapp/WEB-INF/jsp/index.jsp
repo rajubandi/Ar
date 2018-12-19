@@ -90,7 +90,7 @@
 				<ul>
 
 					<!--Service 1-->
-					<li><a href="#">
+					<li><a href="plots">
 							<div class="hexa">
 								<div class="hexcontainer">
 									<div class="vertical-align">
@@ -114,7 +114,7 @@
 					<!--End-->
 
 					<!--Service 3-->
-					<li><a href="#">
+					<li><a href="pricetrends">
 							<div class="hexa">
 								<div class="hexcontainer">
 									<div class="vertical-align">
@@ -126,7 +126,7 @@
 					<!--End-->
 
 					<!--Service 4-->
-					<li><a href="#">
+					<li><a href="masterPlans">
 							<div class="hexa">
 								<div class="hexcontainer">
 									<div class="vertical-align">
@@ -151,6 +151,7 @@
 		</div>
 	</section>
 </div>
+<div class="clearfix"></div>
 <!-- <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> -->
 <script type="text/javascript" src="js/jquery-easing-1.3.js"></script>
   <!--       

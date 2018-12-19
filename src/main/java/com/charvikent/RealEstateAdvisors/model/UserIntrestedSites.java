@@ -28,6 +28,14 @@ public class UserIntrestedSites {
 	@UpdateTimestamp
 	private Date updatedDate;
 	private int userId;
+	private byte status = 1;
+	
+	public byte getStatus() {
+		return status;
+	}
+	public void setStatus(byte status) {
+		this.status = status;
+	}
 	public int getId() {
 		return id;
 	}
@@ -61,7 +69,7 @@ public class UserIntrestedSites {
 	@Override
 	public String toString() {
 		return "UserIntrestedSites [id=" + id + ", siteId=" + siteId + ", createdDate=" + createdDate + ", updatedDate="
-				+ updatedDate + ", userId=" + userId + "]";
+				+ updatedDate + ", userId=" + userId + ", status=" + status + "]";
 	}
 	public UserIntrestedSites() {
 	}

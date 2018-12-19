@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -32,7 +33,16 @@ public class VillagesBean {
 	@UpdateTimestamp
 	private Date updatedDate;
 	private String pinCode;
+	@Transient private int countOfSitesByVillage;
 	
+	public int getCountOfSitesByVillage() {
+		return countOfSitesByVillage;
+	}
+
+	public void setCountOfSitesByVillage(int countOfSitesByVillage) {
+		this.countOfSitesByVillage = countOfSitesByVillage;
+	}
+
 	public String getvName() {
 		return vName;
 	}
@@ -102,7 +112,8 @@ public class VillagesBean {
 	@Override
 	public String toString() {
 		return "VillagesBean [id=" + id + ", vName=" + vName + ", createdDate=" + createdDate + ", updatedDate="
-				+ updatedDate + ", pinCode=" + pinCode + ", sites=" + sites + "]";
+				+ updatedDate + ", pinCode=" + pinCode + ", countOfSitesByVillage=" + countOfSitesByVillage + ", sites="
+				+ sites + "]";
 	}
 
 	

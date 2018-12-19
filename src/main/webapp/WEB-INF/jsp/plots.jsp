@@ -13,11 +13,12 @@
 	rel="stylesheet">
 
 <style>
-@media ( min-width : 1200px) {
+/* @media ( min-width : 1200px) {
 	.container {
 		width: 100%;
 	}
-}
+} */
+
 
 .header-section {
 	width: 100%;
@@ -27,6 +28,38 @@
 	border-bottom: rgba(221, 221, 221, 0.95) solid 5px;
 	z-index: 1000;
 }
+.yellow {
+border-left: 5px solid #ffd500;	
+}
+.btnyellow {
+background:#ffd500 !important;	
+}
+.btnprimary {
+background:#76cbf5;	
+}
+.yellow1 {
+color: #ffd500 !important;	
+font-weight:500;
+}
+.blue1 {
+color: #76cbf5 !important;	
+font-weight:500;
+}
+.blue {
+border-left: 5px solid #76cbf5;	
+}
+/* .careerfy-option-btn {
+    float: right;
+    padding: 8px 17px 8px 17px;
+    font-size: 12px;
+    color: #333333;
+    background-color: #f9f91b;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.careerfy-option-btn.careerfy-red {
+    background-color: #76cbf5;
+} */
 </style>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> 
       <script src="/js/plotController.js"></script>  -->
@@ -57,8 +90,8 @@
 					<div class="col-md-12">
 						<div class="bbgwhite">
 							<p align="center" >
-								<span id="totalSites"> Total : 300  </span> | <span class="resi" id="countOfResidential">Residential : 150 </span> | 
-								<span class="comm" id="countOfCommercial">Commercial : 150</span>
+								<span id="totalSites"> </span> | <span class="resi" id="countOfResidential"> </span> | 
+								<span class="comm" id="countOfCommercial"></span>
 							</p>
 
 						</div>
@@ -103,16 +136,15 @@
 								<div
 									class="careerfy-search-filter-wrap careerfy-search-filter-toggle">
 									<h2>
-										<a href="#" class="careerfy-click-btn">Select Property
-											Type</a>
+										<a href="#" class="careerfy-click-btn">Select Property Type</a>
 									</h2>
 									<div class="careerfy-checkbox-toggle">
 										<ul class="careerfy-checkbox" id="prototypeUl">
 											<li><input type="checkbox" id="Commercial" name="protoTypeCheckBox[]" /> <label
-												for="Commercial"><span></span>Commercial</label> <small>153</small>
+												for="Commercial"><span></span>Commercial</label> <small id="commercialFilterId"></small>
 											</li>
 											<li><input type="checkbox" id="Residential" name="protoTypeCheckBox[]" /> <label
-												for="Residential"><span></span>Residential</label> <small>147</small>
+												for="Residential"><span></span>Residential</label> <small id="residentialFilterId"></small>
 											</li>
 
 										</ul>
@@ -146,12 +178,12 @@
 									<div class="careerfy-checkbox-toggle">
 										<ul class="careerfy-checkbox">
 											<li><input type="checkbox" id="roadDimensionsSingle" value="1" name="roadDimensions[]" /> 
-											<label for="roadDimensionsSingle"><span></span>Single</label> <small>10</small></li>
+											<label for="roadDimensionsSingle"><span></span>Single</label> <small id="roadDimention_1"></small></li>
 											<li><input type="checkbox" id="roadDimensionsDouble" value="2" name="roadDimensions[]" /> 
-											<label for="roadDimensionsDouble"><span></span>Double (Both road dimensions)</label> <small>2</small></li>
+											<label for="roadDimensionsDouble"><span></span>Double (Both road dimensions)</label> <small id="roadDimention_2"></small></li>
 
 										</ul>
-										<a href="#" class="careerfy-seemore">+see more</a>
+<!-- 										<a href="#" class="careerfy-seemore">+see more</a> -->
 									</div>
 								</div>
 								<div
@@ -162,12 +194,12 @@
 									<div class="careerfy-checkbox-toggle">
 										<ul class="careerfy-checkbox">
 											<li><input type="checkbox" id="roadFacingSingle" value="1" name="roadFacing[]" /> 
-											<label for="roadFacingSingle"><span></span>Single Road</label> <small>10</small></li>
+											<label for="roadFacingSingle"><span></span>Single Road</label> <small id="roadFacing_1"></small></li>
 											<li><input type="checkbox" id="roadFacingDouble" value="2" name="roadFacing[]" /> 
-											<label for="roadFacingDouble"><span></span>Double Road (Corner Bit)</label> <small>2</small></li>
+											<label for="roadFacingDouble"><span></span>Double Road (Corner Bit)</label> <small id="roadFacing_2"></small></li>
 
 										</ul>
-										<a href="#" class="careerfy-seemore">+see more</a>
+<!-- 										<a href="#" class="careerfy-seemore">+see more</a> -->
 									</div>
 								</div>
 
@@ -203,7 +235,7 @@
 						<div class="careerfy-typo-wrap">
 							<!-- FilterAble -->
 							<div class="careerfy-filterable">
-								<h2>Showing 0-12 of 300 results</h2>
+								<h2 id="paginationCount"></h2>
 							</div>
 							<!-- FilterAble -->
 							<!-- JobGrid  <%=session.getAttribute("loggedstatus")%> -->
@@ -212,249 +244,11 @@
 								<input type="hidden" name="loginCheck">
 
 								<ul class="careerfy-row" id="ulSiteList">
-									<!--  <li class="careerfy-column-12" ng-repeat="eachsite in allSites">
-                                            <div class="careerfy-joblisting-classic-wrap">
-                                                <div class="careerfy-joblisting-text">
-                                                    <div class="careerfy-list-option">
-                                                        <h2><a href="#"> {{eachsite.sqYd}} Sq.Yd - <i class="fa fa-rupee"></i>{{eachsite.price}}</a> <span>Listing ID: {{eachsite.listingId}}</span></h2>
-                                                        <ul>
-                                                            <li><a href="#">@ Commercial</a></li>
-                                                            <li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>{{eachsite.colony}} Colony</strong></li>
-                                                            <li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> {{eachsite.propertyType}}</li>
-                                                             <p class="italic">03 Nov 2018</p>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="careerfy-job-userlist">
-                                                  
-                                                        <button id='{{eachsite.id}}' ng-click="iAmIntrested($event)" class="careerfy-option-btn">I am Interested</button>
-                                                    </div>
-                                                <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                        </li> -->
-									<!--   
-                                        <li class="careerfy-column-12">
-                                            <div class="careerfy-joblisting-classic-wrap">
-                                                <div class="careerfy-joblisting-text">
-                                                    <div class="careerfy-list-option">
-                                                        <h2><a href="#"> 660 Sq.Yd - <i class="fa fa-rupee"></i> 12,000</a> <span>Listing ID: 1710</span></h2>
-                                                        <ul>
-                                                            <li><a href="#">@ Residential</a></li>
-                                                            <li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>NOWLURU - 698 Colony</strong></li>
-                                                            <li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> East Facing</li>
-                                                            <p class="italic">03 Nov 2018</p>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="careerfy-job-userlist">
-                                                        <a href="#" class="careerfy-option-btn careerfy-red">I am Interested</a>
-                                                    </div>
-                                                <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                       <li class="careerfy-column-12">
-                                            <div class="careerfy-joblisting-classic-wrap">
-                                                <div class="careerfy-joblisting-text">
-                                                    <div class="careerfy-list-option">
-                                                        <h2><a href="#"> 360 Sq.Yd - <i class="fa fa-rupee"></i> 22,000</a> <span>Listing ID: 1520</span></h2>
-                                                        <ul>
-                                                            <li><a href="#">@ Commercial</a></li>
-                                                            <li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>THULLUR - 414 Colony</strong></li>
-                                                            <li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> West Facing</li>
-                                                             <p class="italic">03 Nov 2018</p>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="careerfy-job-userlist">
-                                                   
-                                                        <a href="#" class="careerfy-option-btn">I am Interested</a>
-                                                    </div>
-                                                <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="careerfy-column-12">
-                                            <div class="careerfy-joblisting-classic-wrap">
-                                                <div class="careerfy-joblisting-text">
-                                                    <div class="careerfy-list-option">
-                                                        <h2><a href="#"> 660 Sq.Yd - <i class="fa fa-rupee"></i> 12,000</a> <span>Listing ID: 1710</span></h2>
-                                                        <ul>
-                                                            <li><a href="#">@ Residential</a></li>
-                                                            <li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>NOWLURU - 698 Colony</strong></li>
-                                                            <li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> East Facing</li>
-                                                            <p class="italic">03 Nov 2018</p>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="careerfy-job-userlist">
-                                                        <a href="#" class="careerfy-option-btn careerfy-red">I am Interested</a>
-                                                    </div>
-                                                <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="careerfy-column-12">
-                                            <div class="careerfy-joblisting-classic-wrap">
-                                                <div class="careerfy-joblisting-text">
-                                                    <div class="careerfy-list-option">
-                                                        <h2><a href="#"> 360 Sq.Yd - <i class="fa fa-rupee"></i> 22,000</a> <span>Listing ID: 1520</span></h2>
-                                                        <ul>
-                                                            <li><a href="#">@ Commercial</a></li>
-                                                            <li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>THULLUR - 414 Colony</strong></li>
-                                                            <li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> West Facing</li>
-                                                             <p class="italic">03 Nov 2018</p>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="careerfy-job-userlist">
-                                                   
-                                                        <a href="#" class="careerfy-option-btn">I am Interested</a>
-                                                    </div>
-                                                <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="careerfy-column-12">
-                                            <div class="careerfy-joblisting-classic-wrap">
-                                                <div class="careerfy-joblisting-text">
-                                                    <div class="careerfy-list-option">
-                                                        <h2><a href="#"> 660 Sq.Yd - <i class="fa fa-rupee"></i> 12,000</a> <span>Listing ID: 1710</span></h2>
-                                                        <ul>
-                                                            <li><a href="#">@ Residential</a></li>
-                                                            <li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>NOWLURU - 698 Colony</strong></li>
-                                                            <li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> East Facing</li>
-                                                            <p class="italic">03 Nov 2018</p>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="careerfy-job-userlist">
-                                                        <a href="#" class="careerfy-option-btn careerfy-red">I am Interested</a>
-                                                    </div>
-                                                <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="careerfy-column-12">
-                                            <div class="careerfy-joblisting-classic-wrap">
-                                                <div class="careerfy-joblisting-text">
-                                                    <div class="careerfy-list-option">
-                                                        <h2><a href="#"> 360 Sq.Yd - <i class="fa fa-rupee"></i> 22,000</a> <span>Listing ID: 1520</span></h2>
-                                                        <ul>
-                                                            <li><a href="#">@ Commercial</a></li>
-                                                            <li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>THULLUR - 414 Colony</strong></li>
-                                                            <li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> West Facing</li>
-                                                             <p class="italic">03 Nov 2018</p>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="careerfy-job-userlist">
-                                                   
-                                                        <a href="#" class="careerfy-option-btn">I am Interested</a>
-                                                    </div>
-                                                <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="careerfy-column-12">
-                                            <div class="careerfy-joblisting-classic-wrap">
-                                                <div class="careerfy-joblisting-text">
-                                                    <div class="careerfy-list-option">
-                                                        <h2><a href="#"> 660 Sq.Yd - <i class="fa fa-rupee"></i> 12,000</a> <span>Listing ID: 1710</span></h2>
-                                                        <ul>
-                                                            <li><a href="#">@ Residential</a></li>
-                                                            <li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>NOWLURU - 698 Colony</strong></li>
-                                                            <li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> East Facing</li>
-                                                            <p class="italic">03 Nov 2018</p>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="careerfy-job-userlist">
-                                                        <a href="#" class="careerfy-option-btn careerfy-red">I am Interested</a>
-                                                    </div>
-                                                <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="careerfy-column-12">
-                                            <div class="careerfy-joblisting-classic-wrap">
-                                                <div class="careerfy-joblisting-text">
-                                                    <div class="careerfy-list-option">
-                                                        <h2><a href="#"> 360 Sq.Yd - <i class="fa fa-rupee"></i> 22,000</a> <span>Listing ID: 1520</span></h2>
-                                                        <ul>
-                                                            <li><a href="#">@ Commercial</a></li>
-                                                            <li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>THULLUR - 414 Colony</strong></li>
-                                                            <li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> West Facing</li>
-                                                             <p class="italic">03 Nov 2018</p>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="careerfy-job-userlist">
-                                                   
-                                                        <a href="#" class="careerfy-option-btn">I am Interested</a>
-                                                    </div>
-                                                <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="careerfy-column-12">
-                                            <div class="careerfy-joblisting-classic-wrap">
-                                                <div class="careerfy-joblisting-text">
-                                                    <div class="careerfy-list-option">
-                                                        <h2><a href="#"> 660 Sq.Yd - <i class="fa fa-rupee"></i> 12,000</a> <span>Listing ID: 1710</span></h2>
-                                                        <ul>
-                                                            <li><a href="#">@ Residential</a></li>
-                                                            <li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>NOWLURU - 698 Colony</strong></li>
-                                                            <li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> East Facing</li>
-                                                            <p class="italic">03 Nov 2018</p>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="careerfy-job-userlist">
-                                                        <a href="#" class="careerfy-option-btn careerfy-red">I am Interested</a>
-                                                    </div>
-                                                <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                        </li><li class="careerfy-column-12">
-                                            <div class="careerfy-joblisting-classic-wrap">
-                                                <div class="careerfy-joblisting-text">
-                                                    <div class="careerfy-list-option">
-                                                        <h2><a href="#"> 360 Sq.Yd - <i class="fa fa-rupee"></i> 22,000</a> <span>Listing ID: 1520</span></h2>
-                                                        <ul>
-                                                            <li><a href="#">@ Commercial</a></li>
-                                                            <li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>THULLUR - 414 Colony</strong></li>
-                                                            <li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> West Facing</li>
-                                                             <p class="italic">03 Nov 2018</p>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="careerfy-job-userlist">
-                                                   
-                                                        <a href="#" class="careerfy-option-btn">I am Interested</a>
-                                                    </div>
-                                                <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        
-                                        <li class="careerfy-column-12">
-                                            <div class="careerfy-joblisting-classic-wrap">
-                                                <div class="careerfy-joblisting-text">
-                                                    <div class="careerfy-list-option">
-                                                        <h2><a href="#"> 660 Sq.Yd - <i class="fa fa-rupee"></i> 12,000</a> <span>Listing ID: 1710</span></h2>
-                                                        <ul>
-                                                            <li><a href="#">@ Residential</a></li>
-                                                            <li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>NOWLURU - 698 Colony</strong></li>
-                                                            <li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i> East Facing</li>
-                                                            <p class="italic">03 Nov 2018</p>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="careerfy-job-userlist">
-                                                        <a href="#" class="careerfy-option-btn careerfy-red">I am Interested</a>
-                                                    </div>
-                                                <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                        </li> -->
+									
 								</ul>
 							</div>
 							<!-- Pagination -->
-							<!-- <div class="careerfy-pagination-blog">
+							<!--  <div class="careerfy-pagination-blog">
 								<ul class="page-numbers">
 									<li><a class="prev page-numbers" href="#"><span><i
 												class="careerfy-icon careerfy-arrows4"></i></span></a></li>
@@ -465,7 +259,7 @@
 									<li><a class="next page-numbers" href="#"><span><i
 												class="careerfy-icon careerfy-arrows4"></i></span></a></li>
 								</ul>
-							</div> -->
+							</div>  -->
 						</div>
 					</div>
 
@@ -484,19 +278,19 @@
 <a href="#" class="back-to-top"></a>
 <!--End-->
 
-<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<!-- <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> -->
 <script type="text/javascript" src="js/jquery-easing-1.3.js"></script>
+<!-- <!--Easy Pagination--> -->
+<!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 
+<!-- <script src="jquery.easyPaginate.js" type="text/javascript"></script> -->
 <!--Flexy Menu Script-->
 <script type="text/javascript" src="js/flexy-menu.js"></script>
 
 <!--LayerSlider Script-->
-<script src="layerslider/jQuery/jquery-transit-modified.js"
-	type="text/javascript"></script>
-<script src="layerslider/js/layerslider.transitions.js"
-	type="text/javascript"></script>
-<script src="layerslider/js/layerslider.kreaturamedia.jquery.js"
-	type="text/javascript"></script>
+<script src="layerslider/jQuery/jquery-transit-modified.js" type="text/javascript"></script>
+<script src="layerslider/js/layerslider.transitions.js" type="text/javascript"></script>
+<script src="layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 var villageList = ${villagesListMap};
@@ -579,41 +373,56 @@ function myFunction() {
 			return false;
 		})
 		
-		
+		 
 		$.each(villageList, function(i, item) {
 			
 			
-			$("#villageList").append('<li><input type="checkbox" id="'+i+'" name="villageCheckBox[]" /><label for="'+i+'"><span></span>'+item+'</label><small>13</small></li>');
+			$("#villageList").append('<li><input type="checkbox" id="'+item[0]+'" name="villageCheckBox[]" /><label for="'+item[0]+'"><span></span>'+item[1]+'</label><small>'+item[2]+'</small></li>');
 			
 		});
 		var cls="";
+		var buttoncls = "";
+		var yellow1 = "" ;
 		$.each(AllSiteList, function(i, item) {
 			totalSites = AllSiteList.length;
 			
-			if(item.propertyType == "Commercial"){
+			if(item[0].propertyType == "Commercial"){
 				countOfCommercial++;
-				cls ="careerfy-red";
+				cls ="yellow";
+				yellow1= "yellow1"
+				buttoncls = "btnyellow";
 				
 			}else{
-				cls="";
+				cls="blue";
+				yellow1 = "blue1"
+				buttoncls = "btnprimary";
 				countOfResidential++;
 				}
+			
+			if(item[0].siteFacing == "North"){FilterCountOfNorth++;}
+			if(item[0].siteFacing == "South"){FilterCountOfSouth++;}
+			if(item[0].siteFacing == "East"){FilterCountOfEast++;}
+			if(item[0].siteFacing == "West"){FilterCountOfWest++;}
+			if(item[0].roadDimensions == "1"){roadDimentionCountOfOne++;}else{roadDimentionCountOfTwo++;}
+			if(item[0].roadFacing == "1"){roadFacingCountOfOne++; }else{roadFacingCountOfTwo++; }
 			$("#ulSiteList").append('<li class="careerfy-column-12">'
-                    	+'<div class="careerfy-joblisting-classic-wrap">'
+                    	+'<div class="careerfy-joblisting-classic-wrap '+cls+' ">'
                     	+'<div class="careerfy-joblisting-text">'
                         +'<div class="careerfy-list-option">'
-                        +'<h2><a href="#">'+  item.sqYd +'Sq.Yd - <i class="fa fa-rupee"></i>'+  item.price +'</a>'
-                        +' <span>Listing ID: "'+  item.listingId +'"</span></h2>'
+                        +'<h2><a href="#">'+  item[0].sqYd +'Sq.Yd - <i class="fa fa-rupee"></i>'+  item[0].price +'</a>'
+                        +' <span>Listing ID: "'+  item[0].listingId +'"</span></h2>'
                         +'<ul>'
-                        +' <li><a href="#">@"'+item.propertyType+'"</a></li>'
-                        +'<li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>"'+  item.colony +'" Colony</strong></li>'
-                        +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i>'+  item.siteFacing +'</li>'
+                        +' <li><a href="#" class="'+yellow1+'">@"'+item[0].propertyType+'"</a></li>'
+                        +'<li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>"'+  item[0].colony +'" Colony</strong></li>'
+                        +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i>'+  item[0].siteFacing +'</li>'
+
                         +'<p class="italic">03 Nov 2018</p>'
                         +'</ul>'
                         +'</div>'
                         +'<div class="careerfy-job-userlist">'
                         
-                        +'<button id="'+item.id+'" onclick="iAmIntrested('+item.id+')" class="careerfy-option-btn '+cls+'">I am Interested</button>'
+                        +'<button id="'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+buttoncls+'">I am Interested</button>'
+
                         +'</div>'
                         +'<div class="clearfix"></div>'
                         +'</div>'
@@ -625,6 +434,14 @@ function myFunction() {
 		$("#countOfCommercial").text("Commercial : "+""+countOfCommercial);
 		$("#countOfResidential").text("Residential : "+""+countOfResidential);
 		$("#totalSites").text("Total : "+""+totalSites);
+		$("#paginationCount").text("Showing "+totalSites+" of " +totalSites+" results");
+		$("#commercialFilterId").text(countOfCommercial);
+		$("#residentialFilterId").text(countOfResidential);
+		$("#roadFacing_1").text(roadFacingCountOfOne);
+		$("#roadFacing_2").text(roadFacingCountOfTwo);
+		$("#roadDimention_1").text(roadDimentionCountOfOne);
+		$("#roadDimention_2").text(roadDimentionCountOfTwo);
+		
 		
 				var values = null;
 				var protoType = null;
@@ -711,12 +528,27 @@ function myFunction() {
 							window.location.href='?';
 						}
 				});
+				
+				
+				/*  $('#ulSiteList').easyPaginate({
+					    paginateElement: 'li',
+					    elementsPerPage: 3,
+					    effect: 'climb'
+					});	 */
 	
    });
-   
+  
    var countOfCommercial=0;
    var countOfResidential=0;
    var totalSites=0;
+   var roadFacingCountOfOne=0;
+   var roadFacingCountOfTwo = 0;
+   var roadDimentionCountOfOne = 0;
+   var roadDimentionCountOfTwo = 0;
+   var FilterCountOfNorth = 0;
+   var FilterCountOfWest = 0;
+   var FilterCountOfEast = 0;
+   var FilterCountOfSouth = 0;
    function siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions){
 	   
 	   
@@ -728,24 +560,45 @@ function myFunction() {
 			dataType : "json",
 			success : function(response) {
 				$("#ulSiteList").html('');
+				 countOfCommercial=0;
+				 countOfResidential=0;
+				   totalSites=0;
+				   roadFacingCountOfOne=0;
+				   roadFacingCountOfTwo = 0;
+				   roadDimentionCountOfOne = 0;
+				   roadDimentionCountOfTwo = 0;
+				   FilterCountOfNorth = 0;
+				   FilterCountOfWest = 0;
+				   FilterCountOfEast = 0;
+				   FilterCountOfSouth = 0;
 				$.each(response, function(i, item) {
 					
 					
 					if(item[0].propertyType == "Commercial"){
 						countOfCommercial++;
-						cls ="careerfy-red";
+						cls =" yellow";
+						yellow1 = "yellow1"
+						buttoncls="btnyellow";
 					}else{
-						cls="";
+						cls="blue";
+						yellow1 = "blue1"
+						buttoncls="btnprimary";
 						countOfResidential++;
 					}
+					if(item[0].siteFacing == "North"){FilterCountOfNorth++;}
+					if(item[0].siteFacing == "South"){FilterCountOfSouth++;}
+					if(item[0].siteFacing == "East"){FilterCountOfEast++;}
+					if(item[0].siteFacing == "West"){FilterCountOfWest++;}
+					if(item[0].roadDimensions == "1"){roadDimentionCountOfOne++;}else{roadDimentionCountOfTwo++;}
+					if(item[0].roadFacing == "1"){roadFacingCountOfOne++; }else{roadFacingCountOfTwo++; }
 					$("#ulSiteList").append('<li class="careerfy-column-12">'
-		                    	+'<div class="careerfy-joblisting-classic-wrap">'
+		                    	+'<div class="careerfy-joblisting-classic-wrap '+cls+'">'
 		                    	+'<div class="careerfy-joblisting-text">'
 		                        +'<div class="careerfy-list-option">'
 		                        +'<h2><a href="#">'+  item[0].sqYd +'Sq.Yd - <i class="fa fa-rupee"></i>'+  item[0].price +'</a>'
 		                        +' <span>Listing ID: "'+  item[0].listingId +'"</span></h2>'
 		                        +'<ul>'
-		                        +' <li><a href="#">@"'+item[0].propertyType+'"</a></li>'
+		                        +' <li><a href="#" class="'+yellow1+'">@"'+item[0].propertyType+'"</a></li>'
 		                        +'<li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>"'+  item[0].colony +'" Colony</strong></li>'
 		                        +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i>'+  item[0].siteFacing +'</li>'
 		                        +'<p class="italic">03 Nov 2018</p>'
@@ -753,7 +606,7 @@ function myFunction() {
 		                        +'</div>'
 		                        +'<div class="careerfy-job-userlist">'
 		                        
-		                        +'<button id="'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+cls+'">I am Interested</button>'
+		                        +'<button id="'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+buttoncls+'">I am Interested</button>'
 		                        +'</div>'
 		                        +'<div class="clearfix"></div>'
 		                        +'</div>'
@@ -762,10 +615,16 @@ function myFunction() {
 					
 				});
 				totalSites = response.length;
-				$("#countOfCommercial").text(countOfCommercial);
-				$("#countOfResidential").text(countOfResidential);
-				$("#totalSites").text(totalSites);
-				
+				$("#countOfCommercial").text("Commercial : "+ countOfCommercial);
+				$("#countOfResidential").text("Residential : "+countOfResidential);
+				$("#totalSites").text("Total : "+totalSites);
+				$("#paginationCount").text("Showing "+totalSites+" of " +totalSites+" results");
+				$("#commercialFilterId").text(countOfCommercial);
+				$("#residentialFilterId").text(countOfResidential);
+				$("#roadFacing_1").text(roadFacingCountOfOne);
+				$("#roadFacing_2").text(roadFacingCountOfTwo);
+				$("#roadDimention_1").text(roadDimentionCountOfOne);
+				$("#roadDimention_2").text(roadDimentionCountOfTwo);
 				}
 			
 			

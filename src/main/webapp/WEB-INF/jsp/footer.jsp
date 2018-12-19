@@ -118,7 +118,7 @@
 <!-- Flexy Menu Script -->
 <script type="text/javascript" src="js/flexy-menu.js"></script>
 
-LayerSlider Script
+<!-- LayerSlider Script -->
 <script src="layerslider/jQuery/jquery-transit-modified.js"
 	type="text/javascript"></script>
 <script src="layerslider/js/layerslider.transitions.js"

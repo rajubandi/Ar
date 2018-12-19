@@ -24,6 +24,12 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
+<style type="text/css">
+.container
+{
+position: unset !important;
+}
+</style>
 <!-- <script src='/js/jquery.min.js'></script> -->
 <!--      <script src="/js/bootstrap-dropdownhover.min.js"></script>  -->
 <style>
@@ -125,15 +131,16 @@ label {
 			<ul class="flexy-menu thick">
 				<li><a href="index">Home</a></li>
 				<li><a href="plots">Plots</a></li>
-				<li><a href="layouts">Layouts</a></li>
-				<li><a href="#">Price Trends</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="#">Layouts</a></li>
+				<li><a href="pricetrends">Price Trends</a></li>
+				<li><a href="contact">Contact</a></li>
 				<li><a href="#">More</a>
 				<div class="arrow-down"></div>
 					<ul>
-						<li><a href="#">FAQ's</a></li>
-						<li><a href="#">Terms & Conditions</a></li>
-						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="faq">FAQ's</a></li>
+						<li><a href="sub">Submit Property</a></li>
+						<li><a href="terms">Terms & Conditions</a></li>
+						<li><a href="privacy">Privacy Policy</a></li>
 					</ul></li>
 				<%-- 			     <li class="dropdown acc" ng-init="checkLogin='${loggedstatus}';userName='${customerName}'"> --%>
 				<!-- 			          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" data-hover="dropdown">Hello! <span >{{checkLogin!=' ' ? userName : 'Sign-in'}}</span></a> -->

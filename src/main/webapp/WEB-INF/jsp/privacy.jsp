@@ -17,6 +17,16 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+     <style>
+	p{
+	color:#050505;
+	text-align:justify;
+	}
+	.careerfy-joblisting-classic-wrap{
+	padding:30px;
+	}
+	
+	</style>
     <style>
 	/*------ Tables -----*/
 
@@ -334,14 +344,14 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     box-shadow: none;
 }
 	</style>
-<div class="careerfy-subheader">
+<!-- SubHeader -->
+        <div class="careerfy-subheader">
             <span class="careerfy-banner-transparent"></span>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="careerfy-page-title">
-                            <h1>CONTACT US</h1>
-                            
+                            <h1>PRIVACY POLICY</h1>
                         </div>
                     </div>
                 </div>
@@ -357,13 +367,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
                 <div class="container">
                     <div class="row">
 
-                        <!--<div class="col-md-12">
-                          <div class="bbgwhite">
-                          <p align="center" Home | <span class="resi">Price Trends </span></p>
-                          
-                        </div>
-
-                        </div>-->
+                        
 
                     </div>
                 </div>
@@ -374,73 +378,42 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
             <div class="careerfy-main-section" style="margin-top:25px;">
                 <div class="container">
                     <div class="row">
-                      
-						<!--	<ol class="breadcrumb" style="background:#fff;">
-								<li class="breadcrumb-item"><a href="#">Pages  / Edit Profile</a></li>
-							</ol>-->
-
+                        
+                       
+                        
+                        
+                        
+                        
+                        
                         
                         <div class="careerfy-column-12 careerfy-typo-wrap">
                             <div class="careerfy-typo-wrap">
+                                <!-- FilterAble -->
                             
                                 <!-- FilterAble -->
-                              
-                                <!-- FilterAble -->
                                 <!-- JobGrid -->
-                                
                                 <div class="careerfy-job careerfy-joblisting-classic">
-                                    <ul class="careerfy-row">
-                                        <li class="careerfy-column-12">
-                                        
-                                            <div class="careerfy-joblisting-classic-wrap">
-                                            <div class="col-md-12">
-                                            
-                                            <div class="col-md-12">
-                                            
-                                            <h5><b>Contact Us</b></h5></div>
-                                        
-                                            <div class="col-md-4">
-                                             <form>
-    <div class="form-group">
-     <label for="name">Your Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter Name">
-    </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
-    </div>
-    <div class="form-group">
-     <label for="Number">Phone No:</label>
-      <input type="text" class="form-control" id="number" placeholder="Enter Number">
-    </div>
-    <div class="form-group">
-      <label for="pwd">Message:</label>
-     <textarea rows="8" cols="49" plceholder="Enter Message"></textarea>
-    </div>
-    <div class="checkbox">
-      <label><input type="checkbox"> Remember me</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-  </div>
-  <div class="col-md-2"></div>
-  <div class="col-md-5">
- <h5> Amaravati Realtors</h5>
- <p>D.No 5-41-54</p>
- <p>Vijayawada, Andhra Pradesh</p>
- <p>info@amaravatirealtors.in</p>
-<p>+91-999 999 9999 </p>
-  <br>
-  <iframe src="https://www.google.com/maps/embed?pb=" width="350" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
-  </div></div>
-                                                
-                                            </div>
-                                        </li>
+                                    <div class="careerfy-joblisting-classic-wrap"><p><b>                                               PRIVACY POLICY</b></p>
+<p>This Privacy Policy governs the manner in which amaravatirealtors.com (Amaravati Realtors), uses, maintains and discloses information collected from users (each, a &#8220;User&#8221;) of the website (&#8220;Site&#8221;). This privacy policy applies to the Site and all products and services offered by amaravatirealtors.com (Amaravati Realtors)</p>
+<p><b>Personal identification information</b></p>
+<p>We may collect personal identification information from Users in a variety of ways in connection with activities, services, features or resources we make available on our Site. Users may visit our Site anonymously. We will collect personal identification information from Users only if they voluntarily submit such information to us. Users can always refuse to supply personally identification information, except that it may prevent them from engaging in certain Site related activities.</p>
+<p><b>Non-personal identification information</b></p>
+<p>We may collect non-personal identification information about Users whenever they interact with our Site. Non-personal identification information may include the browser name, the type of computer and technical information about Users means of connection to our Site, such as the operating system and the Internet service providers utilized and other similar information.</p>
+<p><b>Web browser cookies</b></p>
+<p>Our Site may use &#8220;cookies&#8221; to enhance User experience. User&#8217;s web browser places cookies on their hard drive for record-keeping purposes and sometimes to track information about them. User may choose to set their web browser to refuse cookies, or to alert you when cookies are being sent. If they do so, note that some parts of the Site may not function properly.</p>
+<p><b>How we protect your information</b></p>
+<p>We adopt appropriate data collection, storage and processing practices and security measures to protect against unauthorized access, alteration, disclosure or destruction of your personal information, username, password, transaction information and data stored on our Site.</p>
+<p><b>Sharing your personal information</b></p>
+<p>We do not sell, trade, or rent Users personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates and advertisers for the purposes outlined above.</p>
+<p><b>Changes to this privacy policy</b><br />
+Avenue.in (Avenue Realty) has the discretion to update this privacy policy at any time. When we do, we will revise the updated date at the bottom of this page. We encourage Users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and become aware of modifications.</p>
+<p><b>Your acceptance of these terms</b></p>
+<p>By using this Site, you signify your acceptance of this policy. If you do not agree to this policy, please do not use our Site. Your continued use of the Site following the posting of changes to this policy will be deemed your acceptance of those changes.</p>
+</div>
                                         
                                         
-                                    
-                                        
-                                        
+                                       
+                                      
                                         
                                         
                                         
@@ -450,7 +423,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
                                     </ul>
                                 </div>
                                 <!-- Pagination -->
-                               
+                                
                             </div>
                         </div>
 
@@ -460,29 +433,6 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
             <!-- Main Section -->
 
         </div>
-<script>
-	
-	
-$(function () {
-
-    $(" .div2").hide();
-    
-    $(".link1, .link2").bind("click", function () {
-
-      $(".div1, .div2").hide();        
+        <!-- Main Content -->
         
-      if ($(this).attr("class") == "link1")
-      {
-        $(".div1").show();
-      }
-      else 
-      { 
-        $(".div2").show();
-      }
-    });
-
-});
-
-
-	</script>
 <jsp:include page="footer.jsp" />
