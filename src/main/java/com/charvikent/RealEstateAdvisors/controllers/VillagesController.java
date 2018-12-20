@@ -49,11 +49,13 @@ public class VillagesController {
 		 villageService.saveVillagesBean(village);
 		 redir.addFlashAttribute("msg", "Village added successfully");
 		 redir.addFlashAttribute("cssMsg", "warning");
+		 return "addVillage";
 		}else {
 			
 			redir.addFlashAttribute("msg", "Village doesn't added");
 			redir.addFlashAttribute("cssMsg", "warning");
+			return "addVillage";
 		}
-		 return "addVillage";
+		 //return "addVillage";
 	}
 }

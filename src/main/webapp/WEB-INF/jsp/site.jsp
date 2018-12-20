@@ -48,7 +48,7 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="vId">Village Name</label>
 								<div class="col-sm-5">
-									<form:select class="form-control" path="villageId" name="vId" >
+									<form:select class="form-control validate" path="villageId" name="vId" onfocus="removeBorder(this.id)" >
 										<form:option value="">-- Select Village --</form:option>
 										<form:options items="${villagesList}"/>
 										
@@ -58,19 +58,19 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="colony">Colony</label>
 								<div class="col-sm-5">
-									<form:input type="text" class="form-control"  path="colony" placeholder="Enter FirstName" />
+									<form:input type="text" class="form-control validate"  path="colony" placeholder="Enter FirstName" />
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="pinCode">Sq Yd</label>
 								<div class="col-sm-5">
-									<form:input type="text" class="form-control"  path="sqYd" placeholder="Enter Sq Yd" />
+									<form:input type="text" class="form-control validate"  path="sqYd" placeholder="Enter Sq Yd" />
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="price">Price</label>
 								<div class="col-sm-5">
-									<form:input type="text" class="form-control"  path="price" placeholder="Enter Price"  />
+									<form:input type="text" class="form-control validate"  path="price" placeholder="Enter Price"  />
 								</div>
 							</div>
 							<%-- <div class="form-group">
@@ -82,13 +82,13 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="listingId">Listing Id</label>
 								<div class="col-sm-5">
-									<form:input  type="text" class="form-control"  path="listingId" placeholder="Enter Listing Id"  />
+									<form:input  type="text" class="form-control validate"  path="listingId" placeholder="Enter Listing Id"  />
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="propertyType">Property Type</label>
 								<div class="col-sm-5">
-									<form:select class="form-control"  path="propertyType"  >
+									<form:select class="form-control validate"  path="propertyType"  onfocus="removeBorder(this.id)">
 									<form:option value="">-- Property Type --</form:option>
 									<form:option value="Commercial">Commercial</form:option>
 									<form:option value="Residential">Residential</form:option>
@@ -98,7 +98,7 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="siteFacing">Site Facing</label>
 								<div class="col-sm-5">
-									<form:select class="form-control"  path="siteFacing"  >
+									<form:select class="form-control validate"  path="siteFacing"  onfocus="removeBorder(this.id)">
 									<form:option value="">--Site Facing --</form:option>
 									<form:option value="North">North</form:option>
 									<form:option value="South">South</form:option>
@@ -110,13 +110,13 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="siteDimensions">Site Dimensions</label>
 								<div class="col-sm-5">
-									<form:input type="text" class="form-control"  path="siteDimensions" placeholder="Width X Length"  />
+									<form:input type="text" class="form-control validate"  path="siteDimensions" placeholder="Width X Length"  />
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="roadDimensions">Road Dimensions</label>
 								<div class="col-sm-5">
-									<form:select class="form-control"  path="roadDimensions" placeholder="Road Dimensions"  >
+									<form:select class="form-control validate"  path="roadDimensions" placeholder="Road Dimensions" onfocus="removeBorder(this.id)" >
 									<form:option value="">-- Road Dimensions --</form:option>
 									<form:option value="1">Single</form:option>
 									<form:option value="2">Double (Both road dimensions)</form:option>
@@ -126,7 +126,7 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="roadFacing">Road facing</label>
 								<div class="col-sm-5">
-									<form:select class="form-control"  path="roadFacing"  >
+									<form:select class="form-control validate"  path="roadFacing"  onfocus="removeBorder(this.id)">
 									<option value="">-- Road facing --</option>
 									<option value="1">Single Road</option>
 									<option value="2">Double Road (Corner Bit)</option>
@@ -135,7 +135,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-									<button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+									<button type="submit" id="submit1" class="btn btn-primary waves-effect waves-light">Submit</button>
 									<button type="button" class="btn btn-warning waves-effect waves-light" >Reset Form</button>
 								</div>
 							</div>
@@ -191,6 +191,7 @@
 		</div>
 		
 		<jsp:include page="adminfooter.jsp" />
+		<script src="/js/customValidation.js"></script>
 <script type="text/javascript">
 
  var listOfSites = ${siteList};

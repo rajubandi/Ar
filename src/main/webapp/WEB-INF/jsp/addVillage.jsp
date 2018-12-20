@@ -15,7 +15,7 @@
 </head>
 <body> -->
 <script src="/js/addVillage.js"></script>
-<script src="/js/customValidation.js"></script>
+
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
 <!-- 	  <script src="/js/controller.js"></script> -->
 <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> -->
@@ -95,7 +95,7 @@
 										</div>
 									</div>
 									<div class="table-responsive">
-										<table class="table card-table table-vcenter text-nowrap table-primary" >
+										<table id="tableId" class="table card-table table-vcenter text-nowrap table-primary" >
 											<thead  class="bg-primary text-white">
 												<tr >
 													<th class="text-white">Village Name</th>
@@ -146,13 +146,13 @@
 </div>
 <div class="clearfix"></div>
 <jsp:include page="adminfooter.jsp" />
-
+<script src="/js/customValidation.js"></script>
 <script type="text/javascript">
 
 
 
  var listOfVillages = ${villagesList};
 if (listOfVillages != "") {
-	displayTable(listOrders1);
+	displayTable(listOfVillages);
 } 
 </script>
