@@ -15,6 +15,7 @@
 </head>
 <body> -->
 <script src="/js/addVillage.js"></script>
+<script src="/js/customValidation.js"></script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
 <!-- 	  <script src="/js/controller.js"></script> -->
 <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> -->
@@ -49,7 +50,7 @@
 									<label class="form-label" for="vName">Village Name:</label>
 								</div>
 								<div class="col-md-4">
-									<form:input type="text" class="form-control" name="vName" path="vName" placeholder="Enter Name" />
+									<form:input type="text" class="form-control validate" name="vName" path="vName" placeholder="Enter Name" />
 								</div>
 							</div>
 						</div>
@@ -59,7 +60,7 @@
 									<label class="form-label" for="pinCode">Pin Code:</label>
 								</div>
 								<div class="col-md-4">
-									<form:input type="text" class="form-control" name="pinCode" path="pinCode" placeholder="Enter LastName" />
+									<form:input type="text" class="form-control validate" name="pinCode" path="pinCode" placeholder="Enter LastName" />
 								</div>
 							</div>
 						</div>
@@ -74,7 +75,7 @@
 											</div> -->
 						<div class="form-group mb-0 row justify-content-end">
 							<div class="col-md-8 float-right">
-								<button type="submit" class="btn btn-primary waves-effect waves-light">Add</button>
+								<button type="submit" id="submit1" class="btn btn-primary waves-effect waves-light">Add</button>
 							</div>
 						</div>
 					</form:form>
@@ -150,8 +151,8 @@
 
 
 
-/* var listOfVillages = ${villagesList};
+ var listOfVillages = ${villagesList};
 if (listOfVillages != "") {
 	displayTable(listOrders1);
-} */
+} 
 </script>

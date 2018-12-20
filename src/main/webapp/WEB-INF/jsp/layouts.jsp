@@ -318,4 +318,4 @@
 </div>
 </div>
 
-<jsp:include page="adminFooter.jsp" />
+<jsp:include page="footer.jsp" />

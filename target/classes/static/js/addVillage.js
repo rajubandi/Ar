@@ -29,3 +29,4 @@ function displayTable(listOrders) {
 			+ "</tr>";
 		$(tblRow).appendTo("#tableId table tbody");
 	});
+}

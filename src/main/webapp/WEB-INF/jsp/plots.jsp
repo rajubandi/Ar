@@ -11,7 +11,8 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic-ext,vietnamese"
 	rel="stylesheet">
-
+<!-- <link type="text/css" rel="stylesheet" href="css/simplePagination.css"/> -->
+<script src="js/jquery.easyPaginate.js"></script>
 <style>
 /* @media ( min-width : 1200px) {
 	.container {
@@ -60,6 +61,30 @@ border-left: 5px solid #76cbf5;
 .careerfy-option-btn.careerfy-red {
     background-color: #76cbf5;
 } */
+.easyPaginateNav a
+{
+    margin: 0px 22px 10px 0px;
+    line-height: 1;
+    font-weight: bold;
+    background-color: gray;
+    color: #ffffff;
+    width: 25px;
+    height: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 100%;
+    text-align: center;
+    padding: 12px;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+.easyPaginateNav .current
+{
+    background-color: #13b5ea !important;
+}
 </style>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> 
       <script src="/js/plotController.js"></script>  -->
@@ -246,9 +271,10 @@ border-left: 5px solid #76cbf5;
 								<ul class="careerfy-row" id="ulSiteList">
 									
 								</ul>
+								<ul class="careerfy-row" id="paginationSite">  </ul>
 							</div>
 							<!-- Pagination -->
-							<!--  <div class="careerfy-pagination-blog">
+						<!-- 	<div class="careerfy-pagination-blog">
 								<ul class="page-numbers">
 									<li><a class="prev page-numbers" href="#"><span><i
 												class="careerfy-icon careerfy-arrows4"></i></span></a></li>
@@ -259,7 +285,7 @@ border-left: 5px solid #76cbf5;
 									<li><a class="next page-numbers" href="#"><span><i
 												class="careerfy-icon careerfy-arrows4"></i></span></a></li>
 								</ul>
-							</div>  -->
+							</div> -->
 						</div>
 					</div>
 
@@ -272,7 +298,6 @@ border-left: 5px solid #76cbf5;
 </div>
 <div class="clearfix"></div>
 <!-- Main Content -->
-<script src="script/jquery.js"></script>
 <script src="script/bootstrap.js"></script>
 
 <a href="#" class="back-to-top"></a>
@@ -284,6 +309,10 @@ border-left: 5px solid #76cbf5;
 <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 
 <!-- <script src="jquery.easyPaginate.js" type="text/javascript"></script> -->
+<!-- <script src="js/pagination.min.js"></script>
+<script src="js/jquery.simplePagination.js"></script> -->
+<script src="js/jquery.twbsPagination.min.js"></script>
+
 <!--Flexy Menu Script-->
 <script type="text/javascript" src="js/flexy-menu.js"></script>
 
@@ -405,7 +434,7 @@ function myFunction() {
 			if(item[0].siteFacing == "West"){FilterCountOfWest++;}
 			if(item[0].roadDimensions == "1"){roadDimentionCountOfOne++;}else{roadDimentionCountOfTwo++;}
 			if(item[0].roadFacing == "1"){roadFacingCountOfOne++; }else{roadFacingCountOfTwo++; }
-			$("#ulSiteList").append('<li class="careerfy-column-12">'
+			$("#ulSiteList").append('<li class="careerfy-column-12 liTag" id="page'+ (i+1) +'">'
                     	+'<div class="careerfy-joblisting-classic-wrap '+cls+' ">'
                     	+'<div class="careerfy-joblisting-text">'
                         +'<div class="careerfy-list-option">'
@@ -529,18 +558,75 @@ function myFunction() {
 						}
 				});
 				
-				
-				/*  $('#ulSiteList').easyPaginate({
-					    paginateElement: 'li',
-					    elementsPerPage: 3,
-					    effect: 'climb'
+			/* 	$('#paginationSite').twbsPagination({
+					totalPages: totalSites,
+					// the current page that show on start
+					startPage: 1,
+					
+					
+					
+					// maximum visible pages
+					visiblePages: 5,
+					
+					initiateStartPageClick: true,
+					
+					// template for pagination links
+					href: false,
+					
+					// variable name in href template for page number
+					hrefVariable: '{{number}}',
+					
+					// Text labels
+					first: 'First',
+					prev: 'Previous',
+					next: 'Next',
+					last: 'Last',
+					
+					// carousel-style pagination
+					loop: false,
+					
+					// callback function
+					onPageClick: function (event, page) {
+						$('.page-active').removeClass('page-active');
+					  $('#page'+page).addClass('page-active');
+					},
+					
+					// pagination Classes
+					paginationClass: 'pagination',
+					nextClass: 'next',
+					prevClass: 'prev',
+					lastClass: 'last',
+					firstClass: 'first',
+					pageClass: 'page',
+					activeClass: 'active',
+					disabledClass: 'disabled'
+					
 					});	 */
+				 $('#ulSiteList').easyPaginate({
+				        paginateElement: 'li.liTag',
+				        elementsPerPage: 10,
+				        effect: 'climb'
+				    });
 	
    });
-  
+   /* $('#ulSiteList').pagination({
+	   
+	   items: 100,
+       itemsOnPage: 10,
+       cssStyle: 'light-theme'
+	   /*  paginateElement: 'li',
+	    elementsPerPage: 1,
+	    effect: 'climb' 
+	    });	*/
+	    
+	   
+	    var totalSites=0;
+	    		
+
+	 
    var countOfCommercial=0;
    var countOfResidential=0;
-   var totalSites=0;
+  
    var roadFacingCountOfOne=0;
    var roadFacingCountOfTwo = 0;
    var roadDimentionCountOfOne = 0;
