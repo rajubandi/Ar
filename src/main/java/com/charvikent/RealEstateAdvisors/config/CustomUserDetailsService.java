@@ -71,7 +71,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 					session.setAttribute("customerId", user.getId());
 					session.setAttribute("customerName", user.getFirstName());
 		 try {
-			response.sendRedirect("dashBoard");
+			response.sendRedirect("dashboard");
 			roleslist.add(userDesignation.getDesignation());
 			return new CustomUserDetails(user,roleslist);
 		} catch (IOException e) {

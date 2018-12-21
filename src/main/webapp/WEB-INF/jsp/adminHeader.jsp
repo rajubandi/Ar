@@ -51,7 +51,7 @@
 			<div class="app-header1 header py-1 d-flex">
 				<div class="container-fluid">
 					<div class="d-flex">
-						<a class="header-brand" href="index.html"> <img src="images/logo.png" class="header-brand-img"
+						<a class="header-brand" href="#"> <img src="images/logo.png" class="header-brand-img"
 							alt="Uplor  logo">
 						</a>
 						<div class="menu-toggle-button">
@@ -131,11 +131,9 @@
 									class="fa fa-bell-o floating"></i> <span
 									class=" nav-unread badge badge-danger  badge-pill" id="newNotification">${newNotification} </span>
 								</a>
-								<div
-									class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-									<a href="#" class="dropdown-item text-center">You have 4
-										notification</a>
-									<div class="dropdown-divider"></div>
+								<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+									<a href="#" class="dropdown-item text-center">You have 4 notification</a>
+										<div class="dropdown-divider"></div>
 									<a href="#" class="dropdown-item d-flex pb-3">
 										<div class="notifyimg">
 											<i class="fa fa-envelope-o"></i>
@@ -215,8 +213,7 @@
 								<a class="nav-link icon" data-toggle="dropdown"> <i
 									class="fe fe-grid floating"></i>
 								</a>
-								<div
-									class="dropdown-menu dropdown-menu-right dropdown-menu-arrow  app-selector">
+								<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow  app-selector">
 									<ul class="drop-icon-wrap">
 										<li><a href="#" class="drop-icon-item"> <i
 												class="si si-envelope text-dark"></i> <span class="block">
@@ -286,11 +283,8 @@
 					<ul class="list-unstyled components" id="accordion">
 						<li class="border-0"><h3>Personal</h3>
 						<li>
-						<li><a href="#homeSubmenu"
-							class="accordion-toggle wave-effect " data-toggle="collapse"
-							aria-expanded="false"> <i
-								class="fa fa-television mr-2 sidebarsuccess"></i>Dashboard
-						</a> </li>
+						<li><a href="dashboard" class="accordion-toggle wave-effect "> 
+						<i class="fa fa-television mr-2 sidebarsuccess"></i>Dashboard</a> </li>
 						
 						<li><a href="addVillage" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Villages</a></li>
 						<li><a href="site" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Plots</a></li>
@@ -303,4 +297,6 @@
 							</a> <a href="chat.html"> <span class="fa fa-comment" aria-hidden="true"></span>
 							</a>
 						</div>
+						</ul>
 				</nav>
+				</div>

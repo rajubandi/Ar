@@ -64,9 +64,10 @@ public class PlotsController {
 			  villagesListMap.put(new Integer(villageBean.getId()),villageBean.getvName());
 		 }*/
 		objectMapper = new ObjectMapper();
+		objectMapper1 = new ObjectMapper();
 		try {
 			json= objectMapper.writeValueAsString(vb);
-			json1= objectMapper.writeValueAsString(siteList);
+			json1= objectMapper1.writeValueAsString(siteList);
 			request.setAttribute("villagesListMap", json);
 			request.setAttribute("siteList", json1);
 		} catch (JsonProcessingException e) {

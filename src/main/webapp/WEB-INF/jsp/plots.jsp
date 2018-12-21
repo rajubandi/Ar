@@ -463,7 +463,7 @@ function myFunction() {
 		$("#countOfCommercial").text("Commercial : "+""+countOfCommercial);
 		$("#countOfResidential").text("Residential : "+""+countOfResidential);
 		$("#totalSites").text("Total : "+""+totalSites);
-		$("#paginationCount").text("Showing "+totalSites+" of " +totalSites+" results");
+		$("#paginationCount").text("Showing 10 of " +totalSites+" results");
 		$("#commercialFilterId").text(countOfCommercial);
 		$("#residentialFilterId").text(countOfResidential);
 		$("#roadFacing_1").text(roadFacingCountOfOne);
