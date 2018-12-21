@@ -194,13 +194,13 @@ public class HomeController {
 		 return "redirect:/";
 		
 	}
-	
+	/*
 	@RequestMapping("/dashboard")
 	public String home(HttpServletRequest request,HttpSession session) {
 		System.out.println("##########"+  userIntrestedSiteRepository.newNotification());
 		session.setAttribute("newNotification", userIntrestedSiteRepository.newNotification());
 		return "dashboard";
-	}
+	}*/
 	@RequestMapping("/layouts")
 	public String layout() {
 		

@@ -69,9 +69,18 @@
 
 <!--Counters js-->
 <script>
+
 var isClick = 'Yes';
 
-
+var newNotification =${newNotification}; 
+console.log(newNotification);
+if(newNotification !=null){
+	
+	$("#newNotification").text(newNotification)
+}else{
+	
+	$("#newNotification").removeClass('badge-danger');
+}
 			$('.count').countUp();
 		</script>
 

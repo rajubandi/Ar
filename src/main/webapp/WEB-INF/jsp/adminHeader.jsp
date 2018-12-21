@@ -127,9 +127,8 @@
 							</div>
 <%-- 							<%=session.getAttribute("newNotification")%> --%>
 							<div class="dropdown d-none d-md-flex">
-								<a class="nav-link icon" data-toggle="dropdown"> <i
-									class="fa fa-bell-o floating"></i> <span
-									class=" nav-unread badge badge-danger  badge-pill" id="newNotification">${newNotification} </span>
+								<a class="nav-link icon" data-toggle="dropdown"> <i class="fa fa-bell-o floating"></i> 
+								<span class=" nav-unread badge badge-danger  badge-pill" id="newNotification"></span>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 									<a href="#" class="dropdown-item text-center">You have 4 notification</a>

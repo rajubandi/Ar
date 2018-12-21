@@ -17,7 +17,7 @@ public interface UserIntrestedSiteRepository  extends JpaRepository<UserIntreste
 
 	UserIntrestedSites findById(int id);
 	@Query("from UserIntrestedSites where status=1")
-	int newNotification();
+	UserIntrestedSiteRepository newNotification();
 
 	void deleteAll();
 
