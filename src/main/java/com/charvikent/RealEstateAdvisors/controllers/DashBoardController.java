@@ -1,5 +1,8 @@
 package com.charvikent.RealEstateAdvisors.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +16,8 @@ import com.charvikent.RealEstateAdvisors.config.KptsUtil;
 import com.charvikent.RealEstateAdvisors.config.SendSMS;
 import com.charvikent.RealEstateAdvisors.repositories.UserIntrestedSiteRepository;
 import com.charvikent.RealEstateAdvisors.service.UsersServiceImpl;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @Controller 
@@ -31,10 +36,17 @@ public class DashBoardController {
 	
 	
 	@RequestMapping("/dashboard")
-	public String home(HttpServletRequest request,HttpSession session) {
-		System.out.println("##########"+  userIntrestedSiteRepository.newNotification());
+	public String home(HttpServletRequest request,HttpSession session)  {
+		String json = null;
+		ObjectMapper objectMapper = new ObjectMapper();
 		
-		session.setAttribute("newNotification", userIntrestedSiteRepository.newNotification());
+		try {
+			json = objectMapper.writeValueAsString(userIntrestedSiteRepository.findAll());
+			session.setAttribute("newNotification",json);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		
 		return "dashBoard";
 	}
 	

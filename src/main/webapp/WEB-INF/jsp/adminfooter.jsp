@@ -73,10 +73,11 @@
 var isClick = 'Yes';
 
 var newNotification =${newNotification}; 
+
 console.log(newNotification);
 if(newNotification !=null){
 	
-	$("#newNotification").text(newNotification)
+	$("#newNotification").text(newNotification.length)
 }else{
 	
 	$("#newNotification").removeClass('badge-danger');

@@ -12,12 +12,12 @@ public interface UserIntrestedSiteRepository  extends JpaRepository<UserIntreste
 
 	//UserIntrestedSites findByVName(String vName);
 
+	@Query("from UserIntrestedSites ui,Site s,Users u where ui.userId=u.id and ui.siteId = s.id and ui.status=1")
 	List<UserIntrestedSites> findAll();
 
 
 	UserIntrestedSites findById(int id);
-	@Query("from UserIntrestedSites where status=1")
-	UserIntrestedSiteRepository newNotification();
+	//List<UserIntrestedSiteRepository> newNotification();
 
 	void deleteAll();
 
