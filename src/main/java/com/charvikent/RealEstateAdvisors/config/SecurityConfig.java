@@ -61,7 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   .and()
     .formLogin().loginPage("/customerlogin").permitAll()
     .usernameParameter("username").passwordParameter("password")
-    //.successHandler(customAuthenticationSuccessHandler)
+    .successHandler(customAuthenticationSuccessHandler)
     .and()
     .logout()
     //.logoutUrl("/")
@@ -74,7 +74,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     .csrf().disable();
 	 
 	 http.addFilterBefore(new CustomUsernamePasswordAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-	 http.securityContext().securityContextRepository(new NullSecurityContextRepository());
+	 
+	// http.securityContext().securityContextRepository(new NullSecurityContextRepository());
  }
 
 
