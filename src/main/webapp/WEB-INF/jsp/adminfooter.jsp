@@ -75,7 +75,7 @@ var isClick = 'Yes';
 var newNotification =${newNotification}; 
 
 console.log(newNotification);
-if(newNotification !=null){
+if(newNotification.length !=0){
 	
 	$("#newNotification").text(newNotification.length)
 }else{
