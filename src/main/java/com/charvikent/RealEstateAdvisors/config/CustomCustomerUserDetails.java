@@ -1,4 +1,4 @@
-package com.charvikent.RealEstateAdvisors.config;
+/*package com.charvikent.RealEstateAdvisors.config;
 
 
 import java.util.Collection;
@@ -66,3 +66,4 @@ public class CustomCustomerUserDetails extends Users implements UserDetails {
 
 
 }
+*/

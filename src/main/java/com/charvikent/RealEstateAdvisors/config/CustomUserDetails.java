@@ -58,8 +58,11 @@ public class CustomUserDetails extends Users implements UserDetails {
 
 	@Override
 	public String getUsername() {
-		return super.getFirstName();
+	return super.getMobileNumber();
 	}
-
+	@Override
+	public String getPassword() {
+		return super.getPassword();
+	}
 
 }

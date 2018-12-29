@@ -73,7 +73,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   .and()
     .csrf().disable();
 	 
-	 http.addFilterBefore(new CustomUsernamePasswordAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+	 http.sessionManagement()
+	 .invalidSessionUrl("/");
+	// http.addFilterBefore(new CustomUsernamePasswordAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 	 
 	// http.securityContext().securityContextRepository(new NullSecurityContextRepository());
  }
