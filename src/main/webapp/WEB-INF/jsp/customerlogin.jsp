@@ -169,7 +169,7 @@ padding-left: 30px;
 					</div>
 				</div> --%>
 					</c:if>
-					<form action="customerlogin" method="post">
+					<form action=customerlogin method="post">
 						<div class="login-top">
 <!-- 						<input type="hidden" name="userType" id="userType"  value="customerUser" />  -->
 						<input type="text" name="username" id="cmusername" class="form-control validate numericOnly2" onfocus="this.placeholder=''"

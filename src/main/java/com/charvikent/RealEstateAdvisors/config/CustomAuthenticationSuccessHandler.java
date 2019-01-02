@@ -74,7 +74,8 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 			 
 			 
 			 session.setAttribute("sessionUser",((Users) objUser).getFirstName());
-			 response.sendRedirect("dashBoard");
+			 response.sendRedirect( response.encodeUrl("dashBoard"));
+			
 		 }else
 			{
 				
@@ -86,7 +87,7 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 						session.setAttribute("loggedstatus", "login");
 						session.setAttribute("customerId", objuserBean.getId());
 						session.setAttribute("customerName", objuserBean.getFirstName());
-					 response.sendRedirect("index");
+					 response.sendRedirect(response.encodeUrl("index"));
 		            	
 			}
 		/*if(objUser instanceof Users)
