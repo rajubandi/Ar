@@ -2,15 +2,13 @@ package com.charvikent.RealEstateAdvisors.controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang.StringUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
@@ -78,11 +76,13 @@ public class PlotsController {
 	}
 
 	@PostMapping("/userIntrestedSite")
-	public @ResponseBody String intrestedSite(@RequestParam("id") String id, HttpSession session,HttpServletRequest request) throws IOException {
+	public @ResponseBody String intrestedSite(@RequestParam("id") String id, HttpSession session,HttpServletRequest request) throws IOException, JSONException {
 		//String siteId =(String) request.getAttribute("id");
 		Users customer=(Users) session.getAttribute("customer");
 		Users admin	= usersRepository.findByDesignation("1");
 		UserIntrestedSites uis = new UserIntrestedSites();
+		 JSONObject resp = new JSONObject();
+		 
 		
 		uis.setUserId(customer.getId());
 		uis.setSiteId(Integer.parseInt(id));
@@ -98,10 +98,10 @@ public class PlotsController {
 		/*adminNotification.replaceAll("_customerName_", replacement);
 		adminNotification.replaceAll("_customerName_", replacement);
 		adminNotification.replaceAll("_customerName_", replacement);*/
-		
+		resp.put("status", true);
 		sendSMS.sendSMS(iamIntrestedMessage,customer.getMobileNumber());
 		sendSMS.sendSMS(adminNotification,admin.getMobileNumber());
-		 return "";
+		 return resp.toString();
 	}
 	
 	@PostMapping("/siteFilterByVillage")

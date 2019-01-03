@@ -662,7 +662,9 @@ function myFunction() {
 				   FilterCountOfEast = 0;
 				   FilterCountOfSouth = 0;
 				$.each(response, function(i, item) {
+					// +'<p class="italic">03 Nov 2018</p>'
 					
+					width=(item[0].siteDimensions).split('x');
 					
 					if(item[0].propertyType == "Commercial"){
 						countOfCommercial++;
@@ -691,7 +693,8 @@ function myFunction() {
 		                        +' <li><a href="#" class="'+yellow1+'">@"'+item[0].propertyType+'"</a></li>'
 		                        +'<li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>"'+  item[0].colony +'" Colony</strong></li>'
 		                        +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i>'+  item[0].siteFacing +'</li>'
-		                        +'<p class="italic">03 Nov 2018</p>'
+		                        //+'<p class="italic">03 Nov 2018</p>'
+		                         +'<p class="italic">"'+new Date(1000*item[0].updatedDate)+'"</p> <span> <b> Width:</b> "'+ width[0]+'" <b> Length: </b>"'+ width[1]+'"</span>'
 		                        +'</ul>'
 		                        +'</div>'
 		                        +'<div class="careerfy-job-userlist">'
@@ -731,14 +734,15 @@ function myFunction() {
 				url : "userIntrestedSite",
 				data :"id="+siteId,
 				dataType : "json",
+				async:false,
 				success : function(data) {
-					alert("success");
+					alert("Thank you for intrested, we will get back to you with more details");
 				},
 				
 			});
 			
 		}else{
-			window.location.href='/customerlogin';
+			window.location.href='customerlogin';
 		}
 	  
 	  
