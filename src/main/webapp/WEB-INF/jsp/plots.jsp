@@ -412,8 +412,10 @@ function myFunction() {
 		var cls="";
 		var buttoncls = "";
 		var yellow1 = "" ;
+		var width;
 		$.each(AllSiteList, function(i, item) {
 			totalSites = AllSiteList.length;
+			width=(item[0].siteDimensions).split('x');
 			
 			if(item[0].propertyType == "Commercial"){
 				countOfCommercial++;
@@ -445,7 +447,9 @@ function myFunction() {
                         +'<li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>"'+  item[0].colony +'" Colony</strong></li>'
                         +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i>'+  item[0].siteFacing +'</li>'
 
-                        +'<p class="italic">03 Nov 2018</p>'
+                        +'<p class="italic">"'+new Date(1000*item[0].updatedDate)+'"</p> <span> <b> Width:</b> "'+ width[0]+'" <b> Length: </b>"'+ width[1]+'"</span>'
+                       // +'<p class="italic"><b> Width:</b> "'+ width[0]+'"</p>'
+                        //+'<p class="italic"><b> Length: </b>"'+ width[1]+'"</p>'
                         +'</ul>'
                         +'</div>'
                         +'<div class="careerfy-job-userlist">'

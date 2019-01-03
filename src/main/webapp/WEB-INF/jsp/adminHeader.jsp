@@ -79,7 +79,7 @@
 							</div>
 						</div>
 						<div class="d-flex order-lg-2 ml-auto">
-							<div class="dropdown d-none d-md-flex">
+							<!-- <div class="dropdown d-none d-md-flex">
 								<a class="nav-link icon full-screen-link"> <i
 									class="fe fe-maximize floating" id="fullscreen-button"></i>
 								</a>
@@ -124,13 +124,13 @@
 										</div>
 									</a>
 								</div>
-							</div>
+							</div> -->
 <%-- 							<%=session.getAttribute("newNotification")%> --%>
 							<div class="dropdown d-none d-md-flex">
 								<a class="nav-link icon" data-toggle="dropdown"> <i class="fa fa-bell-o floating"></i> 
 								<span class=" nav-unread badge badge-danger  badge-pill" id="newNotification"></span>
 								</a>
-								<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+								<!-- <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 									<a href="#" class="dropdown-item text-center">You have 4 notification</a>
 										<div class="dropdown-divider"></div>
 									<a href="#" class="dropdown-item d-flex pb-3">
@@ -169,14 +169,14 @@
 									<div class="dropdown-divider"></div>
 									<a href="#" class="dropdown-item text-center">See all
 										Notification</a>
-								</div>
+								</div> -->
 							</div>
 							<div class="dropdown d-none d-md-flex">
-								<a class="nav-link icon" data-toggle="dropdown"> <i
+								<!--<a class="nav-link icon" data-toggle="dropdown"> <i
 									class="fa fa-envelope-o floating"></i> <span
 									class=" nav-unread badge badge-warning  badge-pill">3</span>
 								</a>
-								<div
+								 <div
 									class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 									<a href="#" class="dropdown-item d-flex pb-3"> <img src=""
 										alt="avatar-img" class="avatar brround mr-3 align-self-center">
@@ -206,9 +206,9 @@
 									<div class="dropdown-divider"></div>
 									<a href="#" class="dropdown-item text-center">View all
 										Messages</a>
-								</div>
+								</div> -->
 							</div>
-							<div class="dropdown d-none d-md-flex">
+							<!-- <div class="dropdown d-none d-md-flex">
 								<a class="nav-link icon" data-toggle="dropdown"> <i
 									class="fe fe-grid floating"></i>
 								</a>
@@ -238,19 +238,18 @@
 									<div class="dropdown-divider"></div>
 									<a href="#" class="dropdown-item text-center">View all</a>
 								</div>
-							</div>
+							</div> -->
 							<div class="dropdown ">
-								<a href="#" class="nav-link pr-0 leading-none user-img"
-									data-toggle="dropdown"> <img src="" alt="profile-img"
-									class="avatar avatar-md brround">
+								 <a href="#" class="nav-link pr-0 leading-none icon "
+									data-toggle="dropdown"> <i class="si si-user floating"></i> 
 								</a>
 								<div
 									class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
-									<a class="dropdown-item" href="profile.html"> <i
+									<a class="dropdown-item" href="#"> <i
 										class="dropdown-icon si si-user"></i> My Profile
-									</a> <a class="dropdown-item" href="emailservices.html"> <i
+									</a> <a class="dropdown-item" href="#"> <i
 										class="dropdown-icon si si-envelope"></i> Inbox
-									</a> <a class="dropdown-item" href="editprofile.html"> <i
+									</a> <a class="dropdown-item" href="#"> <i
 										class="dropdown-icon  si si-settings"></i> Account Settings
 									</a> <a class="dropdown-item" href="signout"> <i
 										class="dropdown-icon si si-power"></i> Log out
@@ -273,10 +272,10 @@
 						</div> -->
 						<div class="profile_info">
 							<h2>${sessionUser} </h2>
-							<a href="editprofile.html" class="profile-img"> 
+							<%-- <a href="editprofile.html" class="profile-img"> 
 							<span class="fa fa-pencil" aria-hidden="true"></span>
 							<span>${userDesignationSession.designation} </span>
-							</a>
+							</a> --%>
 						</div>
 					</div>
 					<ul class="list-unstyled components" id="accordion">
@@ -288,14 +287,14 @@
 						<li><a href="addVillage" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Villages</a></li>
 						<li><a href="site" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Plots</a></li>
 						
-						<div class="sidebar-footer hidden-small">
+						<!-- <div class="sidebar-footer hidden-small">
 							<a href="emailservices.html"> <span class="fa fa-envelope" aria-hidden="true"></span>
 							</a> <a href="profile.html"> <span class="fa fa-user" aria-hidden="true"></span>
 							</a> <a href="editprofile.html"> <span class="fa fa-cog" aria-hidden="true"></span>
 							</a> <a href="login.html"> <span class="fa fa-sign-in" aria-hidden="true"></span>
 							</a> <a href="chat.html"> <span class="fa fa-comment" aria-hidden="true"></span>
 							</a>
-						</div>
+						</div> -->
 						</ul>
 				</nav>
 				</div>

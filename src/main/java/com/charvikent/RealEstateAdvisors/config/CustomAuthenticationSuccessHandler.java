@@ -14,8 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 /*import org.springframework.http.HttpRequest;*/
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+import org.springframework.security.web.DefaultRedirectStrategy;
+import org.springframework.security.web.RedirectStrategy;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 /*import org.springframework.ui.Model;*/
 
@@ -23,45 +24,34 @@ import com.charvikent.RealEstateAdvisors.model.Users;
 import com.charvikent.RealEstateAdvisors.service.UsersServiceImpl;
 
 @Component
-public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
+public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler{
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	//private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 	
 	@Autowired UsersServiceImpl userService;
-	//@Autowired DashBoardDao dashBoardDao;
-	
-	@Autowired
-	HttpSession session;
-	
-	/*@Autowired
-	CategoryDao categoryDao;*/
-	
-	@Autowired
-	UsersServiceImpl userDao;
-	public CustomAuthenticationSuccessHandler()
+	@Autowired HttpSession session;
+	@Autowired UsersServiceImpl userDao;
+	/*public CustomAuthenticationSuccessHandler()
 	{
 		super();
         setUseReferer(true);
         System.out.println("system called");
 	}
-	
+	*/
 	/*public RefererRedirectionAuthenticationSuccessHandler() {
 	    super();
 	    setUseReferer(true);
 	}*/
 
+	@SuppressWarnings("deprecation")
 	@Override
-	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
-			Authentication authentication) throws IOException, ServletException {
+	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) 
+			throws IOException, ServletException {
 		logger.info("AT onAuthenticationSuccess(...) function!");
 		// set our response to OK status
 		response.setStatus(HttpServletResponse.SC_OK);
 		// Add save record here
-		
 		//List<Category> listOrderBeans = categoryDao.getCategoryNames();
-		
-		
-		
-		
 		
 		Object objUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
@@ -74,8 +64,8 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 			 
 			 
 			 session.setAttribute("sessionUser",((Users) objUser).getFirstName());
-			 response.sendRedirect( response.encodeUrl("dashBoard"));
-			
+			 response.encodeUrl("dashBoard");
+			 //redirectStrategy.sendRedirect(request, response, "dashBoard");
 		 }else
 			{
 				
@@ -87,9 +77,11 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 						session.setAttribute("loggedstatus", "login");
 						session.setAttribute("customerId", objuserBean.getId());
 						session.setAttribute("customerName", objuserBean.getFirstName());
-					 response.sendRedirect(response.encodeUrl("index"));
-		            	
+					response.encodeUrl("index");
+					 
+						//redirectStrategy.sendRedirect(request, response, "index");	
 			}
+		 super.onAuthenticationSuccess(request, response, authentication);
 		/*if(objUser instanceof Users)
 		{
 			

@@ -6,8 +6,7 @@
 		<h4 class="page-title">Dashboard</h4>
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Dashboard
-				01</li>
+			<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
 		</ol>
 	</div>
 
