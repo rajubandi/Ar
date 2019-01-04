@@ -324,6 +324,7 @@ border-left: 5px solid #76cbf5;
 <script type="text/javascript">
 var villageList = ${villagesListMap};
 var AllSiteList = ${siteList};
+var intrestedSites =${intrestedSites};
 
 function myFunction() {
     var input, filter, ul, li, a, i, txtValue;
@@ -454,7 +455,7 @@ function myFunction() {
                         +'</div>'
                         +'<div class="careerfy-job-userlist">'
                         
-                        +'<button id="'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+buttoncls+'">I am Interested</button>'
+                        +'<button id="interestButton'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+buttoncls+'">I am Interested</button>'
 
                         +'</div>'
                         +'<div class="clearfix"></div>'
@@ -611,8 +612,20 @@ function myFunction() {
 				        elementsPerPage: 10,
 				        effect: 'climb'
 				    });
+					
+				 alreadyIntrestedSites();			
 	
    });
+   
+   function alreadyIntrestedSites(){
+	   $.each(intrestedSites, function(i, item) {
+		   
+		   $('#interestButton'+item).text('Intrested');
+		   $('#interestButton'+item).attr('disabled', "disabled");
+	   });
+	   
+	   
+   }
    /* $('#ulSiteList').pagination({
 	   
 	   items: 100,
@@ -663,6 +676,7 @@ function myFunction() {
 				   FilterCountOfSouth = 0;
 				$.each(response, function(i, item) {
 					
+					width=(item[0].siteDimensions).toLowerCase().split('x');
 					
 					if(item[0].propertyType == "Commercial"){
 						countOfCommercial++;
@@ -691,12 +705,13 @@ function myFunction() {
 		                        +' <li><a href="#" class="'+yellow1+'">@"'+item[0].propertyType+'"</a></li>'
 		                        +'<li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>"'+  item[0].colony +'" Colony</strong></li>'
 		                        +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i>'+  item[0].siteFacing +'</li>'
-		                        +'<p class="italic">03 Nov 2018</p>'
+		                        +'<p class="italic">"'+new Date(1000*item[0].updatedDate)+'"</p> <span> <b> Width:</b> "'+ width[0]+'" <b> Length: </b>"'+ width[1]+'"</span>'
+		                       // +'<p class="italic">03 Nov 2018</p>'
 		                        +'</ul>'
 		                        +'</div>'
 		                        +'<div class="careerfy-job-userlist">'
 		                        
-		                        +'<button id="'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+buttoncls+'">I am Interested</button>'
+		                        +'<button id="interestButton'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+buttoncls+'">I am Interested</button>'
 		                        +'</div>'
 		                        +'<div class="clearfix"></div>'
 		                        +'</div>'
@@ -717,8 +732,8 @@ function myFunction() {
 				$("#roadDimention_2").text(roadDimentionCountOfTwo);
 				}
 			
-			
 		});
+			 alreadyIntrestedSites();
 	   
 	   
    }
@@ -732,13 +747,13 @@ function myFunction() {
 				data :"id="+siteId,
 				dataType : "json",
 				success : function(data) {
-					alert("success");
+					alert("Thank you for intrested, We will get back to you with more details");
 				},
 				
 			});
 			
 		}else{
-			window.location.href='/customerlogin';
+			window.location.href='customerlogin';
 		}
 	  
 	  
