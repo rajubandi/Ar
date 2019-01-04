@@ -305,7 +305,7 @@ border-left: 5px solid #76cbf5;
 
 <!-- <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> -->
 <script type="text/javascript" src="js/jquery-easing-1.3.js"></script>
-<!-- <!--Easy Pagination--> -->
+<!-- <!--Easy Pagination--> 
 <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 
 <!-- <script src="jquery.easyPaginate.js" type="text/javascript"></script> -->
@@ -324,6 +324,7 @@ border-left: 5px solid #76cbf5;
 <script type="text/javascript">
 var villageList = ${villagesListMap};
 var AllSiteList = ${siteList};
+var intrestedSites =${intrestedSites};
 
 function myFunction() {
     var input, filter, ul, li, a, i, txtValue;
@@ -415,7 +416,7 @@ function myFunction() {
 		var width;
 		$.each(AllSiteList, function(i, item) {
 			totalSites = AllSiteList.length;
-			width=(item[0].siteDimensions).split('x');
+			width=(item[0].siteDimensions).toLowerCase().split('x');
 			
 			if(item[0].propertyType == "Commercial"){
 				countOfCommercial++;
@@ -454,7 +455,7 @@ function myFunction() {
                         +'</div>'
                         +'<div class="careerfy-job-userlist">'
                         
-                        +'<button id="'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+buttoncls+'">I am Interested</button>'
+                        +'<button id="interestButton'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+buttoncls+'">I am Interested</button>'
 
                         +'</div>'
                         +'<div class="clearfix"></div>'
@@ -611,8 +612,20 @@ function myFunction() {
 				        elementsPerPage: 10,
 				        effect: 'climb'
 				    });
+					
+				 alreadyIntrestedSites();			
 	
    });
+   
+   function alreadyIntrestedSites(){
+	   $.each(intrestedSites, function(i, item) {
+		   
+		   $('#interestButton'+item).text('Intrested');
+		   $('#interestButton'+item).attr('disabled', "disabled");
+	   });
+	   
+	   
+   }
    /* $('#ulSiteList').pagination({
 	   
 	   items: 100,
@@ -664,7 +677,8 @@ function myFunction() {
 				$.each(response, function(i, item) {
 					// +'<p class="italic">03 Nov 2018</p>'
 					
-					width=(item[0].siteDimensions).split('x');
+
+					width=(item[0].siteDimensions).toLowerCase().split('x');
 					
 					if(item[0].propertyType == "Commercial"){
 						countOfCommercial++;
@@ -693,13 +707,14 @@ function myFunction() {
 		                        +' <li><a href="#" class="'+yellow1+'">@"'+item[0].propertyType+'"</a></li>'
 		                        +'<li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>"'+  item[0].colony +'" Colony</strong></li>'
 		                        +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i>'+  item[0].siteFacing +'</li>'
-		                        //+'<p class="italic">03 Nov 2018</p>'
-		                         +'<p class="italic">"'+new Date(1000*item[0].updatedDate)+'"</p> <span> <b> Width:</b> "'+ width[0]+'" <b> Length: </b>"'+ width[1]+'"</span>'
+
+		                        +'<p class="italic">"'+new Date(1000*item[0].updatedDate)+'"</p> <span> <b> Width:</b> "'+ width[0]+'" <b> Length: </b>"'+ width[1]+'"</span>'
+		                       // +'<p class="italic">03 Nov 2018</p>'
 		                        +'</ul>'
 		                        +'</div>'
 		                        +'<div class="careerfy-job-userlist">'
 		                        
-		                        +'<button id="'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+buttoncls+'">I am Interested</button>'
+		                        +'<button id="interestButton'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+buttoncls+'">I am Interested</button>'
 		                        +'</div>'
 		                        +'<div class="clearfix"></div>'
 		                        +'</div>'
@@ -720,8 +735,8 @@ function myFunction() {
 				$("#roadDimention_2").text(roadDimentionCountOfTwo);
 				}
 			
-			
 		});
+			 alreadyIntrestedSites();
 	   
 	   
    }
@@ -736,7 +751,8 @@ function myFunction() {
 				dataType : "json",
 				async:false,
 				success : function(data) {
-					alert("Thank you for intrested, we will get back to you with more details");
+
+					alert("Thank you for intrested, We will get back to you with more details");
 				},
 				
 			});

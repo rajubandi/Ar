@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.charvikent.RealEstateAdvisors.model.UserIntrestedSites;
@@ -18,7 +19,10 @@ public interface UserIntrestedSiteRepository  extends JpaRepository<UserIntreste
 
 	UserIntrestedSites findById(int id);
 	//List<UserIntrestedSiteRepository> newNotification();
-
+	
+	@Query("select ui.siteId from UserIntrestedSites ui where ui.userId=:id")
+	List<Integer> useIntrestedSiteIds(@Param("id") int id);
+ 
 	void deleteAll();
 
 }
