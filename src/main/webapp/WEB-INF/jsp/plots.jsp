@@ -305,7 +305,7 @@ border-left: 5px solid #76cbf5;
 
 <!-- <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> -->
 <script type="text/javascript" src="js/jquery-easing-1.3.js"></script>
-<!-- <!--Easy Pagination--> -->
+<!-- <!--Easy Pagination--> 
 <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 
 <!-- <script src="jquery.easyPaginate.js" type="text/javascript"></script> -->
@@ -415,7 +415,7 @@ function myFunction() {
 		var width;
 		$.each(AllSiteList, function(i, item) {
 			totalSites = AllSiteList.length;
-			width=(item[0].siteDimensions).split('x');
+			width=(item[0].siteDimensions).toLowerCase().split('x');
 			
 			if(item[0].propertyType == "Commercial"){
 				countOfCommercial++;
