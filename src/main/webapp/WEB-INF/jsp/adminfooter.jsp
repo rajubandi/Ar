@@ -8,7 +8,7 @@
 	<div class="container">
 		<div class="row align-items-center flex-row-reverse">
 			<div class="col-md-12 col-sm-12 mt-3 mt-lg-0 text-center">
-				Copyright © 2018 <a href="#">Uplor </a>. Designed by <a href="#">Spruko</a>
+				Copyright © 2016 <a href="http://charvikent.com"> Charvikent ITES Pvt. Ltd</a>.
 				All rights reserved.
 			</div>
 		</div>

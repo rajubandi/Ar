@@ -35,7 +35,7 @@ public class DashBoardController {
 	
 	
 	
-	@RequestMapping("/dashboard")
+	@RequestMapping("/dashBoard")
 	public String home(HttpServletRequest request,HttpSession session)  {
 		String json = null;
 		ObjectMapper objectMapper = new ObjectMapper();

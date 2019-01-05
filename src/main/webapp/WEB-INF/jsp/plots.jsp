@@ -618,11 +618,14 @@ function myFunction() {
    });
    
    function alreadyIntrestedSites(){
+	   
+	   if(!(intrestedSites.length == 0)){
 	   $.each(intrestedSites, function(i, item) {
 		   
 		   $('#interestButton'+item).text('Intrested');
 		   $('#interestButton'+item).attr('disabled', "disabled");
 	   });
+	   }
 	   
 	   
    }

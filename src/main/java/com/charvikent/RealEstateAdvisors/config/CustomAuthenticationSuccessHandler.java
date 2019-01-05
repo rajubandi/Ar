@@ -26,7 +26,7 @@ import com.charvikent.RealEstateAdvisors.service.UsersServiceImpl;
 @Component
 public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler{
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	//private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 	
 	@Autowired UsersServiceImpl userService;
 	@Autowired HttpSession session;
@@ -58,14 +58,14 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 		Users userDesignation= userService.getUserDesignationById(((Users) objUser).getId());
 		
 		
-		 if(userDesignation.getDesignation().equals("ROLE_ADMIN")) {
+		/* if(userDesignation.getDesignation().equals("ROLE_ADMIN")) {
 			 
 			 session.setAttribute("userDesignationSession", userDesignation);
 			 
 			 
 			 session.setAttribute("sessionUser",((Users) objUser).getFirstName());
-			 response.encodeUrl("dashBoard");
-			 //redirectStrategy.sendRedirect(request, response, "dashBoard");
+			response.encodeUrl("dashBoard");
+			// redirectStrategy.sendRedirect(request, response, "/dashBoard");
 		 }else
 			{
 				
@@ -80,8 +80,8 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 					response.encodeUrl("index");
 					 
 						//redirectStrategy.sendRedirect(request, response, "index");	
-			}
-		 super.onAuthenticationSuccess(request, response, authentication);
+			}*/
+		// super.onAuthenticationSuccess(request, response, authentication);
 		/*if(objUser instanceof Users)
 		{
 			

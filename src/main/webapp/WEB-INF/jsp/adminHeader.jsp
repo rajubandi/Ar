@@ -281,8 +281,8 @@
 					<ul class="list-unstyled components" id="accordion">
 						<li class="border-0"><h3>Personal</h3>
 						<li>
-						<li><a href="dashboard" class="accordion-toggle wave-effect "> 
-						<i class="fa fa-television mr-2 sidebarsuccess"></i>Dashboard</a> </li>
+						<li><a href="dashBoard" class="accordion-toggle wave-effect "> 
+						<i class="fa fa-television mr-2 sidebarsuccess"></i>DashBoard</a> </li>
 						
 						<li><a href="addVillage" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Villages</a></li>
 						<li><a href="site" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Plots</a></li>

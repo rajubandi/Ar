@@ -76,6 +76,7 @@
 						<div class="form-group mb-0 row justify-content-end">
 							<div class="col-md-8 float-right">
 								<button type="submit" id="submit1" class="btn btn-primary waves-effect waves-light">Add</button>
+								<button type="button" class="btn btn-warning waves-effect waves-light cancel" >Reset</button>
 							</div>
 						</div>
 					</form:form>
