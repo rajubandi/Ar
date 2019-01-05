@@ -21,14 +21,7 @@
 } */
 
 
-.header-section {
-	width: 100%;
-	height: 71px;
-	position: relative;
-	background-color: rgba(255, 255, 255, 0.95);
-	border-bottom: rgba(221, 221, 221, 0.95) solid 5px;
-	z-index: 1000;
-}
+
 .yellow {
 border-left: 5px solid #ffd500;	
 }

@@ -108,7 +108,14 @@ label {
 		.15s;
 	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
-
+.header-section {
+	width: 100%;
+	height: 76px;
+	position: relative;
+	background-color: rgba(255, 255, 255, 0.95);
+	border-bottom: rgba(221, 221, 221, 0.95) solid 5px;
+	z-index: 1000;
+}
 .form-group {
 	margin-bottom: 8px;
 }

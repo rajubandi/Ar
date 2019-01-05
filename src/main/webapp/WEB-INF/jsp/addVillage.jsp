@@ -34,12 +34,12 @@
 			<div class="card m-b-20">
 				<div class="card-header">
 					<h3 class="card-title">Add Village</h3>
-					<div class="card-options">
+					<!-- <div class="card-options">
 						<a href="#" class="card-options-collapse"
 							data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
 						<a href="#" class="card-options-remove" data-toggle="card-remove"><i
 							class="fe fe-x"></i></a>
-					</div>
+					</div> -->
 				</div>
 				<div class="card-body mb-0">
 					<form:form action="saveVillage" class="form-horizontal"
@@ -90,10 +90,10 @@
 								<div class="card">
 									<div class="card-header">
 										<h3 class="card-title">Village List</h3>
-										<div class="card-options">
+										<!-- <div class="card-options">
 											<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
 											<a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
-										</div>
+										</div> -->
 									</div>
 									<div class="table-responsive">
 										<table id="tableId" class="table card-table table-vcenter text-nowrap table-primary" >

@@ -60,7 +60,7 @@
 							</a>
 						</div>
 						<div>
-							<div class="searching">
+							<!-- <div class="searching">
 								<a href="javascript:void(0)" class="search-open searching1">
 									<i class="fa fa-search"></i>
 								</a>
@@ -76,7 +76,7 @@
 										</a>
 									</form>
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<div class="d-flex order-lg-2 ml-auto">
 							<!-- <div class="dropdown d-none d-md-flex">
@@ -126,6 +126,11 @@
 								</div>
 							</div> -->
 <%-- 							<%=session.getAttribute("newNotification")%> --%>
+<!-- <div class="">
+<div class="alert alert-success" role="alert">
+Primary PrimaryPrimaryPrimaryPrimaryPrimaryPrimary PrimaryPrimary </div>
+							
+							</div> -->
 							<div class="dropdown d-none d-md-flex">
 								<a class="nav-link icon" data-toggle="dropdown"> <i class="fa fa-bell-o floating"></i> 
 								<span class=" nav-unread badge badge-danger  badge-pill" id="newNotification"></span>
@@ -297,4 +302,4 @@
 						</div> -->
 						</ul>
 				</nav>
-				</div>
+			
