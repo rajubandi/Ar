@@ -148,8 +148,9 @@
 								</div>
 							</div>
 							</div></div>
-							<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-10">
+							<div>
+							<div class="clearfix"></div>
+								<div>
 									<button type="submit" id="submit1" class="btn btn-primary waves-effect waves-light">Submit</button>
 									<button type="button" class="btn btn-warning waves-effect waves-light cancel" >Reset Form</button>
 								</div>

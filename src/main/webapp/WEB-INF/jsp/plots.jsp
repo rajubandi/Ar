@@ -19,8 +19,22 @@
 		width: 100%;
 	}
 } */
-
-
+.btn-primary {
+    color: #fff;
+    background-color: #2ddcd3;
+    border-color: #2ddcd3;
+}
+.btn-primary:hover {
+	color: #fff;
+	background-color: #18c1b9;
+	border-color: #18c1b9;
+}
+.btn-primary:focus, .btn-primary.focus {
+	box-shadow: 0 0 0 2px rgb(24, 193, 185,0.5);
+}
+.modal-title {
+display:inline-flex;
+}
 
 .yellow {
 border-left: 5px solid #ffd500;	
@@ -707,7 +721,7 @@ function myFunction() {
 		                        +'</div>'
 		                        +'<div class="careerfy-job-userlist">'
 		                        
-		                        +'<button id="interestButton'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+buttoncls+'">I am Interested</button>'
+		                        +'<button id="interestButton'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+buttoncls+'" >I am Interested</button>'
 		                        +'</div>'
 		                        +'<div class="clearfix"></div>'
 		                        +'</div>'
@@ -743,6 +757,8 @@ function myFunction() {
 				data :"id="+siteId,
 				dataType : "json",
 				success : function(data) {
+					
+					$("#exampleModal").modal('show');
 					alert("Thank you for intrested, We will get back to you with more details");
 				},
 				
@@ -765,6 +781,25 @@ function myFunction() {
    
 var isClick = 'Yes'
 </script>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>Modal body text goes here.</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
 
 </body>
 </html>
