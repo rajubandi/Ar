@@ -11,9 +11,9 @@
 <link rel="stylesheet" href="fonts/fonts/font-awesome.min.css">
 
 <!-- Font Family-->
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+<link href="assets/plugins/calendar/jquery.datetimepicker.css" rel="stylesheet" />
 
 <!-- Sidemenu Css -->
 <link href="assets/plugins/fullside-menu/css/style.css" rel="stylesheet" />
@@ -25,6 +25,8 @@
 
 <!-- Dashboard Css -->
 <link href="assets/css/dashboard.css" rel="stylesheet" />
+<!-- c3.js Charts Plugin -->
+		<link href="assets/plugins/charts-c3/c3-chart.css" rel="stylesheet" />
 
 <!-- JQVMap -->
 <link href="assets/plugins/jqvmap/jqvmap.min.css" rel="stylesheet" />
@@ -252,11 +254,14 @@ Primary PrimaryPrimaryPrimaryPrimaryPrimaryPrimary PrimaryPrimary </div>
 									class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
 									<a class="dropdown-item" href="#"> <i
 										class="dropdown-icon si si-user"></i> My Profile
-									</a> <a class="dropdown-item" href="#"> <i
+									</a>
+									<!--  <a class="dropdown-item" href="#"> <i
 										class="dropdown-icon si si-envelope"></i> Inbox
-									</a> <a class="dropdown-item" href="#"> <i
+									</a> 
+									<a class="dropdown-item" href="#"> <i
 										class="dropdown-icon  si si-settings"></i> Account Settings
-									</a> <a class="dropdown-item" href="signout"> <i
+									</a> --> 
+									<a class="dropdown-item" href="signout"> <i
 										class="dropdown-icon si si-power"></i> Log out
 									</a>
 								</div>
@@ -290,7 +295,8 @@ Primary PrimaryPrimaryPrimaryPrimaryPrimaryPrimary PrimaryPrimary </div>
 						<i class="fa fa-television mr-2 sidebarsuccess"></i>DashBoard</a> </li>
 						
 						<li><a href="addVillage" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Villages</a></li>
-						<li><a href="site" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Plots</a></li>
+						<li><a href="site" class=" wave-effect accordion-toggle "><i class="fa fa-comment mr-2 sidebarpink"></i> Plots</a></li>
+						<li><a href="adminPriceTrend" class=" wave-effect accordion-toggle "><i class="fa fa-cog mr-2 sidebarpink"></i> Price Trend</a></li>
 						
 						<!-- <div class="sidebar-footer hidden-small">
 							<a href="emailservices.html"> <span class="fa fa-envelope" aria-hidden="true"></span>
