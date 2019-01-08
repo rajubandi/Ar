@@ -53,6 +53,11 @@
 <!-- jQuery Sparklines -->
 <script src="assets/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
 
+<!-- Datepicker js -->
+		<script src="assets/plugins/date-picker/spectrum.js"></script>
+		<script src="assets/plugins/date-picker/jquery-ui.js"></script>
+		<script src="assets/plugins/input-mask/jquery.maskedinput.js"></script>
+
 <!-- JQVMap -->
 <script src="assets/plugins/jqvmap/jquery.vmap.js"></script>
 <script src="assets/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
@@ -68,6 +73,7 @@
 <script src="assets/js/chartbundle.js"></script>
 
 <!--Counters js-->
+
 <script>
 
 var isClick = 'Yes';

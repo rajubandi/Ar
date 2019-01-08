@@ -162,7 +162,7 @@ border-left: 5px solid #76cbf5;
 
 									</ul>
 
-								</div>
+								</div>`
 
 
 								<div

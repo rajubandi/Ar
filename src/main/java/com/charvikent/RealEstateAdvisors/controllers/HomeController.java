@@ -207,11 +207,7 @@ public class HomeController {
 		return "layouts";//jsp file name 
 	}
 	
-	@RequestMapping("/pricetrends")
-	public String pricetrends() {
-		
-		return "pricetrends";//jsp file name 
-	}
+	
 	@RequestMapping("/contact")
 	public String contact() {
 		

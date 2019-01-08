@@ -16,6 +16,8 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name="priceTrends")
 public class PriceTrends {
@@ -32,6 +34,7 @@ public class PriceTrends {
 	private Date updatedDate;
 	private String propertyType;
 	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/DD/YYYY")
 	private Date priceTrendTime;
 	private Double minAmount;
 	private Double maxAmount;

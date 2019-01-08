@@ -26,8 +26,8 @@
 					<form:form action="savePriceTrend" class="form-horizontal" name="priceTrenForm" modelAttribute="priceTrend">
 					    <div class="form-group">
 							<div class="row">
-								<label class="control-label col-sm-3" for="villageId">Village Name</label>
-								<div class="col-sm-5">
+								<label class="control-label col-sm-2 form-label" for="villageId">Village Name</label>
+								<div class="col-sm-4">
 									<form:select class="form-control validate" path="villageId" name="villageId" onfocus="removeBorder(this.id)" >
 										<form:option value="">-- Select Village --</form:option>
 										<form:options items="${villagesList}"/>
@@ -59,8 +59,8 @@
 						</div>
 						<div class="form-group">
 						<div class="row">
-								<label class="control-label col-sm-3" for="propertyType">Property Type</label>
-								<div class="col-sm-5">
+								<label class="control-label col-sm-2 form-label" for="propertyType">Property Type</label>
+								<div class="col-sm-4">
 									<form:select class="form-control validate"  path="propertyType"  onfocus="removeBorder(this.id)">
 									<form:option value="">-- Property Type --</form:option>
 									<form:option value="Commercial">Commercial</form:option>
@@ -75,10 +75,33 @@
 									<label class="form-label" for="priceTrendTime">Date</label>
 								</div>
 								<div class="col-md-4">
-									<form:input type="text" class="form-control validate" name="priceTrendTime" path="priceTrendTime" placeholder="Date" />
+								<div class="wd-200 mg-b-30">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text">
+														<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
+													</div>
+												</div><form:input class="form-control fc-datepicker" path="priceTrendTime" placeholder="MM/DD/YYYY" type="text" />
+											</div>
+										</div>
+								<%-- <div class="input-group">
+								<div class="input-group-prepend">
+													<div class="input-group-text">
+														<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
+													</div>
+												</div>
+									<form:input type="text" class="form-control fc-datepicker hasDatepicker validate" name="priceTrendTime" path="priceTrendTime" placeholder="MM/DD/YYYY" />
+								</div> --%>
 								</div>
 							</div>
 						</div>
+						<!-- <div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text">
+														<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
+													</div>
+												</div><input class="form-control" id="datepickerNoOfMonths" placeholder="MM/DD/YYYY" type="text">
+											</div> -->
 						
 						<div class="form-group mb-0 row justify-content-end">
 							<div class="col-md-8 float-right">
@@ -134,7 +157,7 @@
 
 
 
- var listOfVillages = "";
+ var listOfVillages = ${priceTrendsList};
 if (listOfVillages != "") {
 	displayTable(listOfVillages);
 } 

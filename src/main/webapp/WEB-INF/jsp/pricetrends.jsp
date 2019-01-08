@@ -333,12 +333,12 @@
                                     <div class="careerfy-search-filter-wrap careerfy-without-toggle">
                                         <h2><a href="#">Select Village</a></h2>
                                         <div class="careerfy-search-box">
-                                            <input value="Search with Village Name" onBlur="if(this.value == '') { this.value ='Search'; }" onFocus="if(this.value =='Search') { this.value = ''; }" type="text">
+                                            <input value="" name="searchVillageNames" id="searchVillageNames"  onkeyup="myFunction()" onBlur="if(this.value == '') { this.value ='Search'; }" onFocus="if(this.value =='Search') { this.value = ''; }" type="text">
                                             <input type="submit" value="">
                                             <i class="careerfy-icon careerfy-search"></i>
                                         </div>
-                                        <ul class="careerfy-checkbox">
-                                            <li>
+                                        <ul class="careerfy-checkbox" id="villageList">
+                                            <!-- <li>
                                                 <input type="checkbox" id="r1" name="rr" />
                                                 <label for="r1"><span></span>Abbarajupalem</label>
                                                 <small>13</small>
@@ -407,7 +407,7 @@
                                                 <input type="checkbox" id="r5" name="rr" />
                                                 <label for="r4"><span></span>Nowluru</label>
                                                 <small>13</small>
-                                            </li>
+                                            </li> -->
                                         </ul>
                                       
                                     </div>
@@ -477,7 +477,7 @@
 									</div>
                                     
 									<div class="table-responsive">
-										<table class="table card-table table-vcenter text-nowrap">
+										<table class="table card-table table-vcenter text-nowrap" id="tableIdCommercial">
 											<thead class="bg-info text-white">
 												<tr>
 													
@@ -487,7 +487,7 @@
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
+												<!-- <tr>
 													<td><i class="fa fa-rupee"></i> 22,0000</td>
 													<td><i class="fa fa-rupee"></i> 35,000</td>
 													
@@ -536,7 +536,7 @@
 													<td><i class="fa fa-rupee"></i> 12,0000</td>
 													<td><i class="fa fa-rupee"></i> 35,000</td>
 													
-												</tr>
+												</tr> -->
 											</tbody>
 										</table>
 									</div>
@@ -552,17 +552,16 @@
 									</div>
                                     
 									<div class="table-responsive">
-										<table class="table card-table table-vcenter text-nowrap">
+										<table class="table card-table table-vcenter text-nowrap" id="tableIdResidential">
 											<thead class="bg-info text-white">
 												<tr>
-													
 													<th class="text-white">Min Price</th>
 													<th class="text-white">Max Price</th>
 													
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
+												<!-- <tr>
 													<td><i class="fa fa-rupee"></i> 12,0000</td>
 													<td><i class="fa fa-rupee"></i> 25,000</td>
 													
@@ -611,7 +610,7 @@
 													<td><i class="fa fa-rupee"></i> 12,0000</td>
 													<td><i class="fa fa-rupee"></i> 35,000</td>
 													
-												</tr>
+												</tr> -->
 											</tbody>
 										</table>
 									</div>
@@ -643,9 +642,15 @@
             <!-- Main Section -->
 
         </div>
+        <script src="/js/priceTrend.js"></script>
 <script>
-	
-	
+var villageList = ${villagesListMap};
+var priceTrendsList = ${priceTrendsList};
+
+if (priceTrendsList != "") {
+	displayTable(priceTrendsList);
+} 
+
 $(function () {
 
     $(" .div2").hide();
@@ -663,9 +668,17 @@ $(function () {
         $(".div2").show();
       }
     });
+    
+    $.each(villageList, function(i, item) {
+		
+		
+		$("#villageList").append('<li><input type="checkbox" id="'+item[0]+'" name="villageCheckBox[]" /><label for="'+item[0]+'"><span></span>'+item[1]+'</label><small>'+item[2]+'</small></li>');
+		
+	});
 
 });
 
 
 	</script>
+	
 <jsp:include page="footer.jsp" />
