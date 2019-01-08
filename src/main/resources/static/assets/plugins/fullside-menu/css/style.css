@@ -451,9 +451,11 @@ ul {
 @media ( min-width :790px) {
 	.content-area {
 		margin-left: 240px;
+		width:80%;
 	}
 	#sidebar, .content-area {
 		padding-top: 58px;
+		width:99%;
 	}
 	#sidebar {
 		padding-bottom: 50px;

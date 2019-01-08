@@ -3,7 +3,7 @@
 <jsp:include page="adminHeader.jsp" />
 <div class=" content-area ">
 	<div class="page-header">
-		<h4 class="page-title">Dashboard</h4>
+<!-- 		<h4 class="page-title">Dashboard</h4> -->
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
 			<li class="breadcrumb-item active" aria-current="page">Dashboard</li>

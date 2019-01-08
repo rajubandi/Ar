@@ -11,9 +11,9 @@
 <link rel="stylesheet" href="fonts/fonts/font-awesome.min.css">
 
 <!-- Font Family-->
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+<!-- <link href="assets/plugins/calendar/jquery.datetimepicker.css" rel="stylesheet" /> -->
 
 <!-- Sidemenu Css -->
 <link href="assets/plugins/fullside-menu/css/style.css" rel="stylesheet" />
@@ -25,6 +25,8 @@
 
 <!-- Dashboard Css -->
 <link href="assets/css/dashboard.css" rel="stylesheet" />
+<!-- c3.js Charts Plugin -->
+		<link href="assets/plugins/charts-c3/c3-chart.css" rel="stylesheet" />
 
 <!-- JQVMap -->
 <link href="assets/plugins/jqvmap/jqvmap.min.css" rel="stylesheet" />
@@ -60,7 +62,7 @@
 							</a>
 						</div>
 						<div>
-							<div class="searching">
+							<!-- <div class="searching">
 								<a href="javascript:void(0)" class="search-open searching1">
 									<i class="fa fa-search"></i>
 								</a>
@@ -76,7 +78,7 @@
 										</a>
 									</form>
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<div class="d-flex order-lg-2 ml-auto">
 							<!-- <div class="dropdown d-none d-md-flex">
@@ -126,6 +128,11 @@
 								</div>
 							</div> -->
 <%-- 							<%=session.getAttribute("newNotification")%> --%>
+<!-- <div class="">
+<div class="alert alert-success" role="alert">
+Primary PrimaryPrimaryPrimaryPrimaryPrimaryPrimary PrimaryPrimary </div>
+							
+							</div> -->
 							<div class="dropdown d-none d-md-flex">
 								<a class="nav-link icon" data-toggle="dropdown"> <i class="fa fa-bell-o floating"></i> 
 								<span class=" nav-unread badge badge-danger  badge-pill" id="newNotification"></span>
@@ -247,11 +254,14 @@
 									class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
 									<a class="dropdown-item" href="#"> <i
 										class="dropdown-icon si si-user"></i> My Profile
-									</a> <a class="dropdown-item" href="#"> <i
+									</a>
+									<!--  <a class="dropdown-item" href="#"> <i
 										class="dropdown-icon si si-envelope"></i> Inbox
-									</a> <a class="dropdown-item" href="#"> <i
+									</a> 
+									<a class="dropdown-item" href="#"> <i
 										class="dropdown-icon  si si-settings"></i> Account Settings
-									</a> <a class="dropdown-item" href="signout"> <i
+									</a> --> 
+									<a class="dropdown-item" href="signout"> <i
 										class="dropdown-icon si si-power"></i> Log out
 									</a>
 								</div>
@@ -281,11 +291,12 @@
 					<ul class="list-unstyled components" id="accordion">
 						<li class="border-0"><h3>Personal</h3>
 						<li>
-						<li><a href="dashboard" class="accordion-toggle wave-effect "> 
-						<i class="fa fa-television mr-2 sidebarsuccess"></i>Dashboard</a> </li>
+						<li><a href="dashBoard" class="accordion-toggle wave-effect "> 
+						<i class="fa fa-television mr-2 sidebarsuccess"></i>DashBoard</a> </li>
 						
 						<li><a href="addVillage" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Villages</a></li>
-						<li><a href="site" class=" wave-effect accordion-toggle "><i class="fa fa-diamond mr-2 sidebarpink"></i> Plots</a></li>
+						<li><a href="site" class=" wave-effect accordion-toggle "><i class="fa fa-comment mr-2 sidebarpink"></i> Plots</a></li>
+						<li><a href="adminPriceTrend" class=" wave-effect accordion-toggle "><i class="fa fa-cog mr-2 sidebarpink"></i> Price Trend</a></li>
 						
 						<!-- <div class="sidebar-footer hidden-small">
 							<a href="emailservices.html"> <span class="fa fa-envelope" aria-hidden="true"></span>
@@ -297,4 +308,4 @@
 						</div> -->
 						</ul>
 				</nav>
-				</div>
+			

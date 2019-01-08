@@ -59,7 +59,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 		
 		Users customer=null;
 		List<String> roleslist =new ArrayList<String>();
-		/*if(userDesignation.getDesignation().equals("ROLE_ADMIN")) {
+		if(userDesignation.getDesignation().equals("ROLE_ADMIN")) {
 			 session.setAttribute("userDesignationSession", userDesignation);
 		 
 		 
@@ -71,7 +71,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 					session.setAttribute("customerId", user.getId());
 					session.setAttribute("customerName", user.getFirstName());
 		 try {
-			response.sendRedirect("dashboard");
+			response.sendRedirect("dashBoard");
 			roleslist.add(userDesignation.getDesignation());
 			return new CustomUserDetails(user,roleslist);
 		} catch (IOException e) {
@@ -99,7 +99,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 					e.printStackTrace();
 				}
 		}  	
-		*/
+		
 		return new CustomUserDetails(user,roleslist);
 		
 		

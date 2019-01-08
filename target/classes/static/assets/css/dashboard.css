@@ -2811,6 +2811,7 @@ pre code {
 	overflow-x: auto;
 	-webkit-overflow-scrolling: touch;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
+	padding:10px;
 }
 
 .table-responsive>.table-bordered, .text-wrap .table-responsive>table {
@@ -7472,14 +7473,14 @@ a:focus, a:hover, a:active {
 /*-----Alerts-----*/
 .alert {
 	position: relative;
-	padding: 0.75rem 1.25rem;
+	padding: 0.55rem 1.25rem;
 	margin-bottom: 1rem;
 	border: 1px solid transparent;
 	border-radius: 3px;
 }
 
 .alert:first-child {
-	margin-bottom: 1rem !important;
+/* 	margin-bottom: 1rem !important; */
 }
 
 .alert:last-child {
@@ -13141,7 +13142,7 @@ body.fixed-header .page {
 	display: flex;
 	-ms-flex-align: center;
 	align-items: center;
-	margin: 1.5rem 0 1.5rem;
+	margin: 0.5rem 0 1.5rem;
 	-ms-flex-wrap: wrap;
 	justify-content: space-between;
 	padding: 0;
