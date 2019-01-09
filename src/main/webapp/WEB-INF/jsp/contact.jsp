@@ -403,23 +403,23 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
                                              <form>
     <div class="form-group">
      <label for="name">Your Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter Name">
+      <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name">
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
+      <input type="email" class="form-control" name="mail" id="email" placeholder="Enter email">
     </div>
     <div class="form-group">
      <label for="Number">Phone No:</label>
-      <input type="text" class="form-control" id="number" placeholder="Enter Number">
+      <input type="text" class="form-control" name="number" id="number" placeholder="Enter Number">
     </div>
     <div class="form-group">
       <label for="pwd">Message:</label>
-     <textarea rows="8" cols="49" plceholder="Enter Message"></textarea>
+     <textarea rows="8" cols="49" name="message" placeholder="Enter Message"></textarea>
     </div>
-    <div class="checkbox">
+    <!-- <div class="checkbox">
       <label><input type="checkbox"> Remember me</label>
-    </div>
+    </div> -->
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
   </div>
