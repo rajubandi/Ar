@@ -51,7 +51,7 @@ public class LayoutsController {
 	@Autowired private Environment env;
 	
 	
-	@GetMapping("/plots")
+	@GetMapping("/layouts")
 	public String home(ModelMap modal,HttpServletRequest request) {
 		//Map<Integer, String> villagesListMap = new LinkedHashMap<Integer, String>();
 		ObjectMapper objectMapper = null;
@@ -101,7 +101,7 @@ public class LayoutsController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "plots";
+		return "layouts";
 	}
 
 	

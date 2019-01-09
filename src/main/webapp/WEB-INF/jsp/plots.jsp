@@ -235,7 +235,7 @@ border-left: 5px solid #76cbf5;
 									</div>
 								</div>
 
-								<div
+								<!-- <div
 									class="careerfy-search-filter-wrap careerfy-search-filter-toggle">Single
 									<h2>
 										<a href="#" class="careerfy-click-btn">Price / Sq.Yd</a>
@@ -252,7 +252,7 @@ border-left: 5px solid #76cbf5;
 
 
 									</div>
-								</div>
+								</div> -->
 							</form>
 						</div>
 					</aside>

@@ -1,321 +1,812 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<jsp:include page="adminHeader.jsp" />
-<div class=" content-area ">
-	<div class="page-header">
-		<h4 class="page-title">Dashboard 01</h4>
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Dashboard
-				01</li>
-		</ol>
-	</div>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<jsp:include page="header.jsp" />
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/font-awesome.css" rel="stylesheet">
+<link href="css/flaticon.css" rel="stylesheet">
+<link href="css/plugin.css" rel="stylesheet">
+<link href="css/inner-style.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic-ext,vietnamese"
+	rel="stylesheet">
+<!-- <link type="text/css" rel="stylesheet" href="css/simplePagination.css"/> -->
+<script src="js/jquery.easyPaginate.js"></script>
+<style>
+/* @media ( min-width : 1200px) {
+	.container {
+		width: 100%;
+	}
+} */
+.btn-primary {
+    color: #fff;
+    background-color: #2ddcd3;
+    border-color: #2ddcd3;
+}
+.btn-primary:hover {
+	color: #fff;
+	background-color: #18c1b9;
+	border-color: #18c1b9;
+}
+.btn-primary:focus, .btn-primary.focus {
+	box-shadow: 0 0 0 2px rgb(24, 193, 185,0.5);
+}
+.modal-title {
+display:inline-flex;
+}
 
-	<div class="row">
-		<div class="col-sm-12 col-lg-4">
-			<div class="card overflow-hidden">
-				<div class="card-header">
-					<h3 class="card-title">Orders Received</h3>
-					<div class="card-options">
-						<a class="btn btn-sm btn-primary" href="#">View</a>
-					</div>
-				</div>
-				<div class="card-body ">
-
-					<small class="h6">Today Orders</small>
-					<div class="text-dark count mt-0 font-30">6,525</div>
-
-					<div class="progress progress-sm mt-0 mb-2">
-						<div class="progress-bar bg-success w-35" role="progressbar"></div>
-					</div>
-					<div class="">
-						<i class="fa fa-caret-up text-green"></i> 10% increases
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-12 col-lg-4">
-			<div class="card overflow-hidden">
-				<div class="card-header">
-					<h3 class="card-title">New users</h3>
-					<div class="card-options">
-						<a class="btn btn-sm btn-primary" href="#">View</a>
-					</div>
-				</div>
-				<div class="card-body ">
-
-					<small class="h6">Today Users</small>
-					<div class="text-dark count mt-0 font-30">3,897</div>
-
-					<div class="progress progress-sm mt-0 mb-2">
-						<div class="progress-bar bg-primary w-55" role="progressbar"></div>
-					</div>
-					<div class="">
-						<i class="fa fa-caret-up text-green"></i> 10% increases
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-12 col-lg-4">
-			<div class="card overflow-hidden">
-				<div class="card-header">
-					<h3 class="card-title">Today Sales</h3>
-					<div class="card-options">
-						<a class="btn btn-sm btn-primary" href="#">View</a>
-					</div>
-				</div>
-				<div class="card-body ">
-
-					<small class="h6">Sales</small>
-					<div class="text-dark count mt-0 font-30">4,256</div>
-
-					<div class="progress progress-sm mt-0 mb-2">
-						<div class="progress-bar bg-danger w-15" role="progressbar"></div>
-					</div>
-					<div class="">
-						<i class="fa fa-caret-down text-danger"></i> 20% decreases
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="card ">
-				<div class="card-header">
-					<h3 class="card-title">Yearly Sales</h3>
-					<div class="card-options">
-						<a href="#" class="card-options-collapse"
-							data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
-						<a href="#" class="card-options-remove" data-toggle="card-remove"><i
-							class="fe fe-x"></i></a>
-					</div>
-				</div>
-				<div class="card-body">
-					<div class="text-center">
-						<ul class="legend align-items-center ">
-							<li><span class="legend-dots bg-primary"></span>Sales<span
-								class="ml-2 float-right"></span></li>
-							<li><span class="legend-dots bg-pink"></span>Profit<span
-								class="ml-2 float-right"></span></li>
-						</ul>
-					</div>
-					<div id="echart1" class="chartsh dropshadow"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row row-deck">
-		<div class="col-lg-6 col-xl-4 col-sm-12">
-			<div class="card ">
-				<div class="card-header">
-					<div class="card-title">Browser Status</div>
-					<div class="card-options">
-						<a href="#" class="card-options-collapse"
-							data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
-						<a href="#" class="card-options-remove" data-toggle="card-remove"><i
-							class="fe fe-x"></i></a>
-					</div>
-				</div>
-				<div class="card-body text-center">
-					<canvas class="canvasDoughnut dropshadow" width="200" height="220"></canvas>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-6 col-xl-8 col-sm-12">
-			<div class="card ">
-				<div class="card-header">
-					<div class="card-title">Our location</div>
-					<div class="card-options">
-						<a href="#" class="card-options-collapse"
-							data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
-						<a href="#" class="card-options-remove" data-toggle="card-remove"><i
-							class="fe fe-x"></i></a>
-					</div>
-				</div>
-				<div class="card-body">
-					<div id="world-map-gdp" class="h-220"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="card">
-				<div class="card-header">
-					<div class="card-title">Recent Sales</div>
-					<div class="card-options">
-						<a href="#" class="card-options-collapse"
-							data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
-						<a href="#" class="card-options-remove" data-toggle="card-remove"><i
-							class="fe fe-x"></i></a>
-					</div>
-				</div>
-				<div class="card-body">
-					<div class="table-responsive">
-						<table class="table table-bordered border mb-0 align-items-center">
-							<thead>
-								<tr>
-									<th>Id</th>
-									<th>Product</th>
-									<th>Price</th>
-									<th>Date</th>
-									<th>Status</th>
-									<th>Progress</th>
-									<th>Sales</th>
-									<th>Earned</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>#675</td>
-
-									<td>
-										<p class="mb-0">Admin Template</p>
-									</td>
-									<td class="font-weight-semibold">$46K</td>
-									<td>Sep 02, 2018</td>
-									<td><span class="badge badge-success">Sale</span></td>
-									<td class="text-green"><i class="fa fa-arrow-up"></i> 23%</td>
-									<td>987</td>
-									<td class="font-weight-semibold">$46K</td>
-								</tr>
-								<tr>
-									<td>#789</td>
-
-									<td>
-										<p class="mb-0">Beauty Template</p>
-									</td>
-									<td class="font-weight-semibold">$18K</td>
-									<td>Sep 10, 2018</td>
-									<td><span class="badge badge-primary">Extended</span></td>
-									<td class="text-blue"><i class="fa fa-arrow-up"></i> 12%</td>
-									<td>678</td>
-									<td class="font-weight-semibold">$18K</td>
-								</tr>
-								<tr>
-									<td>#234</td>
-
-									<td>
-										<p class="mb-0">Hosting Template</p>
-									</td>
-									<td class="font-weight-semibold">$21K</td>
-									<td>Sep 18, 2018</td>
-									<td><span class="badge badge-warning">Multiple</span></td>
-									<td class="text-pink"><i class="fa fa-arrow-down"></i> 07%</td>
-									<td>432</td>
-									<td class="font-weight-semibold">$25K</td>
-								</tr>
-								<tr>
-									<td>#234</td>
-
-									<td>
-										<p class="mb-0">Business Template</p>
-									</td>
-									<td class="font-weight-semibold">$15K</td>
-									<td>Sep 22, 2018</td>
-									<td><span class="badge badge-danger">Tax</span></td>
-									<td class="text-yellow"><i class="fa fa-arrow-up"></i> 25%</td>
-									<td>285</td>
-									<td class="font-weight-semibold">$20K</td>
-								</tr>
-							</tbody>
-						</table>
+.yellow {
+border-left: 5px solid #ffd500;	
+}
+.btnyellow {
+background:#ffd500 !important;	
+}
+.btnprimary {
+background:#76cbf5;	
+}
+.yellow1 {
+color: #ffd500 !important;	
+font-weight:500;
+}
+.blue1 {
+color: #76cbf5 !important;	
+font-weight:500;
+}
+.blue {
+border-left: 5px solid #76cbf5;	
+}
+/* .careerfy-option-btn {
+    float: right;
+    padding: 8px 17px 8px 17px;
+    font-size: 12px;
+    color: #333333;
+    background-color: #f9f91b;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.careerfy-option-btn.careerfy-red {
+    background-color: #76cbf5;
+} */
+.easyPaginateNav a
+{
+    margin: 0px 22px 10px 0px;
+    line-height: 1;
+    font-weight: bold;
+    background-color: gray;
+    color: #ffffff;
+    width: 25px;
+    height: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 100%;
+    text-align: center;
+    padding: 12px;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+.easyPaginateNav .current
+{
+    background-color: #13b5ea !important;
+}
+</style>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> 
+      <script src="/js/plotController.js"></script>  -->
+<!-- SubHeader -->
+<div class="content">
+	<div class="careerfy-subheader">
+		<span class="careerfy-banner-transparent"></span>
+		<div class="">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="careerfy-page-title">
+						<h1>Layouts</h1>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="row row-deck">
-		<div class="col-lg-8 col-sm-12">
-			<div class="card ">
-				<div class="card-header">
-					<div class="card-title">Browsing Activity</div>
-					<div class="card-options">
-						<a href="#" class="card-options-collapse"
-							data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
-						<a href="#" class="card-options-remove" data-toggle="card-remove"><i
-							class="fe fe-x"></i></a>
+	<!-- SubHeader -->
+
+	<!-- Main Content -->
+	<div class="careerfy-main-content">
+
+		<!-- Main Section -->
+		<div class="careerfy-main-section ">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-12">
+						<div class="bbgwhite">
+							<p align="center" >
+								<span id="totalSites"> </span> | <span class="resi" id="countOfResidential"> </span> | 
+								<span class="comm" id="countOfCommercial"></span>
+							</p>
+
+						</div>
+
 					</div>
+
 				</div>
-				<div class="card-body p-4">
-					<div class="chats-wrap">
-						<div class="chat-details p-3">
-							<h6 class="mb-0">
-								<span class="font-weight-normal">Male</span> <span
-									class="float-right p-1">33%</span>
-							</h6>
-							<div class="progress progress-md mt-3">
+			</div>
+		</div>
+		<!-- Main Section -->
+
+		<!-- Main Section -->
+		<div class="careerfy-main-section">
+			<div class="container">
+				<div class="row">
+
+					<aside class="careerfy-column-3 careerfy-typo-wrap">
+						<div class="careerfy-typo-wrap">
+							<form class="careerfy-search-filter">
+								<div class="careerfy-search-filter-wrap careerfy-without-toggle">
+									<h2>
+										<a href="#">Select Village</a>
+									</h2>
+									<div class="careerfy-search-box">
+										<input placeholder="Search with Village Name" name="searchVillageNames" id="searchVillageNames"  onkeyup="myFunction()" value="" onBlur="if(this.value == '') { this.value ='Search'; }"
+											onFocus="if(this.value =='Search') { this.value = ''; }" type="text" > 
+										<input type="submit" value=""> 
+										<i class="careerfy-icon careerfy-search"></i>
+									</div>
+									<ul class="careerfy-checkbox" id="villageList">
+										<!-- <li ng-repeat="(k,v) in villages | customFilter:searchVillage">
+                                                <input type="checkbox" id={{k}} name={{k}} />
+                                                <label for={{k}}><span></span>{{v}}</label>
+                                                <small>13</small>
+                                            </li> -->
+
+									</ul>
+
+								</div>`
+
+
 								<div
-									class="progress-bar progress-bar-striped progress-bar-animated bg-success w-35"></div>
-							</div>
-						</div>
-						<div class="chat-details p-3">
-							<h6 class="mb-0">
-								<span class="font-weight-normal">Female</span> <span
-									class="float-right p-1">76%</span>
-							</h6>
-							<div class="progress progress-md mt-3">
-								<div
-									class="progress-bar progress-bar-striped progress-bar-animated bg-primary w-75"></div>
-							</div>
-						</div>
-						<div class="chat-details p-3">
-							<h6 class="mb-0">
-								<span class="font-weight-normal">Students</span> <span
-									class="float-right p-1">65%</span>
-							</h6>
-							<div class="progress progress-md mt-3">
-								<div
-									class="progress-bar progress-bar-striped progress-bar-animated bg-pink w-65"></div>
-							</div>
-						</div>
-						<div class="chat-details p-3">
-							<h6 class="mb-0">
-								<span class="font-weight-normal">Others</span> <span
-									class="float-right p-1">80%</span>
-							</h6>
-							<div class="progress progress-md mt-3">
-								<div
-									class="progress-bar progress-bar-striped progress-bar-animated bg-warning w-80"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+									class="careerfy-search-filter-wrap careerfy-search-filter-toggle">
+									<h2>
+										<a href="#" class="careerfy-click-btn">Select Property Type</a>
+									</h2>
+									<div class="careerfy-checkbox-toggle">
+										<ul class="careerfy-checkbox" id="prototypeUl">
+											<li><input type="checkbox" id="Commercial" name="protoTypeCheckBox[]" /> <label
+												for="Commercial"><span></span>Commercial</label> <small id="commercialFilterId"></small>
+											</li>
+											<li><input type="checkbox" id="Residential" name="protoTypeCheckBox[]" /> <label
+												for="Residential"><span></span>Residential</label> <small id="residentialFilterId"></small>
+											</li>
 
-		<div class="col-sm-12 col-lg-4">
-			<div class="card">
-				<div class="card-body text-center">
-					<div class="profile-pic mb-4">
-						<img src="assets/images/faces/female/21.jpg" width="150"
-							class="brround" alt="user">
-						<h5 class="mt-3 mb-0 font-weight-semibold">Emily Ball</h5>
-						<a href="mailto:liamnolan@gmail.com">emilyball@gmail.com</a>
-					</div>
-					<div class="chip">Angular</div>
-					<div class="chip">PHP</div>
-					<div class="chip bg-primary text-white">+7</div>
-				</div>
-				<div class="p-4  card-footer">
-					<div class="row text-center">
-						<div class="col-6  border-right text-center">
-							<div class="text-center">
-								<a href="#" class="fw-500"><i class="fa fa-envelope  mr-5"></i>Chat</a>
+										</ul>
+									</div>
+								</div>
+								<div
+									class="careerfy-search-filter-wrap careerfy-search-filter-toggle">
+									<h2>
+										<a href="#" class="careerfy-click-btn">Plot Facing</a>
+									</h2>
+									<div class="careerfy-checkbox-toggle">
+										<ul class="careerfy-checkbox">
+											<li><input type="checkbox" id="North" name="facing[]" /> 
+											<label for="North"><span></span>North</label> <small>10</small></li>
+											<li><input type="checkbox" id="South" name="facing[]" /> 
+											<label for="South"><span></span>South</label> <small>2</small></li>
+											<li><input type="checkbox" id="East" name="facing[]" /> 
+											<label for="East"><span></span>East</label> <small>6</small></li>
+											<li><input type="checkbox" id="West" name="facing[]" /> 
+											<label for="West"><span></span>West</label> <small>4</small></li>
+
+										</ul>
+										<a href="#" class="careerfy-seemore">+see more</a>
+									</div>
+								</div>
+								<div
+									class="careerfy-search-filter-wrap careerfy-search-filter-toggle">
+									<h2>
+										<a href="#" class="careerfy-click-btn">Road Dimensions</a>
+									</h2>
+									<div class="careerfy-checkbox-toggle">
+										<ul class="careerfy-checkbox">
+											<li><input type="checkbox" id="roadDimensionsSingle" value="1" name="roadDimensions[]" /> 
+											<label for="roadDimensionsSingle"><span></span>Single</label> <small id="roadDimention_1"></small></li>
+											<li><input type="checkbox" id="roadDimensionsDouble" value="2" name="roadDimensions[]" /> 
+											<label for="roadDimensionsDouble"><span></span>Double (Both road dimensions)</label> <small id="roadDimention_2"></small></li>
+
+										</ul>
+<!-- 										<a href="#" class="careerfy-seemore">+see more</a> -->
+									</div>
+								</div>
+								<div
+									class="careerfy-search-filter-wrap careerfy-search-filter-toggle">
+									<h2>
+										<a href="#" class="careerfy-click-btn">Road facing</a>
+									</h2>
+									<div class="careerfy-checkbox-toggle">
+										<ul class="careerfy-checkbox">
+											<li><input type="checkbox" id="roadFacingSingle" value="1" name="roadFacing[]" /> 
+											<label for="roadFacingSingle"><span></span>Single Road</label> <small id="roadFacing_1"></small></li>
+											<li><input type="checkbox" id="roadFacingDouble" value="2" name="roadFacing[]" /> 
+											<label for="roadFacingDouble"><span></span>Double Road (Corner Bit)</label> <small id="roadFacing_2"></small></li>
+
+										</ul>
+<!-- 										<a href="#" class="careerfy-seemore">+see more</a> -->
+									</div>
+								</div>
+
+								<!-- <div
+									class="careerfy-search-filter-wrap careerfy-search-filter-toggle">Single
+									<h2>
+										<a href="#" class="careerfy-click-btn">Price / Sq.Yd</a>
+									</h2>
+									<div>
+										<input name="" type="text" class="form-control" value="0">
+										<p align="center">to</p>
+
+										<input name="" type="text" class="form-control" value="25000"><br>
+
+
+										<a href="#" class="careerfy-option-btn careerfy-red"
+											style="margin-top: 10px;">Submit</a>
+
+
+									</div>
+								</div> -->
+							</form>
+						</div>
+					</aside>
+
+
+
+
+
+
+
+					<div class="careerfy-column-9 careerfy-typo-wrap">
+						<div class="careerfy-typo-wrap">
+							<!-- FilterAble -->
+							<div class="careerfy-filterable">
+								<h2 id="paginationCount"></h2>
 							</div>
-						</div>
-						<div class="col-6 text-center">
-							<a href="#" class="fw-500"><i class="fa fa-user  mr-5"></i>Profile</a>
+							<!-- FilterAble -->
+							<!-- JobGrid  <%=session.getAttribute("loggedstatus")%> -->
+
+							<div class="careerfy-job careerfy-joblisting-classic">
+								<input type="hidden" name="loginCheck">
+
+								<ul class="careerfy-row" id="ulSiteList">
+									
+								</ul>
+								<ul class="careerfy-row" id="paginationSite">  </ul>
+							</div>
+							<!-- Pagination -->
+						<!-- 	<div class="careerfy-pagination-blog">
+								<ul class="page-numbers">
+									<li><a class="prev page-numbers" href="#"><span><i
+												class="careerfy-icon careerfy-arrows4"></i></span></a></li>
+									<li><span class="page-numbers current">01</span></li>
+									<li><a class="page-numbers" href="#">02</a></li>
+									<li><a class="page-numbers" href="#">03</a></li>
+									<li><a class="page-numbers" href="#">04</a></li>
+									<li><a class="next page-numbers" href="#"><span><i
+												class="careerfy-icon careerfy-arrows4"></i></span></a></li>
+								</ul>
+							</div> -->
 						</div>
 					</div>
+
 				</div>
 			</div>
 		</div>
+		<!-- Main Section -->
+
 	</div>
 </div>
-</div>
-</div>
+<div class="clearfix"></div>
+<!-- Main Content -->
+<script src="script/bootstrap.js"></script>
 
-<jsp:include page="footer.jsp" />
+<a href="#" class="back-to-top"></a>
+<!--End-->
+
+<!-- <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> -->
+<script type="text/javascript" src="js/jquery-easing-1.3.js"></script>
+<!-- <!--Easy Pagination--> 
+<!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+
+<!-- <script src="jquery.easyPaginate.js" type="text/javascript"></script> -->
+<!-- <script src="js/pagination.min.js"></script>
+<script src="js/jquery.simplePagination.js"></script> -->
+<script src="js/jquery.twbsPagination.min.js"></script>
+
+<!--Flexy Menu Script-->
+<script type="text/javascript" src="js/flexy-menu.js"></script>
+
+<!--LayerSlider Script-->
+<script src="layerslider/jQuery/jquery-transit-modified.js" type="text/javascript"></script>
+<script src="layerslider/js/layerslider.transitions.js" type="text/javascript"></script>
+<script src="layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+var villageList = ${villagesListMap};
+var AllSiteList = ${siteList};
+var intrestedSites =${intrestedSites};
+
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = $("#searchVillageNames").val();
+    filter = input;
+    ul = $("#villageList");
+    li = $('#villageList li').length;
+    /* var t = "abc123";
+    var x = t.match(/[a-z]+|\d+/ig); */
+    
+    $('#villageList li').each(function(){
+    	
+    a =	$(this.children[1].innerText).selector;
+    
+    if (a.indexOf(filter) > -1) {
+    	
+    	$(this).show();
+    } else {
+    	$(this).hide();
+    } 
+    	
+    });
+    /* for (i = 0; i < li.length; i++) {
+        //a = li[i].text();
+       var z =ul[0].children[i];
+       console.log(ul[0].children[i]);
+      a=  ul[0].children[i].textContent().match(/[a-z]+|\d+/ig)
+        txtValue = a.textContent || a.innerText;
+        if (a.indexOf(filter) > -1) {
+        	ul.children[i].hide();
+        } else {
+        	ul.children[i].show();
+        } 
+    } */
+}
+
+   jQuery(document).ready(function() {
+	  "use strict"; 
+     
+      // FLEXY MENU SETTING
+	  $(".flexy-menu").flexymenu({
+            align: "right",
+            indicator: true
+         });
+		 
+      // LAYERSLIDER SETTING
+		$('#layerslider').layerSlider({
+			skinsPath : 'layerslider/skins/',
+			skin : 'fullwidthdark',
+			thumbnailNavigation : 'disabled',
+			showCircleTimer : false,
+			showBarTimer : false,
+    		touchNav : true,
+			navStartStop : false,
+			navButtons : false,
+			animateFirstLayer : true,
+			responsive : false,
+			responsiveUnder : 984,
+			sublayerContainer : 984
+		});
+		
+		// GO TO TOP SETTING
+		var offset = 220;
+		var duration = 500;
+		jQuery(window).scroll(function() {
+			if (jQuery(this).scrollTop() > offset) {
+				jQuery('.back-to-top').fadeIn(duration);
+			} else {
+				jQuery('.back-to-top').fadeOut(duration);
+			}
+		});
+		
+		jQuery('.back-to-top').click(function(event) {
+			event.preventDefault();
+			jQuery('html, body').animate({scrollTop: 0}, duration);
+			return false;
+		})
+		
+		 
+		$.each(villageList, function(i, item) {
+			
+			
+			$("#villageList").append('<li><input type="checkbox" id="'+item[0]+'" name="villageCheckBox[]" /><label for="'+item[0]+'"><span></span>'+item[1]+'</label><small>'+item[2]+'</small></li>');
+			
+		});
+		var cls="";
+		var buttoncls = "";
+		var yellow1 = "" ;
+		var width;
+		$.each(AllSiteList, function(i, item) {
+			totalSites = AllSiteList.length;
+			width=(item[0].siteDimensions).toLowerCase().split('x');
+			
+			if(item[0].propertyType == "Commercial"){
+				countOfCommercial++;
+				cls ="yellow";
+				yellow1= "yellow1"
+				buttoncls = "btnyellow";
+				
+			}else{
+				cls="blue";
+				yellow1 = "blue1"
+				buttoncls = "btnprimary";
+				countOfResidential++;
+				}
+			
+			if(item[0].siteFacing == "North"){FilterCountOfNorth++;}
+			if(item[0].siteFacing == "South"){FilterCountOfSouth++;}
+			if(item[0].siteFacing == "East"){FilterCountOfEast++;}
+			if(item[0].siteFacing == "West"){FilterCountOfWest++;}
+			if(item[0].roadDimensions == "1"){roadDimentionCountOfOne++;}else{roadDimentionCountOfTwo++;}
+			if(item[0].roadFacing == "1"){roadFacingCountOfOne++; }else{roadFacingCountOfTwo++; }
+			$("#ulSiteList").append('<li class="careerfy-column-12 liTag" id="page'+ (i+1) +'">'
+                    	+'<div class="careerfy-joblisting-classic-wrap '+cls+' ">'
+                    	+'<div class="careerfy-joblisting-text">'
+                        +'<div class="careerfy-list-option">'
+                        +'<h2><a href="#">'+  item[0].sqYd +'Sq.Yd - <i class="fa fa-rupee"></i>'+  item[0].price +'</a>'
+                       // +' <span>Listing ID: "'+  item[0].listingId +'"</span></h2>'
+                        +'<ul>'
+                        +' <li><a href="#" class="'+yellow1+'">@"'+item[1].vName+'"</a></li>'
+                       // +'<li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>"'+  item[0].colony +'" Colony</strong></li>'
+                        +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i>'+  item[0].siteFacing +' Facing</li>'
+
+                      //  +'<p class="italic">"'+new Date(1000*item[0].updatedDate)+'"</p> <span> <b> Width:</b> "'+ width[0]+'" <b> Length: </b>"'+ width[1]+'"</span>'
+                       // +'<p class="italic"><b> Width:</b> "'+ width[0]+'"</p>'
+                        //+'<p class="italic"><b> Length: </b>"'+ width[1]+'"</p>'
+                        +'</ul>'
+                        +'</div>'
+                        +'<div class="careerfy-job-userlist">'
+                        
+                        +'<button id="interestButton'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+buttoncls+'">I am Interested</button>'
+
+                        +'</div>'
+                        +'<div class="clearfix"></div>'
+                        +'</div>'
+                        +'</div>'
+                        +'</li>');
+			
+		});
+		
+		$("#countOfCommercial").text("Commercial : "+""+countOfCommercial);
+		$("#countOfResidential").text("Residential : "+""+countOfResidential);
+		$("#totalSites").text("Total : "+""+totalSites);
+		$("#paginationCount").text("Showing 10 of " +totalSites+" results");
+		$("#commercialFilterId").text(countOfCommercial);
+		$("#residentialFilterId").text(countOfResidential);
+		$("#roadFacing_1").text(roadFacingCountOfOne);
+		$("#roadFacing_2").text(roadFacingCountOfTwo);
+		$("#roadDimention_1").text(roadDimentionCountOfOne);
+		$("#roadDimention_2").text(roadDimentionCountOfTwo);
+		
+		
+				var values = null;
+				var protoType = null;
+				var facing = null;
+				var roadDimensions=null;
+				var roadFacing=null;
+				$("input[name='villageCheckBox[]']").change(function () {
+									values=[];
+									$('input[name="villageCheckBox[]"]').each(function() {
+										if(this.checked){
+										values.push($(this).attr('id'));
+										}
+									});
+									
+									if(values != null|| protoType != null || facing != null || roadFacing != null || roadDimensions !=null ){
+										siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions);
+										}else{
+											
+											window.location.href='?';
+										}
+									
+					});
+				
+				
+				$("input[name='protoTypeCheckBox[]']").change(function () {
+					protoType=[];
+					$('input[name="protoTypeCheckBox[]"]').each(function() {
+						if(this.checked){
+							protoType.push($(this).attr('id'));
+						}
+					});
+					
+					if(values != null || protoType != null || facing != null || roadFacing != null || roadDimensions !=null ){
+						siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions);
+						}else{
+							
+							window.location.href='?';
+						}
+				});
+				$("input[name='facing[]']").change(function () {
+					facing =[];
+					$('input[name="facing[]"]').each(function() {
+						if(this.checked){
+							facing.push($(this).attr('id'));
+						}
+					});
+					
+					if(values != null || protoType != null || facing != null || roadFacing != null || roadDimensions !=null ){
+						siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions);
+						}else{
+							
+							window.location.href='?';
+						}
+				});
+				
+				$("input[name='roadDimensions[]']").change(function () {
+					roadDimensions =[];
+					$('input[name="roadDimensions[]"]').each(function() {
+						if(this.checked){
+							roadDimensions.push($(this).val());
+						}
+					});
+					
+					if(values != null || protoType != null || facing != null || roadFacing != null || roadDimensions !=null){
+						siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions);
+						}else{
+							
+							window.location.href='?';
+						}
+				});
+				
+				$("input[name='roadFacing[]']").change(function () {
+					roadFacing =[];
+					$('input[name="roadFacing[]"]').each(function() {
+						if(this.checked){
+							roadFacing.push($(this).val());
+						}
+					});
+					
+					if(values != null || protoType != null || facing != null  || roadFacing != null || roadDimensions !=null ){
+						siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions);
+						}else{
+							
+							window.location.href='?';
+						}
+				});
+				
+			/* 	$('#paginationSite').twbsPagination({
+					totalPages: totalSites,
+					// the current page that show on start
+					startPage: 1,
+					
+					
+					
+					// maximum visible pages
+					visiblePages: 5,
+					
+					initiateStartPageClick: true,
+					
+					// template for pagination links
+					href: false,
+					
+					// variable name in href template for page number
+					hrefVariable: '{{number}}',
+					
+					// Text labels
+					first: 'First',
+					prev: 'Previous',
+					next: 'Next',
+					last: 'Last',
+					
+					// carousel-style pagination
+					loop: false,
+					
+					// callback function
+					onPageClick: function (event, page) {
+						$('.page-active').removeClass('page-active');
+					  $('#page'+page).addClass('page-active');
+					},
+					
+					// pagination Classes
+					paginationClass: 'pagination',
+					nextClass: 'next',
+					prevClass: 'prev',
+					lastClass: 'last',
+					firstClass: 'first',
+					pageClass: 'page',
+					activeClass: 'active',
+					disabledClass: 'disabled'
+					
+					});	 */
+				 $('#ulSiteList').easyPaginate({
+				        paginateElement: 'li.liTag',
+				        elementsPerPage: 10,
+				        effect: 'climb'
+				    });
+					
+				 alreadyIntrestedSites();			
+	
+   });
+   
+   function alreadyIntrestedSites(){
+	   
+	   if(!(intrestedSites.length == 0)){
+	   $.each(intrestedSites, function(i, item) {
+		   
+		   $('#interestButton'+item).text('Intrested');
+		   $('#interestButton'+item).attr('disabled', "disabled");
+	   });
+	   }
+	   
+	   
+   }
+   /* $('#ulSiteList').pagination({
+	   
+	   items: 100,
+       itemsOnPage: 10,
+       cssStyle: 'light-theme'
+	   /*  paginateElement: 'li',
+	    elementsPerPage: 1,
+	    effect: 'climb' 
+	    });	*/
+	    
+	   
+	    var totalSites=0;
+	    		
+
+	 
+   var countOfCommercial=0;
+   var countOfResidential=0;
+  
+   var roadFacingCountOfOne=0;
+   var roadFacingCountOfTwo = 0;
+   var roadDimentionCountOfOne = 0;
+   var roadDimentionCountOfTwo = 0;
+   var FilterCountOfNorth = 0;
+   var FilterCountOfWest = 0;
+   var FilterCountOfEast = 0;
+   var FilterCountOfSouth = 0;
+   function siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions){
+	   
+	   
+	   $.ajax({
+			type : "POST",
+			async: false,
+			url : "siteFilterByVillage",
+			data : {villageArry:values,protoTypeArry:protoType,facingArry:facing,roadFacingArry:roadFacing,roadDimensionsArry:roadDimensions},
+			dataType : "json",
+			success : function(response) {
+				$("#ulSiteList").html('');
+				 countOfCommercial=0;
+				 countOfResidential=0;
+				   totalSites=0;
+				   roadFacingCountOfOne=0;
+				   roadFacingCountOfTwo = 0;
+				   roadDimentionCountOfOne = 0;
+				   roadDimentionCountOfTwo = 0;
+				   FilterCountOfNorth = 0;
+				   FilterCountOfWest = 0;
+				   FilterCountOfEast = 0;
+				   FilterCountOfSouth = 0;
+				$.each(response, function(i, item) {
+					// +'<p class="italic">03 Nov 2018</p>'
+					
+
+					width=(item[0].siteDimensions).toLowerCase().split('x');
+					
+					if(item[0].propertyType == "Commercial"){
+						countOfCommercial++;
+						cls =" yellow";
+						yellow1 = "yellow1"
+						buttoncls="btnyellow";
+					}else{
+						cls="blue";
+						yellow1 = "blue1"
+						buttoncls="btnprimary";
+						countOfResidential++;
+					}
+					if(item[0].siteFacing == "North"){FilterCountOfNorth++;}
+					if(item[0].siteFacing == "South"){FilterCountOfSouth++;}
+					if(item[0].siteFacing == "East"){FilterCountOfEast++;}
+					if(item[0].siteFacing == "West"){FilterCountOfWest++;}
+					if(item[0].roadDimensions == "1"){roadDimentionCountOfOne++;}else{roadDimentionCountOfTwo++;}
+					if(item[0].roadFacing == "1"){roadFacingCountOfOne++; }else{roadFacingCountOfTwo++; }
+					$("#ulSiteList").append('<li class="careerfy-column-12">'
+		                    	+'<div class="careerfy-joblisting-classic-wrap '+cls+'">'
+		                    	+'<div class="careerfy-joblisting-text">'
+		                        +'<div class="careerfy-list-option">'
+		                        +'<h2><a href="#">'+  item[0].sqYd +'Sq.Yd - <i class="fa fa-rupee"></i>'+  item[0].price +'</a>'
+		                        //+' <span>Listing ID: "'+  item[0].listingId +'"</span></h2>'
+		                        +'<ul>'
+		                        +' <li><a href="#" class="'+yellow1+'">@"'+item[1].vName+'"</a></li>'
+		                        //+'<li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>"'+  item[0].colony +'" Colony</strong></li>'
+		                        +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i>'+  item[0].siteFacing +' Facing</li>'
+
+		                       // +'<p class="italic">"'+new Date(1000*item[0].updatedDate)+'"</p> <span> <b> Width:</b> "'+ width[0]+'" <b> Length: </b>"'+ width[1]+'"</span>'
+		                       // +'<p class="italic">03 Nov 2018</p>'
+		                        +'</ul>'
+		                        +'</div>'
+		                        +'<div class="careerfy-job-userlist">'
+		                        
+		                        +'<button id="interestButton'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+buttoncls+'" >I am Interested</button>'
+		                        +'</div>'
+		                        +'<div class="clearfix"></div>'
+		                        +'</div>'
+		                        +'</div>'
+		                        +'</li>');
+					
+				});
+				totalSites = response.length;
+				$("#countOfCommercial").text("Commercial : "+ countOfCommercial);
+				$("#countOfResidential").text("Residential : "+countOfResidential);
+				$("#totalSites").text("Total : "+totalSites);
+				$("#paginationCount").text("Showing "+totalSites+" of " +totalSites+" results");
+				$("#commercialFilterId").text(countOfCommercial);
+				$("#residentialFilterId").text(countOfResidential);
+				$("#roadFacing_1").text(roadFacingCountOfOne);
+				$("#roadFacing_2").text(roadFacingCountOfTwo);
+				$("#roadDimention_1").text(roadDimentionCountOfOne);
+				$("#roadDimention_2").text(roadDimentionCountOfTwo);
+				}
+			
+		});
+			 alreadyIntrestedSites();
+	   
+	   
+   }
+   function iAmIntrested(id){
+	   var siteId = id;
+	  
+	   if(login){
+		   $.ajax({
+				type : "POST",
+				url : "userIntrestedSite",
+				data :"id="+siteId,
+				dataType : "json",
+				async:false,
+				success : function(data) {
+
+					
+					$("#exampleModal").modal('show');
+					alert("Thank you for intrested, We will get back to you with more details");
+				},
+				
+			});
+			
+		}else{
+			window.location.href='customerlogin';
+		}
+	  
+	  
+	 
+   }
+   
+   var getTabName = window.location.pathname.split('/')[1];
+   //$("#li").addClass('active');
+   //$("#li u").css('display','block');
+   //$("#li a[href='"+ getTabName +"']").addClass('active');
+   $("a[href='"+ getTabName +"']").parents('li').addClass('active');
+   
+   
+var isClick = 'Yes'
+</script>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>Modal body text goes here.</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+</body>
+</html>
+
+<%--             <jsp:include page="footer.jsp" /> --%>
