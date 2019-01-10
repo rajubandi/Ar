@@ -400,7 +400,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
                                             <h5><b>Contact Us</b></h5></div>
                                         
                                             <div class="col-md-4">
-                                             <form>
+                                             <form action="sendSimpleEmail" >
     <div class="form-group">
      <label for="name">Your Name:</label>
       <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name">

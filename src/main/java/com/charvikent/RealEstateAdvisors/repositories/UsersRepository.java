@@ -19,6 +19,7 @@ public interface UsersRepository  extends JpaRepository<Users, Integer>{
 	Users findById(int id);
 
 	void deleteAll();
+	
 	@Query("from Users u where u.designation=:designation ")
 	Users findByDesignation(@Param("designation") String designation);
 

@@ -412,10 +412,10 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
                                             <p>If you are a land owner looking for a Buyer to sell or Builder to build a Residential/Commercial Property, Just fill the below form and we will get in touch with you.</p></div>
                                         
                                             <div class="col-md-4">
-                                             <form>
+    <form action="submitProperty" >
     <div class="form-group">
      <label for="name">Are you looking For Buyer or Builder?*</label>
-      <select class="form-control">
+      <select class="form-control" name="isBuyerrbuilder" >
       <option>---Select--</option>
       <option>Buyer</option>
       <option>Builder</option>
@@ -424,25 +424,25 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
+      <input name="email" type="email" class="form-control" id="email" placeholder="Enter email">
     </div>
     <div class="form-group">
      <label for="Number">Phone No:</label>
-      <input type="text" class="form-control" id="number" placeholder="Enter Number">
+      <input name="number" type="text" class="form-control" id="number" placeholder="Enter Number">
     </div>
      <div class="form-group">
      <label for="name">Expecting Price per Sq.Yd*
 :</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter Name">
+      <input name="expectprice" type="text" class="form-control" id="name" placeholder="Enter Name">
     </div>
      <div class="form-group">
      <label for="name">Location of the Property:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter Name">
+      <input name="location" type="text" class="form-control" id="name" placeholder="Enter Name">
     </div>
     <div class="form-group">
       <label for="pwd">Additional Information*
 :</label>
-     <textarea rows="8" cols="49" plceholder="Enter Message"></textarea>
+     <textarea name="addinfo" rows="8" cols="49" placeholder="Enter Message"></textarea>
     </div>
     <div class="checkbox">
       <label><input type="checkbox"> Remember me</label>
