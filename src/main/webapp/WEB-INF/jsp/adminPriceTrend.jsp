@@ -81,27 +81,14 @@
 													<div class="input-group-text">
 														<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
 													</div>
-												</div><form:input class="form-control fc-datepicker" path="priceTrendTime" placeholder="MM/DD/YYYY" type="text" />
+												</div><form:input class="form-control fc-datepicker validate" path="priceTrendTime" placeholder="MM/DD/YYYY" type="text"  onfocus="removeBorder(this.id)" />
 											</div>
 										</div>
-								<%-- <div class="input-group">
-								<div class="input-group-prepend">
-													<div class="input-group-text">
-														<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-													</div>
-												</div>
-									<form:input type="text" class="form-control fc-datepicker hasDatepicker validate" name="priceTrendTime" path="priceTrendTime" placeholder="MM/DD/YYYY" />
-								</div> --%>
+								
 								</div>
 							</div>
 						</div>
-						<!-- <div class="input-group">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														<i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-													</div>
-												</div><input class="form-control" id="datepickerNoOfMonths" placeholder="MM/DD/YYYY" type="text">
-											</div> -->
+						
 						
 						<div class="form-group mb-0 row justify-content-end">
 							<div class="col-md-8 float-right">

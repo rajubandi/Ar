@@ -161,7 +161,10 @@ label {
 						<c:when test="${not empty loggedstatus}">
 							<script type="text/javascript"> $("#loggedCustomerName").text("${customerName}");var login=true;</script>
 							<ul>
-								<li><a href="${baseurl}/editProfile">My Profile</a></li>
+							<c:if test = "${ designation =='1'}">
+							<li><a href="${baseurl}/dashBoard">Dashboard</a></li>
+							</c:if>
+<%-- 								<li><a href="${baseurl}/editProfile">My Profile</a></li> --%>
 								<li><a href="${baseurl}/signout">Sign out</a></li>
 							</ul>
 						</c:when>

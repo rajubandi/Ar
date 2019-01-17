@@ -30,7 +30,8 @@ function displayTable(listOrders) {
 			+ "<td title='"+orderObj.colony+"'>"+ orderObj[0].colony + "</td>"
 			+ "<td title='"+orderObj.sqYd+"'>"+ orderObj[0].sqYd + "</td>"
 			+ "<td title='"+orderObj.propertyType+"'>"+ orderObj[0].propertyType + "</td>"
-			+ "<td style='white-space: nowrap;'>" + edit + "&nbsp;&nbsp;" + deleterow + "</td>" 
+			//+ "<td style='white-space: nowrap;'>" + edit + "&nbsp;&nbsp;" + deleterow + "</td>" 
+			+ "<td style='white-space: nowrap;'>" + edit + "</td>" 
 //			+ "<td ><a style='cursor:pointer' onclick='getPasswordModal("+ orderObj.id +")'>Change Password</a></td>" 
 			+ "</tr>";
 		$(tblRow).appendTo("#dataTableId tbody");

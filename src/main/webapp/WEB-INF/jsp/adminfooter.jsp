@@ -78,6 +78,7 @@
 
 var isClick = 'Yes';
 
+
 var newNotification =${newNotification}; 
 
 console.log(newNotification);

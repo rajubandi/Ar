@@ -18,7 +18,7 @@ function displayTable(listOrders) {
 			/* + "<td title='"+orderObj.id+"'>"+ orderObj.id + "</td>" */
 			+ "<td title='"+orderObj.vName+"'>"+ orderObj.vName + "</td>"
 			+ "<td title='"+orderObj.pinCode+"'>"+ orderObj.pinCode + "</td>"
-			+ "<td style='white-space: nowrap;'>" + edit + "&nbsp;&nbsp;" + deleterow + "</td>" 
+			+ "<td style='white-space: nowrap;'>" + edit +"</td>" 
 			+ "</tr>";
 		$(tblRow).appendTo("#tableId tbody");
 	});

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE HTML>
 <html>
@@ -252,8 +253,11 @@ Primary PrimaryPrimaryPrimaryPrimaryPrimaryPrimary PrimaryPrimary </div>
 								</a>
 								<div
 									class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
-									<a class="dropdown-item" href="#"> <i
+									<!-- <a class="dropdown-item" href="#"> <i
 										class="dropdown-icon si si-user"></i> My Profile
+									</a> -->
+									<a class="dropdown-item" href="index"> <i
+										class="dropdown-icon si si-user"></i> Client View
 									</a>
 									<!--  <a class="dropdown-item" href="#"> <i
 										class="dropdown-icon si si-envelope"></i> Inbox
@@ -308,4 +312,48 @@ Primary PrimaryPrimaryPrimaryPrimaryPrimaryPrimary PrimaryPrimary </div>
 						</div> -->
 						</ul>
 				</nav>
+				<c:if test="${not empty msg}">
+				
+				
+					<div class="msgcss row">
+					<div class="alert alert-${cssMsg}" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<i class="fa fa-check-circle-o mr-2" aria-hidden="true"></i>${msg}! .</div>
+					<%-- <div class="alert alert-${cssMsg}" role="alert">
+					
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>${msg}!</div> --%>
+						<%-- <div class="col-sm-4 col-sm-offset-4">
+							<div class="form-group">
+								<div class="alert alert-${cssMsg} fadeIn animated">${msg}</div>
+							</div> --%>
+						</div>
+					</div>
+				</c:if>
+				<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>Thank you for intrested, We will get back to you with more details.</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			<script>
 			
+			window.setTimeout(function() {
+			    $(".msgcss").fadeTo(500, 0).slideUp(500, function(){
+			        $(this).remove(); 
+			    });
+			}, 5000);
+			
+			</script>

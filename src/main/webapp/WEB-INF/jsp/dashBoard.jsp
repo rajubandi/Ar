@@ -14,14 +14,14 @@
 		<div class="col-sm-12 col-lg-4">
 			<div class="card overflow-hidden">
 				<div class="card-header">
-					<h3 class="card-title">Orders Received</h3>
+					<h3 class="card-title">No of intrested Received</h3>
 					<div class="card-options">
 						<a class="btn btn-sm btn-primary" href="#">View</a>
 					</div>
 				</div>
 				<div class="card-body ">
 
-					<small class="h6">Today Orders</small>
+					<small class="h6">Today Received </small>
 					<div class="text-dark count mt-0 font-30">6,525</div>
 
 					<div class="progress progress-sm mt-0 mb-2">
@@ -36,14 +36,14 @@
 		<div class="col-sm-12 col-lg-4">
 			<div class="card overflow-hidden">
 				<div class="card-header">
-					<h3 class="card-title">New users</h3>
+					<h3 class="card-title">No of Clients</h3>
 					<div class="card-options">
 						<a class="btn btn-sm btn-primary" href="#">View</a>
 					</div>
 				</div>
 				<div class="card-body ">
 
-					<small class="h6">Today Users</small>
+					<small class="h6">Today Clients</small>
 					<div class="text-dark count mt-0 font-30">3,897</div>
 
 					<div class="progress progress-sm mt-0 mb-2">
@@ -78,7 +78,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-sm-12">
 			<div class="card ">
 				<div class="card-header">
@@ -103,8 +103,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row row-deck">
+	</div> -->
+	<!-- <div class="row row-deck">
 		<div class="col-lg-6 col-xl-4 col-sm-12">
 			<div class="card ">
 				<div class="card-header">
@@ -137,9 +137,9 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-lg-12">
 			<div class="card">
 				<div class="card-header">
@@ -225,8 +225,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row row-deck">
+	</div> -->
+	<!-- <div class="row row-deck">
 		<div class="col-lg-8 col-sm-12">
 			<div class="card ">
 				<div class="card-header">
@@ -289,7 +289,7 @@
 			<div class="card">
 				<div class="card-body text-center">
 					<div class="profile-pic mb-4">
-						<!-- 											<img src="assets/images/faces/female/21.jpg" width="150" class="brround" alt="user"> -->
+																	<img src="assets/images/faces/female/21.jpg" width="150" class="brround" alt="user">
 						<h5 class="mt-3 mb-0 font-weight-semibold">Emily Ball</h5>
 						<a href="mailto:liamnolan@gmail.com">emilyball@gmail.com</a>
 					</div>
@@ -311,7 +311,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>
 </div>
 </div>

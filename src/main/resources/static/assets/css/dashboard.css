@@ -7478,7 +7478,11 @@ a:focus, a:hover, a:active {
 	border: 1px solid transparent;
 	border-radius: 3px;
 }
-
+.msgcss {
+z-index:9999;
+margin:0 auto;
+padding-top:5px;	
+}
 .alert:first-child {
 /* 	margin-bottom: 1rem !important; */
 }

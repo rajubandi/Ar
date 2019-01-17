@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.charvikent.RealEstateAdvisors.config.SendSMS;
 import com.charvikent.RealEstateAdvisors.config.SendingMail;
@@ -67,13 +68,22 @@ public class PriceTrendController {
 	}
 
 	@PostMapping("/savePriceTrend")
-	public String savePriceTrend(@ModelAttribute("priceTrend") PriceTrends priceTrend) {
+	public String savePriceTrend(@ModelAttribute("priceTrend") PriceTrends priceTrend,RedirectAttributes redir) {
 		
 		
-		priceTrendsRepository.save(priceTrend);
-		
+		if(priceTrend != null) {
+			priceTrendsRepository.save(priceTrend);
+		redir.addFlashAttribute("msg", "Price Trend added successfully");
+		 redir.addFlashAttribute("cssMsg", "success");
+		 return  "redirect:adminPriceTrend";
+		}else {
+			
+			redir.addFlashAttribute("msg", "Price Trend doesn't added");
+			redir.addFlashAttribute("cssMsg", "danger");
+			return  "redirect:adminPriceTrend";
+		}
 		 
-		 return "redirect:adminPriceTrend";
+		// return "redirect:adminPriceTrend";
 	}
 	
 	@RequestMapping("/pricetrends")

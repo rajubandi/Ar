@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.charvikent.RealEstateAdvisors.model.Site;
 import com.charvikent.RealEstateAdvisors.model.VillagesBean;
@@ -56,13 +57,22 @@ public class SiteController {
 	}
 	
 	@PostMapping("/saveSite")
-	public String partialHandler(@ModelAttribute("addSite") Site site) {
+	public String partialHandler(@ModelAttribute("addSite") Site site,RedirectAttributes redir) {
 		
 		//VillagesBean v = villageRepository.findById(Integer.parseInt(site.getvId()));
 		//site.setVillageId(v);
-		siteService.saveSite(site);;
-		 
-		 return "redirect:site";
+		if(site != null) {
+			siteService.saveSite(site);;
+		redir.addFlashAttribute("msg", "Site added successfully");
+		 redir.addFlashAttribute("cssMsg", "success");
+		 return  "redirect:site";
+		}else {
+			
+			redir.addFlashAttribute("msg", "Site doesn't added");
+			redir.addFlashAttribute("cssMsg", "danger");
+			return  "redirect:site";
+		}
+		 //return "redirect:site";
 	}
 
 	@PostMapping("/getVillages")

@@ -17,6 +17,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+         <script src="js/priceTrend.js"></script>
     <style>
 	/*------ Tables -----*/
 
@@ -338,76 +339,7 @@
                                             <i class="careerfy-icon careerfy-search"></i>
                                         </div>
                                         <ul class="careerfy-checkbox" id="villageList">
-                                            <!-- <li>
-                                                <input type="checkbox" id="r1" name="rr" />
-                                                <label for="r1"><span></span>Abbarajupalem</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r2" name="rr" />
-                                                <label for="r2"><span></span>Ananthavaram</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r3" name="rr" />
-                                                <label for="r3"><span></span>Borupalem</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r4" name="rr" />
-                                                <label for="r4"><span></span>Dondapadu</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Inavolu</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Kondamarajupalem</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Penumaka</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Nowluru</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r3" name="rr" />
-                                                <label for="r3"><span></span>Borupalem</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r4" name="rr" />
-                                                <label for="r4"><span></span>Dondapadu</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Inavolu</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Kondamarajupalem</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Penumaka</label>
-                                                <small>13</small>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="r5" name="rr" />
-                                                <label for="r4"><span></span>Nowluru</label>
-                                                <small>13</small>
-                                            </li> -->
+                                           
                                         </ul>
                                       
                                     </div>
@@ -487,56 +419,7 @@
 												</tr>
 											</thead>
 											<tbody>
-												<!-- <tr>
-													<td><i class="fa fa-rupee"></i> 22,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr>
-												<tr>
-													<td><i class="fa fa-rupee"></i> 22,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr>
-                                                <tr>
-													<td><i class="fa fa-rupee"></i> 22,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr>
-                                                <tr>
-													<td><i class="fa fa-rupee"></i> 22,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr>
-                                                <tr>
-													<td><i class="fa fa-rupee"></i> 22,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr>
-                                                	<tr>
-													<td><i class="fa fa-rupee"></i> 12,0000</td>
-													<td><i class="fa fa-rupee"></i> 25,000</td>
-													
-												</tr>
-												<tr>
-													<td><i class="fa fa-rupee"></i> 15,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr>
-                                                <tr>
-													<td><i class="fa fa-rupee"></i> 22,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr>
-                                                <tr>
-													<td><i class="fa fa-rupee"></i> 32,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr>
-                                                <tr>
-													<td><i class="fa fa-rupee"></i> 12,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr> -->
+												
 											</tbody>
 										</table>
 									</div>
@@ -561,56 +444,7 @@
 												</tr>
 											</thead>
 											<tbody>
-												<!-- <tr>
-													<td><i class="fa fa-rupee"></i> 12,0000</td>
-													<td><i class="fa fa-rupee"></i> 25,000</td>
-													
-												</tr>
-												<tr>
-													<td><i class="fa fa-rupee"></i> 15,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr>
-                                                <tr>
-													<td><i class="fa fa-rupee"></i> 22,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr>
-                                                <tr>
-													<td><i class="fa fa-rupee"></i> 32,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr>
-                                                <tr>
-													<td><i class="fa fa-rupee"></i> 12,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr>
-                                                	<tr>
-													<td><i class="fa fa-rupee"></i> 12,0000</td>
-													<td><i class="fa fa-rupee"></i> 25,000</td>
-													
-												</tr>
-												<tr>
-													<td><i class="fa fa-rupee"></i> 15,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr>
-                                                <tr>
-													<td><i class="fa fa-rupee"></i> 22,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr>
-                                                <tr>
-													<td><i class="fa fa-rupee"></i> 32,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr>
-                                                <tr>
-													<td><i class="fa fa-rupee"></i> 12,0000</td>
-													<td><i class="fa fa-rupee"></i> 35,000</td>
-													
-												</tr> -->
+												
 											</tbody>
 										</table>
 									</div>
@@ -642,7 +476,8 @@
             <!-- Main Section -->
 
         </div>
-        <script src="/js/priceTrend.js"></script>
+   
+        <jsp:include page="footer.jsp" />
 <script>
 var villageList = ${villagesListMap};
 var priceTrendsList = ${priceTrendsList};
@@ -681,4 +516,3 @@ $(function () {
 
 	</script>
 	
-<jsp:include page="footer.jsp" />

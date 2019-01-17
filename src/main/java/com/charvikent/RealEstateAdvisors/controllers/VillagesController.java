@@ -48,13 +48,13 @@ public class VillagesController {
 		if(village != null) {
 		 villageService.saveVillagesBean(village);
 		 redir.addFlashAttribute("msg", "Village added successfully");
-		 redir.addFlashAttribute("cssMsg", "warning");
-		 return "addVillage";
+		 redir.addFlashAttribute("cssMsg", "success");
+		 return "redirect:addVillage";
 		}else {
 			
 			redir.addFlashAttribute("msg", "Village doesn't added");
-			redir.addFlashAttribute("cssMsg", "warning");
-			return "addVillage";
+			redir.addFlashAttribute("cssMsg", "danger");
+			return "redirect:addVillage";
 		}
 		 //return "addVillage";
 	}

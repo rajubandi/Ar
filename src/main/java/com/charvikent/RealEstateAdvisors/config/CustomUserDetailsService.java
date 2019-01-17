@@ -68,6 +68,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 				 session.setAttribute("sessionUser", user.getFirstName());
 				 session.setAttribute("customer", user);
 					session.setAttribute("loggedstatus", "login");
+					session.setAttribute("designation", user.getDesignation());
 					session.setAttribute("customerId", user.getId());
 					session.setAttribute("customerName", user.getFirstName());
 		 try {
