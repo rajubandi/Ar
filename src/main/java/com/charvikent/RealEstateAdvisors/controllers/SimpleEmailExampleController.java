@@ -9,7 +9,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.charvikent.RealEstateAdvisors.model.MyConstants;
 
 @Controller
 public class SimpleEmailExampleController {
@@ -30,7 +29,7 @@ public class SimpleEmailExampleController {
         // Create a Simple MailMessage.
         SimpleMailMessage message = new SimpleMailMessage();
          
-        message.setTo(MyConstants.FRIEND_EMAIL);
+        message.setTo(env.getProperty("app.toEmail"));
         message.setSubject("********* Contacted Person Details ************");
         message.setText(contactDetails);
  
