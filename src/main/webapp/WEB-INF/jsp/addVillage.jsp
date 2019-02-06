@@ -29,7 +29,7 @@
 				Village</li>
 		</ol>
 	</div>
-	<div class="row">
+	<div class="row" id="moveTo">
 		<!-- end col -->
 		<div class="col-xl-12">
 			<div class="card m-b-20">
@@ -42,15 +42,16 @@
 							class="fe fe-x"></i></a>
 					</div> -->
 				</div>
-				<div class="card-body mb-0">
+				<div class="card-body mb-0" >
 					<form:form action="saveVillage" class="form-horizontal"
 						name="customerForm" modelAttribute="village">
 						<div class="form-group ">
-							<div class="row">
+							<div class="row" >
 								<div class="col-md-2">
 									<label class="form-label" for="vName">Village Name:</label>
 								</div>
 								<div class="col-md-4">
+									<form:input type="hidden" path="id"/>
 									<form:input type="text" class="form-control validate" name="vName" path="vName" placeholder="Enter Name" />
 								</div>
 							</div>

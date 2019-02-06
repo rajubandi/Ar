@@ -12,7 +12,7 @@ function displayTable(listOrders) {
 			var deleterow = "<a class='activate' onclick='deleteEmployee("+ orderObj.id+ ",1)'><i class='fa fa-eye-slash'></i></a>";
 			var cls="inactivecss";
 		}
-		var edit = "<a class='edit editIt' onclick='editEmployee("	+ orderObj.id+ ")'><i class='fa fa-edit'></i></a>"
+		var edit = "<a class='edit editIt' onclick='editVillage("	+ orderObj.id+ ")'><i class='fa fa-edit'></i></a>"
 		serviceUnitArray[orderObj.id] = orderObj;
 		var tblRow = "<tr class='"+ cls +"'>"
 			/* + "<td title='"+orderObj.id+"'>"+ orderObj.id + "</td>" */
@@ -22,4 +22,15 @@ function displayTable(listOrders) {
 			+ "</tr>";
 		$(tblRow).appendTo("#tableId tbody");
 	});
+}
+
+function editVillage(id){
+	
+    $("#id").val(id);
+	
+	$("#vName").val(serviceUnitArray[id].vName);
+	$("#pinCode").val(serviceUnitArray[id].pinCode);
+	$("#submit1").val("Update");
+	$(window).scrollTop($('#moveTo').offset().top);
+	
 }

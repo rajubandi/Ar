@@ -37,12 +37,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<exclusions>
+			<!-- <exclusions>
 				<exclusion>
 					<artifactId>hibernate-entitymanager</artifactId>
 					<groupId>org.hibernate</groupId>
 				</exclusion>
-			</exclusions>
+			</exclusions> -->
 		</dependency>
 
 		<!-- <dependency>
