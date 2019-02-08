@@ -57,13 +57,13 @@ public class VillagesBean {
 	public VillagesBean() {
 	}
 
-	public VillagesBean(int id, String vName, Date createdDate, Date updatedDate, String pinCode, List<Site> sites) {
-		this.id = id;
-		this.vName = vName;
-		this.createdDate = createdDate;
-		this.updatedDate = updatedDate;
-		this.pinCode = pinCode;
-		this.sites = sites;
+	public VillagesBean(VillagesBean villagesBean) {
+		this.id = villagesBean.id;
+		this.vName = villagesBean.vName;
+		this.createdDate = villagesBean.createdDate;
+		this.updatedDate = villagesBean.updatedDate;
+		this.pinCode = villagesBean.pinCode;
+		this.sites = villagesBean.sites;
 	}
 
 	public int getId() {

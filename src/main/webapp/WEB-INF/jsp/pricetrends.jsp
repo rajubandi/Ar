@@ -344,8 +344,6 @@
                                       
                                     </div>
                                     
-                                    
-                                    
                                     <div class="careerfy-search-filter-wrap careerfy-search-filter-toggle">
                                         <h2><a href="#" class="careerfy-click-btn">Date</a></h2>
                                         <div class="careerfy-checkbox-toggle">
@@ -380,12 +378,6 @@
                                 </form>
                             </div>
                         </aside>
-                        
-                        
-                        
-                        
-                        
-                        
                         
                         <div class="careerfy-column-9 careerfy-typo-wrap">
                             <div class="careerfy-typo-wrap">
@@ -452,16 +444,6 @@
 								</div>   
                                             </div>
                                         </li>
-                                        
-                                        
-                                    
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
                                         
                                     </ul>
                                 </div>

@@ -21,7 +21,7 @@ function displayTable(listOrders) {
 			var deleterow = "<a class='activate' onclick='deleteEmployee("+ orderObj[0].id+ ",1)'><i class='fa fa-eye-slash'></i></a>";
 			var cls="inactivecss";
 		}
-		var edit = "<a class='edit editIt' onclick='editEmployee("	+ orderObj[0].id+ ")'><i class='fa fa-edit'></i></a>"
+		var edit = "<a class='edit editIt' onclick='editsite("	+ orderObj[0].id+ ")'><i class='fa fa-edit'></i></a>"
 		serviceUnitArray[orderObj[0].id] = orderObj;
 		var tblRow = "<tr class='"+ cls +"'>"
 			/* + "<td title='"+orderObj.id+"'>"+ orderObj.id + "</td>" */
@@ -38,4 +38,23 @@ function displayTable(listOrders) {
 		
 		$('#dataTableId').dataTable();
 	});
+}
+
+
+function editsite(id){
+	
+    $("#id").val(id);
+	$("#villageId").val(serviceUnitArray[id][1].id);
+	$("#colony").val(serviceUnitArray[id][0].colony);
+	$("#sqYd").val(serviceUnitArray[id][0].sqYd);
+	$("#price").val(serviceUnitArray[id][0].price);
+	$("#listingId").val(serviceUnitArray[id][0].listingId);
+	$("#propertyType").val(serviceUnitArray[id][0].propertyType);
+	$("#siteFacing").val(serviceUnitArray[id][0].siteFacing);
+	$("#siteDimensions").val(serviceUnitArray[id][0].siteDimensions);
+	$("#roadDimensions").val(serviceUnitArray[id][0].roadDimensions);
+	$("#roadFacing").val(serviceUnitArray[id][0].roadFacing);
+	$("#submit1").val("Update");
+	$(window).scrollTop($('#moveTo').offset().top);
+	
 }

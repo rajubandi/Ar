@@ -2,6 +2,9 @@ package com.charvikent.RealEstateAdvisors.service;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +18,9 @@ public class VillageServiceImpl implements VillageService {
 
 	@Autowired
 	private VillageRepository villageRepository;
+	@PersistenceContext
+	private EntityManager em;
+	
 	
 	@Override
 	public VillagesBean findById(int id) {
@@ -35,14 +41,12 @@ public class VillageServiceImpl implements VillageService {
 		return villageRepository.findAll();
 	}
 
-	
-
-	
-
 	@Override
 	public void updateVillagesBean(VillagesBean village) {
 		// TODO Auto-generated method stub
-		saveVillagesBean(village);
+		em.merge(village);
+		
+		em.flush();
 		
 	}
 
@@ -57,7 +61,7 @@ public class VillageServiceImpl implements VillageService {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 	@Override
 	public boolean isVillagesBeanExist(VillagesBean village) {
 		// TODO Auto-generated method stub
@@ -71,6 +75,8 @@ public class VillageServiceImpl implements VillageService {
 	public void saveVillagesBean(VillagesBean village) {
 		// TODO Auto-generated method stub
 		villageRepository.save(village);
+		
+		//villageRepository.
 	}
 
 	

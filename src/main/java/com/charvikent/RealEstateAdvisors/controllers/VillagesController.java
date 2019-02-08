@@ -45,14 +45,15 @@ public class VillagesController {
 	@PostMapping("/saveVillage")
 	public String partialHandler(@ModelAttribute("village")VillagesBean village,RedirectAttributes redir ) {
 		
-		if(village != null) {
-		 villageService.saveVillagesBean(village);
+		if(village != null && village.getId() == 0) {
+		 //villageService.saveVillagesBean(village);
+		 villageRepository.saveAndFlush(village);
 		 redir.addFlashAttribute("msg", "Village added successfully");
 		 redir.addFlashAttribute("cssMsg", "success");
 		 return "redirect:addVillage";
 		}else {
-			
-			redir.addFlashAttribute("msg", "Village doesn't added");
+			villageService.updateVillagesBean(village);
+			redir.addFlashAttribute("msg", "Village updated successfully");
 			redir.addFlashAttribute("cssMsg", "danger");
 			return "redirect:addVillage";
 		}

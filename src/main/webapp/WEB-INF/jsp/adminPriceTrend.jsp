@@ -14,13 +14,13 @@
 			<li class="breadcrumb-item active" aria-current="page">Price Trend</li>
 		</ol>
 	</div>
-	<div class="row">
+	<div class="row" id="moveTo">
 		<!-- end col -->
 		<div class="col-xl-12">
 			<div class="card m-b-20">
 				<div class="card-header">
 					<h3 class="card-title">New Price Trend</h3>
-					
+			
 				</div>
 				<div class="card-body mb-0">
 					<form:form action="savePriceTrend" class="form-horizontal" name="priceTrenForm" modelAttribute="priceTrend">
@@ -28,6 +28,7 @@
 							<div class="row">
 								<label class="control-label col-sm-2 form-label" for="villageId">Village Name</label>
 								<div class="col-sm-4">
+								<form:input type="hidden" path="id"/>
 									<form:select class="form-control validate" path="villageId" name="villageId" onfocus="removeBorder(this.id)" >
 										<form:option value="">-- Select Village --</form:option>
 										<form:options items="${villagesList}"/>

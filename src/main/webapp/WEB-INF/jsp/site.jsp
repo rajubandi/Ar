@@ -38,7 +38,7 @@
 				<li class="breadcrumb-item active" aria-current="page">Add Site</li>
 			</ol>
 		</div>
-		<div class="row">
+		<div class="row" id="moveTo">
 			<!-- end col -->
 			<div class="col-xl-12">
 			<div class="card m-b-20">
@@ -60,6 +60,7 @@
 							<div class="row">
 								<label class="control-label col-sm-3" for="vId">Village Name</label>
 								<div class="col-sm-5">
+									<form:input type="hidden" path="id"/>
 									<form:select class="form-control validate" path="villageId" name="vId" onfocus="removeBorder(this.id)" >
 										<form:option value="">-- Select Village --</form:option>
 										<form:options items="${villagesList}"/>
