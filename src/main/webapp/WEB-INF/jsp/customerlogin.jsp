@@ -26,7 +26,7 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
 
 <!-- 	  <script src="/js/customerLoginController.js"></script> -->
-<script src="/js/customerLogin.js"></script> 
+<script src="js/customerLogin.js"></script> 
 
 <style type="text/css">
 .modalcss {

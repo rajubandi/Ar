@@ -259,7 +259,7 @@ $("input").each(function() {
 		});*/
 // onblur validation
 var styleBlock = '.placeholder-style.placeholder-style::-moz-placeholder {color: #cc0000;} .placeholder-style::-webkit-input-placeholder {color: #cc0000;}';
-$('.validate').blur(function() {
+$('.validate,validate1').blur(function() {
 	var id = $(this).attr('id');
 	var placeholder = $(this).attr('placeholder');
 	var value1 = $("#" + id).val();
@@ -412,7 +412,7 @@ $(".cancel").click(function()
 });
 
 //
-$('.validate').keydown(function() {
+$('.validate, .validate1').keydown(function() {
 	var id = $(this).attr('id');
 	removeBorder(id);
 });

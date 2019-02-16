@@ -15,7 +15,7 @@
 	  
 </head>
 <body> -->
-<script src="/js/addVillage.js"></script>
+<script src="js/addVillage.js"></script>
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
 <!-- 	  <script src="/js/controller.js"></script> -->
@@ -153,7 +153,7 @@
 </c:if>
 <div class="clearfix"></div>
 <jsp:include page="adminfooter.jsp" />
-<script src="/js/customValidation.js"></script>
+<script src="js/customValidation.js"></script>
 <script type="text/javascript">
 
 

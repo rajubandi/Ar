@@ -138,9 +138,9 @@
 </div>
 <div class="clearfix"></div>
 <jsp:include page="adminfooter.jsp" />
-<script src="/js/customValidation.js"></script>
+<script src="js/customValidation.js"></script>
 <script src="assets/plugins/calendar/jquery.datetimepicker.min.js"></script>
-<script src="/js/adminPriceTrend.js"></script>
+<script src="js/adminPriceTrend.js"></script>
 <script type="text/javascript">
 
 

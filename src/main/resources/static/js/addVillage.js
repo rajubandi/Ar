@@ -21,6 +21,7 @@ function displayTable(listOrders) {
 			+ "<td style='white-space: nowrap;'>" + edit +"</td>" 
 			+ "</tr>";
 		$(tblRow).appendTo("#tableId tbody");
+		$('#tableId').dataTable();
 	});
 }
 

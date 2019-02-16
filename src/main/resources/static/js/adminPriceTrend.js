@@ -10,7 +10,7 @@ function displayTable(listOrders) {
 			var cls="inactivecss";
 		}*/
 		var edit = "<a class='edit editIt' onclick='editPriceTrends("	+ orderObj[0].id+ ")'><i class='fa fa-edit'></i></a>"
-		serviceUnitArray[orderObj[1].id] = orderObj;
+		serviceUnitArray[orderObj[0].id] = orderObj;
 		var tblRow = "<tr >"
 			/* + "<td title='"+orderObj.id+"'>"+ orderObj.id + "</td>" */
 			+ "<td title='"+orderObj[1].vName+"'>"+ orderObj[1].vName + "</td>"
@@ -21,6 +21,7 @@ function displayTable(listOrders) {
 			+ "<td style='white-space: nowrap;'>" + edit +"</td>" 
 			+ "</tr>";
 		$(tblRow).appendTo("#tableId tbody");
+		$('#tableId').dataTable();
 	});
 }
 
