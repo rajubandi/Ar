@@ -10,14 +10,20 @@ function displayTable(listOrders) {
 			var cls="inactivecss";
 		}*/
 		var edit = "<a class='edit editIt' onclick='editPriceTrends("	+ orderObj[0].id+ ")'><i class='fa fa-edit'></i></a>"
+		
+		var d1 = new Date(orderObj[0].priceTrendTime);
+		var MM = d1.toLocaleString('en-us', { month: 'long' });;
+		var YYYY = d1.getFullYear();
+		
+		var formatDate = MM+","+YYYY ;
 		serviceUnitArray[orderObj.id] = orderObj;
 			var tblRow = "<tr >"
 				/* + "<td title='"+orderObj.id+"'>"+ orderObj.id + "</td>" */
-				//+ "<td title='"+orderObj[1].vName+"'>"+ orderObj[1].vName + "</td>"
+				+ "<td title='"+orderObj[1].vName+"'>"+ orderObj[1].vName + "</td>"
 				//+ "<td title='"+orderObj.pinCode+"'>"+ orderObj[0].propertyType + "</td>"
 				+ "<td title='"+orderObj.pinCode+"'><i class='fa fa-rupee'></i>"+ orderObj[0].minAmount + "</td>"
 				+ "<td title='"+orderObj.pinCode+"'><i class='fa fa-rupee'></i>"+ orderObj[0].maxAmount + "</td>"
-				//+ "<td title='"+orderObj.pinCode+"'>"+ orderObj[0].priceTrendTime + "</td>"
+				+ "<td title='"+orderObj.pinCode+"'>"+formatDate + "</td>"
 				//+ "<td style='white-space: nowrap;'>" + edit +"</td>" 
 				+ "</tr>";
 			if(orderObj[0].propertyType == "Commercial"){
@@ -65,4 +71,20 @@ function myFunction() {
         } 
     } */
 }
+jQuery(document).ready(function() {
 
+});
+function priceTrendsFiterByVillage(values){
+	   
+	   
+	   $.ajax({
+			type : "POST",
+			async: false,
+			url : "priceTrendsFilterByVillage",
+			data : {villageArry:values},
+			dataType : "json",
+			success : function(response) {
+				}
+			});
+	   
+}

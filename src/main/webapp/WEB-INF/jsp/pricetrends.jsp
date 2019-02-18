@@ -17,7 +17,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-         <script src="js/priceTrend.js"></script>
+        
     <style>
 	/*------ Tables -----*/
 
@@ -319,12 +319,12 @@
                                                 <li class="link1">
                                                     <input type="checkbox" id="r11" name="rr" />
                                                     <label for="r11"><span></span>Commercial</label>
-                                                    <small>153</small>
+<!--                                                     <small>153</small> -->
                                                 </li>
                                                 <li class="link2">
                                                     <input type="checkbox" id="r12" name="rr" />
                                                     <label for="r12"><span></span>Residential</label>
-                                                    <small>147</small>
+<!--                                                     <small>147</small> -->
                                                 </li>
                                                
                                             </ul>
@@ -404,9 +404,10 @@
 										<table class="table card-table table-vcenter text-nowrap" id="tableIdCommercial">
 											<thead class="bg-info text-white">
 												<tr>
-													
+													<th class="text-white">Village</th>
 													<th class="text-white">Min Price</th>
 													<th class="text-white">Max Price</th>
+													<th class="text-white">Date</th>
 													
 												</tr>
 											</thead>
@@ -430,9 +431,10 @@
 										<table class="table card-table table-vcenter text-nowrap" id="tableIdResidential">
 											<thead class="bg-info text-white">
 												<tr>
+													<th class="text-white">Village</th>
 													<th class="text-white">Min Price</th>
 													<th class="text-white">Max Price</th>
-													
+													<th class="text-white">Date</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -458,7 +460,9 @@
             <!-- Main Section -->
 
         </div>
-   
+         <script src="js/priceTrend.js"></script>
+<!--     <script src="js/date.format.js"></script> -->
+<!--       <script src="js/jquery-ui.js"></script> -->
         <jsp:include page="footer.jsp" />
 <script>
 var villageList = ${villagesListMap};
@@ -479,10 +483,12 @@ $(function () {
       if ($(this).attr("class") == "link1")
       {
         $(".div1").show();
+        $("#r12").prop("checked", false);
       }
       else 
       { 
         $(".div2").show();
+        $("#r11").prop("checked", false);
       }
     });
     
@@ -492,6 +498,26 @@ $(function () {
 		$("#villageList").append('<li><input type="checkbox" id="'+item[0]+'" name="villageCheckBox[]" /><label for="'+item[0]+'"><span></span>'+item[1]+'</label><small>'+item[2]+'</small></li>');
 		
 	});
+    
+    
+    var values = null;
+
+    $("input[name='villageCheckBox[]']").change(function () {
+    	values=[];
+    	$('input[name="villageCheckBox[]"]').each(function() {
+    		if(this.checked){
+    		values.push($(this).attr('id'));
+    		}
+    	});
+    	
+    	if(values != null){
+    		priceTrendsFiterByVillage(values);
+    		}else{
+    			
+    			window.location.href='?';
+    		}
+    	
+    });
 
 });
 

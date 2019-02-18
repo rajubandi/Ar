@@ -16,6 +16,9 @@ public interface PriceTrendsRepository  extends JpaRepository<PriceTrends, Integ
 	
 	@Query("From PriceTrends p , VillagesBean v where p.villageId=v.id")
 	List<PriceTrends> findAll();
+
+	@Query("")
+	List<Site> findPriceTrendByVillageId(List<Integer> vlist);
 	
 
 }
