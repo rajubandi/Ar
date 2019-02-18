@@ -140,11 +140,11 @@ public class PriceTrendController {
 				
 			}
 		}*/
-		List<Site> siteList = priceTrendsRepository.findPriceTrendByVillageId(vlist);
+		List<PriceTrends> siteList = priceTrendsRepository.findPriceTrendByVillageId(vlist);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			 json= objectMapper.writeValueAsString(siteList);
-			request.setAttribute("siteList", json);
+			//request.setAttribute("siteList", json);
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

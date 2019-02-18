@@ -71,9 +71,7 @@ function myFunction() {
         } 
     } */
 }
-jQuery(document).ready(function() {
 
-});
 function priceTrendsFiterByVillage(values){
 	   
 	   
@@ -84,6 +82,8 @@ function priceTrendsFiterByVillage(values){
 			data : {villageArry:values},
 			dataType : "json",
 			success : function(response) {
+				
+				consol.log(response);
 				}
 			});
 	   
