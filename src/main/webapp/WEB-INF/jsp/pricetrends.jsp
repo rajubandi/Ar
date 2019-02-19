@@ -501,18 +501,19 @@ $(function () {
     
  $.each(monthAndYear, function(i, item) {
 		
-	    var d1 = new Date(item);
+	    /* var d1 = new Date(item);
 	    var MM = d1.toLocaleString('en-us', { month: 'long' });;
 		var YYYY = d1.getFullYear();
 		
-		var formatDate = MM +" "+ YYYY ;
+		var formatDate = MM +" "+ YYYY ; */
 		
-		$("#monthAndYearUl").append('<li><input type="checkbox" id="'+item+'" name="monthAndYearUl[]" /><label for="'+formatDate+'"><span></span>'+formatDate+'</label></li>');
+		$("#monthAndYearUl").append('<li><input type="checkbox" id="'+i+'" name="monthAndYearUl[]" /><label for="'+i+'"><span></span>'+item+'</label></li>');
 		
 	});
     
     
     var values = 0;
+    var months = 0;
 
     $("input[name='villageCheckBox[]']").change(function () {
     	values=[];
@@ -524,6 +525,26 @@ $(function () {
     	
     	if(values != null && values != 0){
     		priceTrendsFiterByVillage(values);
+    		}else{
+    			
+    			//window.location.href='?';
+    			
+    			displayTable(priceTrendsList);
+    		}
+    	
+    });
+    
+    
+    $("input[name='monthAndYearUl[]']").change(function () {
+    	months=[];
+    	$('input[name="monthAndYearUl[]"]').each(function() {
+    		if(this.checked){
+    			months.push($(this).attr('id'));
+    		}
+    	});
+    	
+    	if(months.length != 0 || values.length != 0){
+    		priceTrendsFiterByVillage(values,months);
     		}else{
     			
     			//window.location.href='?';

@@ -79,14 +79,14 @@ function myFunction() {
     } */
 }
 
-function priceTrendsFiterByVillage(values){
+function priceTrendsFiterByVillage(values,months){
 	   
 	   
 	   $.ajax({
 			type : "POST",
 			async: false,
 			url : "priceTrendsFilterByVillage",
-			data : {villageArry:values},
+			data : {villageArry:values,monthsArry:months},
 			dataType : "json",
 			success : function(response) {
 				

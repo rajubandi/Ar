@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -107,19 +108,21 @@ public class PriceTrendController {
 		List<PriceTrends> priceTrendsList = priceTrendsRepository.findAll();
 		List<Object> vb = siteRepository.countOfSitesByVillage();
 		List<Date> monthAndYear = priceTrendsRepository.getListOfMonthAndYear();
-		Map<String,String> mAndY = new HashMap<>();
-		SimpleDateFormat month_date = new SimpleDateFormat("MMM yyyy", Locale.ENGLISH);
+		Map<Integer,String> mAndY = new HashMap<>();
+		SimpleDateFormat month_date = new SimpleDateFormat("MMMM yyyy", Locale.ENGLISH);
+		SimpleDateFormat monthnum = new SimpleDateFormat("MM", Locale.ENGLISH);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		for(Date date: monthAndYear) {
 			
-			mAndY.put(month_date.format(sdf.parse(date.toString())),month_date.format(sdf.parse(date.toString())));
+			
+			mAndY.put(Integer.parseInt(monthnum.format(sdf.parse(date.toString()))),month_date.format(sdf.parse(date.toString())));
 		}
 		//System.out.println("monthandyea r @@@@@"+ monthAndYear);
 		objectMapper = new ObjectMapper();
 		try {
 			json= objectMapper.writeValueAsString(priceTrendsList);
 			json1= objectMapper.writeValueAsString(vb);
-			json2 = objectMapper.writeValueAsString(monthAndYear);
+			json2 = objectMapper.writeValueAsString(mAndY);
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -133,14 +136,14 @@ public class PriceTrendController {
 	
 	@PostMapping("/priceTrendsFilterByVillage")
 	public @ResponseBody String siteFilterByVillage(@RequestParam(value="villageArry[]", required = false) int[] villageArry,
-													@RequestParam(value="roadDimensionsArry[]", required = false) String[] roadDimensionsArry,
+													@RequestParam(value="monthsArry[]", required = false) String[] monthsArry,
 													HttpSession session,HttpServletRequest request) throws IOException {
 		 String json=null;
 		List<Integer> vlist = new ArrayList<>();
 		List<String> facingList = new ArrayList<>();
 		List<String> protoTypeList = new ArrayList<>();
 		List<String> roadFacingArrylist = new ArrayList<>();
-		List<String> roadDimensionsArryList = new ArrayList<>();
+		List<Integer> monthsArryList = new ArrayList<>();
 		if(villageArry !=null) {
 			for(int villageId: villageArry) {
 				
@@ -149,14 +152,14 @@ public class PriceTrendController {
 			}
 		}
 		
-		/*if(roadDimensionsArry !=null) {
-			for(String protoType: roadDimensionsArry) {
+		if(monthsArry !=null) {
+			for(String protoType: monthsArry) {
 				
-				roadDimensionsArryList.add(protoType);
+				monthsArryList.add(Integer.parseInt(protoType));
 				
 			}
-		}*/
-		List<PriceTrends> siteList = priceTrendsRepository.findPriceTrendByVillageId(vlist);
+		}
+		List<PriceTrends> siteList = priceTrendsRepository.findPriceTrendByVillageId(vlist,monthsArryList);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			 json= objectMapper.writeValueAsString(siteList);
