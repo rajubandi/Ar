@@ -1,9 +1,14 @@
 package com.charvikent.RealEstateAdvisors.controllers;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +29,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.charvikent.RealEstateAdvisors.config.SendSMS;
 import com.charvikent.RealEstateAdvisors.config.SendingMail;
 import com.charvikent.RealEstateAdvisors.model.PriceTrends;
-import com.charvikent.RealEstateAdvisors.model.Site;
 import com.charvikent.RealEstateAdvisors.model.VillagesBean;
 import com.charvikent.RealEstateAdvisors.repositories.PriceTrendsRepository;
 import com.charvikent.RealEstateAdvisors.repositories.SiteRepository;
@@ -95,22 +99,34 @@ public class PriceTrendController {
 	}
 	
 	@RequestMapping("/pricetrends")
-	public String pricetrends(HttpServletRequest request) {
+	public String pricetrends(HttpServletRequest request) throws ParseException {
 		ObjectMapper objectMapper = null;
 		String json = null;
 		String json1 = null;
+		String json2 = null;
 		List<PriceTrends> priceTrendsList = priceTrendsRepository.findAll();
 		List<Object> vb = siteRepository.countOfSitesByVillage();
+		List<Date> monthAndYear = priceTrendsRepository.getListOfMonthAndYear();
+		Map<String,String> mAndY = new HashMap<>();
+		SimpleDateFormat month_date = new SimpleDateFormat("MMM yyyy", Locale.ENGLISH);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		for(Date date: monthAndYear) {
+			
+			mAndY.put(month_date.format(sdf.parse(date.toString())),month_date.format(sdf.parse(date.toString())));
+		}
+		//System.out.println("monthandyea r @@@@@"+ monthAndYear);
 		objectMapper = new ObjectMapper();
 		try {
 			json= objectMapper.writeValueAsString(priceTrendsList);
 			json1= objectMapper.writeValueAsString(vb);
+			json2 = objectMapper.writeValueAsString(monthAndYear);
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		request.setAttribute("villagesListMap", json1);
 		request.setAttribute("priceTrendsList", json);
+		request.setAttribute("monthAndYear", json2);
 		return "pricetrends"; 
 	}
 	

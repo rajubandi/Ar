@@ -6,8 +6,7 @@
 <head>
 <link rel="Shortcut Icon" href="images/fav.png" type="image/x-icon" />
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <title>Amaravati Realtors</title>
 
 <!--Main Element CSS-->
@@ -15,15 +14,12 @@
 <link href="css/hexagon.css" rel="stylesheet" type="text/css">
 <link href="css/flexy-menu.css" rel="stylesheet" type="text/css">
 <link href="css/responsive1.css" rel="stylesheet" type="text/css">
-<link href="layerslider/css/layerslider.css" rel="stylesheet"
-	type="text/css">
-<link
-	href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900|Oswald:400,300,700'
-	rel='stylesheet' type='text/css'>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="layerslider/css/layerslider.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900|Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
+<!-- Dashboard Css -->
+<!-- <link href="assets/css/dashboard.css" rel="stylesheet" /> -->
 <style type="text/css">
 .container
 {
@@ -122,6 +118,9 @@ label {
 </style>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
+<!-- <script src="assets/js/vendors/jquery-3.2.1.min.js"></script> -->
+
+
 </head>
 
 <body>

@@ -347,8 +347,8 @@
                                     <div class="careerfy-search-filter-wrap careerfy-search-filter-toggle">
                                         <h2><a href="#" class="careerfy-click-btn">Date</a></h2>
                                         <div class="careerfy-checkbox-toggle">
-                                            <ul class="careerfy-checkbox">
-                                                <li>
+                                            <ul class="careerfy-checkbox" id="monthAndYearUl">
+                                               <!--  <li>
                                                     <input type="checkbox" id="r17" name="rr" />
                                                     <label for="r17"><span></span>December 2018</label>
                                                     <small>10</small>
@@ -368,7 +368,7 @@
                                                     <label for="r20"><span></span>September 2018</label>
                                                     <small>4</small>
                                                 </li>
-                                                
+                                                 -->
                                             </ul>
                                             <a href="#" class="careerfy-seemore">+see more</a>
                                         </div>
@@ -467,7 +467,7 @@
 <script>
 var villageList = ${villagesListMap};
 var priceTrendsList = ${priceTrendsList};
-
+var monthAndYear = ${monthAndYear};
 if (priceTrendsList != "") {
 	displayTable(priceTrendsList);
 } 
@@ -495,12 +495,24 @@ $(function () {
     $.each(villageList, function(i, item) {
 		
 		
-		$("#villageList").append('<li><input type="checkbox" id="'+item[0]+'" name="villageCheckBox[]" /><label for="'+item[0]+'"><span></span>'+item[1]+'</label><small>'+item[2]+'</small></li>');
+		$("#villageList").append('<li><input type="checkbox" id="'+item[0]+'" name="monthAndYearUl[]" /><label for="'+item[0]+'"><span></span>'+item[1]+'</label><small>'+item[2]+'</small></li>');
+		
+	});
+    
+ $.each(monthAndYear, function(i, item) {
+		
+	    var d1 = new Date(item);
+	    var MM = d1.toLocaleString('en-us', { month: 'long' });;
+		var YYYY = d1.getFullYear();
+		
+		var formatDate = MM +" "+ YYYY ;
+		
+		$("#monthAndYearUl").append('<li><input type="checkbox" id="'+item+'" name="monthAndYearUl[]" /><label for="'+formatDate+'"><span></span>'+formatDate+'</label></li>');
 		
 	});
     
     
-    var values = null;
+    var values = 0;
 
     $("input[name='villageCheckBox[]']").change(function () {
     	values=[];
@@ -510,11 +522,13 @@ $(function () {
     		}
     	});
     	
-    	if(values != null){
+    	if(values != null && values != 0){
     		priceTrendsFiterByVillage(values);
     		}else{
     			
-    			window.location.href='?';
+    			//window.location.href='?';
+    			
+    			displayTable(priceTrendsList);
     		}
     	
     });

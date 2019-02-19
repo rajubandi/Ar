@@ -25,8 +25,7 @@
 <!-- 		<h4 class="page-title">Add Village</h4> -->
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Add
-				Village</li>
+			<li class="breadcrumb-item active" aria-current="page">Add Village</li>
 		</ol>
 	</div>
 	<div class="row" id="moveTo">

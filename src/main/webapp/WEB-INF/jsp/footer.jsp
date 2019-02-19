@@ -123,9 +123,9 @@
 	type="text/javascript"></script>
 <script src="layerslider/js/layerslider.transitions.js"
 	type="text/javascript"></script>
-<script src="layerslider/js/layerslider.kreaturamedia.jquery.js"
-	type="text/javascript"></script>
-
+<script src="layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
+<!-- <script src="js/dataTables.min.js"></script> -->
+<script src="js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
    jQuery(document).ready(function() {
 	  "use strict"; 

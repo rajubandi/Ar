@@ -1,6 +1,8 @@
 function displayTable(listOrders) {
 	
 	serviceUnitArray = {};
+	$("#tableIdCommercial tbody tr").remove();
+	$("#tableIdResidential tbody tr").remove();
 	$.each(listOrders,function(i, orderObj) {
 		/*if(orderObj.status == "1"){
 			var deleterow = "<a class='deactivate' onclick='deleteEmployee("+ orderObj[0].id+ ",0)'><i class='fa fa-eye'></i></a>";
@@ -28,12 +30,17 @@ function displayTable(listOrders) {
 				+ "</tr>";
 			if(orderObj[0].propertyType == "Commercial"){
 				$(tblRow).appendTo("#tableIdCommercial tbody");
+				//$('#tableIdCommercial').DataTable();
 			}else{
 				
 				$(tblRow).appendTo("#tableIdResidential tbody");
+				//$('#tableIdResidential').DataTable();
 				
 			}
+			
+			
 	});
+	
 }
 
 
@@ -83,7 +90,15 @@ function priceTrendsFiterByVillage(values){
 			dataType : "json",
 			success : function(response) {
 				
-				consol.log(response);
+				
+				displayTable(response);
+				/*$('#tableIdCommercial,#tableIdResidential ').dataTable({
+				    "oLanguage": {
+				        "sEmptyTable": " Empty Table"
+				    }
+				});*/
+				/*$('#tableIdCommercial').DataTable();
+				$('#tableIdResidential').DataTable();*/
 				}
 			});
 	   
