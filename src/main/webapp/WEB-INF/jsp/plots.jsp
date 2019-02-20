@@ -333,6 +333,26 @@ var villageList = ${villagesListMap};
 var AllSiteList = ${siteList};
 var intrestedSites =${intrestedSites};
 
+
+var totalSites=0;
+var countOfCommercial=0 
+var countOfResidential=0;
+
+var roadFacingCountOfOne=0;
+var roadFacingCountOfTwo = 0;
+var roadDimentionCountOfOne = 0;
+var roadDimentionCountOfTwo = 0;
+var FilterCountOfNorth = 0;
+var FilterCountOfWest = 0;
+var FilterCountOfEast = 0;
+var FilterCountOfSouth = 0;
+	   
+if(AllSiteList.length != 0){
+	
+	displayPlots(AllSiteList);
+	
+}
+
 function myFunction() {
     var input, filter, ul, li, a, i, txtValue;
     input = $("#searchVillageNames").val();
@@ -368,9 +388,10 @@ function myFunction() {
     } */
 }
 
+
    jQuery(document).ready(function() {
 	  "use strict"; 
-     
+
       // FLEXY MENU SETTING
 	  $(".flexy-menu").flexymenu({
             align: "right",
@@ -417,7 +438,7 @@ function myFunction() {
 			$("#villageList").append('<li><input type="checkbox" id="'+item[0]+'" name="villageCheckBox[]" /><label for="'+item[0]+'"><span></span>'+item[1]+'</label><small>'+item[2]+'</small></li>');
 			
 		});
-		var cls="";
+		/* var cls="";
 		var buttoncls = "";
 		var yellow1 = "" ;
 		var width;
@@ -482,7 +503,7 @@ function myFunction() {
 		$("#roadFacing_2").text(roadFacingCountOfTwo);
 		$("#roadDimention_1").text(roadDimentionCountOfOne);
 		$("#roadDimention_2").text(roadDimentionCountOfTwo);
-		
+		 */
 		
 				var values = null;
 				var protoType = null;
@@ -501,7 +522,8 @@ function myFunction() {
 										siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions);
 										}else{
 											
-											window.location.href='?';
+											displayPlots(AllSiteList);
+											//window.location.href='?';
 										}
 									
 					});
@@ -519,7 +541,8 @@ function myFunction() {
 						siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions);
 						}else{
 							
-							window.location.href='?';
+							displayPlots(AllSiteList);
+							//window.location.href='?';
 						}
 				});
 				$("input[name='facing[]']").change(function () {
@@ -533,8 +556,8 @@ function myFunction() {
 					if(values != null || protoType != null || facing != null || roadFacing != null || roadDimensions !=null ){
 						siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions);
 						}else{
-							
-							window.location.href='?';
+							displayPlots(AllSiteList);
+							//window.location.href='?';
 						}
 				});
 				
@@ -549,8 +572,8 @@ function myFunction() {
 					if(values != null || protoType != null || facing != null || roadFacing != null || roadDimensions !=null){
 						siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions);
 						}else{
-							
-							window.location.href='?';
+							displayPlots(AllSiteList);
+							//window.location.href='?';
 						}
 				});
 				
@@ -565,8 +588,8 @@ function myFunction() {
 					if(values != null || protoType != null || facing != null  || roadFacing != null || roadDimensions !=null ){
 						siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions);
 						}else{
-							
-							window.location.href='?';
+							displayPlots(AllSiteList);
+							//window.location.href='?';
 						}
 				});
 				
@@ -622,8 +645,11 @@ function myFunction() {
 					
 				 alreadyIntrestedSites();			
 	
+				 
+				 
    });
    
+  
    function alreadyIntrestedSites(){
 	   
 	   if(!(intrestedSites.length == 0)){
@@ -647,21 +673,7 @@ function myFunction() {
 	    });	*/
 	    
 	   
-	    var totalSites=0;
-	    		
-
-	 
-   var countOfCommercial=0;
-   var countOfResidential=0;
-  
-   var roadFacingCountOfOne=0;
-   var roadFacingCountOfTwo = 0;
-   var roadDimentionCountOfOne = 0;
-   var roadDimentionCountOfTwo = 0;
-   var FilterCountOfNorth = 0;
-   var FilterCountOfWest = 0;
-   var FilterCountOfEast = 0;
-   var FilterCountOfSouth = 0;
+   
    function siteFiterByVillage(values,protoType,facing,roadFacing,roadDimensions){
 	   
 	   
@@ -750,6 +762,77 @@ function myFunction() {
 	   
 	   
    }
+	    
+ function displayPlots(listOfPlots){
+	   
+	
+	   var cls="";
+		var buttoncls = "";
+		var yellow1 = "" ;
+		var width;
+		$.each(listOfPlots, function(i, item) {
+			totalSites = AllSiteList.length;
+			width=(item[0].siteDimensions).toLowerCase().split('x');
+			if(item[0].propertyType == "Commercial"){
+				countOfCommercial++;
+				cls ="yellow";
+				yellow1= "yellow1"
+				buttoncls = "btnyellow";
+				
+			}else{
+				cls="blue";
+				yellow1 = "blue1"
+				buttoncls = "btnprimary";
+				countOfResidential++;
+				}
+			
+			if(item[0].siteFacing == "North"){FilterCountOfNorth++;}
+			if(item[0].siteFacing == "South"){FilterCountOfSouth++;}
+			if(item[0].siteFacing == "East"){FilterCountOfEast++;}
+			if(item[0].siteFacing == "West"){FilterCountOfWest++;}
+			if(item[0].roadDimensions == "1"){roadDimentionCountOfOne++;}else{roadDimentionCountOfTwo++;}
+			if(item[0].roadFacing == "1"){roadFacingCountOfOne++; }else{roadFacingCountOfTwo++; }
+			$("#ulSiteList").append('<li class="careerfy-column-12 liTag" id="page'+ (i+1) +'">'
+                   	+'<div class="careerfy-joblisting-classic-wrap '+cls+' ">'
+                   	+'<div class="careerfy-joblisting-text">'
+                       +'<div class="careerfy-list-option">'
+                       +'<h2><a href="#">'+  item[0].sqYd +'Sq.Yd - <i class="fa fa-rupee"></i>'+  item[0].price +'</a>'
+                       +' <span>Listing ID: "'+  item[0].listingId +'"</span></h2>'
+                       +'<ul>'
+                       +' <li><a href="#" class="'+yellow1+'">@"'+item[0].propertyType+'"</a></li>'
+                       +'<li><i class="careerfy-icon careerfy-maps-and-flags"></i> <strong>"'+  item[0].colony +'" Colony</strong></li>'
+                       +'<li><i class="careerfy-icon careerfy-filter-tool-black-shape"></i>'+  item[0].siteFacing +'</li>'
+
+                       +'<p class="italic">"'+new Date(1000*item[0].updatedDate)+'"</p> <span> <b> Width:</b> "'+ width[0]+'" <b> Length: </b>"'+ width[1]+'"</span>'
+                      // +'<p class="italic"><b> Width:</b> "'+ width[0]+'"</p>'
+                       //+'<p class="italic"><b> Length: </b>"'+ width[1]+'"</p>'
+                       +'</ul>'
+                       +'</div>'
+                       +'<div class="careerfy-job-userlist">'
+                       
+                       +'<button id="interestButton'+item[0].id+'" onclick="iAmIntrested('+item[0].id+')" class="careerfy-option-btn '+buttoncls+'">I am Interested</button>'
+
+                       +'</div>'
+                       +'<div class="clearfix"></div>'
+                       +'</div>'
+                       +'</div>'
+                       +'</li>');
+			
+		});
+		
+		$("#countOfCommercial").text("Commercial : "+""+countOfCommercial);
+		$("#countOfResidential").text("Residential : "+""+countOfResidential);
+		$("#totalSites").text("Total : "+""+totalSites);
+		$("#paginationCount").text("Showing 10 of " +totalSites+" results");
+		$("#commercialFilterId").text(countOfCommercial);
+		$("#residentialFilterId").text(countOfResidential);
+		$("#roadFacing_1").text(roadFacingCountOfOne);
+		$("#roadFacing_2").text(roadFacingCountOfTwo);
+		$("#roadDimention_1").text(roadDimentionCountOfOne);
+		$("#roadDimention_2").text(roadDimentionCountOfTwo);
+		   
+   }
+   
    function iAmIntrested(id){
 	   var siteId = id;
 	  
@@ -784,7 +867,8 @@ function myFunction() {
    $("a[href='"+ getTabName +"']").parents('li').addClass('active');
    
    
-var isClick = 'Yes'
+var isClick = 'Yes';
+
 </script>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">

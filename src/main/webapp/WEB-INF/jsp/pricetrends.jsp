@@ -370,7 +370,7 @@
                                                 </li>
                                                  -->
                                             </ul>
-                                            <a href="#" class="careerfy-seemore">+see more</a>
+<!--                                             <a href="#" class="careerfy-seemore">+see more</a> -->
                                         </div>
                                     </div>
                                     
@@ -495,7 +495,7 @@ $(function () {
     $.each(villageList, function(i, item) {
 		
 		
-		$("#villageList").append('<li><input type="checkbox" id="'+item[0]+'" name="monthAndYearUl[]" /><label for="'+item[0]+'"><span></span>'+item[1]+'</label><small>'+item[2]+'</small></li>');
+		$("#villageList").append('<li><input type="checkbox" id="'+item[0]+'" name="villageCheckBox[]" /><label for="'+item[0]+'"><span></span>'+item[1]+'</label><small>'+item[2]+'</small></li>');
 		
 	});
     
@@ -507,7 +507,7 @@ $(function () {
 		
 		var formatDate = MM +" "+ YYYY ; */
 		
-		$("#monthAndYearUl").append('<li><input type="checkbox" id="'+i+'" name="monthAndYearUl[]" /><label for="'+i+'"><span></span>'+item+'</label></li>');
+		$("#monthAndYearUl").append('<li><input type="checkbox" id="num'+i+'" name="monthAndYearUl[]" /><label for="num'+i+'"><span></span>'+item+'</label></li>');
 		
 	});
     
@@ -524,6 +524,7 @@ $(function () {
     	});
     	
     	if(values != null && values != 0){
+    		
     		priceTrendsFiterByVillage(values);
     		}else{
     			
@@ -539,7 +540,9 @@ $(function () {
     	months=[];
     	$('input[name="monthAndYearUl[]"]').each(function() {
     		if(this.checked){
-    			months.push($(this).attr('id'));
+    			
+    			//var num = $(this).attr('id').split("num")[1]
+    			months.push($(this).attr('id').split("num")[1]);
     		}
     	});
     	

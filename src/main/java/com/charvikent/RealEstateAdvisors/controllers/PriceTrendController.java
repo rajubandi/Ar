@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -35,6 +34,7 @@ import com.charvikent.RealEstateAdvisors.repositories.PriceTrendsRepository;
 import com.charvikent.RealEstateAdvisors.repositories.SiteRepository;
 import com.charvikent.RealEstateAdvisors.repositories.UserIntrestedSiteRepository;
 import com.charvikent.RealEstateAdvisors.repositories.UsersRepository;
+import com.charvikent.RealEstateAdvisors.service.PriceTrendsRepositoriesImpl;
 import com.charvikent.RealEstateAdvisors.service.SiteService;
 import com.charvikent.RealEstateAdvisors.service.VillageService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -47,6 +47,7 @@ public class PriceTrendController {
 	@Autowired VillageService villageService;
 	@Autowired SiteRepository siteRepository;
 	@Autowired PriceTrendsRepository priceTrendsRepository ;
+	@Autowired PriceTrendsRepositoriesImpl priceTrendsRepositoriesImpl;
 	@Autowired SiteService siteService;
 	
 	@Autowired SendingMail sendingMail;
@@ -110,12 +111,14 @@ public class PriceTrendController {
 		List<Date> monthAndYear = priceTrendsRepository.getListOfMonthAndYear();
 		Map<Integer,String> mAndY = new HashMap<>();
 		SimpleDateFormat month_date = new SimpleDateFormat("MMMM yyyy", Locale.ENGLISH);
-		SimpleDateFormat monthnum = new SimpleDateFormat("MM", Locale.ENGLISH);
+		SimpleDateFormat monthnum = new SimpleDateFormat("MM");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		for(Date date: monthAndYear) {
 			
-			
-			mAndY.put(Integer.parseInt(monthnum.format(sdf.parse(date.toString()))),month_date.format(sdf.parse(date.toString())));
+			System.out.println(date);
+			System.out.println(	monthnum.format(date));
+		
+			mAndY.put(Integer.parseInt(monthnum.format(date)),month_date.format(sdf.parse(date.toString())));
 		}
 		//System.out.println("monthandyea r @@@@@"+ monthAndYear);
 		objectMapper = new ObjectMapper();
@@ -140,9 +143,9 @@ public class PriceTrendController {
 													HttpSession session,HttpServletRequest request) throws IOException {
 		 String json=null;
 		List<Integer> vlist = new ArrayList<>();
-		List<String> facingList = new ArrayList<>();
+		/*List<String> facingList = new ArrayList<>();
 		List<String> protoTypeList = new ArrayList<>();
-		List<String> roadFacingArrylist = new ArrayList<>();
+		List<String> roadFacingArrylist = new ArrayList<>();*/
 		List<Integer> monthsArryList = new ArrayList<>();
 		if(villageArry !=null) {
 			for(int villageId: villageArry) {
@@ -159,7 +162,7 @@ public class PriceTrendController {
 				
 			}
 		}
-		List<PriceTrends> siteList = priceTrendsRepository.findPriceTrendByVillageId(vlist,monthsArryList);
+		List<PriceTrends> siteList = priceTrendsRepositoriesImpl.findPriceTrendByVillageId(vlist,monthsArryList);
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
 			 json= objectMapper.writeValueAsString(siteList);

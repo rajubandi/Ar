@@ -37,9 +37,27 @@ function displayTable(listOrders) {
 				//$('#tableIdResidential').DataTable();
 				
 			}
-			
-			
 	});
+	
+	var tbodyCommercial = $("#tableIdCommercial tbody");
+
+	if (tbodyCommercial.children().length == 0) {
+		
+		tbodyCommercial.html("<tr id='emptyCommercial'><td colspan='4'>No data found in commercial</td></tr>");
+	}else{
+		
+		$('#emptyCommercial').remove();
+	}
+	
+	var tbodyResidential = $("#tableIdResidential tbody");
+
+	if (tbodyResidential.children().length == 0) {
+		
+		tbodyResidential.html("<tr id='emptyResidential'><td colspan='4'>No data found in residential</tr>");
+	}else{
+		
+		$('#emptyResidential').remove();
+	}
 	
 }
 

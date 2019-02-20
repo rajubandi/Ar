@@ -16,8 +16,8 @@ public interface PriceTrendsRepository  extends JpaRepository<PriceTrends, Integ
 	@Query("From PriceTrends p , VillagesBean v where p.villageId=v.id")
 	List<PriceTrends> findAll();
 
-	@Query("From PriceTrends p , VillagesBean v where p.villageId=v.id and p.villageId.id in :vlist")
-	List<PriceTrends> findPriceTrendByVillageId(@Param("vlist") List<Integer> vlist,@Param("monthsList") List<Integer> monthsArryList);
+	/*@Query("From PriceTrends p , VillagesBean v where p.villageId=v.id and p.villageId.id in :vlist")
+	List<PriceTrends> findPriceTrendByVillageId(@Param("vlist") List<Integer> vlist,@Param("monthsList") List<Integer> monthsArryList);*/
 	//select  DISTINCT MONTH(p.priceTrendTime) From PriceTrends p
 	@Query("select DISTINCT p.priceTrendTime From PriceTrends p ")
 	List<Date> getListOfMonthAndYear();
