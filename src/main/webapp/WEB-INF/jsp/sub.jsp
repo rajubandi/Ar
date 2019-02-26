@@ -9,7 +9,7 @@
     <link href="css/responsive.css" rel="stylesheet">
    
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900|Oswald:400,300,700' rel='stylesheet' type='text/css'>
-
+    <script type="text/javascript" src="js/submitproperty.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -412,40 +412,43 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
                                             <p>If you are a land owner looking for a Buyer to sell or Builder to build a Residential/Commercial Property, Just fill the below form and we will get in touch with you.</p></div>
                                         
                                             <div class="col-md-4">
-    <form action="submitProperty" >
+    <form action="submitProperty" id="cls-form" >
     <div class="form-group">
-     <label for="name">Are you looking For Buyer or Builder?*</label>
-      <select class="form-control" name="isBuyerrbuilder" >
+     <label for="name">Are you looking For Buyer or Builder?* <span style="color: red;">*</span></label>
+      <select class="form-control" name="isBuyerrbuilder" id="isBuyerrbuilder" required>
       <option>---Select--</option>
       <option>Buyer</option>
-      <option>Builder</option>
-      
+      <option>Builder</option>      
       </select>
+      <span class="isBuyerrbuilder_error" id="name_error"></span>
     </div>
     <div class="form-group">
-      <label for="email">Email:</label>
-      <input name="email" type="email" class="form-control" id="email" placeholder="Enter email">
+      <label for="email">Email: <span style="color: red;">*</span></label>
+      <input name="email" type="email" class="form-control" id="email" placeholder="Enter email" required>
+      <span class="email_error" id="name_error"></span>											
     </div>
     <div class="form-group">
-     <label for="Number">Phone No:</label>
-      <input name="number" type="text" class="form-control" id="number" placeholder="Enter Number">
+     <label for="Number">Phone No: <span style="color: red;">*</span></label>
+      <input name="number" type="text" class="form-control" id="number" placeholder="Enter Number" onfocus="removeBorder(this.id)" required>
+      <span class="number_error" id="name_error"></span>
     </div>
      <div class="form-group">
-     <label for="name">Expecting Price per Sq.Yd*
-:</label>
-      <input name="expectprice" type="text" class="form-control" id="name" placeholder="Enter Name">
+     <label for="name">Expecting Price per Sq.Yd*: <span style="color: red;">*</span></label>
+      <input name="expectprice" type="text" class="form-control" id="expectprice" placeholder="Enter expectprice" onfocus="removeBorder(this.id)" required>
+      <span class="expectprice_error" id="name_error"></span>
     </div>
      <div class="form-group">
-     <label for="name">Location of the Property:</label>
-      <input name="location" type="text" class="form-control" id="name" placeholder="Enter Name">
+     <label for="name">Location of the Property: <span style="color: red;">*</span></label>
+      <input name="location" type="text" class="form-control" id="location" placeholder="Enter location" onfocus="removeBorder(this.id)" required>
+      <span class="location_error" id="name_error"></span>
     </div>
     <div class="form-group">
-      <label for="pwd">Additional Information*
-:</label>
-     <textarea name="addinfo" rows="8" cols="49" placeholder="Enter Message"></textarea>
+      <label for="pwd">Additional Information*: <span style="color: red;">*</span></label>
+     <textarea name="addinfo" rows="8" cols="49" placeholder="Enter Message" id="addinfo" required></textarea>
+     <span class="addinfo_error" id="name_error"></span>
     </div>
     <div class="checkbox">
-      <label><input type="checkbox"> Remember me</label>
+      <label><input type="checkbox" required> Remember me</label>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
