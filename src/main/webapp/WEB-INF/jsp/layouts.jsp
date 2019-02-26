@@ -19,6 +19,10 @@
 		width: 100%;
 	}
 } */
+.flexy-menu li.right
+{
+float: none !important;
+}
 .btn-primary {
     color: #fff;
     background-color: #2ddcd3;
@@ -327,6 +331,7 @@ border-left: 5px solid #76cbf5;
 <script src="layerslider/jQuery/jquery-transit-modified.js" type="text/javascript"></script>
 <script src="layerslider/js/layerslider.transitions.js" type="text/javascript"></script>
 <script src="layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
+<jsp:include page="footer.jsp" />
 
 <script type="text/javascript">
 var villageList = ${villagesListMap};
@@ -616,7 +621,7 @@ function myFunction() {
 					});	 */
 				 $('#ulSiteList').easyPaginate({
 				        paginateElement: 'li.liTag',
-				        elementsPerPage: 10,
+				        elementsPerPage: 6,
 				        effect: 'climb'
 				    });
 					

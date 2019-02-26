@@ -14,6 +14,10 @@
 <!-- <link type="text/css" rel="stylesheet" href="css/simplePagination.css"/> -->
 <script src="js/jquery.easyPaginate.js"></script>
 <style>
+.flexy-menu li.right
+{
+float: none !important;
+}
 /* @media ( min-width : 1200px) {
 	.container {
 		width: 100%;
@@ -327,6 +331,7 @@ border-left: 5px solid #76cbf5;
 <script src="layerslider/jQuery/jquery-transit-modified.js" type="text/javascript"></script>
 <script src="layerslider/js/layerslider.transitions.js" type="text/javascript"></script>
 <script src="layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
+<jsp:include page="footer.jsp" />
 
 <script type="text/javascript">
 var villageList = ${villagesListMap};
@@ -639,7 +644,7 @@ function myFunction() {
 					});	 */
 				 $('#ulSiteList').easyPaginate({
 				        paginateElement: 'li.liTag',
-				        elementsPerPage: 10,
+				        elementsPerPage: 6,
 				        effect: 'climb'
 				    });
 					

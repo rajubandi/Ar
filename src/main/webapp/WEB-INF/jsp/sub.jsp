@@ -464,16 +464,6 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
                                             </div>
                                         </li>
                                         
-                                        
-                                    
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
                                     </ul>
                                 </div>
                                 <!-- Pagination -->

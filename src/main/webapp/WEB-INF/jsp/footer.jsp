@@ -24,12 +24,10 @@
 				<h2 class="footer-title">gallery</h2>
 				<ul>
 					<li><a href="#">
-							<div class="thumbnail-hover"></div> <img
-							src="images/upload/footer-gallery-thumbnail1.jpg" alt="" />
+							<div class="thumbnail-hover"></div> <img src="images/upload/footer-gallery-thumbnail1.jpg" alt="" />
 					</a></li>
 					<li><a href="#">
-							<div class="thumbnail-hover"></div> <img
-							src="images/upload/footer-gallery-thumbnail1.jpg" alt="" />
+							<div class="thumbnail-hover"></div> <img src="images/upload/footer-gallery-thumbnail1.jpg" alt="" />
 					</a></li>
 					<li><a href="#">
 							<div class="thumbnail-hover"></div> <img
