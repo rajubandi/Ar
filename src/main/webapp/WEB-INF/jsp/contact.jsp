@@ -10,7 +10,8 @@
    
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900|Oswald:400,300,700' rel='stylesheet' type='text/css'>
 
-
+ <script type="text/javascript" src="js/contact.js"></script>
+ 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -400,28 +401,29 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
                                             <h5><b>Contact Us</b></h5></div>
                                         
                                             <div class="col-md-4">
-                                             <form action="sendSimpleEmail" >
+<form action="sendSimpleEmail" id="cls-form">
     <div class="form-group">
-     <label for="name">Your Name:</label>
-      <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name">
+     <label for="name">Your Name: <span style="color: red;">*</span></label>
+      <input type="text" class="form-control" name="name" id="name" onfocus="removeBorder(this.id)" placeholder="Enter Name">
+      <span class="name_error" id="name_error"></span>
     </div>
     <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" name="mail" id="email" placeholder="Enter email">
+      <label for="email">Email: <span style="color: red;">*</span></label>
+      <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+      <span class="email_error" id="name_error"></span>
     </div>
     <div class="form-group">
-     <label for="Number">Phone No:</label>
-      <input type="text" class="form-control" name="number" id="number" placeholder="Enter Number">
+     <label for="Number">Phone No: <span style="color: red;">*</span></label>
+      <input type="text" class="form-control" name="number" id="number" onfocus="removeBorder(this.id)" placeholder="Enter Number">
+      <span class="number_error" id="name_error"></span>
     </div>
     <div class="form-group">
-      <label for="pwd">Message:</label>
-     <textarea rows="8" cols="49" name="message" placeholder="Enter Message"></textarea>
-    </div>
-    <!-- <div class="checkbox">
-      <label><input type="checkbox"> Remember me</label>
-    </div> -->
+      <label for="pwd">Message: <span style="color: red;">*</span></label>
+     <textarea rows="8" cols="49" name="message" id="message" placeholder="Enter Message"></textarea>
+     <span class="message_error" id="name_error"></span>
+    </div>    
     <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+</form>
   </div>
   <div class="col-md-2"></div>
   <div class="col-md-5">
