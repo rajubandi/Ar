@@ -1,21 +1,32 @@
 $(function(){
+	
+	jQuery.validator.addMethod('lettersonly', function(value, element) {
+	    return this.optional(element) || /^[a-z. áãâäàéêëèíîïìóõôöòúûüùçñ]+$/i.test(value);
+	}, "Please Enter Valid Name");
+
+	   jQuery.validator.addMethod("mobileNO", function(phone_number, element) {
+	   phone_number = phone_number.replace(/\s+/g, ""); 
+	 return this.optional(element) || phone_number.length > 9 &&
+	   phone_number.match(/^[6-9]\d+$/);
+	}, "Invalid Mobile Number"); 
+	   
 	$("#cls-form").validate(
 			{
 				errorElement: 'span',
 			    errorClass: 'has-error',
 				rules:
 				{
-					name: {required: true},
-					email: {required: true},
-					number: {required: true},					
-					message: {required: true},					
+					name: {required: true,lettersonly: true},
+					email: {required: true,email: true},
+					number: {required: true, number: true, mobileNO: true, minlength: 10, maxlength: 10},					
+					//message: {required: true},					
 				},
 				messages:
 				{
 					name: {required: 'name'},
 					email: {required: 'email'},
 					number: {required: 'number'},					
-					message: {required: 'message'},					
+					//message: {required: 'message'},					
 				},
 				errorPlacement: function(error, element)
 				{

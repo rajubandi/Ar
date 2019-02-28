@@ -118,6 +118,7 @@ label {
 </style>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
+
 <!-- <script src="assets/js/vendors/jquery-3.2.1.min.js"></script> -->
 
 
@@ -175,6 +176,23 @@ label {
 						</c:otherwise>
 					</c:choose></li>
 			</ul>
+			<c:if test="${not empty msg}">
+				
+				
+					<div class="msgcss row">
+					<div class="alert alert-${cssMsg}" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<i class="fa fa-check-circle-o mr-2" aria-hidden="true"></i>${msg}! .</div>
+					<%-- <div class="alert alert-${cssMsg}" role="alert">
+					
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>${msg}!</div> --%>
+						<%-- <div class="col-sm-4 col-sm-offset-4">
+							<div class="form-group">
+								<div class="alert alert-${cssMsg} fadeIn animated">${msg}</div>
+							</div> --%>
+						</div>
+<!-- 					</div> -->
+				</c:if>
 			<!--  <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown">Register <span class="caret"></span></a><div class="arrow-down"></div>
           <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu">
@@ -255,7 +273,14 @@ label {
 
 		</div>
 		<script>
+			
 		var isClick = 'No'
+			window.setTimeout(function() {
+			    $(".msgcss").fadeTo(500, 0).slideUp(500, function(){
+			        $(this).remove(); 
+			    });
+			}, 5000);
+			
 		</script>
 	<!--Header End-->
 	</header>

@@ -1,5 +1,5 @@
 $(function(){
-	$("#cls-form").validate(
+	/*$("#cls-form").validate(
 			{
 				errorElement: 'span',
 			    errorClass: 'has-error',
@@ -39,10 +39,10 @@ $(function(){
 				      else
 				        error.insertAfter(element);
 				}	
-			});				
+			});	*/			
 });
 
-		//remove borders
+		/*//remove borders
 		function removeBorder(el){	
 			  $("#"+el).css("border", "");
 			  $("#"+el).css('color','black');
@@ -51,5 +51,5 @@ $(function(){
 				{
 					$("#" +el+"_chosen").children('a').css('border-color','black');
 				}
-		}	
+		}	*/
 		

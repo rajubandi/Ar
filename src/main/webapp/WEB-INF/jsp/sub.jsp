@@ -414,43 +414,43 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
                                             <div class="col-md-4">
     <form action="submitProperty" id="cls-form" >
     <div class="form-group">
-     <label for="name">Are you looking For Buyer or Builder?* <span style="color: red;">*</span></label>
-      <select class="form-control" name="isBuyerrbuilder" id="isBuyerrbuilder" required>
-      <option>---Select--</option>
-      <option>Buyer</option>
-      <option>Builder</option>      
+     <label for="name">Are you looking For Buyer or Builder? <span style="color: red;">*</span></label>
+      <select class="form-control validate" name="isBuyerrbuilder" id="isBuyerrbuilder" onfocus="removeBorder(this.id)" >
+      <option value=""> -- Select -- </option>
+      <option value="1"> Buyer</option>
+      <option value="2">Builder</option>      
       </select>
       <span class="isBuyerrbuilder_error" id="name_error"></span>
     </div>
     <div class="form-group">
       <label for="email">Email: <span style="color: red;">*</span></label>
-      <input name="email" type="email" class="form-control" id="email" placeholder="Enter email" required>
+      <input name="email" type="email" class="form-control validate emailOnly" id="email" placeholder="Enter email" >
       <span class="email_error" id="name_error"></span>											
     </div>
     <div class="form-group">
      <label for="Number">Phone No: <span style="color: red;">*</span></label>
-      <input name="number" type="text" class="form-control" id="number" placeholder="Enter Number" onfocus="removeBorder(this.id)" required>
+      <input name="number" type="text" class="form-control validate numericOnly mobilenumber"  maxlength="10" id="number" placeholder="Enter Number"  >
       <span class="number_error" id="name_error"></span>
     </div>
      <div class="form-group">
-     <label for="name">Expecting Price per Sq.Yd*: <span style="color: red;">*</span></label>
-      <input name="expectprice" type="text" class="form-control" id="expectprice" placeholder="Enter expectprice" onfocus="removeBorder(this.id)" required>
+     <label for="name">Expecting Price per Sq.Yd: <span style="color: red;">*</span></label>
+      <input name="expectprice" type="text" class="form-control validate" id="expectprice" placeholder="Enter expectprice"  >
       <span class="expectprice_error" id="name_error"></span>
     </div>
      <div class="form-group">
      <label for="name">Location of the Property: <span style="color: red;">*</span></label>
-      <input name="location" type="text" class="form-control" id="location" placeholder="Enter location" onfocus="removeBorder(this.id)" required>
+      <input name="location" type="text" class="form-control validate" id="location" placeholder="Enter location" >
       <span class="location_error" id="name_error"></span>
     </div>
     <div class="form-group">
-      <label for="pwd">Additional Information*: <span style="color: red;">*</span></label>
-     <textarea name="addinfo" rows="8" cols="49" placeholder="Enter Message" id="addinfo" required></textarea>
+      <label for="pwd">Additional Information: <!-- <span style="color: red;">*</span> --></label>
+     <textarea name="addinfo" rows="8" cols="49" placeholder="Enter Message" id="addinfo" ></textarea>
      <span class="addinfo_error" id="name_error"></span>
     </div>
     <div class="checkbox">
       <label><input type="checkbox" required> Remember me</label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" id="submit1" class="btn btn-primary">Submit</button>
   </form>
   </div>
   <div class="col-md-2"></div>
@@ -481,4 +481,5 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 
         </div>
         <!-- Main Content -->
+        <script type='text/javascript' src='js/customValidation.js'></script>
 <jsp:include page="footer.jsp" />

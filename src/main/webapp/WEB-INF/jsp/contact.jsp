@@ -9,7 +9,7 @@
     <link href="css/responsive.css" rel="stylesheet">
    
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900|Oswald:400,300,700' rel='stylesheet' type='text/css'>
-
+<script type="text/javascript" src="js/jquery.validate.min.js"></script> 
  <script type="text/javascript" src="js/contact.js"></script>
  
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -401,7 +401,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
                                             <h5><b>Contact Us</b></h5></div>
                                         
                                             <div class="col-md-4">
-<form action="sendSimpleEmail" id="cls-form">
+<form action="sendSimpleEmail" id="cls-form" method="post">
     <div class="form-group">
      <label for="name">Your Name: <span style="color: red;">*</span></label>
       <input type="text" class="form-control" name="name" id="name" onfocus="removeBorder(this.id)" placeholder="Enter Name">
@@ -418,7 +418,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
       <span class="number_error" id="name_error"></span>
     </div>
     <div class="form-group">
-      <label for="pwd">Message: <span style="color: red;">*</span></label>
+      <label for="pwd">Message: <!-- <span style="color: red;">*</span> --></label>
      <textarea rows="8" cols="49" name="message" id="message" placeholder="Enter Message"></textarea>
      <span class="message_error" id="name_error"></span>
     </div>    
@@ -438,16 +438,6 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
                                                 
                                             </div>
                                         </li>
-                                        
-                                        
-                                    
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
                                         
                                     </ul>
                                 </div>
