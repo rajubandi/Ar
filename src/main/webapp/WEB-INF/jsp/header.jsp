@@ -131,7 +131,7 @@ label {
 		<div class="wrapper header">
 
 			<div class="logo">
-				<a href="#"><img src="images/logo.png" alt="logo" /></a>
+				<a href="index"><img src="images/logo.png" alt="logo" /></a>
 			</div>
 
 			<!--Navigation Menu Start-->
